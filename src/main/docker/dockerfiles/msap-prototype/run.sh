@@ -30,7 +30,7 @@ if [ -d ${JHIPSTER_SPRING} ]; then
   java -jar /msap-prototype.war \
     --spring.profiles.active=prod ${JHIPSTER_SPRING_ADD} \
     --spring.data.elasticsearch.cluster-nodes=${SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES} \
-    --spring.datasource.url=${SPRING_DATASOURCE_URL} \
+    --spring.datasource.url=${SPRING_DATASOURCE_URL}
 else
   echo "java -jar /msap-prototype.war --spring.profiles.active=prod ${JHIPSTER_SPRING}"
   java -jar /msap-prototype.war --spring.profiles.active=prod ${JHIPSTER_SPRING}
