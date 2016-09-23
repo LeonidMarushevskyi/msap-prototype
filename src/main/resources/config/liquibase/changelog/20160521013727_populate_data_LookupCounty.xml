@@ -17,64 +17,87 @@
         Added the entity LookupAbuseFrequencyPeriod.
     -->
     <changeSet id="20160210314" author="leonid.marushevskiy">
-        <insert tableName="lookup_county"><column name="county_code" value="01"/><column name="county_name" value="Alameda"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="02"/><column name="county_name" value="Alpine"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="03"/><column name="county_name" value="Amador"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="04"/><column name="county_name" value="Butte"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="05"/><column name="county_name" value="Calaveras"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="06"/><column name="county_name" value="Colusa"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="07"/><column name="county_name" value="Contra Costa"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="08"/><column name="county_name" value="Del Norte"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="09"/><column name="county_name" value="El Dorado"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="10"/><column name="county_name" value="Fresno"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="11"/><column name="county_name" value="Glenn"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="12"/><column name="county_name" value="Humboldt"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="13"/><column name="county_name" value="Imperial"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="14"/><column name="county_name" value="Inyo"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="15"/><column name="county_name" value="Kern"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="16"/><column name="county_name" value="Kings"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="17"/><column name="county_name" value="Lake"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="18"/><column name="county_name" value="Lassen"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="19"/><column name="county_name" value="Los Angeles"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="20"/><column name="county_name" value="Madera"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="21"/><column name="county_name" value="Marin"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="22"/><column name="county_name" value="Mariposa"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="23"/><column name="county_name" value="Mendocino"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="24"/><column name="county_name" value="Merced"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="25"/><column name="county_name" value="Modoc"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="26"/><column name="county_name" value="Mono"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="27"/><column name="county_name" value="Monterey"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="28"/><column name="county_name" value="Napa"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="29"/><column name="county_name" value="Nevada"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="30"/><column name="county_name" value="Orange"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="31"/><column name="county_name" value="Placer"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="32"/><column name="county_name" value="Plumas"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="33"/><column name="county_name" value="Riverside"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="34"/><column name="county_name" value="Sacramento"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="35"/><column name="county_name" value="San Benito"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="36"/><column name="county_name" value="San Bernardino"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="37"/><column name="county_name" value="San Diego"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="38"/><column name="county_name" value="San Francisco"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="39"/><column name="county_name" value="San Joaquin"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="40"/><column name="county_name" value="San Luis Obispo"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="41"/><column name="county_name" value="San Mateo"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="42"/><column name="county_name" value="Santa Barbara"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="43"/><column name="county_name" value="Santa Clara"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="44"/><column name="county_name" value="Santa Cruz"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="45"/><column name="county_name" value="Shasta"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="46"/><column name="county_name" value="Sierra"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="47"/><column name="county_name" value="Siskiyou"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="48"/><column name="county_name" value="Solano"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="49"/><column name="county_name" value="Sonoma"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="50"/><column name="county_name" value="Stanislaus"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="51"/><column name="county_name" value="Sutter"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="52"/><column name="county_name" value="Tehama"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="53"/><column name="county_name" value="Trinity"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="54"/><column name="county_name" value="Tulare"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="55"/><column name="county_name" value="Tuolumne"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="56"/><column name="county_name" value="Ventura"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="57"/><column name="county_name" value="Yolo"/><column name="state_code" value="CA"/></insert>
-        <insert tableName="lookup_county"><column name="county_code" value="58"/><column name="county_name" value="Yuba"/><column name="state_code" value="CA"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="1"/><column name="county_code" value="1"/><column name="county_name" value="ADAMS"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="2"/><column name="county_code" value="2"/><column name="county_name" value="ALCORN"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="3"/><column name="county_code" value="3"/><column name="county_name" value="AMITE"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="4"/><column name="county_code" value="4"/><column name="county_name" value="ATTALA"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="5"/><column name="county_code" value="5"/><column name="county_name" value="BENTON"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="6"/><column name="county_code" value="6"/><column name="county_name" value="BOLIVAR"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="7"/><column name="county_code" value="7"/><column name="county_name" value="CALHOUN"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="8"/><column name="county_code" value="8"/><column name="county_name" value="CARROLL"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="9"/><column name="county_code" value="9"/><column name="county_name" value="CHICKASAW"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="10"/><column name="county_code" value="10"/><column name="county_name" value="CHOCTAW"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="11"/><column name="county_code" value="11"/><column name="county_name" value="CLAIBORNE"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="12"/><column name="county_code" value="12"/><column name="county_name" value="CLARKE"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="13"/><column name="county_code" value="13"/><column name="county_name" value="CLAY"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="14"/><column name="county_code" value="14"/><column name="county_name" value="COAHOMA"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="15"/><column name="county_code" value="15"/><column name="county_name" value="COPIAH"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="16"/><column name="county_code" value="16"/><column name="county_name" value="COVINGTON"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="17"/><column name="county_code" value="17"/><column name="county_name" value="DESOTO"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="18"/><column name="county_code" value="18"/><column name="county_name" value="FORREST"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="19"/><column name="county_code" value="19"/><column name="county_name" value="FRANKLIN"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="20"/><column name="county_code" value="20"/><column name="county_name" value="GEORGE"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="21"/><column name="county_code" value="21"/><column name="county_name" value="GREENE"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="22"/><column name="county_code" value="22"/><column name="county_name" value="GRENADA"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="23"/><column name="county_code" value="23"/><column name="county_name" value="HANCOCK"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="24"/><column name="county_code" value="24"/><column name="county_name" value="HARRISON"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="25"/><column name="county_code" value="25"/><column name="county_name" value="HINDS"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="26"/><column name="county_code" value="26"/><column name="county_name" value="HOLMES"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="27"/><column name="county_code" value="27"/><column name="county_name" value="HUMPHREYS"/><column name="state_id" value="28"/></insert>
 
+        <insert tableName="lookup_county"><column name="id" value="29"/><column name="county_code" value="29"/><column name="county_name" value="ITAWAMBA"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="30"/><column name="county_code" value="30"/><column name="county_name" value="JACKSON"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="31"/><column name="county_code" value="31"/><column name="county_name" value="JASPER"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="32"/><column name="county_code" value="32"/><column name="county_name" value="JEFFERSON"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="33"/><column name="county_code" value="33"/><column name="county_name" value="JEFFERSON DAVIS"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="34"/><column name="county_code" value="34"/><column name="county_name" value="JONES"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="35"/><column name="county_code" value="35"/><column name="county_name" value="KEMPER"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="36"/><column name="county_code" value="36"/><column name="county_name" value="LAFAYETTE"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="37"/><column name="county_code" value="37"/><column name="county_name" value="LAMAR"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="38"/><column name="county_code" value="38"/><column name="county_name" value="LAUDERDALE"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="39"/><column name="county_code" value="39"/><column name="county_name" value="LAWRENCE"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="40"/><column name="county_code" value="40"/><column name="county_name" value="LEAKE"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="41"/><column name="county_code" value="41"/><column name="county_name" value="LEE"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="42"/><column name="county_code" value="42"/><column name="county_name" value="LEFLORE"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="43"/><column name="county_code" value="43"/><column name="county_name" value="LINCOLN"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="44"/><column name="county_code" value="44"/><column name="county_name" value="LOWNDES"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="45"/><column name="county_code" value="45"/><column name="county_name" value="MADISON"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="46"/><column name="county_code" value="46"/><column name="county_name" value="MARION"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="47"/><column name="county_code" value="47"/><column name="county_name" value="MARSHALL"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="48"/><column name="county_code" value="48"/><column name="county_name" value="MONROE"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="49"/><column name="county_code" value="49"/><column name="county_name" value="MONTGOMERY"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="50"/><column name="county_code" value="50"/><column name="county_name" value="NESHOBA"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="51"/><column name="county_code" value="51"/><column name="county_name" value="NEWTON"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="52"/><column name="county_code" value="52"/><column name="county_name" value="NOXUBEE"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="53"/><column name="county_code" value="53"/><column name="county_name" value="OKTIBBEHA"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="54"/><column name="county_code" value="54"/><column name="county_name" value="PANOLA"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="55"/><column name="county_code" value="55"/><column name="county_name" value="PEARL RIVER"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="56"/><column name="county_code" value="56"/><column name="county_name" value="PERRY"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="57"/><column name="county_code" value="57"/><column name="county_name" value="PIKE"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="58"/><column name="county_code" value="58"/><column name="county_name" value="PONTOTOC"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="59"/><column name="county_code" value="59"/><column name="county_name" value="PRENTISS"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="60"/><column name="county_code" value="60"/><column name="county_name" value="QUITMAN"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="61"/><column name="county_code" value="61"/><column name="county_name" value="RANKIN"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="62"/><column name="county_code" value="62"/><column name="county_name" value="SCOTT"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="63"/><column name="county_code" value="63"/><column name="county_name" value="SHARKEY"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="64"/><column name="county_code" value="64"/><column name="county_name" value="SIMPSON"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="65"/><column name="county_code" value="65"/><column name="county_name" value="SMITH"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="66"/><column name="county_code" value="66"/><column name="county_name" value="STONE"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="67"/><column name="county_code" value="67"/><column name="county_name" value="SUNFLOWER"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="68"/><column name="county_code" value="68"/><column name="county_name" value="TALLAHATCHIE"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="69"/><column name="county_code" value="69"/><column name="county_name" value="TATE"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="70"/><column name="county_code" value="70"/><column name="county_name" value="TIPPAH"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="71"/><column name="county_code" value="71"/><column name="county_name" value="TISHOMINGO"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="72"/><column name="county_code" value="72"/><column name="county_name" value="TUNICA"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="73"/><column name="county_code" value="73"/><column name="county_name" value="UNION"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="74"/><column name="county_code" value="74"/><column name="county_name" value="WALTHALL"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="75"/><column name="county_code" value="75"/><column name="county_name" value="WARREN"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="76"/><column name="county_code" value="76"/><column name="county_name" value="WASHINGTON"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="77"/><column name="county_code" value="77"/><column name="county_name" value="WAYNE"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="78"/><column name="county_code" value="78"/><column name="county_name" value="WEBSTER"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="79"/><column name="county_code" value="79"/><column name="county_name" value="WILKINSON"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="80"/><column name="county_code" value="80"/><column name="county_name" value="WINSTON"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="81"/><column name="county_code" value="81"/><column name="county_name" value="YALOBUSHA"/><column name="state_id" value="28"/></insert>
+        <insert tableName="lookup_county"><column name="id" value="82"/><column name="county_code" value="82"/><column name="county_name" value="YAZOO"/><column name="state_id" value="28"/></insert>
     </changeSet>
 </databaseChangeLog>
