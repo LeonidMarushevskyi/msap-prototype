@@ -9,9 +9,9 @@
         <relativePath />
     </parent>
 
-    <groupId>com.engagepoint.chhs-apqd</groupId>
-    <artifactId>chhs-apqd</artifactId>
-    <version>1.0</version>
+    <groupId>com.engagepoint.msap</groupId>
+    <artifactId>msap-prototype</artifactId>
+    <version>0.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>chhs-apqd</name>
 
