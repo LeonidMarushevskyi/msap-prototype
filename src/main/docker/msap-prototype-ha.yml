@@ -23,7 +23,7 @@ msap-prototype-ha-postgresql:
     - POSTGRES_USER=msap-prototype
     - POSTGRES_PASSWORD=
   ports:
-    - "25432:5432"
+    - "3432:5432"
 
 msap-prototype-ha:
   image: kaver79/msap-prototype
@@ -45,8 +45,8 @@ msap-prototype-ha-lb:
   links:
    - "msap-prototype-ha"
   ports:
-   - "24080:80"
-   - "24043:443"
+   - "3080:80"
+   - "3043:443"
   environment:
    - BACKEND_PORT=8080
    - BALANCE=roundrobin
