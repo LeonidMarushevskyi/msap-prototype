@@ -30,93 +30,6 @@ entity Place {
     validationMessage String
 }
 
-entity MailBox {
-}
-
-entity Inbox {
-}
-
-entity Outbox {
-}
-
-entity Deleted {
-}
-
-entity Draft {
-}
-
-enum MessageStatus {
-    NEW, READ
-  }
-
-entity Message {
-    body String maxlength(4000),
-    subject String maxlength(100),
-    caseNumber String maxlength(20),
-    dateCreated ZonedDateTime,
-    dateRead ZonedDateTime,
-    status MessageStatus,
-    dateUpdated ZonedDateTime,
-    unreadMessagesCount Integer
-}
-
-entity Attachment {
-    fileName String,
-    fileMimeType String,
-    fileSize Integer,
-    fileDescription String,
-    creationDate ZonedDateTime,
-    file AnyBlob
-}
-
-relationship OneToMany {
-  Message{attachment} to Attachment{message}
-}
-
-relationship OneToOne {
-  User{mailBox} to MailBox{user}
-}
-
-relationship OneToOne {
-  MailBox{inbox} to Inbox{mailBox}
-}
-
-relationship OneToOne {
-  MailBox{outbox} to Outbox{mailBox}
-}
-
-relationship OneToMany {
-  MailBox{contact} to User{contact}
-}
-
-relationship OneToOne {
-  MailBox{deleted} to Deleted{mailBox}
-}
-
-relationship OneToOne {
-  MailBox{draft} to Draft{mailBox}
-}
-
-relationship OneToMany {
-  Inbox{message} to Message{inbox}
-}
-
-relationship OneToMany {
-  Outbox{message} to Message{outbox}
-}
-
-relationship OneToMany {
-  Draft{message} to Message{draft}
-}
-
-relationship OneToMany {
-  Deleted{message} to Message{deleted}
-}
-
-relationship OneToOne {
-  Message{replyOn} to Message
-}
-
 relationship ManyToOne {
   Place{county} to LookupCounty
 }
@@ -127,12 +40,4 @@ relationship ManyToOne {
 
 relationship OneToOne {
   LookupCounty{state} to LookupState
-}
-
-relationship OneToOne {
-  Message{to} to User
-}
-
-relationship OneToOne {
-  Message{from} to User
 }
