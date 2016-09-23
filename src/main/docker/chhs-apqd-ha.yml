@@ -1,0 +1,52 @@
+#
+#
+# to start chhs-apqd use:
+#  docker-compose -f chhs-apqd-ha.yml up -d
+#
+# for scaling use
+#  docker-compose -f chhs-apqd-ha.yml scale chhs-apqd-ha=3
+#  docker-compose -f chhs-apqd-ha.yml up -d --no-deps --force-recreate chhs-apqd-ha-lb
+#
+
+chhs-apqd-ha-elasticsearch:
+  image: elasticsearch:1.5.2
+  restart: unless-stopped
+  ports:
+    - "9200"
+    - "9300"
+
+chhs-apqd-ha-postgresql:
+  container_name: chhs-apqd-ha-postgresql
+  restart: unless-stopped
+  image: postgres:9.4.5
+  environment:
+    - POSTGRES_USER=chhs-apqd
+    - POSTGRES_PASSWORD=
+  ports:
+    - "25432:5432"
+
+chhs-apqd-ha:
+  image: kaver79/chhs-apqd
+  restart: unless-stopped
+  environment:
+    - COOKIE=SRV insert indirect nocache
+    - TZ=America/New_York
+#   - logback_graylogHost=LOGBACK_GRAYLOGHOST
+  ports:
+    - "8080"
+  links:
+    - "chhs-apqd-ha-postgresql:POSTGRESQL"
+    - "chhs-apqd-ha-elasticsearch:ELASTIC"
+
+chhs-apqd-ha-lb:
+  container_name: chhs-apqd-haproxy
+  restart: unless-stopped
+  image: tutum/haproxy
+  links:
+   - "chhs-apqd-ha"
+  ports:
+   - "24080:80"
+   - "24043:443"
+  environment:
+   - BACKEND_PORT=8080
+   - BALANCE=roundrobin

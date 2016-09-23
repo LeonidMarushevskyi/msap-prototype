@@ -1,0 +1,14 @@
+# This configuration require environment described in the env.yml file.
+# For stanalone application in a preconfigured environmet please
+# provide configuration parameters using $JHIPSTER_SPRING env variable.
+# For example:
+
+chhs-apqd:
+  container_name: chhs-apqd
+  image: kaver79/chhs-apqd
+  environment:
+    - COOKIE=SRV insert indirect nocache
+    - TZ=America/New_York
+#   - logback_graylogHost=LOGBACK_GRAYLOGHOST
+  ports:
+    - "8080:8080"

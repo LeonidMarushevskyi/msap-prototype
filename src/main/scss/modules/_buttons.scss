@@ -1,0 +1,164 @@
+.ch-option-btn {
+    display: inline-block;
+    padding: 0.8rem 3rem;
+    min-width: 5rem;
+    background: #0071bc;
+    border-radius: 4px;
+    width: 100%;
+
+    &:hover {
+        background-color: #205493;
+    }
+}
+
+.ch-option-btn.ch-option-btn_fullwidth {
+    width: 100%;
+}
+
+.ch-option-btn__text {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #fff;
+
+    @media screen and (max-width: 640px) {
+        font-size: 2.5rem;
+    }
+}
+
+.ch-button-group__item {
+    display: inline-block;
+}
+.ch-button-group__btn {
+    border-top-left-radius: .4rem;
+    border-bottom-left-radius: .4rem;
+    border: .2rem solid #757575;
+    padding: .7rem 1.5rem;
+
+    &:hover {
+        border-color: #323a45;
+    }
+
+    .icon {
+        vertical-align: middle;
+    }
+}
+
+.ch-button-group__btn_left-border {
+    border-top: .2rem solid #757575;
+    border-bottom: .2rem solid #757575;
+    border-right: .2rem solid #757575;
+    border-left: .1rem solid transparent;
+    border-top-right-radius: .4rem;
+    border-bottom-right-radius: .4rem;
+    padding: .7rem 1.5rem;
+    margin-left: -.4rem;
+
+    &:hover {
+        border-color: #323a45;
+
+    }
+
+    .icon {
+        vertical-align: middle;
+    }
+}
+
+.ch-flat-btn_back-btn {
+    width: 4.8rem;
+    height: 3.9rem;
+    border-radius: .4rem;
+    border: .2rem solid #757575;
+    background: url(../images/out-sprite-icons/icon-back-arrow.png) 50% 50% no-repeat;
+    background-color: #f1f1f1;
+
+    &:hover {
+        border-color: #323a45;
+    }
+
+    @media screen and (max-width: 640px) {
+        width: 6.8rem;
+        height: 100%;
+        border: .3rem solid #0071bc;
+    }
+}
+
+.ch-option-btn_short-text {
+    padding: .8rem 4rem;
+
+    @media screen and (max-width: 640px) {
+        height: 100%;
+    }
+}
+
+.ch-link-btn {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.ch-link-btn_icon {
+    padding: 0 0 0 2rem;
+    position: relative;
+}
+
+.ch-link-btn_icon_attach-files {
+    @media screen and (max-width: 640px) {
+        font-size: 2rem;
+        width: 12rem;
+    }
+}
+
+.ch-link-btn_icon_attach-files:before {
+    content: '\0020';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.2rem;
+    height: 1.8rem;
+    background: url("../images/us-icon/icon-attachment.svg") no-repeat center;
+}
+
+.ch-dropdown-label-btn {
+    display: inline-block;
+    padding: 0;
+}
+
+.ch-dropdown-label-btn:after {
+    content: '\0020';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #5b616b;
+    vertical-align: middle;
+}
+
+.ch-dropdown-label-btn__text {
+    font-size: 1.4rem;
+    color: #5b616b;
+
+    @media screen and (max-width: 640px) {
+        font-size: 2.4rem;
+    }
+}
+
+.ch-plane-btn {
+    font-size: 1.4rem;
+    text-transform: capitalize;
+}
+
+
+.ch-plane-btn_primary {
+    padding: 0.8rem 1.8rem;
+    border: 0.2rem solid #0071bc;
+    border-radius: 0.4rem;
+    color: #0071bc;
+    font-weight: 700;
+}
+
+.ch-plane-btn_secondary {
+    padding: 1rem;
+    color: #5b616b;
+    text-decoration: underline;
+}

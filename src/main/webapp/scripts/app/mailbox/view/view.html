@@ -1,0 +1,116 @@
+
+<div class="ch-page">
+
+    <div class="ch-mail-heading">
+        <div class="ch-mail-heading__item ch-mail-heading__item_back-control">
+            <button type="button" class="ch-flat-btn ch-flat-btn_back-btn" ng-click="backToPreviousState()" title="Return back to previous page">
+            </button>
+        </div>
+
+        <div class="ch-mail-heading__item ch-mail-heading__item_heading">
+            <h2 class="ch-new-mail-heading">
+                {{mail.subject}}
+            </h2>
+        </div>
+
+        <div ng-show="showDeleteButtons()" class="ch-mail-heading__item ch-mail-heading__item_action-group">
+            <div class="ch-page-heading__actions" ng-click="deleteAll()">
+                <span class="icon icon-remove"></span>
+                <span class="actions__text" title="Delete all messages in the thread">Delete All</span>
+            </div>
+        </div>
+    </div>
+
+    <section class="ch-mail-thread">
+        <ul class="ch-mail-thread-list">
+
+            <li ng-repeat="mail in messageThread.thread" class="ch-mail-thread-list__item">
+                <div class="ch-mail-expanded">
+                    <div class="ch-mail-expanded__header">
+                        <div class="ch-mail-header">
+
+                            <div class="ch-mail-header__item">
+                                <div class="ch-mail-origin" title="Message Sender/Recipient">
+                                    <span class="ch-mail-origin__prefix">
+                                        {{getFromOrTo(mail)}}
+                                    </span>
+                                    <span class="ch-mail-origin__name">
+                                        {{getFromOrToName(mail)}}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="ch-mail-header__item ch-mail-header__item_ch-mail-info">
+                                <div class="ch-mail-info">
+                                    <div class="ch-mail-info__attachments-badge">
+
+                                    </div>
+                                    <div class="ch-mail-info__date">
+                                        <span class="ch-text" title="Message creation time">{{mail | formatMailDate}}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ch-mail-header__item ch-mail-header__item_ch-mail-options-group"
+                                 ng-show="showDeleteButtons()">
+
+                                <div class="ch-mail-options-group">
+                                    <div class="ch-button-group-action">
+                                        <a href="" role="button" ui-sref="ch-inbox.reply-mail({replyOn: mail.id})"
+                                           class="ch-button-group-action__btn ch-button-group-action__btn_reply">
+                                           <span class="actions__text_position" title="Reply on current message">Reply</span></a>
+                                         <div class="ch-button-group-action__btn_remove" ng-click="deleteOne(mail)">
+                                             <span class="icon icon-remove" title="Delete current message"></span>
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="ch-mail-expanded__body">
+                        <div class="ch-mail-body">
+                            <textarea elastic disabled class="ch-view-mail-text-body">{{mail.body}}</textarea>
+                        </div>
+                    </div>
+
+                    <div ng-if="mail.attachments.length > 0" class="ch-mail-expanded__footer">
+                        <div class="ch-attachments">
+
+                            <div class="ch-attachments__heading">
+                                <h3>
+                                    <span class="attachments-count">attachments</span>
+                                </h3>
+                            </div>
+
+                            <ol class="ch-attachments__list">
+
+                                <li ng-repeat="attachment in mail.attachments" class="ch-attachments__list__item">
+                                    <div class="ch-attachments__list__item__icon">
+                                        <span class="icon icon-attachment"></span>
+                                    </div>
+
+                                    <div class="ch-attachments__list__item__file">
+                                        <span class="attachments-filename">{{attachment.fileName}}</span>
+                                        <span class="attachments-filesize">{{attachment.fileSize | convertFileSizeToHuman}}</span>
+                                    </div>
+
+                                    <div class="ch-attachments__list__item__actions">
+                                        <a href="api/file/{{attachment.id}}">
+                                            <span class="icon icon-download"></span>
+                                        </a>
+                                    </div>
+                                </li>
+
+                            </ol>
+                        </div>
+                    </div>
+
+                </div>
+            </li>
+
+        </ul>
+
+    </section>
+</div>
