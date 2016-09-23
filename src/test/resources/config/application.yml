@@ -13,12 +13,12 @@
 spring:
     datasource:
         driver-class-name: org.h2.jdbcx.JdbcDataSource
-        url: jdbc:h2:mem:apqd;DB_CLOSE_DELAY=-1
+        url: jdbc:h2:mem:msap;DB_CLOSE_DELAY=-1
         name:
         username:
         password:
     jpa:
-        database-platform: com.engagepoint.cws.apqd.domain.util.FixedH2Dialect
+        database-platform: com.engagepoint.msap.domain.util.FixedH2Dialect
         database: H2
         open-in-view: false
         show_sql: true
@@ -73,8 +73,8 @@ jhipster:
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
     swagger:
-        title: apqd API
-        description: apqd API documentation
+        title: msap API
+        description: msap API documentation
         version: 0.0.1
         termsOfServiceUrl:
         contact:
@@ -85,5 +85,5 @@ jhipster:
 # Application properties
 # ===================================================================
 
-apqd:
+msap:
     default-address: test defaultAddres

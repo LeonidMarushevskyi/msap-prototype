@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .service('AuthenticationErrorService', function () {
 
         var authenticationError = null;

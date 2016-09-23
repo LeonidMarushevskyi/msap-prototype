@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .directive('hasAnyAuthority', ['Principal', function (Principal) {
         return {
             restrict: 'A',

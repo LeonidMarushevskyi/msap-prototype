@@ -1,4 +1,4 @@
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('GeocoderService', ['leafletData', '$q', '$http', function (leafletData, $q, $http) {
         var deg2rad = function (deg) {
             return deg * (Math.PI/180)

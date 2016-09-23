@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('AuditsService', function ($http) {
         return {
             findAll: function () {

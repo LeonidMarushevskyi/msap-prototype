@@ -1,18 +1,18 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('Password', function ($resource) {
         return $resource('api/account/change_password', {}, {
         });
     });
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('PasswordResetInit', function ($resource) {
         return $resource('api/account/reset_password/init', {}, {
         })
     });
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('PasswordResetFinish', function ($resource) {
         return $resource('api/account/reset_password/finish', {}, {
         })

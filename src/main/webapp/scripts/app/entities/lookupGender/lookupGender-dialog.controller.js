@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp').controller('LookupGenderDialogController',
+angular.module('msapApp').controller('LookupGenderDialogController',
     ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'LookupGender',
         function($scope, $stateParams, $uibModalInstance, entity, LookupGender) {
 
@@ -12,7 +12,7 @@ angular.module('apqdApp').controller('LookupGenderDialogController',
         };
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('apqdApp:lookupGenderUpdate', result);
+            $scope.$emit('msapApp:lookupGenderUpdate', result);
             $uibModalInstance.close(result);
             $scope.isSaving = false;
         };

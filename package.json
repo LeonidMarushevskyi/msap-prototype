@@ -1,7 +1,7 @@
 {
-  "name": "apqd",
+  "name": "msap",
   "version": "0.0.0",
-  "description": "CHHS APQD",
+  "description": "MSAP Prototype",
   "private": true,
   "cacheDirectories": [
     "node_modules",

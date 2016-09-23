@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('AddressUtils', ['$q', 'LookupState', function ($q, LookupState) {
         function formatStreet(place) {
             return _.isNil(place) ? '' : _([place.streetNumber, place.streetName, formatUnitNumber(place.unitNumber)])

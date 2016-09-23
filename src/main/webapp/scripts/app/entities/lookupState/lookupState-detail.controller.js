@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('LookupStateDetailController', function ($scope, $rootScope, $stateParams, entity, LookupState) {
         $scope.lookupState = entity;
         $scope.load = function (id) {
@@ -8,7 +8,7 @@ angular.module('apqdApp')
                 $scope.lookupState = result;
             });
         };
-        var unsubscribe = $rootScope.$on('apqdApp:lookupStateUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('msapApp:lookupStateUpdate', function(event, result) {
             $scope.lookupState = result;
         });
         $scope.$on('$destroy', unsubscribe);

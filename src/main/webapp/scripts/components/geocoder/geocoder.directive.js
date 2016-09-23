@@ -1,4 +1,4 @@
-angular.module('apqdApp')
+angular.module('msapApp')
     .directive('addGeocoderSearchField', function() {
         return {
             restrict: 'A',

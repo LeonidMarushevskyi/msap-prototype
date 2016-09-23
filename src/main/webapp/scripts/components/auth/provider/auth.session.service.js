@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('AuthServerProvider', function ($http, localStorageService, $window, Tracker) {
         return {
             login: function(credentials) {

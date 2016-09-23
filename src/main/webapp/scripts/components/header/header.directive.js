@@ -1,4 +1,4 @@
-angular.module('apqdApp')
+angular.module('msapApp')
     .directive('showUserAccountPopup', function($timeout, $document) {
         return {
             restrict: 'A',

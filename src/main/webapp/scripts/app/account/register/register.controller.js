@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('RegisterController', function ($scope, $state, $translate, $timeout, Auth, $window, $rootScope) {
         $scope.success = null;
         $scope.error = null;

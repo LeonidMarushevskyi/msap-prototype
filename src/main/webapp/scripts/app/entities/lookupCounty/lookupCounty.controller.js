@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('LookupCountyController', function ($scope, $state, LookupCounty, LookupCountySearch) {
 
         $scope.lookupCountys = [];

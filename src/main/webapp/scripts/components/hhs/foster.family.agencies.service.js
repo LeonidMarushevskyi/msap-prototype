@@ -1,7 +1,7 @@
 /**
  * Created by dmitry.rudenko on 5/25/2016.
  */
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('FosterFamilyAgenciesService', function (HHSService) {
         var joinValues = function (values) {
             var result = '';

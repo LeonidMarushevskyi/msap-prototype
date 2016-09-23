@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('AppPropertiesService', function ($resource) {
         return {
             defaultAddress: $resource('api/app-properties/default-address', {}, {

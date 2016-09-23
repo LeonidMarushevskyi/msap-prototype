@@ -17,23 +17,23 @@
             overflowToDisk="false"
             />
 
-    <cache name="com.engagepoint.cws.apqd.domain.User"
+    <cache name="com.engagepoint.msap.domain.User"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="com.engagepoint.cws.apqd.domain.Authority"
+    <cache name="com.engagepoint.msap.domain.Authority"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="com.engagepoint.cws.apqd.domain.User.authorities"
+    <cache name="com.engagepoint.msap.domain.User.authorities"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="com.engagepoint.cws.apqd.domain.PersistentToken"
+    <cache name="com.engagepoint.msap.domain.PersistentToken"
            timeToLiveSeconds="3600">
     </cache>
 
-    <cache name="com.engagepoint.cws.apqd.domain.User.persistentTokens"
+    <cache name="com.engagepoint.msap.domain.User.persistentTokens"
            timeToLiveSeconds="3600">
     </cache>
     </ehcache>

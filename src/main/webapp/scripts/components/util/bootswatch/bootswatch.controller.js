@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('BootswatchController', function ($scope, BootSwatchService) {
         /*Get the list of availabel bootswatch themes*/
         BootSwatchService.get().then(function(themes) {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('PlaceController', function ($scope, $state, Place, PlaceSearch) {
 
         $scope.places = [];

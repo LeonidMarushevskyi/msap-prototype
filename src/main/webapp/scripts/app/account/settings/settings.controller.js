@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('SettingsController',
     ['$scope', '$log', 'Principal', 'Auth', 'Language', '$translate', 'lookupGender', 'Place', 'GeocoderService', 'lookupState', 'AddressUtils',
     function ($scope, $log, Principal, Auth, Language, $translate, lookupGender, Place, GeocoderService, lookupState, AddressUtils) {

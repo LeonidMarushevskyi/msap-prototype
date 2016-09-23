@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('Principal', function ($q, Account, Tracker) {
         var _identity,
             _authenticated = false;

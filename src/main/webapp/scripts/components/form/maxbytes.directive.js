@@ -1,7 +1,7 @@
 /* globals $ */
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .directive('maxbytes', function () {
         function endsWith(suffix, str) {
             return str.indexOf(suffix, str.length - suffix.length) !== -1;

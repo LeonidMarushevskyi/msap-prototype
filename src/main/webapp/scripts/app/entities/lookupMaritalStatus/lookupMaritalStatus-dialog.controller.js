@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp').controller('LookupMaritalStatusDialogController',
+angular.module('msapApp').controller('LookupMaritalStatusDialogController',
     ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'LookupMaritalStatus',
         function($scope, $stateParams, $uibModalInstance, entity, LookupMaritalStatus) {
 
@@ -12,7 +12,7 @@ angular.module('apqdApp').controller('LookupMaritalStatusDialogController',
         };
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('apqdApp:lookupMaritalStatusUpdate', result);
+            $scope.$emit('msapApp:lookupMaritalStatusUpdate', result);
             $uibModalInstance.close(result);
             $scope.isSaving = false;
         };

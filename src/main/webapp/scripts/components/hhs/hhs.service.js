@@ -3,7 +3,7 @@
  * response sample: https://chhs.data.ca.gov/resource/mffa-c6z5.json?$where=within_box(location,%2034.185175,%20-117.77147,%2034.075175,%20-117.57147)
  *
  */
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('HHSService', function ($http, $q) {
         return {
             findFosterFamilyAgencies: function (query) {

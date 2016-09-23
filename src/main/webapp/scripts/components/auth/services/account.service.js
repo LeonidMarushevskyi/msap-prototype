@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('Account', function ($resource, DateUtils) {
         return $resource('api/account', {}, {
             'get': { method: 'GET', params: {}, isArray: false,

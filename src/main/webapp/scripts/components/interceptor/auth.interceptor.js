@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('authExpiredInterceptor', function ($rootScope, $q, $injector) {
         return {
             responseError: function(response) {

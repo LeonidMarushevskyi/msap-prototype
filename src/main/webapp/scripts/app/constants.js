@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .constant('SecurityRole', {
         ADMIN: 'ROLE_ADMIN',
         CASE_WORKER: 'CASE_WORKER',

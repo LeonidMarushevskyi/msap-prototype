@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('lookupGender', {
@@ -8,7 +8,7 @@ angular.module('apqdApp')
                 url: '/lookupGenders',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'apqdApp.lookupGender.home.title'
+                    pageTitle: 'msapApp.lookupGender.home.title'
                 },
                 views: {
                     'content@': {
@@ -29,7 +29,7 @@ angular.module('apqdApp')
                 url: '/lookupGender/{id}',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'apqdApp.lookupGender.detail.title'
+                    pageTitle: 'msapApp.lookupGender.detail.title'
                 },
                 views: {
                     'content@': {

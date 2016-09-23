@@ -13,7 +13,7 @@
     <artifactId>msap-prototype</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>chhs-apqd</name>
+    <name>msap-prototype</name>
 
     <prerequisites>
         <maven>3.0.0</maven>
@@ -62,38 +62,36 @@
         <!-- At this stage, do not cover certain JHipster framework core classes
             (which are used worldwide and are relatively proven)
         -->
-        <sonar.exclusions>
-            documents/*.*,
+        <sonar.exclusions>documents/*.*,
             src/main/webapp/assets/**/*.*,
             src/main/webapp/bower_components/**/*.*,
             src/main/webapp/dist/**/*.*,
-            **com/engagepoint/cws/apqd/ApplicationWebXml.java,
-            **com/engagepoint/cws/apqd/aop/logging/LoggingAspect.java,
-            **com/engagepoint/cws/apqd/async/ExceptionHandlingAsyncTaskExecutor.java,
-            **com/engagepoint/cws/apqd/config/AsyncConfiguration.java,
-            **com/engagepoint/cws/apqd/config/CacheConfiguration.java,
-            **com/engagepoint/cws/apqd/config/CloudDatabaseConfiguration.java,
-            **com/engagepoint/cws/apqd/config/DatabaseConfiguration.java,
-            **com/engagepoint/cws/apqd/config/ElasticSearchConfiguration.java,
-            **com/engagepoint/cws/apqd/config/LoggingAspectConfiguration.java,
-            **com/engagepoint/cws/apqd/config/locale/AngularCookieLocaleResolver.java,
-            **com/engagepoint/cws/apqd/config/zabbix/ZabbixConstants.java,
-            **com/engagepoint/cws/apqd/domain/util/*.*,
-            **com/engagepoint/cws/apqd/repository/CustomAuditEventRepository.java,
-            **com/engagepoint/cws/apqd/security/AjaxAuthenticationSuccessHandler.java,
-            **com/engagepoint/cws/apqd/security/AjaxLogoutSuccessHandler.java,
-            **com/engagepoint/cws/apqd/security/CustomAccessDeniedHandler.java,
-            **com/engagepoint/cws/apqd/security/CustomPersistentRememberMeServices.java,
-            **com/engagepoint/cws/apqd/security/Http401UnauthorizedEntryPoint.java,
-            **com/engagepoint/cws/apqd/security/SecurityUtils.java,
-            **com/engagepoint/cws/apqd/security/SpringSecurityAuditorAware.java,
-            **com/engagepoint/cws/apqd/security/UserDetailsService.java,
-            **com/engagepoint/cws/apqd/security/UserNotActivatedException.java,
-            **com/engagepoint/cws/apqd/web/filter/CachingHttpHeadersFilter.java,
-            **com/engagepoint/cws/apqd/web/filter/CsrfCookieGeneratorFilter.java,
-            **com/engagepoint/cws/apqd/web/filter/StaticResourcesProductionFilter.java,
-            **com/engagepoint/cws/apqd/web/rest/util/PaginationUtil.java
-        </sonar.exclusions>
+            **com/engagepoint/msap/ApplicationWebXml.java,
+            **com/engagepoint/msap/aop/logging/LoggingAspect.java,
+            **com/engagepoint/msap/async/ExceptionHandlingAsyncTaskExecutor.java,
+            **com/engagepoint/msap/config/AsyncConfiguration.java,
+            **com/engagepoint/msap/config/CacheConfiguration.java,
+            **com/engagepoint/msap/config/CloudDatabaseConfiguration.java,
+            **com/engagepoint/msap/config/DatabaseConfiguration.java,
+            **com/engagepoint/msap/config/ElasticSearchConfiguration.java,
+            **com/engagepoint/msap/config/LoggingAspectConfiguration.java,
+            **com/engagepoint/msap/config/locale/AngularCookieLocaleResolver.java,
+            **com/engagepoint/msap/config/zabbix/ZabbixConstants.java,
+            **com/engagepoint/msap/domain/util/*.*,
+            **com/engagepoint/msap/repository/CustomAuditEventRepository.java,
+            **com/engagepoint/msap/security/AjaxAuthenticationSuccessHandler.java,
+            **com/engagepoint/msap/security/AjaxLogoutSuccessHandler.java,
+            **com/engagepoint/msap/security/CustomAccessDeniedHandler.java,
+            **com/engagepoint/msap/security/CustomPersistentRememberMeServices.java,
+            **com/engagepoint/msap/security/Http401UnauthorizedEntryPoint.java,
+            **com/engagepoint/msap/security/SecurityUtils.java,
+            **com/engagepoint/msap/security/SpringSecurityAuditorAware.java,
+            **com/engagepoint/msap/security/UserDetailsService.java,
+            **com/engagepoint/msap/security/UserNotActivatedException.java,
+            **com/engagepoint/msap/web/filter/CachingHttpHeadersFilter.java,
+            **com/engagepoint/msap/web/filter/CsrfCookieGeneratorFilter.java,
+            **com/engagepoint/msap/web/filter/StaticResourcesProductionFilter.java,
+            **com/engagepoint/msap/web/rest/util/PaginationUtil.java</sonar.exclusions>
 
         <sonar.jacoco.itReportPath>${project.testresult.directory}/coverage/jacoco/jacoco-it.exec</sonar.jacoco.itReportPath>
         <sonar.jacoco.reportPath>${project.testresult.directory}/coverage/jacoco/jacoco.exec</sonar.jacoco.reportPath>
@@ -776,7 +774,7 @@
                     <defaultSchemaName />
                     <username />
                     <password />
-                    <referenceUrl>hibernate:spring:com.engagepoint.cws.apqd.domain?dialect=</referenceUrl>
+                    <referenceUrl>hibernate:spring:com.engagepoint.msap.domain?dialect=</referenceUrl>
                     <verbose>true</verbose>
                     <logging>debug</logging>
                 </configuration>
@@ -785,7 +783,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.engagepoint.cws.apqd.Application</mainClass>
+                    <mainClass>com.engagepoint.msap.Application</mainClass>
                     <executable>true</executable>
                     <jvmArguments>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</jvmArguments>
                     <arguments>
@@ -1043,7 +1041,7 @@
                         <configuration>
                             <images>
                                 <image>
-                                    <name>kaver79/chhs-apqd</name>
+                                    <name>kaver79/msap-prototype</name>
                                     <build>
                                         <cleanup>remove</cleanup>
                                         <nocache>true</nocache>
@@ -1052,7 +1050,7 @@
                                         </tags>
                                         <assembly>
                                             <basedir>/</basedir>
-                                            <dockerFileDir>dockerfiles/chhs-apqd</dockerFileDir>
+                                            <dockerFileDir>dockerfiles/msap-prototype</dockerFileDir>
                                         </assembly>
                                     </build>
                                 </image>
@@ -1065,13 +1063,13 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>com.engagepoint.chhs-apqd</groupId>
-                                    <artifactId>chhs-apqd</artifactId>
+                                    <groupId>com.engagepoint.msap</groupId>
+                                    <artifactId>msap-prototype</artifactId>
                                     <version>${project.version}</version>
                                     <type>war</type>
                                     <overWrite>true</overWrite>
-                                    <outputDirectory>src/main/docker/dockerfiles/chhs-apqd</outputDirectory>
-                                    <destFileName>chhs-apqd.war</destFileName>
+                                    <outputDirectory>src/main/docker/dockerfiles/msap-prototype</outputDirectory>
+                                    <destFileName>msap-prototype.war</destFileName>
                                 </artifactItem>
                             </artifactItems>
                         </configuration>

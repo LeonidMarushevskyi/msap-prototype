@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('PrivacyPolicyModalCtrl',
         ['$scope', '$log', '$uibModalInstance',
         function ($scope, $log, $uibModalInstance) {

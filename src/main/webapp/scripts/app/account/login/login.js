@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('login', {

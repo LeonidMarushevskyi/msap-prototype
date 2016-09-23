@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('LookupGenderDetailController', function ($scope, $rootScope, $stateParams, entity, LookupGender) {
         $scope.lookupGender = entity;
         $scope.load = function (id) {
@@ -8,7 +8,7 @@ angular.module('apqdApp')
                 $scope.lookupGender = result;
             });
         };
-        var unsubscribe = $rootScope.$on('apqdApp:lookupGenderUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('msapApp:lookupGenderUpdate', function(event, result) {
             $scope.lookupGender = result;
         });
         $scope.$on('$destroy', unsubscribe);

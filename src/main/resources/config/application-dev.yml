@@ -20,22 +20,22 @@ spring:
             enabled: false # we use Grunt + BrowserSync for livereload
     datasource:
         driver-class-name: org.h2.jdbcx.JdbcDataSource
-        url: jdbc:h2:mem:apqd;DB_CLOSE_DELAY=-1
+        url: jdbc:h2:mem:msap;DB_CLOSE_DELAY=-1
         name:
-        username: apqd
+        username: msap
         password:
     h2:
         console:
             enabled: false
     jpa:
-        database-platform: com.engagepoint.cws.apqd.domain.util.FixedH2Dialect
+        database-platform: com.engagepoint.msap.domain.util.FixedH2Dialect
         database: H2
         show_sql: true
         properties:
             hibernate.cache.use_second_level_cache: true
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: true
-            hibernate.cache.region.factory_class: com.engagepoint.cws.apqd.config.hazelcast.HazelcastCacheRegionFactory
+            hibernate.cache.region.factory_class: com.engagepoint.msap.config.hazelcast.HazelcastCacheRegionFactory
             hibernate.cache.use_minimal_puts: true
             hibernate.cache.hazelcast.use_lite_member: true
     data:
@@ -74,7 +74,7 @@ jhipster:
         hazelcast:
             backupCount: 1
     mail: # specific JHipster mail property, for standard properties see MailProperties
-        from: apqd@engagepoint.com
+        from: msap@engagepoint.com
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         spark:
@@ -85,10 +85,10 @@ jhipster:
             enabled: false
             host: localhost
             port: 2003
-            prefix: apqd
+            prefix: msap
         zabbix:
             enabled: false
-            host: mdc-apdq-inf-a1.engagepoint.us
+            host: mdc-msap-inf-a1.engagepoint.us
             port: 10051
             periodSec: 60
             hostMetadata: HOSTPOOL

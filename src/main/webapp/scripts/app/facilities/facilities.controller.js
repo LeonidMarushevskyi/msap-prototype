@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('FacilitiesController',
     ['$scope', '$state', '$log', '$q',
         'leafletData', 'FacilityType', 'FacilityStatus', 'FosterFamilyAgenciesService',

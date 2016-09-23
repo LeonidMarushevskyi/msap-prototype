@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .directive('apdqFacilityAgency', function () {
         return {
             restrict: 'E',

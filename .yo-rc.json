@@ -1,8 +1,8 @@
 {
   "generator-jhipster": {
-    "baseName": "apqd",
-    "packageName": "com.engagepoint.cws.apqd",
-    "packageFolder": "com/engagepoint/cws/apqd",
+    "baseName": "msap",
+    "packageName": "com.engagepoint.msap",
+    "packageFolder": "com/engagepoint/msap",
     "authenticationType": "session",
     "hibernateCache": "hazelcast",
     "clusteredHttpSession": "hazelcast",

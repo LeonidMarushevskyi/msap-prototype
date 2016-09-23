@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('LookupGender', function ($resource) {
         return $resource('api/lookupGenders/:id', {}, {
             'query': { method: 'GET', isArray: true},

@@ -1,0 +1,17 @@
+msap-prototype-elasticsearch:
+  container_name: msap-prototype-elasticsearch
+  restart: unless-stopped
+  image: elasticsearch:1.5.2
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+
+msap-prototype-postgresql:
+  container_name: msap-prototype-postgresql
+  restart: unless-stopped
+  image: postgres:9.4.5
+  environment:
+    - POSTGRES_USER=msap-prototype
+	- POSTGRES_PASSWORD=
+  ports:
+    - "5432:5432"

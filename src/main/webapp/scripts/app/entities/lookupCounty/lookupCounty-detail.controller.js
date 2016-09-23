@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('LookupCountyDetailController', function ($scope, $rootScope, $stateParams, entity, LookupCounty) {
         $scope.lookupCounty = entity;
         $scope.load = function (id) {
@@ -8,7 +8,7 @@ angular.module('apqdApp')
                 $scope.lookupCounty = result;
             });
         };
-        var unsubscribe = $rootScope.$on('apqdApp:lookupCountyUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('msapApp:lookupCountyUpdate', function(event, result) {
             $scope.lookupCounty = result;
         });
         $scope.$on('$destroy', unsubscribe);

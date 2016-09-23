@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('AccessDeniedController',
         ['$scope', '$state', 'Principal',
             function ($scope, $state, Principal) {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
 	.controller('LookupMaritalStatusDeleteController', function($scope, $uibModalInstance, entity, LookupMaritalStatus) {
 
         $scope.lookupMaritalStatus = entity;

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('Register', function ($resource) {
         return $resource('api/register', {}, {
         });

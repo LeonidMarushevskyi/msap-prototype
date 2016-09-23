@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('LoginController', function ($rootScope, $scope, $state, $timeout, Auth,
      AuthenticationErrorService, $uibModal) {
         $scope.user = {};

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('RegisterSavedController', function ($scope, $state, $interval) {
         $scope.timeLeft = 20;
 

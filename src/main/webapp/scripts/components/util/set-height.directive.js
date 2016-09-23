@@ -1,4 +1,4 @@
-angular.module('apqdApp')
+angular.module('msapApp')
     .directive('setHeight', function(){
         return{
             priority: '3',

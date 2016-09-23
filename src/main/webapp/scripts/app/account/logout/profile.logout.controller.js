@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('MyProfileAndLogoutController', function ($scope, $state, Auth, Principal) {
         $scope.isAuthenticated = Principal.isAuthenticated;
 

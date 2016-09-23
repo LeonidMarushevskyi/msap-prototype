@@ -1,0 +1,52 @@
+#
+#
+# to start msap-prototype use:
+#  docker-compose -f msap-prototype-ha.yml up -d
+#
+# for scaling use
+#  docker-compose -f msap-prototype-ha.yml scale msap-prototype-ha=3
+#  docker-compose -f msap-prototype-ha.yml up -d --no-deps --force-recreate msap-prototype-ha-lb
+#
+
+msap-prototype-ha-elasticsearch:
+  image: elasticsearch:1.5.2
+  restart: unless-stopped
+  ports:
+    - "9200"
+    - "9300"
+
+msap-prototype-ha-postgresql:
+  container_name: msap-prototype-ha-postgresql
+  restart: unless-stopped
+  image: postgres:9.4.5
+  environment:
+    - POSTGRES_USER=msap-prototype
+    - POSTGRES_PASSWORD=
+  ports:
+    - "25432:5432"
+
+msap-prototype-ha:
+  image: kaver79/msap-prototype
+  restart: unless-stopped
+  environment:
+    - COOKIE=SRV insert indirect nocache
+    - TZ=America/New_York
+#   - logback_graylogHost=LOGBACK_GRAYLOGHOST
+  ports:
+    - "8080"
+  links:
+    - "msap-prototype-ha-postgresql:POSTGRESQL"
+    - "msap-prototype-ha-elasticsearch:ELASTIC"
+
+msap-prototype-ha-lb:
+  container_name: msap-prototype-haproxy
+  restart: unless-stopped
+  image: tutum/haproxy
+  links:
+   - "msap-prototype-ha"
+  ports:
+   - "24080:80"
+   - "24043:443"
+  environment:
+   - BACKEND_PORT=8080
+   - BALANCE=roundrobin

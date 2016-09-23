@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('DefaultAddressModalCtrl',
         ['$scope', '$log', '$uibModalInstance', 'Auth', 'userProfile', 'GeocoderService', 'AddressUtils', 'Place',
         function ($scope, $log, $uibModalInstance, Auth, userProfile, GeocoderService, AddressUtils, Place) {

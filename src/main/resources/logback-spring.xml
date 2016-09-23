@@ -28,7 +28,7 @@
         </encoder>
     </appender>
 
-    <logger name="com.engagepoint.cws.apqd" level="@logback.loglevel@"/>
+    <logger name="com.engagepoint.msap" level="@logback.loglevel@"/>
 
     <logger name="javax.activation" level="WARN"/>
     <logger name="javax.mail" level="WARN"/>
@@ -72,7 +72,7 @@
                 <markerIncluded>false</markerIncluded>
                 <mdcIncluded>true</mdcIncluded>
                 <threadIncluded>false</threadIncluded>
-                <facility>CHHS-APQD</facility>
+                <facility>MSAP-PROTOTYPE</facility>
             </appender>
 
             <root level="@logback.loglevel@">

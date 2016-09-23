@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .service('DateUtils', function ($filter) {
 
         this.convertLocaleDateToServer = function (date) {

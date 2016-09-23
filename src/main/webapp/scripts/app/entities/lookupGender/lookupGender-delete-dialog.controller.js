@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
 	.controller('LookupGenderDeleteController', function($scope, $uibModalInstance, entity, LookupGender) {
 
         $scope.lookupGender = entity;

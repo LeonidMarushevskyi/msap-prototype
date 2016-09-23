@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp').controller('LookupStateDialogController',
+angular.module('msapApp').controller('LookupStateDialogController',
     ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'LookupState',
         function($scope, $stateParams, $uibModalInstance, entity, LookupState) {
 
@@ -12,7 +12,7 @@ angular.module('apqdApp').controller('LookupStateDialogController',
         };
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('apqdApp:lookupStateUpdate', result);
+            $scope.$emit('msapApp:lookupStateUpdate', result);
             $uibModalInstance.close(result);
             $scope.isSaving = false;
         };

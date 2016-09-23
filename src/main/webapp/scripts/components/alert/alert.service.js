@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .provider('AlertService', function () {
         this.toast = false;
 

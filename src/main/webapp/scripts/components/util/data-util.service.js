@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .service('DataUtils', function () {
     this.byteSize = function (base64String) {
         if (!angular.isString(base64String)) {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('LookupGenderController', function ($scope, $state, LookupGender, LookupGenderSearch) {
 
         $scope.lookupGenders = [];

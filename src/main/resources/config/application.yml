@@ -33,6 +33,7 @@ spring:
 #        key-store-password: qwe123
 #        keyStoreType: PKCS12
 #        keyAlias: chhsapqd
+#        keyAlias: msap
 #    tomcat:
 #        remote_ip_header: x-forwarded-for
 #        protocol_header: x-forwarded-proto
@@ -61,14 +62,14 @@ jhipster:
         #allow-credentials: true
         #max-age: 1800
     mail:
-        from: apqd@engagepoint.com
+        from: msap@engagepoint.com
     security:
         rememberme:
             # security key (this key should be unique for your application, and kept secret)
             key: 7b2fd59e025ec84a4856f8618fea74df4806f0cd
     swagger:
-        title: APQD API
-        description: APQD API documentation
+        title: MSAP API
+        description: MSAP API documentation
         version: 0.0.1
         termsOfServiceUrl:
         contact:
@@ -79,7 +80,7 @@ jhipster:
 # Application properties
 # ===================================================================
 
-apqd:
+msap:
     default-address: 744 P St,Sacramento, CA 95814
 
 hhs-api:

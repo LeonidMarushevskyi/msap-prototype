@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
 	.controller('PlaceDeleteController', function($scope, $uibModalInstance, entity, Place) {
 
         $scope.place = entity;

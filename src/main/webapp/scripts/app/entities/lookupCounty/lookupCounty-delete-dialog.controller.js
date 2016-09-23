@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
 	.controller('LookupCountyDeleteController', function($scope, $uibModalInstance, entity, LookupCounty) {
 
         $scope.lookupCounty = entity;

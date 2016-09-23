@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
 	.controller('LookupStateDeleteController', function($scope, $uibModalInstance, entity, LookupState) {
 
         $scope.lookupState = entity;

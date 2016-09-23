@@ -1,4 +1,4 @@
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('chLayoutConfigFactory', function () {
 
         var layoutConfigState = {

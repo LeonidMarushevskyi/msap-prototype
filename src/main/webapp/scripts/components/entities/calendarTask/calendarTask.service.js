@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('CalendarTask', function ($resource, DateUtils) {
         return $resource('api/calendarTasks/:id', {}, {
             'query': { method: 'GET', isArray: true},
