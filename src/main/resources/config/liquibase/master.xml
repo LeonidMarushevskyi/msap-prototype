@@ -12,6 +12,7 @@
     <include file="classpath:config/liquibase/changelog/20160521013726_added_entity_LookupState.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160521013726_populate_data_LookupState.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160521013727_added_entity_LookupCounty.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160521013727_populate_data_LookupCounty.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160525025500_added_entity_LookupGender.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160204214554_populate_data_LookupGender.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160525025501_added_entity_LookupMaritalStatus.xml" relativeToChangelogFile="false"/>
@@ -22,7 +23,6 @@
     <include file="classpath:config/liquibase/changelog/201609230401_populate_data_LookupLicenseType.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/201609230405_populate_data_LookupProviderType.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/201609230413_populate_data_LookupQualityRating.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160521013727_populate_data_LookupCounty.xml" relativeToChangelogFile="false"/>
 
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

@@ -28,5 +28,11 @@
             <column name="zip_code" value="95814"/>
             <column name="state_id" value="6"/>
         </insert>
+
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/places.csv"
+                  separator=","
+                  tableName="place"/>
+
     </changeSet>
 </databaseChangeLog>
