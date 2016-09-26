@@ -20,6 +20,14 @@
         "maxlength"
       ],
       "fieldValidateRulesMaxlength": 40
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "countyCode",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
     }
   ],
   "changelogDate": "20160521013727",

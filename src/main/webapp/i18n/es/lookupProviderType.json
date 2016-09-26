@@ -1,0 +1,23 @@
+{
+    "msapApp": {
+        "lookupProviderType" : {
+            "home": {
+                "title": "LookupProviderTypes",
+                "createLabel": "Crear nuevo LookupProviderType",
+                "createOrEditLabel": "Crear o editar LookupProviderType",
+                "search": "Search for LookupProviderType"
+            },
+            "created": "Un nuevo LookupProviderType ha sido creado con el identificador {{ param }}",
+            "updated": "Un LookupProviderType ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un LookupProviderType ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar LookupProviderType {{ id }}?"
+            },
+            "detail": {
+                "title": "LookupProviderType"
+            },
+            "code": "Code",
+            "name": "Name"
+        }
+    }
+}

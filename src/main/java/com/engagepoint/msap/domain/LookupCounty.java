@@ -27,6 +27,10 @@ public class LookupCounty implements Serializable {
     @Column(name = "county_name", length = 40, nullable = false)
     private String countyName;
 
+    @NotNull
+    @Column(name = "county_code", nullable = false)
+    private Integer countyCode;
+
     @OneToOne
     private LookupState state;
 
@@ -44,6 +48,14 @@ public class LookupCounty implements Serializable {
 
     public void setCountyName(String countyName) {
         this.countyName = countyName;
+    }
+
+    public Integer getCountyCode() {
+        return countyCode;
+    }
+
+    public void setCountyCode(Integer countyCode) {
+        this.countyCode = countyCode;
     }
 
     public LookupState getState() {
@@ -79,6 +91,7 @@ public class LookupCounty implements Serializable {
         return "LookupCounty{" +
             "id=" + id +
             ", countyName='" + countyName + "'" +
+            ", countyCode='" + countyCode + "'" +
             '}';
     }
 }

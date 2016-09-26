@@ -64,7 +64,7 @@ class LookupCountyGatlingTest extends Simulation {
             .exec(http("Create new lookupCounty")
             .post("/api/lookupCountys")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "countyName":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "countyName":"SAMPLE_TEXT", "countyCode":"0"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_lookupCounty_url")))
             .pause(10)

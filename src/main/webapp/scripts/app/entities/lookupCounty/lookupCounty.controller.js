@@ -30,6 +30,7 @@ angular.module('msapApp')
         $scope.clear = function () {
             $scope.lookupCounty = {
                 countyName: null,
+                countyCode: null,
                 id: null
             };
         };

@@ -1,0 +1,88 @@
+<div>
+    <h2 translate="msapApp.provider.home.title">Providers</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="provider.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+class="hidden-xs"                        translate="msapApp.provider.home.createLabel">Create new Provider
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="{{ 'msapApp.provider.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="search()">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="msapApp.provider.providerCapacity">ProviderCapacity</span></th>
+                    <th><span translate="msapApp.provider.providerName">ProviderName</span></th>
+                    <th><span translate="msapApp.provider.phoneNumber">PhoneNumber</span></th>
+                    <th><span translate="msapApp.provider.licenseType">licenseType</span></th>
+                    <th><span translate="msapApp.provider.providerType">providerType</span></th>
+                    <th><span translate="msapApp.provider.address">address</span></th>
+                    <th><span translate="msapApp.provider.qualityRating">qualityRating</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="provider in providers track by provider.id">
+                    <td><a ui-sref="provider.detail({id:provider.id})">{{provider.id}}</a></td>
+                    <td>{{provider.providerCapacity}}</td>
+                    <td>{{provider.providerName}}</td>
+                    <td>{{provider.phoneNumber}}</td>
+                    <td>
+                        <a ui-sref="lookupLicenseType.detail({id:provider.licenseType.id})">{{provider.licenseType.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="lookupQualityRating.detail({id:provider.providerType.id})">{{provider.providerType.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="place.detail({id:provider.address.id})">{{provider.address.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="lookupProviderType.detail({id:provider.qualityRating.id})">{{provider.qualityRating.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="provider.detail({id:provider.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="provider.edit({id:provider.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="provider.delete({id:provider.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

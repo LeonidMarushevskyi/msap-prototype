@@ -62,6 +62,7 @@ angular.module('msapApp')
                             entity: function () {
                                 return {
                                     countyName: null,
+                                    countyCode: null,
                                     id: null
                                 };
                             }

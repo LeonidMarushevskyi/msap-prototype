@@ -45,6 +45,9 @@ public class LookupCountyResourceIntTest {
     private static final String DEFAULT_COUNTY_NAME = "AAAAA";
     private static final String UPDATED_COUNTY_NAME = "BBBBB";
 
+    private static final Integer DEFAULT_COUNTY_CODE = 1;
+    private static final Integer UPDATED_COUNTY_CODE = 2;
+
     @Inject
     private LookupCountyRepository lookupCountyRepository;
 
@@ -76,6 +79,7 @@ public class LookupCountyResourceIntTest {
     public void initTest() {
         lookupCounty = new LookupCounty();
         lookupCounty.setCountyName(DEFAULT_COUNTY_NAME);
+        lookupCounty.setCountyCode(DEFAULT_COUNTY_CODE);
     }
 
     @Test
@@ -95,6 +99,7 @@ public class LookupCountyResourceIntTest {
         assertThat(lookupCountys).hasSize(databaseSizeBeforeCreate + 1);
         LookupCounty testLookupCounty = lookupCountys.get(lookupCountys.size() - 1);
         assertThat(testLookupCounty.getCountyName()).isEqualTo(DEFAULT_COUNTY_NAME);
+        assertThat(testLookupCounty.getCountyCode()).isEqualTo(DEFAULT_COUNTY_CODE);
     }
 
     @Test
@@ -103,6 +108,24 @@ public class LookupCountyResourceIntTest {
         int databaseSizeBeforeTest = lookupCountyRepository.findAll().size();
         // set the field null
         lookupCounty.setCountyName(null);
+
+        // Create the LookupCounty, which fails.
+
+        restLookupCountyMockMvc.perform(post("/api/lookupCountys")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(lookupCounty)))
+                .andExpect(status().isBadRequest());
+
+        List<LookupCounty> lookupCountys = lookupCountyRepository.findAll();
+        assertThat(lookupCountys).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkCountyCodeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = lookupCountyRepository.findAll().size();
+        // set the field null
+        lookupCounty.setCountyCode(null);
 
         // Create the LookupCounty, which fails.
 
@@ -126,7 +149,8 @@ public class LookupCountyResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(lookupCounty.getId().intValue())))
-                .andExpect(jsonPath("$.[*].countyName").value(hasItem(DEFAULT_COUNTY_NAME.toString())));
+                .andExpect(jsonPath("$.[*].countyName").value(hasItem(DEFAULT_COUNTY_NAME.toString())))
+                .andExpect(jsonPath("$.[*].countyCode").value(hasItem(DEFAULT_COUNTY_CODE)));
     }
 
     @Test
@@ -140,7 +164,8 @@ public class LookupCountyResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(lookupCounty.getId().intValue()))
-            .andExpect(jsonPath("$.countyName").value(DEFAULT_COUNTY_NAME.toString()));
+            .andExpect(jsonPath("$.countyName").value(DEFAULT_COUNTY_NAME.toString()))
+            .andExpect(jsonPath("$.countyCode").value(DEFAULT_COUNTY_CODE));
     }
 
     @Test
@@ -161,6 +186,7 @@ public class LookupCountyResourceIntTest {
 
         // Update the lookupCounty
         lookupCounty.setCountyName(UPDATED_COUNTY_NAME);
+        lookupCounty.setCountyCode(UPDATED_COUNTY_CODE);
 
         restLookupCountyMockMvc.perform(put("/api/lookupCountys")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -172,6 +198,7 @@ public class LookupCountyResourceIntTest {
         assertThat(lookupCountys).hasSize(databaseSizeBeforeUpdate);
         LookupCounty testLookupCounty = lookupCountys.get(lookupCountys.size() - 1);
         assertThat(testLookupCounty.getCountyName()).isEqualTo(UPDATED_COUNTY_NAME);
+        assertThat(testLookupCounty.getCountyCode()).isEqualTo(UPDATED_COUNTY_CODE);
     }
 
     @Test

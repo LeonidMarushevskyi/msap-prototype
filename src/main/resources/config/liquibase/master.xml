@@ -5,6 +5,10 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+
+    <include file="classpath:config/liquibase/changelog/20160924024931_added_entity_LookupLicenseType.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160924024932_added_entity_LookupProviderType.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160924024933_added_entity_LookupQualityRating.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160521013726_added_entity_LookupState.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160521013726_populate_data_LookupState.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160521013727_added_entity_LookupCounty.xml" relativeToChangelogFile="false"/>
@@ -14,10 +18,7 @@
     <include file="classpath:config/liquibase/changelog/20160204214554_populate_data_LookupMaritalStatus.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160521013730_added_entity_Place.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160521013731_populate_data_Place.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/201609230250_added_entity_LookupLicenseType.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/201609230253_added_entity_LookupProviderType.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/201609230259_added_entity_LookupQualityRating.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/201609230303_added_entity_Provider.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160924025854_added_entity_Provider.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/201609230401_populate_data_LookupLicenseType.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/201609230405_populate_data_LookupProviderType..xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/201609230413_populate_data_LookupQualityRating.xml" relativeToChangelogFile="false"/>

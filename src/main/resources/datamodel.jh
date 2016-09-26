@@ -18,9 +18,8 @@ entity LookupQualityRating {
 }
 
 entity LookupCounty {
-    countyName String required maxlength(40)
-    countyCode Integer required,
-    stateId Integer
+    countyName String required maxlength(40),
+    countyCode Integer required
 }
 
 entity LookupGender {
@@ -46,6 +45,12 @@ entity Place {
     validationMessage String
 }
 
+entity Provider {
+    providerCapacity Integer,
+    providerName String,
+    phoneNumber String
+}
+
 relationship ManyToOne {
   Place{county} to LookupCounty
 }
@@ -56,4 +61,20 @@ relationship ManyToOne {
 
 relationship OneToOne {
   LookupCounty{state} to LookupState
+}
+
+relationship OneToOne {
+  Provider{licenseType} to LookupLicenseType
+}
+
+relationship OneToOne {
+  Provider{providerType} to LookupQualityRating
+}
+
+relationship OneToOne {
+  Provider{address} to Place
+}
+
+relationship OneToOne {
+  Provider{qualityRating} to LookupProviderType
 }

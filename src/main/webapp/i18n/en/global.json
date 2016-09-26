@@ -106,6 +106,10 @@
                 "message": "Message",
                 "deleted": "Deleted",
                 "draft": "Draft",
+                "lookupLicenseType": "LookupLicenseType",
+                "lookupProviderType": "LookupProviderType",
+                "lookupQualityRating": "LookupQualityRating",
+                "provider": "Provider",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
