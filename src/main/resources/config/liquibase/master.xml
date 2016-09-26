@@ -20,7 +20,7 @@
     <include file="classpath:config/liquibase/changelog/20160521013731_populate_data_Place.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160924025854_added_entity_Provider.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/201609230401_populate_data_LookupLicenseType.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/201609230405_populate_data_LookupProviderType..xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/201609230405_populate_data_LookupProviderType.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/201609230413_populate_data_LookupQualityRating.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160521013727_populate_data_LookupCounty.xml" relativeToChangelogFile="false"/>
 
