@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('msapApp')
-    .controller('LanguageController', function ($scope, $translate, Language, tmhDynamicLocale) {
+    .controller('LanguageController', function ($scope, $translate, Language, tmhDynamicLocale, Principal) {
         $scope.changeLanguage = function (languageKey) {
             $translate.use(languageKey);
             tmhDynamicLocale.set(languageKey);
@@ -34,7 +34,15 @@ angular.module('msapApp')
         };
 
         $scope.init = function () {
-            $scope.restoreSelectedLanguage();
+            Principal.identity().then(function(account) {
+                if (_.isNil(account) || _.isNil(account.langKey)) {
+                    // not logged-in or preferred language is undefined
+                    $scope.restoreSelectedLanguage();
+                } else {
+                    // logged-in and preferred language is defined
+                    $scope.changeLanguage(account.langKey);
+                }
+            });
         };
         $scope.init();
     })
