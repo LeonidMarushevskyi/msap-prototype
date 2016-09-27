@@ -68,7 +68,7 @@ relationship OneToOne {
 }
 
 relationship OneToOne {
-  Provider{providerType} to LookupQualityRating
+  Provider{providerType} to LookupProviderType
 }
 
 relationship OneToOne {
@@ -76,5 +76,5 @@ relationship OneToOne {
 }
 
 relationship OneToOne {
-  Provider{qualityRating} to LookupProviderType
+  Provider{qualityRating} to LookupQualityRating
 }
