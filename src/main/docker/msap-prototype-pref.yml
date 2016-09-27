@@ -42,7 +42,7 @@ msap-prototype-pref:
 msap-prototype-pref-lb:
   container_name: msap-prototype-pref-lb
   restart: unless-stopped
-  image: tutum/prefproxy
+  image: tutum/haproxy
   links:
    - "msap-prototype-pref"
   ports:

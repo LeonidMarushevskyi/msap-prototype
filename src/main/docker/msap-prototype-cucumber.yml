@@ -1,0 +1,40 @@
+#
+#
+# to start msap-prototype use:
+#  docker-compose -f msap-prototype-cucumber.yml up -d
+#
+# for scaling use
+#  docker-compose -f msap-prototype-cucumber.yml scale msap-prototype-cucumber=3
+#  docker-compose -f msap-prototype-cucumber.yml up -d --no-deps --force-recreate msap-prototype-cucumber-lb
+#
+
+msap-prototype-cucumber-elasticsearch:
+  image: elasticsearch:1.5.2
+  restart: unless-stopped
+  ports:
+    - "9200"
+    - "9300"
+
+msap-prototype-cucumber-postgresql:
+  container_name: msap-prototype-cucumber-postgresql
+  restart: unless-stopped
+  image: postgres:9.4.5
+  environment:
+    - POSTGRES_USER=msap-prototype
+    - POSTGRES_PASSWORD=
+  ports:
+    - "5432"
+
+msap-prototype-cucumber:
+  image: kaver79/msap-prototype
+  restart: unless-stopped
+  environment:
+    - COOKIE=SRV insert indirect nocache
+    - TZ=America/New_York
+    - SPRING_MAIL_HOST=172.24.232.25
+    - SPRING_data_elasticsearch_cluster-name=msap-prototype-cucumber
+  ports:
+    - "6080:8080"
+  links:
+    - "msap-prototype-cucumber-postgresql:POSTGRESQL"
+    - "msap-prototype-cucumber-elasticsearch:ELASTIC"
