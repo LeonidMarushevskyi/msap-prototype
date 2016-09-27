@@ -14,25 +14,11 @@
     <property name="floatType" value="float" dbms="mysql, oracle"/>
 
     <changeSet id="20160521013731" author="serbin">
-        <insert tableName="place">
-            <column name="id" value="1"/>
-            <column name="street_name" value="744 P St"/>
-            <column name="city_name" value="Sacramento"/>
-            <column name="zip_code" value="95814"/>
-            <column name="state_id" value="6"/>
-        </insert>
-        <insert tableName="place">
-            <column name="id" value="2"/>
-            <column name="street_name" value="744 P St"/>
-            <column name="city_name" value="Sacramento"/>
-            <column name="zip_code" value="95814"/>
-            <column name="state_id" value="6"/>
-        </insert>
 
         <loadData encoding="UTF-8"
-                  file="config/liquibase/places.csv"
+                  file="config/liquibase/providers.csv"
                   separator=","
-                  tableName="place"/>
+                  tableName="provider"/>
 
     </changeSet>
 </databaseChangeLog>

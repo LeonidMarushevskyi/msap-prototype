@@ -32,7 +32,7 @@ public class Place implements Serializable {
 
     @NotNull
     @Size(max = 100)
-    @Column(name = "street_name", length = 100, nullable = false)
+    @Column(name = "street_name", length = 100)
     private String streetName;
 
     @Size(max = 10)

@@ -22,34 +22,32 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="unit_number" type="varchar(10)"/>
-            
+
             <column name="city_name" type="varchar(20)"/>
-            
-            <column name="street_name" type="varchar(100)">
-                <constraints nullable="false" />
-            </column>
-            
+
+            <column name="street_name" type="varchar(100)"/>
+
             <column name="street_number" type="varchar(10)"/>
-            
+
             <column name="zip_code" type="varchar(5)"/>
-            
+
             <column name="zip_suffix" type="varchar(4)"/>
-            
+
             <column name="longitude" type="double"/>
-            
+
             <column name="latitude" type="double"/>
-            
+
             <column name="valid_address_flag" type="bit"/>
-            
+
             <column name="validation_status" type="varchar(255)"/>
-            
+
             <column name="validation_message" type="varchar(255)"/>
-            
+
             <column name="county_id" type="bigint"/>
             <column name="state_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+
         <addForeignKeyConstraint baseColumnNames="county_id"
                                  baseTableName="place"
                                  constraintName="fk_place_county_id"

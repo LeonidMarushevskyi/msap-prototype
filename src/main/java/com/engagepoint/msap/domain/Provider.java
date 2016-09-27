@@ -34,13 +34,13 @@ public class Provider implements Serializable {
     private LookupLicenseType licenseType;
 
     @OneToOne
-    private LookupQualityRating providerType;
+    private LookupProviderType providerType;
 
     @OneToOne
     private Place address;
 
     @OneToOne
-    private LookupProviderType qualityRating;
+    private LookupQualityRating qualityRating;
 
     public Long getId() {
         return id;
@@ -82,12 +82,12 @@ public class Provider implements Serializable {
         this.licenseType = lookupLicenseType;
     }
 
-    public LookupQualityRating getProviderType() {
+    public LookupProviderType getProviderType() {
         return providerType;
     }
 
-    public void setProviderType(LookupQualityRating lookupQualityRating) {
-        this.providerType = lookupQualityRating;
+    public void setProviderType(LookupProviderType lookupProviderType) {
+        this.providerType = lookupProviderType;
     }
 
     public Place getAddress() {
@@ -98,12 +98,12 @@ public class Provider implements Serializable {
         this.address = place;
     }
 
-    public LookupProviderType getQualityRating() {
+    public LookupQualityRating getQualityRating() {
         return qualityRating;
     }
 
-    public void setQualityRating(LookupProviderType lookupProviderType) {
-        this.qualityRating = lookupProviderType;
+    public void setQualityRating(LookupQualityRating lookupQualityRating) {
+        this.qualityRating = lookupQualityRating;
     }
 
     @Override

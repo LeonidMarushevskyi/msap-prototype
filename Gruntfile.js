@@ -173,9 +173,6 @@ module.exports = function (grunt) {
         concat: {
             // src and dest is configured in a subtask called "generated" by usemin
         },
-        uglifyjs: {
-            // src and dest is configured in a subtask called "generated" by usemin
-        },
         rev: {
             dist: {
                 files: {
@@ -195,8 +192,8 @@ module.exports = function (grunt) {
                 flow: {
                     html: {
                         steps: {
-                            js: ['concat', 'uglifyjs'],
-                            css: ['cssmin', useminAutoprefixer] // Let cssmin concat files so it corrects relative paths to fonts and images
+                            js: ['concat'],
+                            css: [useminAutoprefixer]
                         },
                             post: {}
                         }
@@ -236,9 +233,6 @@ module.exports = function (grunt) {
                     dest: '<%= yeoman.dist %>/assets/images'
                 }]
             }
-        },
-        cssmin: {
-            // src and dest is configured in a subtask called "generated" by usemin
         },
         ngtemplates:    {
             dist: {
@@ -420,10 +414,8 @@ module.exports = function (grunt) {
         'copy:fonts',
         'copy:dist',
         'ngAnnotate',
-        'cssmin',
         'sprite',
         'autoprefixer',
-        'uglify',
         'rev',
         'usemin',
         'htmlmin'
