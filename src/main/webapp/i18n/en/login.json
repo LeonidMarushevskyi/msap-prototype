@@ -1,7 +1,10 @@
 {
     "login": {
+        "create-an-account": "Create an Account",
         "title": "Sign in",
         "form": {
+            "username": "Username",
+            "username.placeholder": "Your username",
             "password": "Password",
             "password.placeholder": "Your password",
             "rememberme": "Remember me",
