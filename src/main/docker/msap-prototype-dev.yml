@@ -1,0 +1,39 @@
+msap-prototype-dev-elasticsearch:
+  container_name: msap-prototype-dev-elasticsearch
+  restart: unless-stopped
+  image: elasticsearch:1.5.2
+  # volumes:
+  #   - ~/volumes/jhipster/msap-prototype/elasticsearch/:/usr/share/elasticsearch/data/
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+
+msap-prototype-dev-postgresql:
+  container_name: msap-prototype-dev-postgresql
+  restart: unless-stopped
+  image: postgres:9.4.5
+  # volumes:
+  #   - ~/volumes/jhipster/msap-prototype/postgresql/:/var/lib/postgresql/
+  environment:
+    - POSTGRES_USER=msap-prototype
+    - POSTGRES_PASSWORD=
+    - TZ=America/New_York
+
+  ports:
+    - "5432:5432"
+
+msap-prototype-dev:
+  container_name: msap-prototype-dev
+  restart: unless-stopped
+  image: kaver79/msap-prototype
+  environment:
+    - COOKIE=SRV insert indirect nocache
+    - TZ=America/New_York
+#   - logback_graylogHost=LOGBACK_GRAYLOGHOST
+    - SPRING_MAIL_HOST=172.24.232.25
+    - SPRING_data_elasticsearch_cluster-name=msap-prototype-dev
+  ports:
+    - "3080:8080"
+  links:
+    - "msap-prototype-dev-postgresql:POSTGRESQL"
+    - "msap-prototype-dev-elasticsearch:ELASTIC"

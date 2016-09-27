@@ -1,0 +1,53 @@
+#
+#
+# to start msap-prototype use:
+#  docker-compose -f msap-prototype-pref.yml up -d
+#
+# for scaling use
+#  docker-compose -f msap-prototype-pref.yml scale msap-prototype-pref=3
+#  docker-compose -f msap-prototype-pref.yml up -d --no-deps --force-recreate msap-prototype-pref-lb
+#
+
+msap-prototype-pref-elasticsearch:
+  image: elasticsearch:1.5.2
+  restart: unless-stopped
+  ports:
+    - "9200"
+    - "9300"
+
+msap-prototype-pref-postgresql:
+  container_name: msap-prototype-pref-postgresql
+  restart: unless-stopped
+  image: postgres:9.4.5
+  environment:
+    - POSTGRES_USER=msap-prototype
+    - POSTGRES_PASSWORD=
+  ports:
+    - "5432"
+
+msap-prototype-pref:
+  image: kaver79/msap-prototype
+  restart: unless-stopped
+  environment:
+    - COOKIE=SRV insert indirect nocache
+    - TZ=America/New_York
+    - SPRING_MAIL_HOST=172.24.232.25
+    - SPRING_data_elasticsearch_cluster-name=msap-prototype-pref
+  ports:
+    - "8080"
+  links:
+    - "msap-prototype-pref-postgresql:POSTGRESQL"
+    - "msap-prototype-pref-elasticsearch:ELASTIC"
+
+msap-prototype-pref-lb:
+  container_name: msap-prototype-pref-lb
+  restart: unless-stopped
+  image: tutum/haproxy
+  links:
+   - "msap-prototype-pref"
+  ports:
+   - "5080:80"
+   - "5043:443"
+  environment:
+   - BACKEND_PORT=8080
+   - BALANCE=roundrobin

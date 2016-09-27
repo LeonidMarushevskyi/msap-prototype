@@ -40,7 +40,7 @@ public class UserStepDefs {
 
     @Before
     public void setup() {
-        baseUrl = "http://ec2-54-191-30-16.us-west-2.compute.amazonaws.com:8080/#/";
+        baseUrl = "http://mdc-mrq-was8-a1.engagepoint.us:6080/#/";
         //Configuration.browser = "firefox";
 
         this.restUserMockMvc = MockMvcBuilders.standaloneSetup(userResource).build();
@@ -117,20 +117,6 @@ public class UserStepDefs {
         $(By.xpath(".//button[@type='submit' and text()='Sign in']")).shouldBe(disappear);
     }
 
-
-    @When("^open inbox page$")
-    public void open_inbox_page() throws Throwable {
-        click_css_and_wait(".ch-user-account-entry__dropdown-btn");
-        $("[ng-click='logout()']").shouldBe(visible);
-        click_css_and_wait(".ch-user-account-entry__dropdown-btn");
-        $("[ng-click='logout()']").waitUntil(disappear, 4000);
-        click_xpath_and_wait(".//div/span[text()='Inbox']");
-        sleep(1500);
-        $("[href='#/mail/sent']").shouldBe(visible);
-        $("[href='#/mail/drafts']").shouldBe(visible);
-        $("[ui-sref='ch-inbox.new-mail']").shouldBe(visible);
-    }
-
     @When("^open facilities page$")
     public void open_facilities_page() throws Throwable {
         click_xpath_and_wait(".//a[@href='#/facilities']");
@@ -140,124 +126,6 @@ public class UserStepDefs {
         click_xpath_and_wait(".//*[@class='modal-content']/descendant::button");
         $(By.xpath(".//*[@class='modal-content']/descendant::button")).waitUntil(disappear, 4000);
         $("#search-text").shouldBe(visible);
-    }
-
-    @When("^open and verify Metrics page$")
-    public void open_and_verify_Metrics_page() throws Throwable {
-        $("a[href='#/metrics']").hover();
-        click_css_and_wait("a[href='#/metrics']");
-        click_xpath_and_wait(".//h2[text()='Application Metrics']");
-        $(By.xpath(".//*[text()='JVM Metrics']")).shouldBe(visible);
-        $(By.xpath(".//*[text()='Garbage collections']")).shouldBe(visible);
-        $(By.xpath(".//*[text()='HTTP requests (events per second)']")).shouldBe(visible);
-        $(By.xpath(".//*[text()='Active requests:']")).shouldBe(visible);
-        $(By.xpath(".//th[text()='Code']/../th[text()='Count']/../th[text()='Mean']/../th[contains(.,'Average')]/..")).shouldBe(visible);
-    }
-
-    @When("^open and verify Users page$")
-    public void open_and_verify_Users_page() throws Throwable {
-        $("a[href='#/user-management']").hover();
-        click_css_and_wait("a[href='#/user-management']");
-        $(By.xpath(".//*[text()='Create a new user']")).shouldBe(visible);
-        $(By.xpath(".//*[contains(@ui-sref,'user-management.delete')]")).shouldBe(visible);
-        $(By.xpath(".//*[contains(@ui-sref,'user-management.edit')]")).shouldBe(visible);
-        $(By.xpath(".//th[text()='ID']/../th[text()='Login']/../th[text()='Language']/../th[text()='Profiles']/..")).shouldBe(visible);
-    }
-
-    @When("^open and verify Tracker page$")
-    public void open_and_verify_Tracker_page() throws Throwable {
-        $("a[href='#/tracker']").hover();
-        click_css_and_wait("a[href='#/tracker']");
-        click_xpath_and_wait(".//h2[text()='Real-time user activities']");
-        $(By.xpath(".//th[text()='User']/../th[text()='IP Address']/../th[text()='Current page']/../th[text()='Time']/..")).shouldBe(visible);
-    }
-
-    @When("^open and verify Health page$")
-    public void open_and_verify_Health_page() throws Throwable {
-        $("a[href='#/health']").hover();
-        click_css_and_wait("a[href='#/health']");
-        $(By.xpath(".//h2[text()='Health checks']")).shouldBe(visible);
-        click_xpath_and_wait(".//h2[text()='Health checks']");
-        $(By.xpath(".//th[text()='Service name']/../th[text()='Status']/../th[text()='Details']/..")).shouldBe(visible);
-    }
-
-    @When("^open and verify Configuration page$")
-    public void open_and_verify_Configuration_page() throws Throwable {
-        $("a[href='#/configuration']").hover();
-        click_css_and_wait("a[href='#/configuration']");
-        click_xpath_and_wait(".//h2[text()='Configuration']");
-        $(By.xpath(".//th[contains(.,'Prefix')]/../th[contains(.,'Properties')]/..")).shouldBe(visible);
-    }
-
-    @When("^open and verify Audit page$")
-    public void open_and_verify_Audit_page() throws Throwable {
-        $("a[href='#/audits']").hover();
-        click_css_and_wait("a[href='#/audits']");
-        click_xpath_and_wait(".//h2[text()='Audits']");
-        $(By.xpath(".//th[contains(.,'Date')]/../th[contains(.,'User')]/../th[contains(.,'State')]/../th[contains(.,'Extra data')]/..")).shouldBe(visible);
-    }
-
-    @When("^open and verify Logs page$")
-    public void open_and_verify_Logs_page() throws Throwable {
-        $("a[href='#/logs']").hover();
-        click_css_and_wait("a[href='#/logs']");
-        click_xpath_and_wait(".//h2[text()='Logs']");
-        $(By.xpath(".//th[contains(.,'Name')]/../th[contains(.,'Level')]/..")).shouldBe(visible);
-    }
-
-    @When("^compose and send new email to '(.*)' with subject '(.*)' and text '(.*)', attach file '(.*)'$")
-    public void compose_and_send_new_email_with_text_attach_file(@Transform(VarsConverter.class) String recipient, @Transform(VarsConverter.class) String subject, @Transform(VarsConverter.class) String messageText, String attachFile) throws Throwable {
-        click_css_and_wait("[ui-sref='ch-inbox.new-mail']");
-        sleep(2000);
-        click_css_and_wait(".ch-new-mail-field__input");
-        sleep(2000);
-        click_xpath_and_wait(".//div[contains(@ng-click,'selectContact')]/span[text()='" + recipient + "']/..");
-        $(By.xpath(".//div[contains(@ng-click,'selectContact')]/span[text()='" + recipient + "']/..")).shouldBe(disappear);
-        click_css_and_wait("textarea");
-        $("textarea").setValue(messageText);
-        click_css_and_wait("[ng-model='mail.subject']");
-        $("[ng-model='mail.subject']").setValue(subject);
-        if (!attachFile.isEmpty() & !attachFile.equals(" ")) {
-            click_xpath_and_wait(".//a[contains(text(),'Attach files')]");
-//todo upload file
-        }
-        click_css_and_wait("[ng-click='sendMail()']");
-        $("[ng-click='sendMail()']").shouldBe(disappear);
-        click_xpath_and_wait(".//*[contains(@class,'ch-alert-msg')]/*[text()='Message has been sent!']");
-        $(By.xpath(".//*[contains(@class,'ch-alert-msg')]/*[text()='Message has been sent!']")).waitUntil(disappear, 4000);
-    }
-
-    @Then("^verify letter to '(.*)' with subject '(.*)' and text '(.*)' is sent$")
-    public void verify_letter_is_sent(@Transform(VarsConverter.class) String recipient, @Transform(VarsConverter.class) String subject, @Transform(VarsConverter.class) String messageText) throws Throwable {
-        click_css_and_wait("[href='#/mail/sent']");
-        $(By.xpath(".//div[contains(@ng-click,'openMail')]")).waitUntil(appear, 4000);
-        click_xpath_and_wait(".//div[contains(@ng-click,'openMail')]/*/span[text()='" + recipient + "']/../../*/span[text()='" + subject + "']");
-        $(By.xpath(".//div[contains(@ng-click,'openMail')]/*/span[text()='" + recipient + "']/../../*/span[text()='" + subject + "']")).shouldBe(disappear);
-        $(By.xpath(".//textarea[contains(text(),'" + messageText + "')]")).shouldBe(visible);
-    }
-
-    @Then("^verify unread letter from '(.*)' has subject '(.*)' and text '(.*)'$")
-    public void verify_unread_letter_from_has_text(@Transform(VarsConverter.class) String sender, @Transform(VarsConverter.class) String subject, @Transform(VarsConverter.class) String messageText) throws Throwable {
-        click_xpath_and_wait(".//div[contains(@ng-click,'openMail')]/*/span[text()='" + sender + "']/../../*/span[text()='" + subject + "']");
-        $(By.xpath(".//div[contains(@ng-click,'openMail')]/*/span[text()='" + sender + "']/../../*/span[text()='" + subject + "']")).shouldBe(disappear);
-        $(By.xpath(".//textarea[contains(text(),'" + messageText + "')]")).shouldBe(visible);
-    }
-
-    @When("^reply to '(.*)' with text '(.*)'$")
-    public void reply_to_with_subject_and_text(@Transform(VarsConverter.class) String recipient, String messageText) throws Throwable {
-        click_xpath_and_wait(".//*[@class='ch-mail-thread-list__item ng-scope']/descendant::span[contains(text(),'" + recipient + "')]/ancestor::*[@class='ch-mail-thread-list__item ng-scope']/descendant::span[text()='Reply']");
-        click_xpath_and_wait(".//textarea");
-        $(By.xpath(".//textarea")).setValue(messageText);
-        click_xpath_and_wait(".//button[@ng-click='sendMail()']");
-        $(By.xpath(".//button[@ng-click='sendMail()']")).waitUntil(disappear, 4000);
-        click_xpath_and_wait(".//*[contains(@class,'ch-alert-msg')]/*[text()='Message has been sent!']");
-        $(By.xpath(".//*[contains(@class,'ch-alert-msg')]/*[text()='Message has been sent!']")).waitUntil(disappear, 4000);
-    }
-
-    @Then("^verify letter in thread from '(.*)' has text '(.*)'$")
-    public void verify_letter_in_thread_from_has_text(@Transform(VarsConverter.class) String sender, String messageText) throws Throwable {
-        $(By.xpath(".//textarea[contains(text(),'" + messageText + "')]")).shouldBe(visible);
-        $(By.xpath(".//*[@class='ch-mail-thread-list__item ng-scope']/descendant::span[contains(text(),'" + sender + "')]/ancestor::*[@class='ch-mail-thread-list__item ng-scope']/descendant::textarea[contains(text(),'" + messageText + "')]")).shouldBe(visible);
     }
 
     @When("^search '(.*)' in facility address search$")
