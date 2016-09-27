@@ -5,7 +5,18 @@ angular.module('msapApp')
         $scope.changeLanguage = function (languageKey) {
             $translate.use(languageKey);
             tmhDynamicLocale.set(languageKey);
-            $scope.currentLanguageKey = languageKey;
+        };
+
+        $scope.getCurrentLanguageKey = function () {
+            return _.isUndefined(tmhDynamicLocale.get()) ? 'en' : tmhDynamicLocale.get();
+        };
+
+        $scope.restoreSelectedLanguage = function () {
+            $translate.use($scope.getCurrentLanguageKey());
+        };
+
+        $scope.clickLanguage = function (languageKey) {
+            $scope.changeLanguage(languageKey);
             $scope.isLanguagePopupShown = false;
         };
 
@@ -19,13 +30,11 @@ angular.module('msapApp')
         };
 
         $scope.isCurrent = function (languageKey) {
-            return $scope.currentLanguageKey == languageKey;
+            return $scope.getCurrentLanguageKey() == languageKey;
         };
 
         $scope.init = function () {
-            Language.getCurrent().then(function (current) {
-                $scope.currentLanguageKey = current;
-            });
+            $scope.restoreSelectedLanguage();
         };
         $scope.init();
     })

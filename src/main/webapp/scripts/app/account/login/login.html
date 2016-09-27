@@ -18,7 +18,7 @@
                             <div class="ch-user-account-entry__popup" ng-show="isLanguagePopupShown">
                                 <div class="ch-user-account-popup">
                                     <div class="ch-user-account-popup__info clearfix" ng-repeat="language in languages">
-                                        <p ng-class="isCurrent(language) ? 'ch-language-popup__entry_active' : 'ch-language-popup__entry'" ng-click="changeLanguage(language)">
+                                        <p ng-class="isCurrent(language) ? 'ch-language-popup__entry_active' : 'ch-language-popup__entry'" ng-click="clickLanguage(language)">
                                             {{language | findLanguageFromKey}}
                                         </p>
                                     </div>
