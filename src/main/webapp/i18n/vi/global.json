@@ -135,7 +135,7 @@
                 "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
             },
             "search": "Search",
-            "language": "Language"
+            "language": "Ngôn ngữ"
         },
         "form": {
             "username": "Username",

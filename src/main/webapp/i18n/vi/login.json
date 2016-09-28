@@ -1,0 +1,22 @@
+{
+    "login": {
+        "create-an-account": "Tạo một tài khoản",
+        "title": "Đăng nhập",
+        "form": {
+            "username": "Tên đăng nhập",
+            "username.placeholder": "Your username",
+            "password": "Password",
+            "password.placeholder": "Your password",
+            "rememberme": "Remember me",
+            "button": "Sign in"
+        },
+        "messages": {
+            "error": {
+                "authentication": "<strong>Failed to sign in!</strong> Please check your credentials and try again."
+            }
+        },
+        "password" : {
+            "forgot": "Did you forget your password?"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "msapApp": {
+        "lookupQualityRating" : {
+            "home": {
+                "title": "LookupQualityRatings",
+                "createLabel": "Create a new LookupQualityRating",
+                "createOrEditLabel": "Create or edit a LookupQualityRating",
+                "search": "Search for LookupQualityRating"
+            },
+            "created": "A new LookupQualityRating is created with identifier {{ param }}",
+            "updated": "A LookupQualityRating is updated with identifier {{ param }}",
+            "deleted": "A LookupQualityRating is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete LookupQualityRating {{ id }}?"
+            },
+            "detail": {
+                "title": "LookupQualityRating"
+            },
+            "code": "Code",
+            "name": "Name"
+        }
+    }
+}

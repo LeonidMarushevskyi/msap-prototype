@@ -66,6 +66,7 @@ angular.module('msapApp')
                 "sv": "Svenska",
                 "ta": "தமிழ்",
                 "tr": "Türkçe",
+                "vi": "Tiếng Việt",
                 "zh-cn": "中文（简体）",
                 "zh-tw": "繁體中文"
             }[lang];
