@@ -3,18 +3,18 @@
 angular.module('msapApp')
     .controller('FacilitiesController',
     ['$scope', '$state', '$log', '$q',
-        'leafletData', 'FacilityType', 'FacilityStatus', 'FosterFamilyAgenciesService',
+        'leafletData', 'ProviderType', 'QualityRating', 'ProviderAgenciesService',
         'GeocoderService', 'chLayoutConfigFactory', '$uibModal', 'Principal', 'AppPropertiesService', 'AddressUtils',
     function ($scope, $state, $log, $q,
-              leafletData, FacilityType, FacilityStatus, FosterFamilyAgenciesService,
+              leafletData, ProviderType, QualityRating, ProviderAgenciesService,
               GeocoderService, chLayoutConfigFactory, $uibModal, Principal, AppPropertiesService, AddressUtils) {
         var agenciesDataSource;
         var agenciesViewIndex;
         var agenciesViewPage = 10;
         $scope.agenciesLength = 0;
 
-        $scope.ALL_TYPES_LABEL = 'All Facility Types';
-        $scope.ALL_STATUSES_LABEL = 'All Facility Statuses';
+        $scope.ALL_TYPES_LABEL = 'All Provider Types';
+        $scope.ALL_STATUSES_LABEL = 'All Quality Ratings';
         $scope.DEFAULT_MARKER_MESSAGE = 'You are here';
         $scope.DEFAULT_ZOOM = 13;
 
@@ -95,8 +95,8 @@ angular.module('msapApp')
         $scope.currentLocation = $scope.getHomeLocation($scope.center);
 
         $scope.searchText = '';
-        $scope.facilityTypes = FacilityType;
-        $scope.facilityStatuses = FacilityStatus;
+        $scope.providerTypes = ProviderType;
+        $scope.qualityRating = QualityRating;
 
         $scope.showMapView = 'ch-show-map-view';
         $scope.showLinkMapView = 'ch-mobile-mailbox__nav-tab__link_active';
@@ -179,8 +179,8 @@ angular.module('msapApp')
         };
 
         $scope.defineIcon = function(agency) {
-            var imgId =  _.find(FacilityType, {name: agency.facility_type}).label + '_'
-                + _.find(FacilityStatus, {name: agency.facility_status}).color;
+            var imgId =  _.find(ProviderType, {name: agency.provider_type}).label + '_'
+                + _.find(QualityRating, {name: agency.quality_rating}).color;
             return $scope.getIconeUrl(imgId);
         };
 
@@ -207,8 +207,8 @@ angular.module('msapApp')
 
             var northEast = bounds._northEast;
             var southWest = bounds._southWest;
-            var selectedStatuses = $scope.getSelected($scope.facilityStatuses);
-            var selectedTypes = $scope.getSelected($scope.facilityTypes);
+            var providerTypes = $scope.getSelected($scope.providerTypes);
+            var qualityRatings = $scope.getSelected($scope.qualityRating);
             var request = {
                 bounds: {
                     northwest: {
@@ -221,12 +221,12 @@ angular.module('msapApp')
                     }
                 },
                 text: $scope.searchText,
-                statuses: selectedStatuses,
-                types: selectedTypes
+                providerTypes: providerTypes,
+                qualityRatings: qualityRatings
             };
             $log.debug('request', request);
 
-            FosterFamilyAgenciesService.findAgenciesByFilter(request).then(
+            ProviderAgenciesService.findAgenciesByFilter(request).then(
                 function(agencies) {
                     $log.debug('agencies', agencies);
                     agenciesDataSource = agencies;
@@ -294,7 +294,7 @@ angular.module('msapApp')
         };
 
         $scope.updateTypesLabel = function() {
-            $scope.updateDropDownLabel($scope.facilityTypes, $scope.typesConfig, $scope.ALL_TYPES_LABEL);
+            $scope.updateDropDownLabel($scope.providerTypes, $scope.typesConfig, $scope.ALL_TYPES_LABEL);
         };
         $scope.onTypeClick = function() {
             $scope.updateTypesLabel();
@@ -302,7 +302,7 @@ angular.module('msapApp')
         };
 
         $scope.updateStatusesLabel = function() {
-            $scope.updateDropDownLabel($scope.facilityStatuses, $scope.statusesConfig, $scope.ALL_STATUSES_LABEL);
+            $scope.updateDropDownLabel($scope.qualityRating, $scope.statusesConfig, $scope.ALL_STATUSES_LABEL);
         };
         $scope.onStatusClick = function() {
             $scope.updateStatusesLabel();
@@ -319,10 +319,10 @@ angular.module('msapApp')
         };
 
         $scope.resetFilters = function() {
-            $scope.clearFilter($scope.facilityTypes);
+            $scope.clearFilter($scope.providerTypes);
             $scope.updateTypesLabel();
 
-            $scope.clearFilter($scope.facilityStatuses);
+            $scope.clearFilter($scope.qualityRating);
             $scope.updateStatusesLabel();
 
             $scope.searchText = $scope.text = '';
