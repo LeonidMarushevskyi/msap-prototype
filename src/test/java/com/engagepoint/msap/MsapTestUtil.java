@@ -1,15 +1,25 @@
-package com.engagepoint.msap;
+package com.engagepoint.cws.apqd;
 
-import com.engagepoint.msap.config.JHipsterProperties;
-import com.engagepoint.msap.domain.LookupGender;
-import com.engagepoint.msap.domain.User;
-import com.engagepoint.msap.repository.AuthorityRepository;
-import com.engagepoint.msap.repository.UserRepository;
-import com.engagepoint.msap.security.AuthoritiesConstants;
-import com.engagepoint.msap.service.util.RandomUtil;
-import com.engagepoint.msap.web.rest.TestUtil;
-import com.engagepoint.msap.web.rest.dto.ContactDTO;
-import com.engagepoint.msap.web.rest.dto.ManagedUserDTO;
+import com.engagepoint.cws.apqd.config.JHipsterProperties;
+import com.engagepoint.cws.apqd.domain.Draft;
+import com.engagepoint.cws.apqd.domain.Inbox;
+import com.engagepoint.cws.apqd.domain.LookupGender;
+import com.engagepoint.cws.apqd.domain.MailBox;
+import com.engagepoint.cws.apqd.domain.Message;
+import com.engagepoint.cws.apqd.domain.Outbox;
+import com.engagepoint.cws.apqd.domain.User;
+import com.engagepoint.cws.apqd.repository.AuthorityRepository;
+import com.engagepoint.cws.apqd.repository.DraftRepository;
+import com.engagepoint.cws.apqd.repository.InboxRepository;
+import com.engagepoint.cws.apqd.repository.MailBoxRepository;
+import com.engagepoint.cws.apqd.repository.MessageRepository;
+import com.engagepoint.cws.apqd.repository.OutboxRepository;
+import com.engagepoint.cws.apqd.repository.UserRepository;
+import com.engagepoint.cws.apqd.security.AuthoritiesConstants;
+import com.engagepoint.cws.apqd.service.util.RandomUtil;
+import com.engagepoint.cws.apqd.web.rest.TestUtil;
+import com.engagepoint.cws.apqd.web.rest.dto.ContactDTO;
+import com.engagepoint.cws.apqd.web.rest.dto.ManagedUserDTO;
 import org.assertj.core.api.StrictAssertions;
 import org.springframework.context.MessageSource;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -38,7 +48,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 public final class MsapTestUtil {
     private static final LookupGender GENDER = new LookupGender();
@@ -102,6 +112,11 @@ public final class MsapTestUtil {
             user.setAuthorities(new HashSet<>());
         }
         user.getAuthorities().add(authorityRepository.findOne(role));
+    }
+
+    public static void setMailBox(UserRepository userRepository, User user, MailBox mailBox) {
+        user.setMailBox(mailBox);
+        userRepository.saveAndFlush(user);
     }
 
     public static User newUserAnnaBrown(PasswordEncoder passwordEncoder, AuthorityRepository authorityRepository) {
@@ -209,6 +224,83 @@ public final class MsapTestUtil {
         contactDTO.setRoleDescription(extractRoleDescription(contact));
 
         expectHasContact(resultActions, contactDTO);
+    }
+
+    /*
+     * Inbox-related
+     */
+
+    public static Inbox prepareInbox(InboxRepository inboxRepository) {
+        return inboxRepository.saveAndFlush(new Inbox());
+    }
+
+    public static Inbox setMessage(InboxRepository inboxRepository, Inbox inbox, Message message) {
+        Set<Message> messages = new HashSet<>();
+        messages.add(message);
+        inbox.setMessages(messages);
+        return inboxRepository.saveAndFlush(inbox);
+    }
+
+    /*
+     * Outbox-related
+     */
+
+    public static Outbox prepareOutbox(OutboxRepository outboxRepository) {
+        return outboxRepository.saveAndFlush(new Outbox());
+    }
+
+    public static Outbox setMessage(OutboxRepository outboxRepository, Outbox outbox, Message message) {
+        Set<Message> messages = new HashSet<>();
+        messages.add(message);
+        outbox.setMessages(messages);
+        return outboxRepository.saveAndFlush(outbox);
+    }
+
+    /*
+     * Draft-related
+     */
+
+    public static Draft prepareDraft(DraftRepository draftRepository) {
+        return draftRepository.saveAndFlush(new Draft());
+    }
+
+    public static Draft setMessage(DraftRepository draftRepository, Draft draft, Message message) {
+        Set<Message> messages = new HashSet<>();
+        messages.add(message);
+        draft.setMessages(messages);
+        return draftRepository.saveAndFlush(draft);
+    }
+
+    /*
+     * MailBox-related
+     */
+
+    public static MailBox prepareMailBox(MailBoxRepository mailBoxRepository, Inbox inbox, Outbox outbox, Draft draft, User user) {
+        MailBox mailBox = new MailBox();
+        mailBox.setInbox(inbox);
+        mailBox.setOutbox(outbox);
+        mailBox.setDraft(draft);
+        mailBox.setUser(user);
+        return mailBoxRepository.saveAndFlush(mailBox);
+    }
+
+    public static MailBox prepareMailBox(MailBoxRepository mailBoxRepository, InboxRepository inboxRepository,
+                                         OutboxRepository outboxRepository, DraftRepository draftRepository) {
+        return prepareMailBox(mailBoxRepository, prepareInbox(inboxRepository), prepareOutbox(outboxRepository),
+            prepareDraft(draftRepository), null);
+    }
+
+    /*
+     * Message-related
+     */
+
+    public static Message prepareMessage(MessageRepository messageRepository, String subject, String body, User from, User to) {
+        Message message = new Message();
+        message.setSubject(subject);
+        message.setBody(body);
+        message.setFrom(from);
+        message.setTo(to);
+        return messageRepository == null ? message : messageRepository.saveAndFlush(message);
     }
 
     /*
