@@ -36,7 +36,7 @@ msap-prototype-pref:
     - COOKIE=SRV insert indirect nocache
     - TZ=America/New_York
     - SPRING_MAIL_HOST=172.24.232.25
-    - SPRING_data_elasticsearch_cluster-name=msap-prototype-pref
+    - SPRING_DATA_ELASTICSEARCH_CLUSTER-NAME=msap-prototype-pref
   ports:
     - "8080"
   links:

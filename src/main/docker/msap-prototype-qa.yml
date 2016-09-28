@@ -33,7 +33,7 @@ msap-prototype-qa:
     - TZ=America/New_York
 #   - logback_graylogHost=LOGBACK_GRAYLOGHOST
     - SPRING_MAIL_HOST=172.24.232.25
-    - SPRING_data_elasticsearch_cluster-name=msap-prototype-qa
+    - SPRING_DATA_ELASTICSEARCH_CLUSTER-NAME=msap-prototype-qa
   ports:
     - "4080:8080"
   links:
