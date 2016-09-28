@@ -2,6 +2,7 @@
     "metrics": {
         "title": "Application Metrics",
         "refresh.button": "Refresh",
+        "reindexelastic.button": "Reindex Elastic Search",
         "updating": "Updating...",
         "jvm": {
             "title": "JVM Metrics",
