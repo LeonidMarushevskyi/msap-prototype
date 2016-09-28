@@ -7,6 +7,9 @@ msap-prototype-qa-elasticsearch:
   ports:
     - "9200"
     - "9300"
+  environment:
+    - ES_JAVA_OPTS= -Des.cluster.name=msap-prototype-qa
+    - TZ=America/New_York
 
 msap-prototype-qa-postgresql:
   container_name: msap-prototype-qa-postgresql
