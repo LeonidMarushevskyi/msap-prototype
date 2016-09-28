@@ -19,6 +19,12 @@ angular.module('msapApp')
                         templateUrl: 'scripts/app/facilities/facilities-agencies.html',
                         controller: 'FacilitiesAgenciesController'
                     }
+                },
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('facilities');
+                        return $translate.refresh();
+                    }]
                 }
             });
     });

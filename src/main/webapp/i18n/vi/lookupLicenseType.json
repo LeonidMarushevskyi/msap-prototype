@@ -1,0 +1,22 @@
+{
+    "msapApp": {
+        "lookupLicenseType" : {
+            "home": {
+                "title": "LookupLicenseTypes",
+                "createLabel": "Create a new LookupLicenseType",
+                "createOrEditLabel": "Create or edit a LookupLicenseType",
+                "search": "Search for LookupLicenseType"
+            },
+            "created": "A new LookupLicenseType is created with identifier {{ param }}",
+            "updated": "A LookupLicenseType is updated with identifier {{ param }}",
+            "deleted": "A LookupLicenseType is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete LookupLicenseType {{ id }}?"
+            },
+            "detail": {
+                "title": "LookupLicenseType"
+            },
+            "name": "Name"
+        }
+    }
+}

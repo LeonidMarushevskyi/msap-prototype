@@ -2,7 +2,7 @@
     <div class="ch-login-bg"></div>
 
     <div class="ch-login__header">
-        <div class="container-fluid ">
+        <div class="container-fluid">
             <div class="row clearfix rowfix">
 
                 <div class="col-md-6">
@@ -13,11 +13,21 @@
 
                 <div class="col-md-6">
                     <div class="ch-login__header__actions">
-
-                          <div class="ch-login__actions__new-account">
-                              <a class="" href="#/registerme">Create an Account</a>
-                          </div>
-
+                        <div class="ch-login__actions__language" ng-controller="LanguageController">
+                            <a href="" translate="global.menu.language" ng-click="toggleLanguagePopup()">Language</a>
+                            <div class="ch-user-account-entry__popup" ng-show="isLanguagePopupShown">
+                                <div class="ch-user-account-popup">
+                                    <div class="ch-user-account-popup__info clearfix" ng-repeat="language in languages">
+                                        <p ng-class="isCurrent(language) ? 'ch-language-popup__entry_active' : 'ch-language-popup__entry'" ng-click="clickLanguage(language)">
+                                            {{language | findLanguageFromKey}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ch-login__actions__new-account">
+                            <a href="#/registerme" translate="login.create-an-account">Create an Account</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -60,22 +70,22 @@
                   </div>
 
                   <div class="ch-login__form">
-                      <h3 class="ch-login__form__title">Sign In</h3>
+                      <h3 class="ch-login__form__title" translate="login.title">Sign In</h3>
 
                       <form class="form" role="form" ng-submit="login($event)">
                           <div class="ch-login__form__group">
-                              <label for="username" translate="">Username</label>
-                              <input type="text" class="form-control" id="username" placeholder="{{'global.form.username.placeholder' | translate}}" ng-model="username">
+                              <label for="username" translate="login.form.username">Username</label>
+                              <input type="text" class="form-control" id="username" placeholder="{{'login.form.username.placeholder' | translate}}" ng-model="username">
                           </div>
 
                           <div class="ch-login__form__group">
-                              <label for="password" translate="">Password</label>
+                              <label for="password" translate="login.form.password">Password</label>
                               <input type="password" class="form-control" id="password" placeholder="{{'login.form.password.placeholder' | translate}}"
                                      ng-model="password">
                           </div>
 
                           <div class="ch-login__form__alert-link">
-                              <a class="alert-link" href="#/reset/request" translate="">Forgot Password?</a>
+                              <a class="alert-link" href="#/reset/request" translate="login.password.forgot">Forgot Password?</a>
                           </div>
 
                           <button type="submit" class="ch-login__form__button-submit"

@@ -27,7 +27,7 @@ angular.module('msapApp')
  They are written in English to avoid character encoding issues (not a perfect solution)
  */
     .constant('LANGUAGES', [
-        'en', 'es'
+        'en', 'es', 'vi'
         // jhipster-needle-006 - JHipster will add new languages here
     ]
 );

@@ -2,7 +2,7 @@
  * Created by dmitry.rudenko on 5/25/2016.
  */
 angular.module('msapApp')
-    .factory('FosterFamilyAgenciesService', function (HHSService) {
+    .factory('ProviderAgenciesService', function ($log, EntitySearchFacade) {
         var joinValues = function (values) {
             var result = '';
             angular.forEach(values , function (value) {
@@ -43,7 +43,7 @@ angular.module('msapApp')
             },
             /*
               usage:
-                FosterFamilyAgenciesService.findAgenciesByFilter({
+              ProviderAgenciesService.findAgenciesByFilter({
                     bounds : {
                         northwest: {
                             latitude: 34.085175,
@@ -54,21 +54,27 @@ angular.module('msapApp')
                             longitude: -117.67147
                         }
                     },
-                    statuses : ['PENDING', 'LICENSED'],
-                    types : ['FOSTER FAMILY AGENCY SUB'],
+                    qualityRatings : ['Not Rated', 'Good'],
+                    providerTypes : ['Non-Relative In-Home'],
                     text : "TERI"
                 }).then(function (agencies) {
                     $log.debug(agencies);
                 });
             */
             findAgenciesByFilter: function (filter) {
-                var query = "$where=" +
-                    createInClause("facility_status", filter.statuses) + " AND " +
-                    createInClause("facility_type", filter.types) + " AND " +
-                    createWithinBoxClause(filter.bounds) + "&" +
-                    "$q=" + filter.text;
-
-                return HHSService.findFosterFamilyAgencies(query);
+                return EntitySearchFacade.search(
+                    {
+                        $exactMatch: true,
+                        '+providerName': filter.text,
+                        '+providerType.name': filter.providerTypes,
+                        '+qualityRating.name': filter.qualityRatings
+                    },
+                    // entity name
+                    'Provider'
+                ).then(function (searchResults) {
+                    $log.debug(searchResults.entityName + ' query: ' + searchResults.stringQuery);
+                    return searchResults.data;
+                })
             }
         }
     });

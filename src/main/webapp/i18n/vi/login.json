@@ -1,9 +1,9 @@
 {
     "login": {
-        "create-an-account": "Create an Account",
-        "title": "Sign in",
+        "create-an-account": "Tạo một tài khoản",
+        "title": "Đăng nhập",
         "form": {
-            "username": "Username",
+            "username": "Tên đăng nhập",
             "username.placeholder": "Your username",
             "password": "Password",
             "password.placeholder": "Your password",
