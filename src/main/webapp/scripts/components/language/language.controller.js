@@ -1,11 +1,8 @@
 'use strict';
 
 angular.module('msapApp')
-    .controller('LanguageController', function ($scope, $translate, Language, tmhDynamicLocale, Principal) {
-        $scope.changeLanguage = function (languageKey) {
-            $translate.use(languageKey);
-            tmhDynamicLocale.set(languageKey);
-        };
+    .controller('LanguageController', function ($scope, $translate, Language, LanguageUtils, tmhDynamicLocale, Principal) {
+        $scope.changeLanguage = LanguageUtils.changeUILanguage;
 
         $scope.getCurrentLanguageKey = function () {
             return _.isUndefined(tmhDynamicLocale.get()) ? 'en' : tmhDynamicLocale.get();

@@ -1,6 +1,16 @@
 'use strict';
 
 angular.module('msapApp')
+    .factory('LanguageUtils', ['$translate', 'tmhDynamicLocale', function ($translate, tmhDynamicLocale) {
+        function changeUILanguage(languageKey) {
+            $translate.use(languageKey);
+            tmhDynamicLocale.set(languageKey);
+        }
+
+        return {
+            changeUILanguage: changeUILanguage
+        };
+    }])
     .filter('formatTel', function () {
         return function (tel) {
             if (!tel) {

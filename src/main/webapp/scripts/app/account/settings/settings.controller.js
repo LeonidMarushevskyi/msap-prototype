@@ -2,8 +2,8 @@
 
 angular.module('msapApp')
     .controller('SettingsController',
-    ['$scope', '$log', 'Principal', 'Auth', 'Language', '$translate', 'lookupGender', 'Place', 'GeocoderService', 'lookupState', 'AddressUtils',
-    function ($scope, $log, Principal, Auth, Language, $translate, lookupGender, Place, GeocoderService, lookupState, AddressUtils) {
+    ['$scope', '$log', 'Principal', 'Auth', 'Language', 'LanguageUtils', 'lookupGender', 'Place', 'GeocoderService', 'lookupState', 'AddressUtils',
+    function ($scope, $log, Principal, Auth, Language, LanguageUtils, lookupGender, Place, GeocoderService, lookupState, AddressUtils) {
 
         $scope.resetValidation = function() {
             $scope.validation.success = false;
@@ -133,7 +133,7 @@ angular.module('msapApp')
                         });
                         Language.getCurrent().then(function(current) {
                             if ($scope.settingsAccount.langKey !== current) {
-                                $translate.use($scope.settingsAccount.langKey);
+                                LanguageUtils.changeUILanguage($scope.settingsAccount.langKey);
                             }
                         });
                     }).catch(function() {

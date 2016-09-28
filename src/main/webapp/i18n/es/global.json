@@ -113,13 +113,13 @@
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
-                "main": "Account",
-                "settings": "Settings",
-                "password": "Password",
-                "sessions": "Sessions",
-                "login": "Sign in",
-                "logout": "Log out",
-                "register": "Register"
+                "main": "Cuenta",
+                "settings": "Ajustes",
+                "password": "Contraseña",
+                "sessions": "Sesiones",
+                "login": "Registrarse",
+                "logout": "Cerrar sesión",
+                "register": "Registro"
             },
             "admin": {
                 "main": "Administration",
