@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('msapApp')
-    .controller('LoginController', function ($rootScope, $scope, $state, $timeout, Auth,
+    .controller('LoginController', function ($rootScope, $scope, $state, $timeout, Auth, MailBoxService,
      AuthenticationErrorService, $uibModal) {
         $scope.user = {};
         $scope.errors = {};
@@ -15,6 +15,7 @@ angular.module('msapApp')
                 password: $scope.password,
                 rememberMe: $scope.rememberMe
             }).then(function () {
+                MailBoxService.connect();
 
                 AuthenticationErrorService.resetAuthenticationError();
                 if ($rootScope.previousStateName === 'register') {

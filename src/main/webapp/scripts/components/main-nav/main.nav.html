@@ -1,5 +1,16 @@
 <ul class="ch-main-nav-list">
-    <li class="ch-main-nav-list__item" has-authority="PARENT, CASE_WORKER">
+    <li class="ch-main-nav-list__item" has-any-authority="PARENT, CASE_WORKER">
+        <div class="ch-main-nav-item">
+            <a class="ch-main-nav-item__link" ui-sref="ch-inbox.messages({directory: 'inbox'})" ng-class="{'ch-main-nav-item__link_active': $state.includes('ch-inbox')}">
+                <span class="icon icon-inbox ch-main-nav-item__icon"></span>
+                <div class="ch-main-nav-item__text-bundle">
+                    <span class="ch-main-nav-item__text" title="Private Inbox for communication with case worker">Inbox</span>
+                    <span ng-if="unreadInboxCount > 0" class="ch-main-nav-item__inbox-counter">{{unreadInboxCount}}</span>
+                </div>
+            </a>
+        </div>
+    </li>
+    <li class="ch-main-nav-list__item" has-authority="PARENT">
         <div class="ch-main-nav-item">
             <a class="ch-main-nav-item__link" ui-sref="ch-facilities" ui-sref-active="ch-main-nav-item__link_active">
                 <span class="icon icon-facilities ch-main-nav-item__icon"></span>

@@ -14,4 +14,8 @@ angular.module('msapApp')
         Principal.identity().then(function(account) {
             $scope.account = account;
         });
+
+        $scope.$on("apqdApp:updateUnreadInboxCount", function(event, unreadInboxCount) {
+            $scope.unreadInboxCount = unreadInboxCount;
+        });
     });
