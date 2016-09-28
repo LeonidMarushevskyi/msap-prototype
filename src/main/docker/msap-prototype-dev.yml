@@ -7,6 +7,9 @@ msap-prototype-dev-elasticsearch:
   ports:
     - "9200:9200"
     - "9300:9300"
+  environment:
+    - ES_JAVA_OPTS= -Des.cluster.name=msap-prototype-dev
+    - TZ=America/New_York
 
 msap-prototype-dev-postgresql:
   container_name: msap-prototype-dev-postgresql
@@ -31,7 +34,7 @@ msap-prototype-dev:
     - TZ=America/New_York
 #   - logback_graylogHost=LOGBACK_GRAYLOGHOST
     - SPRING_MAIL_HOST=172.24.232.25
-    - SPRING_data_elasticsearch_cluster-name=msap-prototype-dev
+    - SPRING_DATA_ELASTICSEARCH_CLUSTER-NAME=msap-prototype-dev
   ports:
     - "3080:8080"
   links:
