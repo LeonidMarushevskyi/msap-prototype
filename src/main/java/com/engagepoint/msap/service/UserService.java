@@ -2,12 +2,14 @@ package com.engagepoint.msap.service;
 
 import com.engagepoint.msap.domain.*;
 import com.engagepoint.msap.repository.AuthorityRepository;
+import com.engagepoint.msap.repository.MailBoxRepository;
 import com.engagepoint.msap.repository.PersistentTokenRepository;
 import com.engagepoint.msap.repository.UserRepository;
 import com.engagepoint.msap.repository.search.UserSearchRepository;
 import com.engagepoint.msap.security.AuthoritiesConstants;
 import com.engagepoint.msap.security.SecurityUtils;
 import com.engagepoint.msap.service.util.RandomUtil;
+import com.engagepoint.msap.web.rest.MailResource;
 import com.engagepoint.msap.web.rest.dto.ManagedUserDTO;
 import com.engagepoint.msap.web.rest.dto.UserDTO;
 import org.apache.commons.io.IOUtils;
@@ -51,6 +53,12 @@ public class UserService {
     @Inject
     private AuthorityRepository authorityRepository;
 
+    @Inject
+    private MailBoxRepository mailBoxRepository;
+
+    @Inject
+    private MailResource mailResource;
+
     public Optional<User> activateRegistration(String key) {
         LOGGER.debug("Activating user for activation key {}", key);
         userRepository.findOneByActivationKey(key)
@@ -60,6 +68,8 @@ public class UserService {
                 user.setActivationKey(null);
                 userRepository.save(user);
                 userSearchRepository.save(user);
+                sendInvitationLetter(user.getLogin());
+                attachSupportContacts(user.getLogin());
                 LOGGER.debug("Activated user: {}", user);
                 return user;
             });
@@ -97,6 +107,9 @@ public class UserService {
     public User createUserInformation(UserDTO userDTO) {
 
         User newUser = new User();
+        MailBox mailBox = prepareMailbox();
+        mailBox.setUser(newUser);
+        newUser.setMailBox(mailBox);
         Authority authority = authorityRepository.findOne(AuthoritiesConstants.PARENT);
         Set<Authority> authorities = new HashSet<>();
         String encryptedPassword = passwordEncoder.encode(userDTO.getPassword());
@@ -122,6 +135,48 @@ public class UserService {
         userSearchRepository.save(newUser);
         LOGGER.debug("Created Information for User: {}", newUser);
         return newUser;
+    }
+
+    private void sendInvitationLetter(String login) {
+        Message invitation = new Message();
+
+        String body;
+        try {
+            body = IOUtils.toString(getClass().getResourceAsStream("/templates/invitation.html"));
+        } catch (IOException e) {
+            throw new IllegalStateException("this should not happen", e);
+        }
+
+        invitation.setBody(body);
+        invitation.setSubject("Welcome!");
+        invitation.setFrom(userRepository.findOneByLogin("maryjenkins").get());
+        invitation.setTo(userRepository.findOneByLogin(login).get());
+
+        mailResource.sendInvitationLetter(invitation);
+    }
+
+    private void attachSupportContacts(String login) {
+        User user = userRepository.findOneByLogin(login).get();
+        User support = userRepository.findOneByLogin("worker").get();
+        mailResource.updateUserContacts(user, support);
+    }
+
+    private MailBox prepareMailbox() {
+        MailBox mailBox = new MailBox();
+
+        Inbox inbox = new Inbox();
+        inbox.setMailBox(mailBox);
+        mailBox.setInbox(inbox);
+
+        Outbox outbox = new Outbox();
+        outbox.setMailBox(mailBox);
+        mailBox.setOutbox(outbox);
+
+        Draft draft = new Draft();
+        draft.setMailBox(mailBox);
+        mailBox.setDraft(draft);
+
+        return mailBoxRepository.save(mailBox);
     }
 
     public User createUser(ManagedUserDTO managedUserDTO) {
