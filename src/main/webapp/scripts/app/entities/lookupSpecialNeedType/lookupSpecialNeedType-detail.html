@@ -1,0 +1,46 @@
+
+<div>
+    <h2><span translate="msapApp.lookupSpecialNeedType.detail.title">LookupSpecialNeedType</span> {{lookupSpecialNeedType.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="msapApp.lookupSpecialNeedType.name">Name</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{lookupSpecialNeedType.name}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="msapApp.lookupSpecialNeedType.groupCode">GroupCode</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{lookupSpecialNeedType.groupCode}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="msapApp.lookupSpecialNeedType.provider">provider</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="provider.detail({id:lookupSpecialNeedType.provider.id})">{{lookupSpecialNeedType.provider.id}}</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

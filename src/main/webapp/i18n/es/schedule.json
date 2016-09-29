@@ -1,0 +1,25 @@
+{
+    "msapApp": {
+        "schedule" : {
+            "home": {
+                "title": "Schedules",
+                "createLabel": "Crear nuevo Schedule",
+                "createOrEditLabel": "Crear o editar Schedule",
+                "search": "Search for Schedule"
+            },
+            "created": "Un nuevo Schedule ha sido creado con el identificador {{ param }}",
+            "updated": "Un Schedule ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Schedule ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Schedule {{ id }}?"
+            },
+            "detail": {
+                "title": "Schedule"
+            },
+            "openHour": "OpenHour",
+            "closeHour": "CloseHour",
+            "provider": "Provider",
+            "dayOfWeek": "DayOfWeek"
+        }
+    }
+}

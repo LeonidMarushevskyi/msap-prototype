@@ -67,7 +67,7 @@ class ProviderGatlingTest extends Simulation {
             .exec(http("Create new provider")
             .post("/api/providers")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "providerCapacity":"0", "providerName":"SAMPLE_TEXT", "phoneNumber":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "providerCapacity":"0", "providerName":"SAMPLE_TEXT", "phoneNumber":"SAMPLE_TEXT", "isOpenOvernight":null, "numberOfComplains":"0", "numberOfVisits":"0", "lastVisit":"2020-01-01T00:00:00.000Z", "description":"SAMPLE_TEXT", "isFullDay":null, "isAfterSchool":null, "isBeforeSchool":null}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_provider_url")))
             .pause(10)

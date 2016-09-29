@@ -1,0 +1,78 @@
+<div>
+    <h2 translate="msapApp.price.home.title">Prices</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="price.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+class="hidden-xs"                        translate="msapApp.price.home.createLabel">Create new Price
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="{{ 'msapApp.price.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="search()">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="msapApp.price.minimalPrice">MinimalPrice</span></th>
+                    <th><span translate="msapApp.price.maximumPrice">MaximumPrice</span></th>
+                    <th><span translate="msapApp.price.provider">provider</span></th>
+                    <th><span translate="msapApp.price.ageGroup">ageGroup</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="price in prices track by price.id">
+                    <td><a ui-sref="price.detail({id:price.id})">{{price.id}}</a></td>
+                    <td>{{price.minimalPrice}}</td>
+                    <td>{{price.maximumPrice}}</td>
+                    <td>
+                        <a ui-sref="provider.detail({id:price.provider.id})">{{price.provider.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="lookupAgeGroups.detail({id:price.ageGroup.id})">{{price.ageGroup.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="price.detail({id:price.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="price.edit({id:price.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="price.delete({id:price.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

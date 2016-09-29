@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('msapApp').controller('ProviderDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Provider', 'LookupLicenseType', 'LookupQualityRating', 'Place', 'LookupProviderType',
-        function($scope, $stateParams, $uibModalInstance, $q, entity, Provider, LookupLicenseType, LookupQualityRating, Place, LookupProviderType) {
+    ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Provider', 'LookupLicenseType', 'LookupProviderType', 'Place', 'LookupQualityRating', 'OpenSlot', 'Schedule', 'LookupSpecialNeedType', 'Review', 'Price', 'SubstantiatedAllegation', 'LookupLanguage',
+        function($scope, $stateParams, $uibModalInstance, $q, entity, Provider, LookupLicenseType, LookupProviderType, Place, LookupQualityRating, OpenSlot, Schedule, LookupSpecialNeedType, Review, Price, SubstantiatedAllegation, LookupLanguage) {
 
         $scope.provider = entity;
         $scope.licensetypes = LookupLicenseType.query({filter: 'provider-is-null'});
@@ -14,12 +14,12 @@ angular.module('msapApp').controller('ProviderDialogController',
         }).then(function(licenseType) {
             $scope.licensetypes.push(licenseType);
         });
-        $scope.providertypes = LookupQualityRating.query({filter: 'provider-is-null'});
+        $scope.providertypes = LookupProviderType.query({filter: 'provider-is-null'});
         $q.all([$scope.provider.$promise, $scope.providertypes.$promise]).then(function() {
             if (!$scope.provider.providerType || !$scope.provider.providerType.id) {
                 return $q.reject();
             }
-            return LookupQualityRating.get({id : $scope.provider.providerType.id}).$promise;
+            return LookupProviderType.get({id : $scope.provider.providerType.id}).$promise;
         }).then(function(providerType) {
             $scope.providertypes.push(providerType);
         });
@@ -32,15 +32,22 @@ angular.module('msapApp').controller('ProviderDialogController',
         }).then(function(address) {
             $scope.addresss.push(address);
         });
-        $scope.qualityratings = LookupProviderType.query({filter: 'provider-is-null'});
+        $scope.qualityratings = LookupQualityRating.query({filter: 'provider-is-null'});
         $q.all([$scope.provider.$promise, $scope.qualityratings.$promise]).then(function() {
             if (!$scope.provider.qualityRating || !$scope.provider.qualityRating.id) {
                 return $q.reject();
             }
-            return LookupProviderType.get({id : $scope.provider.qualityRating.id}).$promise;
+            return LookupQualityRating.get({id : $scope.provider.qualityRating.id}).$promise;
         }).then(function(qualityRating) {
             $scope.qualityratings.push(qualityRating);
         });
+        $scope.openslots = OpenSlot.query();
+        $scope.schedules = Schedule.query();
+        $scope.lookupspecialneedtypes = LookupSpecialNeedType.query();
+        $scope.reviews = Review.query();
+        $scope.prices = Price.query();
+        $scope.substantiatedallegations = SubstantiatedAllegation.query();
+        $scope.lookuplanguages = LookupLanguage.query();
         $scope.load = function(id) {
             Provider.get({id : id}, function(result) {
                 $scope.provider = result;
@@ -68,5 +75,14 @@ angular.module('msapApp').controller('ProviderDialogController',
 
         $scope.clear = function() {
             $uibModalInstance.dismiss('cancel');
+        };
+        $scope.datePickerForLastVisit = {};
+
+        $scope.datePickerForLastVisit.status = {
+            opened: false
+        };
+
+        $scope.datePickerForLastVisitOpen = function() {
+            $scope.datePickerForLastVisit.status.opened = true;
         };
 }]);

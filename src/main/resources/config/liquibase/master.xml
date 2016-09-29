@@ -17,6 +17,12 @@
     <include file="classpath:config/liquibase/changelog/20160204214554_populate_data_LookupGender.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160525025501_added_entity_LookupMaritalStatus.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160204214554_populate_data_LookupMaritalStatus.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160929131640_added_entity_LookupAgeGroups.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160929131641_added_entity_LookupDayOfWeek.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160929131642_added_entity_LookupSpecialNeedGroup.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/201609230401_populate_data_LookupLicenseType.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/201609230405_populate_data_LookupProviderType.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/201609230413_populate_data_LookupQualityRating.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160521013730_added_entity_Place.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160521013732_added_entity_Inbox.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160521013733_added_entity_Outbox.xml" relativeToChangelogFile="false"/>
@@ -30,10 +36,15 @@
     <include file="classpath:config/liquibase/changelog/99999999999993_added_table_UserContacts.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160521013731_populate_data_Place.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160924025854_added_entity_Provider.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/201609230401_populate_data_LookupLicenseType.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/201609230405_populate_data_LookupProviderType.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/201609230413_populate_data_LookupQualityRating.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160929131651_added_entity_Schedule.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160929131652_added_entity_Price.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160929131653_added_entity_OpenSlot.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160929131654_added_entity_SubstantiatedAllegation.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160929131655_added_entity_Review.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/201609260507_populate_data_Provider.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160929131643_added_entity_LookupSpecialNeedType.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160929131648_added_entity_LookupLanguage.xml" relativeToChangelogFile="false"/>
+
 
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

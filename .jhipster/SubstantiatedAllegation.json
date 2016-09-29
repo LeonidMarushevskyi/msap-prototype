@@ -1,0 +1,32 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "provider",
+      "otherEntityName": "provider",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "severity",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 3,
+      "fieldName": "allegationDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "changelogDate": "20160929131654",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no"
+}

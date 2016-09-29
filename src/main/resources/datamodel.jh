@@ -28,9 +28,8 @@ entity LookupSpecialNeedGroup {
 }
 
 entity LookupSpecialNeedType {
-    typeCode Integer required,
     name String required,
-    groupCode String
+    groupCode Integer
 }
 
 entity LookupState {
@@ -50,6 +49,11 @@ entity LookupGender {
 
 entity LookupMaritalStatus {
     maritalStatusName String required
+}
+
+entity LookupLanguage {
+    code Integer required,
+    name String required
 }
 
 entity Place {
@@ -266,5 +270,9 @@ relationship OneToOne {
 
 relationship OneToMany {
   Provider{substantiatedAllegation} to SubstantiatedAllegation
+}
+
+relationship OneToMany {
+  Provider{supportedLanguage} to LookupLanguage
 }
 

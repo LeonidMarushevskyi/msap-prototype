@@ -36,6 +36,70 @@
             </tr>
             <tr>
                 <td>
+                    <span translate="msapApp.provider.isOpenOvernight">IsOpenOvernight</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{provider.isOpenOvernight}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="msapApp.provider.numberOfComplains">NumberOfComplains</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{provider.numberOfComplains}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="msapApp.provider.numberOfVisits">NumberOfVisits</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{provider.numberOfVisits}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="msapApp.provider.lastVisit">LastVisit</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{provider.lastVisit | date:'mediumDate'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="msapApp.provider.description">Description</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{provider.description}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="msapApp.provider.isFullDay">IsFullDay</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{provider.isFullDay}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="msapApp.provider.isAfterSchool">IsAfterSchool</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{provider.isAfterSchool}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="msapApp.provider.isBeforeSchool">IsBeforeSchool</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{provider.isBeforeSchool}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <span translate="msapApp.provider.licenseType">licenseType</span>
                 </td>
                 <td>
@@ -47,7 +111,7 @@
                     <span translate="msapApp.provider.providerType">providerType</span>
                 </td>
                 <td>
-                    <a class="form-control-static" ui-sref="lookupQualityRating.detail({id:provider.providerType.id})">{{provider.providerType.id}}</a>
+                    <a class="form-control-static" ui-sref="lookupProviderType.detail({id:provider.providerType.id})">{{provider.providerType.id}}</a>
                 </td>
             </tr>
             <tr>
@@ -63,7 +127,7 @@
                     <span translate="msapApp.provider.qualityRating">qualityRating</span>
                 </td>
                 <td>
-                    <a class="form-control-static" ui-sref="lookupProviderType.detail({id:provider.qualityRating.id})">{{provider.qualityRating.id}}</a>
+                    <a class="form-control-static" ui-sref="lookupQualityRating.detail({id:provider.qualityRating.id})">{{provider.qualityRating.id}}</a>
                 </td>
             </tr>
             </tbody>

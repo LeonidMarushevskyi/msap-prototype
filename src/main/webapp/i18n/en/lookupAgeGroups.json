@@ -1,0 +1,23 @@
+{
+    "msapApp": {
+        "lookupAgeGroups" : {
+            "home": {
+                "title": "LookupAgeGroupss",
+                "createLabel": "Create a new LookupAgeGroups",
+                "createOrEditLabel": "Create or edit a LookupAgeGroups",
+                "search": "Search for LookupAgeGroups"
+            },
+            "created": "A new LookupAgeGroups is created with identifier {{ param }}",
+            "updated": "A LookupAgeGroups is updated with identifier {{ param }}",
+            "deleted": "A LookupAgeGroups is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete LookupAgeGroups {{ id }}?"
+            },
+            "detail": {
+                "title": "LookupAgeGroups"
+            },
+            "code": "Code",
+            "name": "Name"
+        }
+    }
+}
