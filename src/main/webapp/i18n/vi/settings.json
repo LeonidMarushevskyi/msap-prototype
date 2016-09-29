@@ -3,6 +3,11 @@
         "title": "Cài đặt người dùng cho [<b>{{username}}</b>]",
         "my-profile": "Thông tin của tôi",
         "general-information": "Thông tin chung",
+        "date-of-birth": "Ngày sinh",
+        "for-example": "Ví dụ",
+        "month": "tháng",
+        "day": "ngày",
+        "year": "Năm",
         "form": {
             "username": "Tên đăng nhập",
             "firstname": "Tên",
@@ -39,6 +44,21 @@
                 "family-case-license-number": {
                     "absent": "Gia đình Trường hợp/Số giấy phép vắng mặt",
                     "required": "Của bạn Gia đình Trường hợp/Số giấy phép bắt buộc."
+                },
+                "birth-month": {
+                    "invalid": "Tháng sinh của bạn không hợp lệ.",
+                    "min": "Tháng sinh của bạn được yêu cầu phải có ít nhất 1.",
+                    "max": "Tháng sinh của bạn không thể có nhiều hơn 12."
+                },
+                "birth-day": {
+                    "invalid": "Sinh nhật của bạn không hợp lệ.",
+                    "min": "Sinh nhật của bạn được yêu cầu phải có ít nhất 1.",
+                    "max": "Sinh nhật của bạn không thể có nhiều hơn 31."
+                },
+                "birth-year": {
+                    "invalid": "Năm sinh của bạn không hợp lệ.",
+                    "min": "Năm sinh của bạn được yêu cầu phải có ít nhất năm 1900.",
+                    "max": "năm sinh của bạn không thể có nhiều hơn 3000."
                 }
             }
         }

@@ -3,6 +3,11 @@
         "title": "La configuración de usuario [<b>{{username}}</b>]",
         "my-profile": "Mi perfil",
         "general-information": "Información general",
+        "date-of-birth": "Fecha de nacimiento",
+        "for-example": "Por ejemplo",
+        "month": "Mes",
+        "day": "Día",
+        "year": "Año",
         "form": {
             "username": "nombre de usuario",
             "firstname": "Nombre de pila",
@@ -39,6 +44,21 @@
                 "family-case-license-number": {
                     "absent": "Caso familia/Número de licencia está ausente",
                     "required": "Se requiere tu Caso familia/Número de licencia."
+                },
+                "birth-month": {
+                    "invalid": "Tu mes de nacimiento no es válida.",
+                    "min": "Tu mes de nacimiento se requiere que sea al menos 1.",
+                    "max": "Su mes de nacimiento no puede contener más de 12."
+                },
+                "birth-day": {
+                    "invalid": "Su cumpleaños es válido.",
+                    "min": "Su cumpleaños se requiere que sea al menos 1.",
+                    "max": "Su cumpleaños no puede contener más de 31."
+                },
+                "birth-year": {
+                    "invalid": "Su año de nacimiento no es válido.",
+                    "min": "Su año de nacimiento se requiere que sea al menos 1900.",
+                    "max": "Su año de nacimiento no puede contener más de 3000."
                 }
             }
         }
