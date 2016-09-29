@@ -48,7 +48,10 @@
                     "not-match": "La confirmación de la contraseña no coinciden và!",
                     "required": "Se requiere su contraseña.",
                     "min": "Su contraseña es necesaria para tener al menos 5 caracteres.",
-                    "max": "La contraseña no puede ser más largo de carbón de 50 caracteres."
+                    "max": "La contraseña no puede ser más largo de carbón de 50 caracteres.",
+                    "confirm.required": "Se requiere la confirmación de la contraseña.",
+                    "confirm.min": "La confirmación de su contraseña se requiere tener al menos 5 caracteres.",
+                    "confirm.max": "La confirmación de su contraseña no puede ser superior a 50 caracteres."
                 },
                 "firstname": {
                     "absent": "Primer nombre está ausente",

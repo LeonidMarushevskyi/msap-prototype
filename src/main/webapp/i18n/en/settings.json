@@ -48,7 +48,10 @@
                     "not-match": "The password and its confirmation do not match!",
                     "required": "Your password is required.",
                     "min": "Your password is required to be at least 5 characters.",
-                    "max": "Your password cannot be longer than 50 characters."
+                    "max": "Your password cannot be longer than 50 characters.",
+                    "confirm.required": "Your password confirmation is required.",
+                    "confirm.min": "Your password confirmation is required to be at least 5 characters.",
+                    "confirm.max": "Your password confirmation cannot be longer than 50 characters."
                 },
                 "firstname": {
                     "absent": "First Name is absent",

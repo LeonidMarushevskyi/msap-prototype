@@ -48,7 +48,10 @@
                     "not-match": "Các mật khẩu và xác nhận của nó không phù hợp!",
                     "required": "Mật khẩu của bạn là cần thiết.",
                     "min": "Mật khẩu của bạn là cần thiết để được tại ít nhất 5 ký tự.",
-                    "max": "Mật khẩu của bạn không thể lâu hơn 50 ký tự."
+                    "max": "Mật khẩu của bạn không thể lâu hơn 50 ký tự.",
+                    "confirm.required": "Xác nhận mật khẩu của bạn là bắt buộc.",
+                    "confirm.min": "Xác nhận mật khẩu của bạn phải có ít nhất 5 ký tự.",
+                    "confirm.max": "Xác nhận mật khẩu của bạn không thể lâu hơn 50 ký tự."
                 },
                 "firstname": {
                     "absent": "Tên vắng mặt",

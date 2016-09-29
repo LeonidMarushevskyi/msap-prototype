@@ -371,21 +371,21 @@
                                     </div>
                                 </div>
                                 <div ng-show="form.confirmPassword.$dirty && form.confirmPassword.$invalid">
-                                    <p class="help-block" ng-show="form.confirmPassword.$error.required">
-                                        Your confirmation password is required.
+                                    <p class="help-block" ng-show="form.confirmPassword.$error.required" translate="settings.messages.validate.password.confirm.required">
+                                        Your password confirmation is required.
                                     </p>
-                                    <p class="help-block" ng-show="form.confirmPassword.$error.minlength">
-                                        Your confirmation password is required to be at least 5 characters.
+                                    <p class="help-block" ng-show="form.confirmPassword.$error.minlength" translate="settings.messages.validate.password.confirm.min">
+                                        Your password confirmation is required to be at least 5 characters.
                                     </p>
-                                    <p class="help-block" ng-show="form.confirmPassword.$error.maxlength">
-                                        Your confirmation password cannot be longer than 50 characters.
+                                    <p class="help-block" ng-show="form.confirmPassword.$error.maxlength" translate="settings.messages.validate.password.confirm.max">
+                                        Your password confirmation cannot be longer than 50 characters.
                                     </p>
                                 </div>
                             </div>
                         </div>
                         <div class="ch-flex-row">
                                 <button type="button" class="ch-option-btn" ng-click="changePassword()">
-                                    <span class="ch-option-btn__text">Change password</span>
+                                    <span class="ch-option-btn__text" translate="settings.change-password">Change password</span>
                                 </button>
                         </div>
                     </div>
@@ -396,68 +396,3 @@
         </div>
     </form>
 </section>
-
-    <div style="display: none">
-        <div class="ch-alert-msg ch-alert-msg_with-icn ch-alert-msg_success">
-            <div class="ch-alert-msg__icon ch-alert-msg__icon_success"></div>
-            <div class="ch-alert-msg__text">
-                <p class="ch-alert-msg__title">Success</p>
-                <p class="ch-alert-msg__info">Your changes were saved successfully</p>
-            </div>
-            <div class="ch-alert-msg__btn-close">
-                <button type="button" class="close-btn close-btn_white"></button>
-            </div>
-        </div>
-        <div class="ch-alert-msg ch-alert-msg_with-icn ch-alert-msg_warn">
-            <div class="ch-alert-msg__icon ch-alert-msg__icon_warn"></div>
-            <div class="ch-alert-msg__text">
-                <p class="ch-alert-msg__title">Warning</p>
-                <p class="ch-alert-msg__info">Your changes not saved</p>
-            </div>
-            <div class="ch-alert-msg__btn-close">
-                <button type="button" class="close-btn close-btn_black"></button>
-            </div>
-        </div>
-        <div class="ch-alert-msg ch-alert-msg_with-icn ch-alert-msg_err">
-            <div class="ch-alert-msg__icon ch-alert-msg__icon_err"></div>
-            <div class="ch-alert-msg__text">
-                <p class="ch-alert-msg__title">Error 404</p>
-                <p class="ch-alert-msg__info">Lorem ipsum dolor sit amet</p>
-            </div>
-            <div class="ch-alert-msg__btn-close">
-                <button type="button" class="close-btn close-btn_white"></button>
-            </div>
-        </div>
-        <div class="ch-alert-msg ch-alert-msg_with-icn ch-alert-msg_info">
-            <div class="ch-alert-msg__icon ch-alert-msg__icon_info"></div>
-            <div class="ch-alert-msg__text">
-                <p class="ch-alert-msg__title">Welcome!</p>
-                <p class="ch-alert-msg__info">Lorem ipsum dolor sit amet</p>
-            </div>
-            <div class="ch-alert-msg__btn-close">
-                <button type="button" class="close-btn close-btn_white"></button>
-            </div>
-        </div>
-        <div class="ch-alert-msg ch-alert-msg_with-icn ch-alert-msg_info">
-            <div class="ch-alert-msg__icon ch-alert-msg__icon_email"></div>
-            <div class="ch-alert-msg__text">
-                <p class="ch-alert-msg__title">New Message!</p>
-                <p class="ch-alert-msg__info">Lorem ipsum dolor sit amet</p>
-            </div>
-            <div class="ch-alert-msg__btn-close">
-                <button type="button" class="close-btn close-btn_white"></button>
-            </div>
-        </div>
-        <div class="ch-alert-msg ch-alert-msg_with-icn ch-alert-msg_neutr">
-            <div class="ch-alert-msg__icon ch-alert-msg__icon_util"></div>
-            <div class="ch-alert-msg__text">
-                <p class="ch-alert-msg__title">Removed one message</p>
-            </div>
-            <div class="ch-alert-msg__btn">
-                <button type="button" class="ch-plane-btn ch-plane-btn_neutr">Undo</button>
-            </div>
-            <div class="ch-alert-msg__btn-close">
-                <button type="button" class="close-btn close-btn_white"></button>
-            </div>
-        </div>
-    </div>
