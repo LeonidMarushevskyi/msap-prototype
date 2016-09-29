@@ -128,7 +128,7 @@
                     "required": "Your password is required.",
                     "minlength": "Your password is required to be at least 5 characters.",
                     "maxlength": "Your password cannot be longer than 50 characters.",
-                    "strength": "Password strength:"
+                    "strength": "Mật khẩu mạnh:"
                 },
                 "confirmpassword": {
                     "required": "Your confirmation password is required.",
