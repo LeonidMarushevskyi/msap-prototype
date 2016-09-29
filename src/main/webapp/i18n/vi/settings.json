@@ -15,6 +15,11 @@
         "city": "Thành phố",
         "state": "Tiểu bang",
         "zip": "Mã Bưu Chính",
+        "email-address": "Địa chỉ email",
+        "telephone": "Điện thoại",
+        "change-password": "Đổi mật khẩu",
+        "new-password": "Mật khẩu mới",
+        "confirm-new-password": "Xác nhận mật khẩu mới",
         "form": {
             "username": "Tên đăng nhập",
             "firstname": "Tên",
@@ -28,14 +33,23 @@
         "messages": {
             "error": {
                 "error-occurred": "đã xảy ra lỗi!",
-                "settings-not-saved": "Cài đặt không thể lưu lại."
+                "settings-not-saved": "Cài đặt không thể lưu lại.",
+                "password-not-changed": "Các mật khẩu có thể không được thay đổi."
             },
-            "success": "<strong>Cài đặt đã lưu!</strong>",
+            "success": "Cài đặt đã lưu!",
+            "password-changed": "Mật khẩu đã được thay đổi!",
             "validate": {
                 "email-in-use": "E-mail đã được sử dụng!",
                 "choose-other": "Hãy chọn tên khác.",
+                "address-not-found": "Địa chỉ không thể được tìm thấy",
                 "please-populate": "Hãy cư.",
                 "please-update": "Vui lòng cập nhật.",
+                "password": {
+                    "not-match": "Các mật khẩu và xác nhận của nó không phù hợp!",
+                    "required": "Mật khẩu của bạn là cần thiết.",
+                    "min": "Mật khẩu của bạn là cần thiết để được tại ít nhất 5 ký tự.",
+                    "max": "Mật khẩu của bạn không thể lâu hơn 50 ký tự."
+                },
                 "firstname": {
                     "absent": "Tên vắng mặt",
                     "required": "Tên của bạn là bắt buộc.",
@@ -66,6 +80,9 @@
                     "invalid": "Năm sinh của bạn không hợp lệ.",
                     "min": "Năm sinh của bạn được yêu cầu phải có ít nhất năm 1900.",
                     "max": "năm sinh của bạn không thể có nhiều hơn 3000."
+                },
+                "tel": {
+                    "max": "Your Phone Number cannot be longer than 20 characters"
                 }
             }
         }
