@@ -21,6 +21,10 @@
             line-height: inherit;
             font-size: 1.4rem;
             font-weight: 600;
+
+            @media screen and (max-width: $break-phone) {
+                height: 4.5rem;
+            }
         }
 
         .leaflet-pelias-close {
@@ -38,10 +42,18 @@
     }
 
     .leaflet-bar a.leaflet-pelias-search-icon {
+        position: relative;
         border-radius: 0;
         margin-top: .2rem;
+        width: 3rem;
         height: 3rem;
+        top: .1rem;
+        left: .2rem;
         margin-left: .2rem;
         background-image: url('../../assets/images/out-sprite-icons/icon-map-pointer-profile.svg');
+
+        @media screen and (max-width: $break-phone) {
+            top: .5rem;
+        }
     }
 }

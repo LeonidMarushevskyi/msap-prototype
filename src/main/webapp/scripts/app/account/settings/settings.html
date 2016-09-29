@@ -128,53 +128,57 @@
                     <div class="ch-flex-row">
                         <div class="ch-flex-row__input-block">
                             <div class="ch-input-block">
-                                <label for="birth-date" class="ch-input-block__label">Date of Birth <span id="date-of-birth-hint" class="ch-input-block__addition">(For example: 04 28 1986)</span></label>
+                                <label for="birth-date" class="ch-input-block__label">{{'settings.date-of-birth' | translate}}
+                                    <span id="date-of-birth-hint" class="ch-input-block__addition">({{'settings.for-example' | translate}}: 04 28 1986)</span></label>
                                 <div class="ch-input-block__form-group">
                                     <div class="ch-input-block__form-input ch-input-block__form-input_2dig ch-input-block__form-input_mr_10">
-                                        <input aria-describedby="date-of-birth-hint" name="birthDateMonth" id="birth-date" class="ch-form-input" pattern="0?[1-9]|1[012]" type="number" min="1" max="12" placeholder="Month" ng-model="birthDateMonth" />
+                                        <input aria-describedby="date-of-birth-hint" name="birthDateMonth" id="birth-date" class="ch-form-input" pattern="0?[1-9]|1[012]" type="number" min="1" max="12"
+                                               placeholder="{{'settings.month' | translate}}" ng-model="birthDateMonth" />
                                     </div>
                                     <div class="ch-input-block__form-input ch-input-block__form-input_2dig ch-input-block__form-input_mr_10">
-                                        <input aria-describedby="date-of-birth-hint" name="birthDateDay" class="ch-form-input" pattern="0?[1-9]|1[0-9]|2[0-9]|3[01]" type="number" min="1" max="31" placeholder="Day" ng-model="birthDateDay" />
+                                        <input aria-describedby="date-of-birth-hint" name="birthDateDay" class="ch-form-input" pattern="0?[1-9]|1[0-9]|2[0-9]|3[01]" type="number" min="1" max="31"
+                                               placeholder="{{'settings.day' | translate}}" ng-model="birthDateDay" />
                                     </div>
                                     <div class="ch-input-block__form-input ch-input-block__form-input_4dig ch-input-block__form-input_mr_10">
-                                        <input aria-describedby="date-of-birth-hint" name="birthDateYear" class="ch-form-input" placeholder="Year" pattern="[0-9]{4}" type="number" min="1900" max="3000" ng-model="birthDateYear" />
+                                        <input aria-describedby="date-of-birth-hint" name="birthDateYear" class="ch-form-input"
+                                               placeholder="{{'settings.year' | translate}}" pattern="[0-9]{4}" type="number" min="1900" max="3000" ng-model="birthDateYear" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div ng-show="form.birthDateMonth.$dirty && form.birthDateMonth.$invalid">
-                        <p class="help-block" ng-show="form.birthDateMonth.$invalid">
+                        <p class="help-block" ng-show="form.birthDateMonth.$invalid" translate="settings.messages.validate.birth-month.invalid">
                             Your birth month is invalid.
                         </p>
-                        <p class="help-block" ng-show="form.birthDateMonth.$error.minlength">
+                        <p class="help-block" ng-show="form.birthDateMonth.$error.minlength" translate="settings.messages.validate.birth-month.min">
                             Your birth month is required to be at least 1.
                         </p>
-                        <p class="help-block" ng-show="form.birthDateMonth.$error.maxlength">
+                        <p class="help-block" ng-show="form.birthDateMonth.$error.maxlength" translate="settings.messages.validate.birth-month.max">
                             Your birth month cannot be more than 12.
                         </p>
                     </div>
 
-                    <div ng-show="form.birthDateDay.$dirty && form.birthDateDay.$invalid">
+                    <div ng-show="form.birthDateDay.$dirty && form.birthDateDay.$invalid" translate="settings.messages.validate.birth-day.invalid">
                         <p class="help-block" ng-show="form.birthDateDay.$invalid">
                             Your birth day is invalid.
                         </p>
-                        <p class="help-block" ng-show="form.birthDateDay.$error.minlength">
+                        <p class="help-block" ng-show="form.birthDateDay.$error.minlength" translate="settings.messages.validate.birth-day.min">
                             Your birth day is required to be at least 1.
                         </p>
-                        <p class="help-block" ng-show="form.birthDateDay.$error.maxlength">
+                        <p class="help-block" ng-show="form.birthDateDay.$error.maxlength" translate="settings.messages.validate.birth-day.max">
                             Your birth day cannot be more than 31.
                         </p>
                     </div>
 
-                    <div ng-show="form.birthDateYear.$dirty && form.birthDateYear.$invalid">
+                    <div ng-show="form.birthDateYear.$dirty && form.birthDateYear.$invalid" translate="settings.messages.validate.birth-year.invalid">
                         <p class="help-block" ng-show="form.birthDateYear.$invalid">
                             Your birth year is invalid.
                         </p>
-                        <p class="help-block" ng-show="form.birthDateYear.$error.minlength">
+                        <p class="help-block" ng-show="form.birthDateYear.$error.minlength" translate="settings.messages.validate.birth-year.min">
                             Your birth year is required to be at least 1900.
                         </p>
-                        <p class="help-block" ng-show="form.birthDateYear.$error.maxlength">
+                        <p class="help-block" ng-show="form.birthDateYear.$error.maxlength" translate="settings.messages.validate.birth-year.max">
                             Your birth year cannot be more than 3000.
                         </p>
                     </div>
@@ -182,7 +186,7 @@
                     <div class="ch-flex-row">
                         <div class="ch-flex-row__input-block">
                             <div class="ch-input-block">
-                                <label class="ch-input-block__label">Gender</label>
+                                <label class="ch-input-block__label" translate="settings.gender">Gender</label>
                                 <ul class="ch-input-block__form-input">
                                     <li class="ch-input-block__form-input-li" ng-repeat="gender in lookupGender track by gender.id">
                                         <label for="gender{{gender.id}}" class="ch-input-block__label">
@@ -214,14 +218,14 @@
 
             <uib-accordion-group is-open="isProfileContactInformationOpen">
                 <uib-accordion-heading>
-                    <span class="ch-section__header ch-section__header_icon ch-section__header_icon_map-pointer">Contact information</span>
+                    <span class="ch-section__header ch-section__header_icon ch-section__header_icon_map-pointer" translate="settings.contact-information">Contact information</span>
                 </uib-accordion-heading>
 
                     <div class="ch-section__content">
                         <div class="ch-flex-row">
                             <div class="ch-flex-row__input-block">
                                 <div class="ch-input-block" add-geocoder-search-field>
-                                    <label for="geocoder" class="ch-input-block__label">Search Address</label>
+                                    <label for="geocoder" class="ch-input-block__label" translate="settings.search-address">Search Address</label>
                                     <div class="ch-input-block__form-input ch-input-block__form-input_search-field-map ch-input-block__form-input_icon ch-input-block__form-input_icon_left">
                                         <span id="geocoder">
                                         </span>
@@ -232,7 +236,7 @@
                         <div class="ch-flex-row">
                             <div class="ch-flex-row__input-block">
                                 <div class="ch-input-block">
-                                    <label for="street" class="ch-input-block__label">Street Address</label>
+                                    <label for="street" class="ch-input-block__label" translate="settings.street-address">Street Address</label>
                                     <div class="ch-input-block__form-input">
                                         <input type="text" name="street" id="street" class="ch-form-input" ng-model="settingsAccount.place.streetName" />
                                     </div>
@@ -242,7 +246,7 @@
                         <div class="ch-flex-row">
                             <div class="ch-flex-row__input-block">
                                 <div class="ch-input-block">
-                                    <label for="city" class="ch-input-block__label">City</label>
+                                    <label for="city" class="ch-input-block__label" translate="settings.city">City</label>
                                     <div class="ch-input-block__form-input">
                                         <input type="text" name="city" id="city" class="ch-form-input" ng-model="settingsAccount.place.cityName"/>
                                     </div>
@@ -250,7 +254,7 @@
                             </div>
                             <div class="ch-flex-row__input-block">
                                 <div class="ch-input-block">
-                                    <label for="state" class="ch-input-block__label">State</label>
+                                    <label for="state" class="ch-input-block__label" translate="settings.state">State</label>
                                     <div class="ch-input-block__form-input ch-input-block__form-input_icon ch-input-block__form-input_icon_right">
                                         <span class="ch-form-input-icon ch-form-input-icon_right ch-form-input-icon_arrow-down"></span>
                                         <select type="text" name="state" id="state" class="ch-form-input" ng-model="settingsAccount.place.state" ng-options="state.stateName for state in states track by state.id">
@@ -263,7 +267,7 @@
                         <div class="ch-flex-row">
                             <div class="ch-flex-row__input-block">
                                 <div class="ch-input-block">
-                                    <label for="zipCode" class="ch-input-block__label">Zip</label>
+                                    <label for="zipCode" class="ch-input-block__label" translate="settings.zip">Zip</label>
                                     <div class="ch-input-block__form-input ch-input-block__form-input_4dig">
                                         <input type="text" name="zipCode" id="zipCode" class="ch-form-input" ng-model="settingsAccount.place.zipCode" ng-maxlength="5" ng-minlength="5"
                                                ui-mask="99999" ui-mask-placeholder ui-mask-placeholder-char="_" />

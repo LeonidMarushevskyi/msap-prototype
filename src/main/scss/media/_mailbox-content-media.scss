@@ -7,15 +7,15 @@ html {
     @media screen and (max-width: $break-phone) {
       -ms-text-size-adjust: 100%;
       -webkit-text-size-adjust: 100%;
-      font: 8px/1 sans-serif;
+      font: 10px/1 sans-serif;
     }
 }
 
-.ch-layout {
-    @media screen and (max-width: $break-phone) {
-        zoom: 0.85;
-    }
-}
+// .ch-layout {
+//     @media screen and (max-width: $break-phone) {
+//         zoom: 0.85;
+//     }
+// }
 
 
 .ch-page {
@@ -233,8 +233,8 @@ html {
 .form-type__checkbox_empty-label input[type="checkbox"] + label:before {
 
     @media screen and (max-width: $break-phone) {
-        width: 3rem;
-        height: 3rem;
+        width: 2rem;
+        height: 2rem;
     }
 }
 

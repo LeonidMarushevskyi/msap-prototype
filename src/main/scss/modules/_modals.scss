@@ -1,5 +1,9 @@
 .modal-facilities-default-address {
     width: 38.5rem;
+
+    @media screen and (max-width: $break-phone) {
+        width: 34rem;
+    }
 }
 
 .modal-privacy-policy {
@@ -7,9 +11,15 @@
 }
 
 .ch-general-modal {
+
     .modal-dialog {
         margin: 25rem auto;
+
+        @media screen and (max-width: $break-phone) {
+            margin: 10rem auto;
+        }
     }
+
     .modal-content {
         border-radius: 0;
     }
@@ -19,6 +29,10 @@
 .ch-modal__body,
 .ch-modal__footer {
     padding: 0 4.5rem;
+
+    @media screen and (max-width: $break-phone) {
+        padding: 0 2.5rem;
+    }
 }
 
 .ch-modal__footer {
@@ -35,7 +49,7 @@
     opacity: 1;
     border: none;
     padding: 1.8rem;
-    background: url("../images/out-sprite-icons/icon-close-btn.png") no-repeat center;
+    background: url("../images/out-sprite-icons/icon-close.png") no-repeat center;
 }
 
 .ch-modal__title {
@@ -48,10 +62,14 @@
 }
 
 .ch-modal__row {
-    margin-bottom: 1.5rem;
+    height: 5rem;
 
     .ch-input-block__form-input_search-field-map .leaflet-pelias-expanded {
         width: 100% !important;
+    }
+
+    @media screen and (max-width: $break-phone) {
+        margin-bottom: 1rem;
     }
 }
 

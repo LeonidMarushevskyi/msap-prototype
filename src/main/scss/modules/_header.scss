@@ -1,6 +1,6 @@
 .ch-header {
     width: 100%;
-    background: #343c47;
+    background: $primary-color-grey-light;
     height: 7.3rem;
 }
 
@@ -10,7 +10,7 @@
 
 .ch-header__section_logo {
     float: left;
-    padding: 1.5rem 6.2rem 0 2.7rem;
+    padding: 1rem 6.2rem 0 2.7rem;
     width: 21rem;
 }
 
@@ -33,7 +33,8 @@
 
 .ch-header__menu-mobile {
     position: absolute;
-    right: 2rem;
+    top: 2rem;
+    right: 1rem;
     z-index: 900;
 
     .icon {
@@ -59,17 +60,7 @@
   background: url("../images/us-icon/icon-close.png") no-repeat center;
 }
 
-.ch-user-account-entry__dropdown-btn_collapsed:after {
-    content: '\0020';
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 4px solid #fff;
-    vertical-align: 10px;
-}
-
+.ch-user-account-entry__dropdown-btn_collapsed:after,
 .ch-user-account-entry__dropdown-btn_expanded:after {
     content: '\0020';
     display: inline-block;
@@ -77,8 +68,21 @@
     height: 0;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-bottom: 4px solid #fff;
+}
+
+.ch-user-account-entry__dropdown-btn_collapsed:after {
+    border-top: 4px solid #fff;
+    vertical-align: 3px;
+}
+
+.icon-user-account.ch-user-account-entry__dropdown-btn_collapsed:after,
+.icon-user-account.ch-user-account-entry__dropdown-btn_expanded:after {
     vertical-align: 10px;
+}
+
+.ch-user-account-entry__dropdown-btn_expanded:after {
+    border-bottom: 4px solid #fff;
+    vertical-align: 3px;
 }
 
 .ch-user-account-entry__popup:before {
@@ -91,7 +95,6 @@
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-bottom: 10px solid #fff;
-
 }
 
 .ch-user-account-entry__popup {
