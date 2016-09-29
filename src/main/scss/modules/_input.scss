@@ -291,7 +291,7 @@ input[type="radio"] + label::before {
   content: '\a0';
   display: inline-block;
   height: 1.8rem;
-  line-height: 0.8;
+  line-height: 1;
   margin-right: 0.6em;
   text-indent: 0.15em;
   vertical-align: 0.2em;
