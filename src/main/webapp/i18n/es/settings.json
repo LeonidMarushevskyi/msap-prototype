@@ -8,6 +8,13 @@
         "month": "Mes",
         "day": "Día",
         "year": "Año",
+        "gender": "Género",
+        "contact-information": "Información del contacto",
+        "search-address": "Búsqueda de dirección",
+        "street-address": "Dirección",
+        "city": "Ciudad",
+        "state": "Estado",
+        "zip": "Código postal",
         "form": {
             "username": "nombre de usuario",
             "firstname": "Nombre de pila",

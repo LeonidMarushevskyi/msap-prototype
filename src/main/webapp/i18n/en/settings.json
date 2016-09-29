@@ -8,6 +8,13 @@
         "month": "Month",
         "day": "Day",
         "year": "Year",
+        "gender": "Gender",
+        "contact-information": "Contact information",
+        "search-address": "Search Address",
+        "street-address": "Street Address",
+        "city": "City",
+        "state": "State",
+        "zip": "Zip",
         "form": {
             "username": "Username",
             "firstname": "First Name",

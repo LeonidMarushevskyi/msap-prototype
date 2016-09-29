@@ -8,6 +8,13 @@
         "month": "tháng",
         "day": "ngày",
         "year": "Năm",
+        "gender": "Tính",
+        "contact-information": "Thông tin liên lạc",
+        "search-address": "Tìm địa chỉ",
+        "street-address": "Địa chỉ",
+        "city": "Thành phố",
+        "state": "Tiểu bang",
+        "zip": "Mã Bưu Chính",
         "form": {
             "username": "Tên đăng nhập",
             "firstname": "Tên",

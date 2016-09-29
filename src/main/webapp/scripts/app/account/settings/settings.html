@@ -186,7 +186,7 @@
                     <div class="ch-flex-row">
                         <div class="ch-flex-row__input-block">
                             <div class="ch-input-block">
-                                <label class="ch-input-block__label">Gender</label>
+                                <label class="ch-input-block__label" translate="settings.gender">Gender</label>
                                 <ul class="ch-input-block__form-input">
                                     <li class="ch-input-block__form-input-li" ng-repeat="gender in lookupGender track by gender.id">
                                         <label for="gender{{gender.id}}" class="ch-input-block__label">
@@ -218,14 +218,14 @@
 
             <uib-accordion-group is-open="isProfileContactInformationOpen">
                 <uib-accordion-heading>
-                    <span class="ch-section__header ch-section__header_icon ch-section__header_icon_map-pointer">Contact information</span>
+                    <span class="ch-section__header ch-section__header_icon ch-section__header_icon_map-pointer" translate="settings.contact-information">Contact information</span>
                 </uib-accordion-heading>
 
                     <div class="ch-section__content">
                         <div class="ch-flex-row">
                             <div class="ch-flex-row__input-block">
                                 <div class="ch-input-block" add-geocoder-search-field>
-                                    <label for="geocoder" class="ch-input-block__label">Search Address</label>
+                                    <label for="geocoder" class="ch-input-block__label" translate="settings.search-address">Search Address</label>
                                     <div class="ch-input-block__form-input ch-input-block__form-input_search-field-map ch-input-block__form-input_icon ch-input-block__form-input_icon_left">
                                         <span id="geocoder">
                                         </span>
@@ -236,7 +236,7 @@
                         <div class="ch-flex-row">
                             <div class="ch-flex-row__input-block">
                                 <div class="ch-input-block">
-                                    <label for="street" class="ch-input-block__label">Street Address</label>
+                                    <label for="street" class="ch-input-block__label" translate="settings.street-address">Street Address</label>
                                     <div class="ch-input-block__form-input">
                                         <input type="text" name="street" id="street" class="ch-form-input" ng-model="settingsAccount.place.streetName" />
                                     </div>
@@ -246,7 +246,7 @@
                         <div class="ch-flex-row">
                             <div class="ch-flex-row__input-block">
                                 <div class="ch-input-block">
-                                    <label for="city" class="ch-input-block__label">City</label>
+                                    <label for="city" class="ch-input-block__label" translate="settings.city">City</label>
                                     <div class="ch-input-block__form-input">
                                         <input type="text" name="city" id="city" class="ch-form-input" ng-model="settingsAccount.place.cityName"/>
                                     </div>
@@ -254,7 +254,7 @@
                             </div>
                             <div class="ch-flex-row__input-block">
                                 <div class="ch-input-block">
-                                    <label for="state" class="ch-input-block__label">State</label>
+                                    <label for="state" class="ch-input-block__label" translate="settings.state">State</label>
                                     <div class="ch-input-block__form-input ch-input-block__form-input_icon ch-input-block__form-input_icon_right">
                                         <span class="ch-form-input-icon ch-form-input-icon_right ch-form-input-icon_arrow-down"></span>
                                         <select type="text" name="state" id="state" class="ch-form-input" ng-model="settingsAccount.place.state" ng-options="state.stateName for state in states track by state.id">
@@ -267,7 +267,7 @@
                         <div class="ch-flex-row">
                             <div class="ch-flex-row__input-block">
                                 <div class="ch-input-block">
-                                    <label for="zipCode" class="ch-input-block__label">Zip</label>
+                                    <label for="zipCode" class="ch-input-block__label" translate="settings.zip">Zip</label>
                                     <div class="ch-input-block__form-input ch-input-block__form-input_4dig">
                                         <input type="text" name="zipCode" id="zipCode" class="ch-form-input" ng-model="settingsAccount.place.zipCode" ng-maxlength="5" ng-minlength="5"
                                                ui-mask="99999" ui-mask-placeholder ui-mask-placeholder-char="_" />
