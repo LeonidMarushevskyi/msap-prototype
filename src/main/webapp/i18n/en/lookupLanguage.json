@@ -1,0 +1,24 @@
+{
+    "msapApp": {
+        "lookupLanguage" : {
+            "home": {
+                "title": "LookupLanguages",
+                "createLabel": "Create a new LookupLanguage",
+                "createOrEditLabel": "Create or edit a LookupLanguage",
+                "search": "Search for LookupLanguage"
+            },
+            "created": "A new LookupLanguage is created with identifier {{ param }}",
+            "updated": "A LookupLanguage is updated with identifier {{ param }}",
+            "deleted": "A LookupLanguage is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete LookupLanguage {{ id }}?"
+            },
+            "detail": {
+                "title": "LookupLanguage"
+            },
+            "code": "Code",
+            "name": "Name",
+            "provider": "Provider"
+        }
+    }
+}

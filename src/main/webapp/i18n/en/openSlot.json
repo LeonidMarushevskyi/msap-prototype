@@ -1,0 +1,24 @@
+{
+    "msapApp": {
+        "openSlot" : {
+            "home": {
+                "title": "OpenSlots",
+                "createLabel": "Create a new OpenSlot",
+                "createOrEditLabel": "Create or edit a OpenSlot",
+                "search": "Search for OpenSlot"
+            },
+            "created": "A new OpenSlot is created with identifier {{ param }}",
+            "updated": "A OpenSlot is updated with identifier {{ param }}",
+            "deleted": "A OpenSlot is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete OpenSlot {{ id }}?"
+            },
+            "detail": {
+                "title": "OpenSlot"
+            },
+            "openSlots": "OpenSlots",
+            "provider": "Provider",
+            "ageGroup": "AgeGroup"
+        }
+    }
+}

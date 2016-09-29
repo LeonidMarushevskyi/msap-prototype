@@ -24,6 +24,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -49,6 +51,29 @@ public class ProviderResourceIntTest {
     private static final String UPDATED_PROVIDER_NAME = "BBBBB";
     private static final String DEFAULT_PHONE_NUMBER = "AAAAA";
     private static final String UPDATED_PHONE_NUMBER = "BBBBB";
+
+    private static final Boolean DEFAULT_IS_OPEN_OVERNIGHT = false;
+    private static final Boolean UPDATED_IS_OPEN_OVERNIGHT = true;
+
+    private static final Integer DEFAULT_NUMBER_OF_COMPLAINS = 1;
+    private static final Integer UPDATED_NUMBER_OF_COMPLAINS = 2;
+
+    private static final Integer DEFAULT_NUMBER_OF_VISITS = 1;
+    private static final Integer UPDATED_NUMBER_OF_VISITS = 2;
+
+    private static final LocalDate DEFAULT_LAST_VISIT = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_LAST_VISIT = LocalDate.now(ZoneId.systemDefault());
+    private static final String DEFAULT_DESCRIPTION = "AAAAA";
+    private static final String UPDATED_DESCRIPTION = "BBBBB";
+
+    private static final Boolean DEFAULT_IS_FULL_DAY = false;
+    private static final Boolean UPDATED_IS_FULL_DAY = true;
+
+    private static final Boolean DEFAULT_IS_AFTER_SCHOOL = false;
+    private static final Boolean UPDATED_IS_AFTER_SCHOOL = true;
+
+    private static final Boolean DEFAULT_IS_BEFORE_SCHOOL = false;
+    private static final Boolean UPDATED_IS_BEFORE_SCHOOL = true;
 
     @Inject
     private ProviderRepository providerRepository;
@@ -83,6 +108,14 @@ public class ProviderResourceIntTest {
         provider.setProviderCapacity(DEFAULT_PROVIDER_CAPACITY);
         provider.setProviderName(DEFAULT_PROVIDER_NAME);
         provider.setPhoneNumber(DEFAULT_PHONE_NUMBER);
+        provider.setIsOpenOvernight(DEFAULT_IS_OPEN_OVERNIGHT);
+        provider.setNumberOfComplains(DEFAULT_NUMBER_OF_COMPLAINS);
+        provider.setNumberOfVisits(DEFAULT_NUMBER_OF_VISITS);
+        provider.setLastVisit(DEFAULT_LAST_VISIT);
+        provider.setDescription(DEFAULT_DESCRIPTION);
+        provider.setIsFullDay(DEFAULT_IS_FULL_DAY);
+        provider.setIsAfterSchool(DEFAULT_IS_AFTER_SCHOOL);
+        provider.setIsBeforeSchool(DEFAULT_IS_BEFORE_SCHOOL);
     }
 
     @Test
@@ -104,6 +137,14 @@ public class ProviderResourceIntTest {
         assertThat(testProvider.getProviderCapacity()).isEqualTo(DEFAULT_PROVIDER_CAPACITY);
         assertThat(testProvider.getProviderName()).isEqualTo(DEFAULT_PROVIDER_NAME);
         assertThat(testProvider.getPhoneNumber()).isEqualTo(DEFAULT_PHONE_NUMBER);
+        assertThat(testProvider.getIsOpenOvernight()).isEqualTo(DEFAULT_IS_OPEN_OVERNIGHT);
+        assertThat(testProvider.getNumberOfComplains()).isEqualTo(DEFAULT_NUMBER_OF_COMPLAINS);
+        assertThat(testProvider.getNumberOfVisits()).isEqualTo(DEFAULT_NUMBER_OF_VISITS);
+        assertThat(testProvider.getLastVisit()).isEqualTo(DEFAULT_LAST_VISIT);
+        assertThat(testProvider.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
+        assertThat(testProvider.getIsFullDay()).isEqualTo(DEFAULT_IS_FULL_DAY);
+        assertThat(testProvider.getIsAfterSchool()).isEqualTo(DEFAULT_IS_AFTER_SCHOOL);
+        assertThat(testProvider.getIsBeforeSchool()).isEqualTo(DEFAULT_IS_BEFORE_SCHOOL);
     }
 
     @Test
@@ -118,8 +159,16 @@ public class ProviderResourceIntTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(provider.getId().intValue())))
                 .andExpect(jsonPath("$.[*].providerCapacity").value(hasItem(DEFAULT_PROVIDER_CAPACITY)))
-                .andExpect(jsonPath("$.[*].providerName").value(hasItem(DEFAULT_PROVIDER_NAME.toString())))
-                .andExpect(jsonPath("$.[*].phoneNumber").value(hasItem(DEFAULT_PHONE_NUMBER.toString())));
+                .andExpect(jsonPath("$.[*].providerName").value(hasItem(DEFAULT_PROVIDER_NAME)))
+                .andExpect(jsonPath("$.[*].phoneNumber").value(hasItem(DEFAULT_PHONE_NUMBER)))
+                .andExpect(jsonPath("$.[*].isOpenOvernight").value(hasItem(DEFAULT_IS_OPEN_OVERNIGHT.booleanValue())))
+                .andExpect(jsonPath("$.[*].numberOfComplains").value(hasItem(DEFAULT_NUMBER_OF_COMPLAINS)))
+                .andExpect(jsonPath("$.[*].numberOfVisits").value(hasItem(DEFAULT_NUMBER_OF_VISITS)))
+                .andExpect(jsonPath("$.[*].lastVisit").value(hasItem(DEFAULT_LAST_VISIT.toString())))
+                .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
+                .andExpect(jsonPath("$.[*].isFullDay").value(hasItem(DEFAULT_IS_FULL_DAY.booleanValue())))
+                .andExpect(jsonPath("$.[*].isAfterSchool").value(hasItem(DEFAULT_IS_AFTER_SCHOOL.booleanValue())))
+                .andExpect(jsonPath("$.[*].isBeforeSchool").value(hasItem(DEFAULT_IS_BEFORE_SCHOOL.booleanValue())));
     }
 
     @Test
@@ -134,8 +183,16 @@ public class ProviderResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(provider.getId().intValue()))
             .andExpect(jsonPath("$.providerCapacity").value(DEFAULT_PROVIDER_CAPACITY))
-            .andExpect(jsonPath("$.providerName").value(DEFAULT_PROVIDER_NAME.toString()))
-            .andExpect(jsonPath("$.phoneNumber").value(DEFAULT_PHONE_NUMBER.toString()));
+            .andExpect(jsonPath("$.providerName").value(DEFAULT_PROVIDER_NAME))
+            .andExpect(jsonPath("$.phoneNumber").value(DEFAULT_PHONE_NUMBER))
+            .andExpect(jsonPath("$.isOpenOvernight").value(DEFAULT_IS_OPEN_OVERNIGHT))
+            .andExpect(jsonPath("$.numberOfComplains").value(DEFAULT_NUMBER_OF_COMPLAINS))
+            .andExpect(jsonPath("$.numberOfVisits").value(DEFAULT_NUMBER_OF_VISITS))
+            .andExpect(jsonPath("$.lastVisit").value(DEFAULT_LAST_VISIT.toString()))
+            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
+            .andExpect(jsonPath("$.isFullDay").value(DEFAULT_IS_FULL_DAY))
+            .andExpect(jsonPath("$.isAfterSchool").value(DEFAULT_IS_AFTER_SCHOOL))
+            .andExpect(jsonPath("$.isBeforeSchool").value(DEFAULT_IS_BEFORE_SCHOOL));
     }
 
     @Test
@@ -158,6 +215,14 @@ public class ProviderResourceIntTest {
         provider.setProviderCapacity(UPDATED_PROVIDER_CAPACITY);
         provider.setProviderName(UPDATED_PROVIDER_NAME);
         provider.setPhoneNumber(UPDATED_PHONE_NUMBER);
+        provider.setIsOpenOvernight(UPDATED_IS_OPEN_OVERNIGHT);
+        provider.setNumberOfComplains(UPDATED_NUMBER_OF_COMPLAINS);
+        provider.setNumberOfVisits(UPDATED_NUMBER_OF_VISITS);
+        provider.setLastVisit(UPDATED_LAST_VISIT);
+        provider.setDescription(UPDATED_DESCRIPTION);
+        provider.setIsFullDay(UPDATED_IS_FULL_DAY);
+        provider.setIsAfterSchool(UPDATED_IS_AFTER_SCHOOL);
+        provider.setIsBeforeSchool(UPDATED_IS_BEFORE_SCHOOL);
 
         restProviderMockMvc.perform(put("/api/providers")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -171,6 +236,14 @@ public class ProviderResourceIntTest {
         assertThat(testProvider.getProviderCapacity()).isEqualTo(UPDATED_PROVIDER_CAPACITY);
         assertThat(testProvider.getProviderName()).isEqualTo(UPDATED_PROVIDER_NAME);
         assertThat(testProvider.getPhoneNumber()).isEqualTo(UPDATED_PHONE_NUMBER);
+        assertThat(testProvider.getIsOpenOvernight()).isEqualTo(UPDATED_IS_OPEN_OVERNIGHT);
+        assertThat(testProvider.getNumberOfComplains()).isEqualTo(UPDATED_NUMBER_OF_COMPLAINS);
+        assertThat(testProvider.getNumberOfVisits()).isEqualTo(UPDATED_NUMBER_OF_VISITS);
+        assertThat(testProvider.getLastVisit()).isEqualTo(UPDATED_LAST_VISIT);
+        assertThat(testProvider.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        assertThat(testProvider.getIsFullDay()).isEqualTo(UPDATED_IS_FULL_DAY);
+        assertThat(testProvider.getIsAfterSchool()).isEqualTo(UPDATED_IS_AFTER_SCHOOL);
+        assertThat(testProvider.getIsBeforeSchool()).isEqualTo(UPDATED_IS_BEFORE_SCHOOL);
     }
 
     @Test

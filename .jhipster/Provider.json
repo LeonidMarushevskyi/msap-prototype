@@ -12,7 +12,7 @@
     {
       "relationshipId": 2,
       "relationshipName": "providerType",
-      "otherEntityName": "lookupQualityRating",
+      "otherEntityName": "lookupProviderType",
       "relationshipType": "one-to-one",
       "otherEntityField": "id",
       "ownerSide": true,
@@ -30,10 +30,59 @@
     {
       "relationshipId": 4,
       "relationshipName": "qualityRating",
-      "otherEntityName": "lookupProviderType",
+      "otherEntityName": "lookupQualityRating",
       "relationshipType": "one-to-one",
       "otherEntityField": "id",
       "ownerSide": true,
+      "otherEntityRelationshipName": "provider"
+    },
+    {
+      "relationshipId": 5,
+      "relationshipName": "openSlot",
+      "otherEntityName": "openSlot",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "provider"
+    },
+    {
+      "relationshipId": 6,
+      "relationshipName": "schedule",
+      "otherEntityName": "schedule",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "provider"
+    },
+    {
+      "relationshipId": 7,
+      "relationshipName": "specialNeed",
+      "otherEntityName": "lookupSpecialNeedType",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "provider"
+    },
+    {
+      "relationshipId": 8,
+      "relationshipName": "review",
+      "otherEntityName": "review",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "provider"
+    },
+    {
+      "relationshipId": 9,
+      "relationshipName": "price",
+      "otherEntityName": "price",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "provider"
+    },
+    {
+      "relationshipId": 10,
+      "relationshipName": "substantiatedAllegation",
+      "otherEntityName": "substantiatedAllegation",
+      "relationshipType": "one-to-many",
+      "otherEntityRelationshipName": "provider"
+    },
+    {
+      "relationshipId": 11,
+      "relationshipName": "supportedLanguage",
+      "otherEntityName": "lookupLanguage",
+      "relationshipType": "one-to-many",
       "otherEntityRelationshipName": "provider"
     }
   ],
@@ -52,6 +101,46 @@
       "fieldId": 3,
       "fieldName": "phoneNumber",
       "fieldType": "String"
+    },
+    {
+      "fieldId": 4,
+      "fieldName": "isOpenOvernight",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldId": 5,
+      "fieldName": "numberOfComplains",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldId": 6,
+      "fieldName": "numberOfVisits",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldId": 7,
+      "fieldName": "lastVisit",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldId": 8,
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 9,
+      "fieldName": "isFullDay",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldId": 10,
+      "fieldName": "isAfterSchool",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldId": 11,
+      "fieldName": "isBeforeSchool",
+      "fieldType": "Boolean"
     }
   ],
   "changelogDate": "20160924025854",

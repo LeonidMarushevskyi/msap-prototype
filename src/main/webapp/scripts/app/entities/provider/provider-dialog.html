@@ -31,6 +31,56 @@
                     ng-model="provider.phoneNumber"
                      />
         </div>
+        <div class="form-group">
+            <label class="control-label" translate="msapApp.provider.isOpenOvernight" for="field_isOpenOvernight">IsOpenOvernight</label>
+            <input type="checkbox" class="form-control" name="isOpenOvernight" id="field_isOpenOvernight"
+                    ng-model="provider.isOpenOvernight"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="msapApp.provider.numberOfComplains" for="field_numberOfComplains">NumberOfComplains</label>
+            <input type="number" class="form-control" name="numberOfComplains" id="field_numberOfComplains"
+                    ng-model="provider.numberOfComplains"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="msapApp.provider.numberOfVisits" for="field_numberOfVisits">NumberOfVisits</label>
+            <input type="number" class="form-control" name="numberOfVisits" id="field_numberOfVisits"
+                    ng-model="provider.numberOfVisits"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="msapApp.provider.lastVisit" for="field_lastVisit">LastVisit</label>
+            <input id="field_lastVisit" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="provider.lastVisit" is-open="datePickerForLastVisit.status.opened"
+            />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datePickerForLastVisitOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="msapApp.provider.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="provider.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="msapApp.provider.isFullDay" for="field_isFullDay">IsFullDay</label>
+            <input type="checkbox" class="form-control" name="isFullDay" id="field_isFullDay"
+                    ng-model="provider.isFullDay"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="msapApp.provider.isAfterSchool" for="field_isAfterSchool">IsAfterSchool</label>
+            <input type="checkbox" class="form-control" name="isAfterSchool" id="field_isAfterSchool"
+                    ng-model="provider.isAfterSchool"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="msapApp.provider.isBeforeSchool" for="field_isBeforeSchool">IsBeforeSchool</label>
+            <input type="checkbox" class="form-control" name="isBeforeSchool" id="field_isBeforeSchool"
+                    ng-model="provider.isBeforeSchool"
+                     />
+        </div>
 
         <div class="form-group">
             <label translate="msapApp.provider.licenseType" for="field_licenseType">licenseType</label>
@@ -40,7 +90,7 @@
         </div>
         <div class="form-group">
             <label translate="msapApp.provider.providerType" for="field_providerType">providerType</label>
-            <select class="form-control" id="field_providerType" name="providerType" ng-model="provider.providerType" ng-options="lookupQualityRating as lookupQualityRating.id for lookupQualityRating in providertypes | orderBy:'id' track by lookupQualityRating.id">
+            <select class="form-control" id="field_providerType" name="providerType" ng-model="provider.providerType" ng-options="lookupProviderType as lookupProviderType.id for lookupProviderType in providertypes | orderBy:'id' track by lookupProviderType.id">
                 <option value=""></option>
             </select>
         </div>
@@ -52,7 +102,7 @@
         </div>
         <div class="form-group">
             <label translate="msapApp.provider.qualityRating" for="field_qualityRating">qualityRating</label>
-            <select class="form-control" id="field_qualityRating" name="qualityRating" ng-model="provider.qualityRating" ng-options="lookupProviderType as lookupProviderType.id for lookupProviderType in qualityratings | orderBy:'id' track by lookupProviderType.id">
+            <select class="form-control" id="field_qualityRating" name="qualityRating" ng-model="provider.qualityRating" ng-options="lookupQualityRating as lookupQualityRating.id for lookupQualityRating in qualityratings | orderBy:'id' track by lookupQualityRating.id">
                 <option value=""></option>
             </select>
         </div>

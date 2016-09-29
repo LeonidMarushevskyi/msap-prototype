@@ -78,6 +78,16 @@
                 "lookupProviderType": "LookupProviderType",
                 "lookupQualityRating": "LookupQualityRating",
                 "provider": "Provider",
+                "lookupAgeGroups": "LookupAgeGroups",
+                "lookupDayOfWeek": "LookupDayOfWeek",
+                "lookupSpecialNeedGroup": "LookupSpecialNeedGroup",
+                "schedule": "Schedule",
+                "price": "Price",
+                "openSlot": "OpenSlot",
+                "substantiatedAllegation": "SubstantiatedAllegation",
+                "lookupSpecialNeedType": "LookupSpecialNeedType",
+                "lookupLanguage": "LookupLanguage",
+                "review": "Review",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
