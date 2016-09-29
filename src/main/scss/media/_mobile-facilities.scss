@@ -2,7 +2,7 @@
 
     @media screen and (max-width: $break-phone) {
         display: block;
-        height: 13.5rem;
+        height: 10.5rem;
         padding-top: 2.8rem;
         padding-bottom: 2.8rem;
         padding-left: 1.7rem;
@@ -34,9 +34,22 @@
 
     @media screen and (max-width: $break-phone) {
         width: 100% !important;
-        height: 8rem;
-        font-size: 2.8rem;
+        height: 5rem;
+        font-size: 2rem;
         padding-left: 6rem;
+
+        &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+          font-size: 2rem;
+        }
+        &::-moz-placeholder { /* Firefox 19+ */
+          font-size: 2rem;
+        }
+        &:-ms-input-placeholder { /* IE 10+ */
+          font-size: 2rem;
+        }
+        &:-moz-placeholder { /* Firefox 18- */
+          font-size: 2rem;
+        }
     }
 
 }
@@ -45,7 +58,7 @@
 
     @media screen and (max-width: $break-phone) {
         position: relative;
-        top: 2rem;
+        top: 1rem;
         left: 1rem;
         background-image: url("../../assets/images/us-icon/icon-facilities-m.svg");
     }
@@ -89,7 +102,6 @@
     }
 }
 
-
 .ch-facilities-heading__mobile__view__filter .ch-facilities-heading__input__item_2,
 .ch-facilities-heading__mobile__view__filter .ch-facilities-heading__input__item_3,
 .ch-facilities-heading__mobile__view__filter .ch-facilities-heading__input__item_4 {
@@ -132,7 +144,29 @@
         }
 
     }
+}
 
+.ch-filter-pane__title .ch-facilities-list_top-results {
+    @media screen and (max-width: $break-phone) {
+        font-size: 2rem;
+    }
+
+    .ch-facilities-list_top-count-message {
+        @media screen and (max-width: $break-phone) {
+            font-size: 2rem;
+        }
+    }
+
+}
+
+.ch-filter-pane__title {
+
+    .ch-filter-pane__control {
+        @media screen and (max-width: $break-phone) {
+            float: none;
+            font-size: 2rem;
+        }
+    }
 }
 
 .ch-filter-pane__icon {
@@ -153,22 +187,22 @@
 .ch-facilities-heading__mobile__view__filter-expanded .ch-form-input.ch-form-input_search {
     @media screen and (max-width: $break-phone) {
         width: 100% !important;
-        height: 8rem;
-        font-size: 2.8rem;
+        height: 5rem;
+        font-size: 2rem;
         padding-left: 6rem;
     }
 
     &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-      font-size: 2.8rem;
+      font-size: 2rem;
     }
     &::-moz-placeholder { /* Firefox 19+ */
-      font-size: 2.8rem;
+      font-size: 2rem;
     }
     &:-ms-input-placeholder { /* IE 10+ */
-      font-size: 2.8rem;
+      font-size: 2rem;
     }
     &:-moz-placeholder { /* Firefox 18- */
-      font-size: 2.8rem;
+      font-size: 2rem;
     }
 }
 
@@ -205,9 +239,9 @@
 
     .ch-multi-select-dropdown__btn {
         @media screen and (max-width: $break-phone) {
-            height: 8rem;
-            font-size: 2.8rem;
-            padding-left: 6rem;
+            height: 5rem;
+            font-size: 2rem;
+            padding-left: 2rem;
         }
     }
 }

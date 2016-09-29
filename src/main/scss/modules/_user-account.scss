@@ -66,7 +66,7 @@
 .ch-flex-row__input-block {
     flex-basis: 0;
     flex-grow: 1;
-    margin-right: 2rem;
+    margin-right: 3rem;
 }
 
 .ch-input-block__form-input .ch-form-input {
@@ -224,7 +224,7 @@ input[type="radio"]:checked + .ch-input-block__label-radio:after {
 .profile-form {
 
     .panel {
-        width: 53.6rem;
+        max-width: 53.6rem;
         margin: 0 auto;
         border: none;
         box-shadow: none;

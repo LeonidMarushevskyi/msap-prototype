@@ -1,6 +1,6 @@
 .ch-mobile-mailbox__nav {
     display: none;
-    flex-flow: row wrap;    
+    flex-flow: row wrap;
 }
 
 .ch-mobile-mailbox__nav-tab {
@@ -9,9 +9,9 @@
     border-bottom: .1rem solid #cbcdcf;
 }
 
-
 .ch-mobile-mailbox__nav-tab__link {
-    padding: 2rem 4rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
     width: 100%;
     border-bottom: .6rem solid #fff;
 }

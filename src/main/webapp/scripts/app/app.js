@@ -78,7 +78,7 @@ angular.module('msapApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalpre
                         if (result) {
                             $state.go('metrics');
                         } else {
-                            $state.go('ch-facilities', {}, {reload: true});
+                            $state.go('ch-inbox.messages', {directory: 'inbox'}, {reload: true});
                         }
                     });
             } else {
@@ -89,13 +89,13 @@ angular.module('msapApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalpre
         $rootScope.goMainPage = function() {
             Principal.hasAuthority('CASE_WORKER').then(function(has) {
                 if (has) {
-                    $state.go('ch-facilities', {}, {reload: true});
+                    $state.go('ch-inbox.messages', {directory: 'inbox'}, {reload: true});
                 }
             });
 
             Principal.hasAuthority('PARENT').then(function(has) {
                 if (has) {
-                    $state.go('ch-facilities', {}, {reload: true});
+                    $state.go('ch-inbox.messages', {directory: 'inbox'}, {reload: true});
                 }
             });
 
