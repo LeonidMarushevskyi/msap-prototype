@@ -63,12 +63,17 @@ angular.module('msapApp')
             */
             findAgenciesByFilter: function (filter) {
                 return EntitySearchFacade.search(
-                    {
-                        $exactMatch: true,
-                        '+providerName': filter.text,
-                        '+providerType.name': filter.providerTypes,
-                        '+qualityRating.name': filter.qualityRatings
-                    },
+                    [ "*",
+                        {
+                            $anySuffix: true,
+                            '+providerName': filter.text
+                        },
+                        {
+                            $exactMatch: true,
+                            '+providerType.name': filter.providerTypes,
+                            '+qualityRating.name': filter.qualityRatings
+                        }
+                    ],
                     // entity name
                     'Provider'
                 ).then(function (searchResults) {
