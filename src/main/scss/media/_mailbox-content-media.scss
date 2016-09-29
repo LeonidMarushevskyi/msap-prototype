@@ -7,15 +7,15 @@ html {
     @media screen and (max-width: $break-phone) {
       -ms-text-size-adjust: 100%;
       -webkit-text-size-adjust: 100%;
-      font: 8px/1 sans-serif;
+      font: 10px/1 sans-serif;
     }
 }
 
-.ch-layout {
-    @media screen and (max-width: $break-phone) {
-        zoom: 0.85;
-    }
-}
+// .ch-layout {
+//     @media screen and (max-width: $break-phone) {
+//         zoom: 0.85;
+//     }
+// }
 
 
 .ch-page {
