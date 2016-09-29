@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('AttachmentController', function ($scope, $state, DataUtils, Attachment, AttachmentSearch) {
 
         $scope.attachments = [];

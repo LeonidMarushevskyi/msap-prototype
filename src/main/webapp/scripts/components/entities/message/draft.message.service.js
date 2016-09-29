@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('DraftMessage', function ($resource, DateUtils) {
         return $resource('api/mails/draft/:id', {}, {
             'query': { method: 'GET', isArray: true},

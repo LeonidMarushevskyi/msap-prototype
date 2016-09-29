@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('DeletedDetailController', function ($scope, $rootScope, $stateParams, entity, Deleted) {
         $scope.deleted = entity;
         $scope.load = function (id) {
@@ -8,7 +8,7 @@ angular.module('apqdApp')
                 $scope.deleted = result;
             });
         };
-        var unsubscribe = $rootScope.$on('apqdApp:deletedUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('msapApp:deletedUpdate', function(event, result) {
             $scope.deleted = result;
         });
         $scope.$on('$destroy', unsubscribe);

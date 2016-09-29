@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('MailBox', function ($resource) {
         return $resource('api/mailBoxs/:id', {}, {
             'query': { method: 'GET', isArray: true},

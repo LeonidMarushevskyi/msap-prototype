@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('MessageDetailController', function ($scope, $rootScope, $stateParams, entity, Message) {
         $scope.message = entity;
         $scope.load = function (id) {
@@ -8,7 +8,7 @@ angular.module('apqdApp')
                 $scope.message = result;
             });
         };
-        var unsubscribe = $rootScope.$on('apqdApp:messageUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('msapApp:messageUpdate', function(event, result) {
             $scope.message = result;
         });
         $scope.$on('$destroy', unsubscribe);

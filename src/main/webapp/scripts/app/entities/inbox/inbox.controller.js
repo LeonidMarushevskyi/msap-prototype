@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('InboxController', function ($scope, $state, Inbox, InboxSearch) {
 
         $scope.inboxs = [];

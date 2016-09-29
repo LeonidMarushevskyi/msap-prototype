@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('EditMailCtrl', function ($rootScope, $stateParams, $scope, $state, $log, mail, identity,
                                           AutoSaveService, DraftMessage, Contacts, Upload, Message, FileService, ngToast, $templateCache)
     {
@@ -114,7 +114,7 @@ angular.module('apqdApp')
                 $scope.sendingInProgress = true;
                 DraftMessage.send($scope.mail, function () {
                     $scope.sendingInProgress = false;
-                    $rootScope.$broadcast("apqdApp:updateContactList");
+                    $rootScope.$broadcast("msapApp:updateContactList");
                     $rootScope.backToPreviousState();
                     ngToast.create({
                         className : "",

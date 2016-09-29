@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp').controller('AttachmentDialogController',
+angular.module('msapApp').controller('AttachmentDialogController',
     ['$scope', '$stateParams', '$uibModalInstance', 'DataUtils', 'entity', 'Attachment', 'Message',
         function($scope, $stateParams, $uibModalInstance, DataUtils, entity, Attachment, Message) {
 
@@ -13,7 +13,7 @@ angular.module('apqdApp').controller('AttachmentDialogController',
         };
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('apqdApp:attachmentUpdate', result);
+            $scope.$emit('msapApp:attachmentUpdate', result);
             $uibModalInstance.close(result);
             $scope.isSaving = false;
         };

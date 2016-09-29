@@ -1,20 +1,20 @@
 <div>
-    <h2 translate="apqdApp.attachment.home.title">Attachments</h2>
+    <h2 translate="msapApp.attachment.home.title">Attachments</h2>
     <jh-alert></jh-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="attachment.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span 
-class="hidden-xs"                        translate="apqdApp.attachment.home.createLabel">Create new Attachment
+                    <span
+class="hidden-xs"                        translate="msapApp.attachment.home.createLabel">Create new Attachment
                     </span>
                 </button>
             </div>
             <div class="col-xs-8 no-padding-right">
                 <form name="searchForm" class="form-inline">
                     <div class="input-group pull-right" >
-                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="{{ 'apqdApp.attachment.home.search' | translate }}">
+                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="{{ 'msapApp.attachment.home.search' | translate }}">
                         <span  class="input-group-btn width-min" >
                             <button class="btn btn-info" ng-click="search()">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -31,13 +31,13 @@ class="hidden-xs"                        translate="apqdApp.attachment.home.crea
             <thead>
                 <tr>
                     <th><span translate="global.field.id">ID</span></th>
-                    <th><span translate="apqdApp.attachment.fileName">FileName</span></th>
-                    <th><span translate="apqdApp.attachment.fileMimeType">FileMimeType</span></th>
-                    <th><span translate="apqdApp.attachment.fileSize">FileSize</span></th>
-                    <th><span translate="apqdApp.attachment.fileDescription">FileDescription</span></th>
-                    <th><span translate="apqdApp.attachment.creationDate">CreationDate</span></th>
-                    <th><span translate="apqdApp.attachment.file">File</span></th>
-                    <th><span translate="apqdApp.attachment.message">message</span></th>
+                    <th><span translate="msapApp.attachment.fileName">FileName</span></th>
+                    <th><span translate="msapApp.attachment.fileMimeType">FileMimeType</span></th>
+                    <th><span translate="msapApp.attachment.fileSize">FileSize</span></th>
+                    <th><span translate="msapApp.attachment.fileDescription">FileDescription</span></th>
+                    <th><span translate="msapApp.attachment.creationDate">CreationDate</span></th>
+                    <th><span translate="msapApp.attachment.file">File</span></th>
+                    <th><span translate="msapApp.attachment.message">message</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -57,7 +57,7 @@ class="hidden-xs"                        translate="apqdApp.attachment.home.crea
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
                                     ui-sref="attachment.detail({id:attachment.id})"
-                                    class="btn btn-info btn-sm"> 
+                                    class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
                             </button>
@@ -69,7 +69,7 @@ class="hidden-xs"                        translate="apqdApp.attachment.home.crea
                             </button>
                             <button type="submit"
                                     ui-sref="attachment.delete({id:attachment.id})"
-                                    class="btn btn-danger btn-sm">                                    
+                                    class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
                             </button>

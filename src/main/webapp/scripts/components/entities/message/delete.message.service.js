@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('DeleteMessageService', function ($resource) {
         return $resource('api/mails/delete', {}, {
             'delete': {method: 'POST'}

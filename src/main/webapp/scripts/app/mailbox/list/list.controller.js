@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('MessagesCtrl', function ($scope, $state, $stateParams, $log,
                                           Message, ParseLinks, MailService, filterByDestination,
                                           DeleteMessageService, RestoreMessageService, identity) {

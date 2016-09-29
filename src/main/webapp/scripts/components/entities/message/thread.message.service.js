@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('MessageThread', function ($resource) {
         return $resource('api/mails/thread/:id', {}, {
             'get': { method: 'GET' }

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .service('MailBoxService', function ($rootScope, $cookies, $http) {
 
         var stompClient = null;
@@ -22,17 +22,17 @@ angular.module('apqdApp')
             stompClient.connect(headers, function() {
 
                 stompClient.subscribe("/user/topic/mail/drafts", function (data) {
-                    $rootScope.$broadcast("apqdApp:updateDraftsCount", JSON.parse(data.body));
+                    $rootScope.$broadcast("msapApp:updateDraftsCount", JSON.parse(data.body));
                     data.ack();
                 }, {ack: 'client'});
 
                 stompClient.subscribe("/user/topic/mail/inbox", function (data) {
-                    $rootScope.$broadcast("apqdApp:updateUnreadInboxCount", JSON.parse(data.body));
+                    $rootScope.$broadcast("msapApp:updateUnreadInboxCount", JSON.parse(data.body));
                     data.ack();
                 }, {ack: 'client'});
 
                 stompClient.subscribe("/user/topic/mail/deleted", function (data) {
-                    $rootScope.$broadcast("apqdApp:updateUnreadDeletedCount", JSON.parse(data.body));
+                    $rootScope.$broadcast("msapApp:updateUnreadDeletedCount", JSON.parse(data.body));
                     data.ack();
                 }, {ack: 'client'});
 

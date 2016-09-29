@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('Attachment', function ($resource, DateUtils) {
         return $resource('api/attachments/:id', {}, {
             'query': { method: 'GET', isArray: true},

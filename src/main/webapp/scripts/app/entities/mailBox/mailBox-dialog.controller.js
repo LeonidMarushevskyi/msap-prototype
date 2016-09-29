@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp').controller('MailBoxDialogController',
+angular.module('msapApp').controller('MailBoxDialogController',
     ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'MailBox', 'Inbox', 'Outbox', 'User', 'Deleted', 'Draft',
         function($scope, $stateParams, $uibModalInstance, $q, entity, MailBox, Inbox, Outbox, User, Deleted, Draft) {
 
@@ -49,7 +49,7 @@ angular.module('apqdApp').controller('MailBoxDialogController',
         };
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('apqdApp:mailBoxUpdate', result);
+            $scope.$emit('msapApp:mailBoxUpdate', result);
             $uibModalInstance.close(result);
             $scope.isSaving = false;
         };

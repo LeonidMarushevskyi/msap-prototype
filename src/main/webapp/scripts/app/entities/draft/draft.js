@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('draft', {
@@ -8,7 +8,7 @@ angular.module('apqdApp')
                 url: '/drafts',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'apqdApp.draft.home.title'
+                    pageTitle: 'msapApp.draft.home.title'
                 },
                 views: {
                     'content@': {
@@ -29,7 +29,7 @@ angular.module('apqdApp')
                 url: '/draft/{id}',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'apqdApp.draft.detail.title'
+                    pageTitle: 'msapApp.draft.detail.title'
                 },
                 views: {
                     'content@': {

@@ -1,20 +1,20 @@
 <div>
-    <h2 translate="apqdApp.draft.home.title">Drafts</h2>
+    <h2 translate="msapApp.draft.home.title">Drafts</h2>
     <jh-alert></jh-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="draft.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span 
-class="hidden-xs"                        translate="apqdApp.draft.home.createLabel">Create new Draft
+                    <span
+class="hidden-xs"                        translate="msapApp.draft.home.createLabel">Create new Draft
                     </span>
                 </button>
             </div>
             <div class="col-xs-8 no-padding-right">
                 <form name="searchForm" class="form-inline">
                     <div class="input-group pull-right" >
-                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="{{ 'apqdApp.draft.home.search' | translate }}">
+                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="{{ 'msapApp.draft.home.search' | translate }}">
                         <span  class="input-group-btn width-min" >
                             <button class="btn btn-info" ng-click="search()">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -41,7 +41,7 @@ class="hidden-xs"                        translate="apqdApp.draft.home.createLab
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
                                     ui-sref="draft.detail({id:draft.id})"
-                                    class="btn btn-info btn-sm"> 
+                                    class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
                             </button>
@@ -53,7 +53,7 @@ class="hidden-xs"                        translate="apqdApp.draft.home.createLab
                             </button>
                             <button type="submit"
                                     ui-sref="draft.delete({id:draft.id})"
-                                    class="btn btn-danger btn-sm">                                    
+                                    class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
                             </button>

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('Message', function ($resource, DateUtils) {
         return $resource('api/messages/:id', {}, {
             'query': { method: 'GET', isArray: true},

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('Outbox', function ($resource) {
         return $resource('api/outboxs/:id', {}, {
             'query': { method: 'GET', isArray: true},

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('ConfirmMessage', function ($resource) {
         return $resource('api/mails/confirm', {}, {
             'confirm': { method: 'POST' }

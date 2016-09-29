@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('DraftController', function ($scope, $state, Draft, DraftSearch) {
 
         $scope.drafts = [];

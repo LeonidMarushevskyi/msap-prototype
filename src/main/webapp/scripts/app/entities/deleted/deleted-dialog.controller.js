@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp').controller('DeletedDialogController',
+angular.module('msapApp').controller('DeletedDialogController',
     ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Deleted', 'Message', 'MailBox',
         function($scope, $stateParams, $uibModalInstance, entity, Deleted, Message, MailBox) {
 
@@ -14,7 +14,7 @@ angular.module('apqdApp').controller('DeletedDialogController',
         };
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('apqdApp:deletedUpdate', result);
+            $scope.$emit('msapApp:deletedUpdate', result);
             $uibModalInstance.close(result);
             $scope.isSaving = false;
         };

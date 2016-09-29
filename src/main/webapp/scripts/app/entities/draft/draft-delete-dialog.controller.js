@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
 	.controller('DraftDeleteController', function($scope, $uibModalInstance, entity, Draft) {
 
         $scope.draft = entity;

@@ -4,7 +4,7 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="clear()">&times;</button>
-        <h4 class="modal-title" id="myMessageLabel" translate="apqdApp.message.home.createOrEditLabel">Create or edit a Message</h4>
+        <h4 class="modal-title" id="myMessageLabel" translate="msapApp.message.home.createOrEditLabel">Create or edit a Message</h4>
     </div>
     <div class="modal-body">
         <jh-alert-error></jh-alert-error>
@@ -14,7 +14,7 @@
                     ng-model="message.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="apqdApp.message.body" for="field_body">Body</label>
+            <label class="control-label" translate="msapApp.message.body" for="field_body">Body</label>
             <input type="text" class="form-control" name="body" id="field_body"
                     ng-model="message.body"
                     ng-maxlength="4000" />
@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="apqdApp.message.subject" for="field_subject">Subject</label>
+            <label class="control-label" translate="msapApp.message.subject" for="field_subject">Subject</label>
             <input type="text" class="form-control" name="subject" id="field_subject"
                     ng-model="message.subject"
                     ng-maxlength="100" />
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="apqdApp.message.caseNumber" for="field_caseNumber">CaseNumber</label>
+            <label class="control-label" translate="msapApp.message.caseNumber" for="field_caseNumber">CaseNumber</label>
             <input type="text" class="form-control" name="caseNumber" id="field_caseNumber"
                     ng-model="message.caseNumber"
                     ng-maxlength="20" />
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="apqdApp.message.dateCreated" for="field_dateCreated">DateCreated</label>
+            <label class="control-label" translate="msapApp.message.dateCreated" for="field_dateCreated">DateCreated</label>
             <input id="field_dateCreated" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="message.dateCreated" is-open="datePickerForDateCreated.status.opened"
             />
             <span class="input-group-btn">
@@ -58,7 +58,7 @@
             </span>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="apqdApp.message.dateRead" for="field_dateRead">DateRead</label>
+            <label class="control-label" translate="msapApp.message.dateRead" for="field_dateRead">DateRead</label>
             <input id="field_dateRead" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="message.dateRead" is-open="datePickerForDateRead.status.opened"
             />
             <span class="input-group-btn">
@@ -66,14 +66,14 @@
             </span>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="apqdApp.message.status" for="field_status">Status</label>
+            <label class="control-label" translate="msapApp.message.status" for="field_status">Status</label>
             <select class="form-control" name="status" ng-model="message.status" id="field_status">
-                <option value="NEW" translate="apqdApp.MessageStatus.NEW">NEW</option>
-                <option value="READ" translate="apqdApp.MessageStatus.READ">READ</option>
+                <option value="NEW" translate="msapApp.MessageStatus.NEW">NEW</option>
+                <option value="READ" translate="msapApp.MessageStatus.READ">READ</option>
             </select>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="apqdApp.message.dateUpdated" for="field_dateUpdated">DateUpdated</label>
+            <label class="control-label" translate="msapApp.message.dateUpdated" for="field_dateUpdated">DateUpdated</label>
             <input id="field_dateUpdated" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="message.dateUpdated" is-open="datePickerForDateUpdated.status.opened"
             />
             <span class="input-group-btn">
@@ -81,50 +81,50 @@
             </span>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="apqdApp.message.unreadMessagesCount" for="field_unreadMessagesCount">UnreadMessagesCount</label>
+            <label class="control-label" translate="msapApp.message.unreadMessagesCount" for="field_unreadMessagesCount">UnreadMessagesCount</label>
             <input type="number" class="form-control" name="unreadMessagesCount" id="field_unreadMessagesCount"
                     ng-model="message.unreadMessagesCount"
                      />
         </div>
 
         <div class="form-group">
-            <label translate="apqdApp.message.replyOn" for="field_replyOn">replyOn</label>
+            <label translate="msapApp.message.replyOn" for="field_replyOn">replyOn</label>
             <select class="form-control" id="field_replyOn" name="replyOn" ng-model="message.replyOn" ng-options="message as message.id for message in replyons | orderBy:'id' track by message.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="apqdApp.message.to" for="field_to">to</label>
+            <label translate="msapApp.message.to" for="field_to">to</label>
             <select class="form-control" id="field_to" name="to" ng-model="message.to" ng-options="user as user.id for user in users track by user.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="apqdApp.message.from" for="field_from">from</label>
+            <label translate="msapApp.message.from" for="field_from">from</label>
             <select class="form-control" id="field_from" name="from" ng-model="message.from" ng-options="user as user.id for user in users track by user.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="apqdApp.message.inbox" for="field_inbox">inbox</label>
+            <label translate="msapApp.message.inbox" for="field_inbox">inbox</label>
             <select class="form-control" id="field_inbox" name="inbox" ng-model="message.inbox" ng-options="inbox as inbox.id for inbox in inboxs track by inbox.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="apqdApp.message.outbox" for="field_outbox">outbox</label>
+            <label translate="msapApp.message.outbox" for="field_outbox">outbox</label>
             <select class="form-control" id="field_outbox" name="outbox" ng-model="message.outbox" ng-options="outbox as outbox.id for outbox in outboxs track by outbox.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="apqdApp.message.draft" for="field_draft">draft</label>
+            <label translate="msapApp.message.draft" for="field_draft">draft</label>
             <select class="form-control" id="field_draft" name="draft" ng-model="message.draft" ng-options="draft as draft.id for draft in drafts track by draft.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="apqdApp.message.deleted" for="field_deleted">deleted</label>
+            <label translate="msapApp.message.deleted" for="field_deleted">deleted</label>
             <select class="form-control" id="field_deleted" name="deleted" ng-model="message.deleted" ng-options="deleted as deleted.id for deleted in deleteds track by deleted.id">
                 <option value=""></option>
             </select>

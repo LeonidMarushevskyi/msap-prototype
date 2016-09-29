@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
 	.controller('MailBoxDeleteController', function($scope, $uibModalInstance, entity, MailBox) {
 
         $scope.mailBox = entity;

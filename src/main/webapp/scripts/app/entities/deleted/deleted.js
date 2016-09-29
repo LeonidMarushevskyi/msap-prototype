@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('deleted', {
@@ -8,7 +8,7 @@ angular.module('apqdApp')
                 url: '/deleteds',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'apqdApp.deleted.home.title'
+                    pageTitle: 'msapApp.deleted.home.title'
                 },
                 views: {
                     'content@': {
@@ -29,7 +29,7 @@ angular.module('apqdApp')
                 url: '/deleted/{id}',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'apqdApp.deleted.detail.title'
+                    pageTitle: 'msapApp.deleted.detail.title'
                 },
                 views: {
                     'content@': {

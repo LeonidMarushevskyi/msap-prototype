@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('MailBoxDetailController', function ($scope, $rootScope, $stateParams, entity, MailBox) {
         $scope.mailBox = entity;
         $scope.load = function (id) {
@@ -8,7 +8,7 @@ angular.module('apqdApp')
                 $scope.mailBox = result;
             });
         };
-        var unsubscribe = $rootScope.$on('apqdApp:mailBoxUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('msapApp:mailBoxUpdate', function(event, result) {
             $scope.mailBox = result;
         });
         $scope.$on('$destroy', unsubscribe);

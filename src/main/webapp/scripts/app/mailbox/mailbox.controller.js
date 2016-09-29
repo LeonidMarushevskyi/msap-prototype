@@ -1,21 +1,21 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('MailBoxCtrl', function ($scope, $state, MailBoxService, Contacts, chCustomScrollConfig) {
 
-        $scope.$on("apqdApp:updateDraftsCount", function(event, draftsCount) {
+        $scope.$on("msapApp:updateDraftsCount", function(event, draftsCount) {
             $scope.draftsCount = draftsCount;
         });
 
-        $scope.$on("apqdApp:updateUnreadInboxCount", function(event, unreadInboxCount) {
+        $scope.$on("msapApp:updateUnreadInboxCount", function(event, unreadInboxCount) {
             $scope.unreadInboxCount = unreadInboxCount;
         });
 
-        $scope.$on("apqdApp:updateUnreadDeletedCount", function(event, unreadDeletedCount) {
+        $scope.$on("msapApp:updateUnreadDeletedCount", function(event, unreadDeletedCount) {
             $scope.unreadDeletedCount = unreadDeletedCount;
         });
 
-        $scope.$on("apqdApp:updateContactList", function() {
+        $scope.$on("msapApp:updateContactList", function() {
             $scope.updateContactList();
         });
 

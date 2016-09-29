@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('OutboxController', function ($scope, $state, Outbox, OutboxSearch) {
 
         $scope.outboxs = [];

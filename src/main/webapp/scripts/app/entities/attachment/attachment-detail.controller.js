@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('AttachmentDetailController', function ($scope, $rootScope, $stateParams, DataUtils, entity, Attachment) {
         $scope.attachment = entity;
         $scope.load = function (id) {
@@ -8,7 +8,7 @@ angular.module('apqdApp')
                 $scope.attachment = result;
             });
         };
-        var unsubscribe = $rootScope.$on('apqdApp:attachmentUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('msapApp:attachmentUpdate', function(event, result) {
             $scope.attachment = result;
         });
         $scope.$on('$destroy', unsubscribe);

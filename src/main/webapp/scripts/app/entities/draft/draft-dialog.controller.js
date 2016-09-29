@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp').controller('DraftDialogController',
+angular.module('msapApp').controller('DraftDialogController',
     ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Draft', 'Message', 'MailBox',
         function($scope, $stateParams, $uibModalInstance, entity, Draft, Message, MailBox) {
 
@@ -14,7 +14,7 @@ angular.module('apqdApp').controller('DraftDialogController',
         };
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('apqdApp:draftUpdate', result);
+            $scope.$emit('msapApp:draftUpdate', result);
             $uibModalInstance.close(result);
             $scope.isSaving = false;
         };

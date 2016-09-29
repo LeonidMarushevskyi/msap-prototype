@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('Deleted', function ($resource) {
         return $resource('api/deleteds/:id', {}, {
             'query': { method: 'GET', isArray: true},

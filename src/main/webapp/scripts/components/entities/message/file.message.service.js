@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('FileService', function ($resource) {
         return $resource('api/file/:id', {}, {
 

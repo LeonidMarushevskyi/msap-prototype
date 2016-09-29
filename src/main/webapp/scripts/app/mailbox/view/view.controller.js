@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('ThreadViewCtrl', function ($rootScope, $state, $stateParams, $scope, $log, messageThread, ConfirmMessage,
                                             DeleteMessageService, identity) {
         $scope.messageThread = messageThread;

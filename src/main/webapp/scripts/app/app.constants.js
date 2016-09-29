@@ -4,6 +4,6 @@ angular.module('msapApp')
 
 .constant('ENV', 'dev')
 
-.constant('VERSION', '1.0')
+.constant('VERSION', '0.1-SNAPSHOT')
 
 ;

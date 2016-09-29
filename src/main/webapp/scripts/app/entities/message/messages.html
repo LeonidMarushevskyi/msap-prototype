@@ -1,20 +1,20 @@
 <div>
-    <h2 translate="apqdApp.message.home.title">Messages</h2>
+    <h2 translate="msapApp.message.home.title">Messages</h2>
     <jh-alert></jh-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="message.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span 
-class="hidden-xs"                        translate="apqdApp.message.home.createLabel">Create new Message
+                    <span
+class="hidden-xs"                        translate="msapApp.message.home.createLabel">Create new Message
                     </span>
                 </button>
             </div>
             <div class="col-xs-8 no-padding-right">
                 <form name="searchForm" class="form-inline">
                     <div class="input-group pull-right" >
-                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="{{ 'apqdApp.message.home.search' | translate }}">
+                        <input type="text" class="form-control" ng-model="searchQuery" id="searchQuery" placeholder="{{ 'msapApp.message.home.search' | translate }}">
                         <span  class="input-group-btn width-min" >
                             <button class="btn btn-info" ng-click="search()">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -31,21 +31,21 @@ class="hidden-xs"                        translate="apqdApp.message.home.createL
             <thead>
                 <tr>
                     <th><span translate="global.field.id">ID</span></th>
-                    <th><span translate="apqdApp.message.body">Body</span></th>
-                    <th><span translate="apqdApp.message.subject">Subject</span></th>
-                    <th><span translate="apqdApp.message.caseNumber">CaseNumber</span></th>
-                    <th><span translate="apqdApp.message.dateCreated">DateCreated</span></th>
-                    <th><span translate="apqdApp.message.dateRead">DateRead</span></th>
-                    <th><span translate="apqdApp.message.status">Status</span></th>
-                    <th><span translate="apqdApp.message.dateUpdated">DateUpdated</span></th>
-                    <th><span translate="apqdApp.message.unreadMessagesCount">UnreadMessagesCount</span></th>
-                    <th><span translate="apqdApp.message.replyOn">replyOn</span></th>
-                    <th><span translate="apqdApp.message.to">to</span></th>
-                    <th><span translate="apqdApp.message.from">from</span></th>
-                    <th><span translate="apqdApp.message.inbox">inbox</span></th>
-                    <th><span translate="apqdApp.message.outbox">outbox</span></th>
-                    <th><span translate="apqdApp.message.draft">draft</span></th>
-                    <th><span translate="apqdApp.message.deleted">deleted</span></th>
+                    <th><span translate="msapApp.message.body">Body</span></th>
+                    <th><span translate="msapApp.message.subject">Subject</span></th>
+                    <th><span translate="msapApp.message.caseNumber">CaseNumber</span></th>
+                    <th><span translate="msapApp.message.dateCreated">DateCreated</span></th>
+                    <th><span translate="msapApp.message.dateRead">DateRead</span></th>
+                    <th><span translate="msapApp.message.status">Status</span></th>
+                    <th><span translate="msapApp.message.dateUpdated">DateUpdated</span></th>
+                    <th><span translate="msapApp.message.unreadMessagesCount">UnreadMessagesCount</span></th>
+                    <th><span translate="msapApp.message.replyOn">replyOn</span></th>
+                    <th><span translate="msapApp.message.to">to</span></th>
+                    <th><span translate="msapApp.message.from">from</span></th>
+                    <th><span translate="msapApp.message.inbox">inbox</span></th>
+                    <th><span translate="msapApp.message.outbox">outbox</span></th>
+                    <th><span translate="msapApp.message.draft">draft</span></th>
+                    <th><span translate="msapApp.message.deleted">deleted</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -57,7 +57,7 @@ class="hidden-xs"                        translate="apqdApp.message.home.createL
                     <td>{{message.caseNumber}}</td>
                     <td>{{message.dateCreated | date:'medium'}}</td>
                     <td>{{message.dateRead | date:'medium'}}</td>
-                    <td translate="{{'apqdApp.MessageStatus.' + message.status}}">{{message.status}}</td>
+                    <td translate="{{'msapApp.MessageStatus.' + message.status}}">{{message.status}}</td>
                     <td>{{message.dateUpdated | date:'medium'}}</td>
                     <td>{{message.unreadMessagesCount}}</td>
                     <td>
@@ -85,7 +85,7 @@ class="hidden-xs"                        translate="apqdApp.message.home.createL
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
                                     ui-sref="message.detail({id:message.id})"
-                                    class="btn btn-info btn-sm"> 
+                                    class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
                             </button>
@@ -97,7 +97,7 @@ class="hidden-xs"                        translate="apqdApp.message.home.createL
                             </button>
                             <button type="submit"
                                     ui-sref="message.delete({id:message.id})"
-                                    class="btn btn-danger btn-sm">                                    
+                                    class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
                             </button>

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp').controller('InboxDialogController',
+angular.module('msapApp').controller('InboxDialogController',
     ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Inbox', 'Message', 'MailBox',
         function($scope, $stateParams, $uibModalInstance, entity, Inbox, Message, MailBox) {
 
@@ -14,7 +14,7 @@ angular.module('apqdApp').controller('InboxDialogController',
         };
 
         var onSaveSuccess = function (result) {
-            $scope.$emit('apqdApp:inboxUpdate', result);
+            $scope.$emit('msapApp:inboxUpdate', result);
             $uibModalInstance.close(result);
             $scope.isSaving = false;
         };

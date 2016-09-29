@@ -1,25 +1,13 @@
-package com.engagepoint.cws.apqd;
+package com.engagepoint.msap;
 
-import com.engagepoint.cws.apqd.config.JHipsterProperties;
-import com.engagepoint.cws.apqd.domain.Draft;
-import com.engagepoint.cws.apqd.domain.Inbox;
-import com.engagepoint.cws.apqd.domain.LookupGender;
-import com.engagepoint.cws.apqd.domain.MailBox;
-import com.engagepoint.cws.apqd.domain.Message;
-import com.engagepoint.cws.apqd.domain.Outbox;
-import com.engagepoint.cws.apqd.domain.User;
-import com.engagepoint.cws.apqd.repository.AuthorityRepository;
-import com.engagepoint.cws.apqd.repository.DraftRepository;
-import com.engagepoint.cws.apqd.repository.InboxRepository;
-import com.engagepoint.cws.apqd.repository.MailBoxRepository;
-import com.engagepoint.cws.apqd.repository.MessageRepository;
-import com.engagepoint.cws.apqd.repository.OutboxRepository;
-import com.engagepoint.cws.apqd.repository.UserRepository;
-import com.engagepoint.cws.apqd.security.AuthoritiesConstants;
-import com.engagepoint.cws.apqd.service.util.RandomUtil;
-import com.engagepoint.cws.apqd.web.rest.TestUtil;
-import com.engagepoint.cws.apqd.web.rest.dto.ContactDTO;
-import com.engagepoint.cws.apqd.web.rest.dto.ManagedUserDTO;
+import com.engagepoint.msap.config.JHipsterProperties;
+import com.engagepoint.msap.domain.*;
+import com.engagepoint.msap.repository.*;
+import com.engagepoint.msap.security.AuthoritiesConstants;
+import com.engagepoint.msap.service.util.RandomUtil;
+import com.engagepoint.msap.web.rest.TestUtil;
+import com.engagepoint.msap.web.rest.dto.ContactDTO;
+import com.engagepoint.msap.web.rest.dto.ManagedUserDTO;
 import org.assertj.core.api.StrictAssertions;
 import org.springframework.context.MessageSource;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -43,12 +31,12 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.concurrent.Future;
 
+import static org.hamcrest.Matchers.hasItem;
 import static com.engagepoint.msap.web.rest.util.ContactUtil.extractRoleDescription;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 public final class MsapTestUtil {
     private static final LookupGender GENDER = new LookupGender();

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('MailBoxController', function ($scope, $state, MailBox, MailBoxSearch) {
 
         $scope.mailBoxs = [];

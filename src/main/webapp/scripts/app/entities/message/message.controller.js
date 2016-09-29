@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .controller('MessageController', function ($scope, $state, Message, MessageSearch) {
 
         $scope.messages = [];

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .factory('Draft', function ($resource) {
         return $resource('api/drafts/:id', {}, {
             'query': { method: 'GET', isArray: true},

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('apqdApp')
+angular.module('msapApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('attachment', {
@@ -8,7 +8,7 @@ angular.module('apqdApp')
                 url: '/attachments',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'apqdApp.attachment.home.title'
+                    pageTitle: 'msapApp.attachment.home.title'
                 },
                 views: {
                     'content@': {
@@ -29,7 +29,7 @@ angular.module('apqdApp')
                 url: '/attachment/{id}',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'apqdApp.attachment.detail.title'
+                    pageTitle: 'msapApp.attachment.detail.title'
                 },
                 views: {
                     'content@': {
