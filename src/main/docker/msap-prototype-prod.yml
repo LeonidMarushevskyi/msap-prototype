@@ -35,7 +35,7 @@ msap-prototype-prod:
     - SPRING_MAIL_HOST=127.0.0.1
     - SPRING_DATA_ELASTICSEARCH_CLUSTER-NAME=msap-prototype
   ports:
-    - "8080"
+    - "8080:8080"
   links:
     - "msap-prototype-prod-postgresql:POSTGRESQL"
     - "msap-prototype-prod-elasticsearch:ELASTIC"

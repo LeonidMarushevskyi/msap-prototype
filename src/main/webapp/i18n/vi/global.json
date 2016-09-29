@@ -81,13 +81,13 @@
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
-                "main": "Account",
-                "settings": "Settings",
-                "password": "Password",
-                "sessions": "Sessions",
-                "login": "Sign in",
-                "logout": "Log out",
-                "register": "Register"
+                "main": "Tài khoản",
+                "settings": "Cài đặt",
+                "password": "Mật khẩu",
+                "sessions": "Phiên",
+                "login": "Đăng nhập",
+                "logout": "Đăng xuất",
+                "register": "Đăng ký"
             },
             "admin": {
                 "main": "Administration",
