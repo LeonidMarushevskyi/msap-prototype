@@ -9,16 +9,25 @@
     <div class="ch-facility__tags">
         <ul class="ch-facility-tags clearfix">
             <li class="ch-facility-tags__tag">
-                <span class="ch-facilities-tag ch-facilities-tag_foster-family">{{agency.facility_type}}</span>
+                <span class="ch-facilities-tag ch-facilities-tag_foster-family">{{agency.provider_type}}</span>
             </li>
-            <li class="ch-facility-tags__tag" ng-show="agency.facility_status === 'LICENSED'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_green">{{agency.facility_status}}</span>
+            <li class="ch-facility-tags__tag" ng-show="agency.quality_rating === 'Low'">
+                <span class="ch-facilities-tag ch-facilities-tag_status_red">{{agency.quality_rating}}</span>
             </li>
-            <li class="ch-facility-tags__tag" ng-show="agency.facility_status === 'CLOSED'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_red">{{agency.facility_status}}</span>
+            <li class="ch-facility-tags__tag" ng-show="agency.quality_rating === 'Average'">
+                <span class="ch-facilities-tag ch-facilities-tag_status_orange">{{agency.quality_rating}}</span>
             </li>
-            <li class="ch-facility-tags__tag" ng-show="agency.facility_status === 'PENDING'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_orange">{{agency.facility_status}}</span>
+            <li class="ch-facility-tags__tag" ng-show="agency.quality_rating === 'Good'">
+                <span class="ch-facilities-tag ch-facilities-tag_status_green">{{agency.quality_rating}}</span>
+            </li>
+            <li class="ch-facility-tags__tag" ng-show="agency.quality_rating === 'Very Good'">
+                <span class="ch-facilities-tag ch-facilities-tag_status_green">{{agency.quality_rating}}</span>
+            </li>
+            <li class="ch-facility-tags__tag" ng-show="agency.quality_rating === 'Excellent'">
+                <span class="ch-facilities-tag ch-facilities-tag_status_green">{{agency.quality_rating}}</span>
+            </li>
+            <li class="ch-facility-tags__tag" ng-show="agency.quality_rating === 'Not Rated'">
+                <span class="ch-facilities-tag ch-facilities-tag_status_green">{{agency.quality_rating}}</span>
             </li>
         </ul>
     </div>
@@ -74,7 +83,7 @@
     <div class="ch-facility__btn-group clearfix">
         <div class="ch-facilities-btn-group">
             <div class="ch-facilities-btn-group__btn">
-                <button type="button" class="ch-plane-btn ch-plane-btn_primary">Ask Caseworker</button>
+                <button type="button" ng-click="askAbout(agency)" class="ch-plane-btn ch-plane-btn_primary">Ask Caseworker</button>
             </div>
             <div class="ch-facilities-btn-group__btn" ng-show="viewConfig.presentation !== 'popup' && !agency.showPartFlag" ng-click="agency.showPartFlag = !agency.showPartFlag">
                 <button type="button" class="ch-plane-btn ch-plane-btn_secondary">Show more</button>

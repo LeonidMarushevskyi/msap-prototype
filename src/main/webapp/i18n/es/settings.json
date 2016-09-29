@@ -1,0 +1,46 @@
+{
+    "settings": {
+        "title": "La configuración de usuario [<b>{{username}}</b>]",
+        "my-profile": "Mi perfil",
+        "general-information": "Información general",
+        "form": {
+            "username": "nombre de usuario",
+            "firstname": "Nombre de pila",
+            "firstname.placeholder": "Tu nombre de pila",
+            "lastname": "Apellido",
+            "lastname.placeholder": "Tu apellido",
+            "language": "Idioma",
+            "family-case-license-number": "Caso familia/Número de licencia",
+            "button": "Salvar cambios"
+        },
+        "messages": {
+            "error": {
+                "error-occurred": "Se ha producido un error!",
+                "settings-not-saved": "Los ajustes no podrían salvarse."
+            },
+            "success": "<strong>Ajustes guardados!</strong>",
+            "validate": {
+                "email-in-use": "Correo electrónico ya está en uso!",
+                "choose-other": "Por favor elije otro.",
+                "please-populate": "Por favor rellenar.",
+                "please-update": "Por favor actualice.",
+                "firstname": {
+                    "absent": "Primer nombre está ausente",
+                    "required": "Se requiere su nombre.",
+                    "minlength": "Su nombre se requiere que sea al menos 1 carácter",
+                    "maxlength": "Su nombre no puede tener más de 50 caracteres"
+                },
+                "lastname": {
+                    "absent": "Apellido está ausente",
+                    "required": "Se requiere su apellido.",
+                    "minlength": "Su apellido se requiere que sea al menos 1 carácter",
+                    "maxlength": "Su apellido no puede tener más de 50 caracteres"
+                },
+                "family-case-license-number": {
+                    "absent": "Caso familia/Número de licencia está ausente",
+                    "required": "Se requiere tu Caso familia/Número de licencia."
+                }
+            }
+        }
+    }
+}

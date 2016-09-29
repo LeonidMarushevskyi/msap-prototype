@@ -1,0 +1,22 @@
+{
+    "login": {
+        "create-an-account": "Tạo một tài khoản",
+        "title": "Đăng nhập",
+        "form": {
+            "username": "Tên đăng nhập",
+            "username.placeholder": "Tên tài khoản",
+            "password": "Mật khẩu",
+            "password.placeholder": "Mật khẩu của bạn",
+            "rememberme": "Ghi nhớ tôi",
+            "button": "Đăng nhập"
+        },
+        "messages": {
+            "error": {
+                "authentication": "<strong>Không đăng nhập!</strong> Hãy kiểm tra thông tin của bạn và thử lại."
+            }
+        },
+        "password" : {
+            "forgot": "Bạn đã quên mật khẩu của bạn?"
+        }
+    }
+}
