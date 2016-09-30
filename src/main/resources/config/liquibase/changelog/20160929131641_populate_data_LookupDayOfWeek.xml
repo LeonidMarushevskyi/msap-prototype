@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql,oracle"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle"/>
+
+    <!--
+        Added the entity LookupDayOfWeek.
+    -->
+    <changeSet id="20160929330" author="leonid.marushevskiy">
+        <insert tableName="lookup_day_of_week"><column name="code" value="1"/><column name="name" value="Monday"/></insert>
+        <insert tableName="lookup_day_of_week"><column name="code" value="2"/><column name="name" value="Tuesday"/></insert>
+        <insert tableName="lookup_day_of_week"><column name="code" value="3"/><column name="name" value="Wednesday"/></insert>
+        <insert tableName="lookup_day_of_week"><column name="code" value="4"/><column name="name" value="Thursday"/></insert>
+        <insert tableName="lookup_day_of_week"><column name="code" value="5"/><column name="name" value="Friday"/></insert>
+        <insert tableName="lookup_day_of_week"><column name="code" value="6"/><column name="name" value="Saturday"/></insert>
+        <insert tableName="lookup_day_of_week"><column name="code" value="7"/><column name="name" value="Sunday"/></insert>
+    </changeSet>
+</databaseChangeLog>

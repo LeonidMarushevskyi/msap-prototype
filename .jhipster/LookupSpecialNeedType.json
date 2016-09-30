@@ -2,6 +2,15 @@
   "relationships": [
     {
       "relationshipId": 1,
+      "relationshipName": "specialNeedGroup",
+      "otherEntityName": "lookupSpecialNeedGroup",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "lookupSpecialNeedType"
+    },
+    {
+      "relationshipId": 2,
       "relationshipName": "provider",
       "otherEntityName": "provider",
       "relationshipType": "many-to-one",
@@ -16,11 +25,6 @@
       "fieldValidateRules": [
         "required"
       ]
-    },
-    {
-      "fieldId": 2,
-      "fieldName": "groupCode",
-      "fieldType": "Integer"
     }
   ],
   "changelogDate": "20160929131643",

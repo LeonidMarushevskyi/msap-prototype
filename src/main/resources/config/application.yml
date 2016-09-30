@@ -32,7 +32,6 @@ spring:
 #        key-store: keystore.p12
 #        key-store-password: qwe123
 #        keyStoreType: PKCS12
-#        keyAlias: chhsapqd
 #        keyAlias: msap
 #    tomcat:
 #        remote_ip_header: x-forwarded-for

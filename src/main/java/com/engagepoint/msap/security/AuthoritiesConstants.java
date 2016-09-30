@@ -13,6 +13,8 @@ public final class AuthoritiesConstants {
 
     public static final String PARENT = "PARENT";
 
+    public static final String FOSTER_PARENT = "FOSTER_PARENT";
+
     public static final String CASE_WORKER = "CASE_WORKER";
 
     private AuthoritiesConstants() {

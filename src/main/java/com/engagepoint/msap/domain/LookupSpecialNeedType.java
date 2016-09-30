@@ -28,9 +28,9 @@ public class LookupSpecialNeedType implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
     
-    @Column(name = "group_code")
-    private Integer groupCode;
-    
+    @OneToOne
+    private LookupSpecialNeedGroup specialNeedGroup;
+
     @ManyToOne
     @JoinColumn(name = "provider_id")
     private Provider provider;
@@ -51,12 +51,12 @@ public class LookupSpecialNeedType implements Serializable {
         this.name = name;
     }
 
-    public Integer getGroupCode() {
-        return groupCode;
+    public LookupSpecialNeedGroup getSpecialNeedGroup() {
+        return specialNeedGroup;
     }
-    
-    public void setGroupCode(Integer groupCode) {
-        this.groupCode = groupCode;
+
+    public void setSpecialNeedGroup(LookupSpecialNeedGroup lookupSpecialNeedGroup) {
+        this.specialNeedGroup = lookupSpecialNeedGroup;
     }
 
     public Provider getProvider() {
@@ -92,7 +92,6 @@ public class LookupSpecialNeedType implements Serializable {
         return "LookupSpecialNeedType{" +
             "id=" + id +
             ", name='" + name + "'" +
-            ", groupCode='" + groupCode + "'" +
             '}';
     }
 }

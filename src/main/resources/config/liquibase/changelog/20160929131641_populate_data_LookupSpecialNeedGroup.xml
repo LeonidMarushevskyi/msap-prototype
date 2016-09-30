@@ -16,17 +16,10 @@
     <!--
         Added the entity LookupSpecialNeedGroup.
     -->
-    <changeSet id="20160929131642" author="jhipster">
-        <createTable tableName="lookup_special_need_group">
-            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="name" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-            
-            <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
-        </createTable>
-        
+    <changeSet id="2016092933133" author="leonid.marushevskiy">
+        <insert tableName="lookup_special_need_group"><column name="name" value="Physical"/></insert>
+        <insert tableName="lookup_special_need_group"><column name="name" value="Developmental"/></insert>
+        <insert tableName="lookup_special_need_group"><column name="name" value="Behavioral/Emotional"/></insert>
+        <insert tableName="lookup_special_need_group"><column name="name" value="Sensory Impaired"/></insert>
     </changeSet>
 </databaseChangeLog>

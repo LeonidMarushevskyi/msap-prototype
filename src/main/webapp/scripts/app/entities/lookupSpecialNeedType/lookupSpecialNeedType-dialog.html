@@ -25,13 +25,13 @@
                 </p>
             </div>
         </div>
-        <div class="form-group">
-            <label class="control-label" translate="msapApp.lookupSpecialNeedType.groupCode" for="field_groupCode">GroupCode</label>
-            <input type="number" class="form-control" name="groupCode" id="field_groupCode"
-                    ng-model="lookupSpecialNeedType.groupCode"
-                     />
-        </div>
 
+        <div class="form-group">
+            <label translate="msapApp.lookupSpecialNeedType.specialNeedGroup" for="field_specialNeedGroup">specialNeedGroup</label>
+            <select class="form-control" id="field_specialNeedGroup" name="specialNeedGroup" ng-model="lookupSpecialNeedType.specialNeedGroup" ng-options="lookupSpecialNeedGroup as lookupSpecialNeedGroup.id for lookupSpecialNeedGroup in specialneedgroups | orderBy:'id' track by lookupSpecialNeedGroup.id">
+                <option value=""></option>
+            </select>
+        </div>
         <div class="form-group">
             <label translate="msapApp.lookupSpecialNeedType.provider" for="field_provider">provider</label>
             <select class="form-control" id="field_provider" name="provider" ng-model="lookupSpecialNeedType.provider" ng-options="provider as provider.id for provider in providers track by provider.id">

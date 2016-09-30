@@ -61,7 +61,6 @@ angular.module('msapApp')
                         resolve: {
                             entity: function () {
                                 return {
-                                    groupCode: null,
                                     name: null,
                                     id: null
                                 };

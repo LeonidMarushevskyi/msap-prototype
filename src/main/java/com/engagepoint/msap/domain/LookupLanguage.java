@@ -25,8 +25,9 @@ public class LookupLanguage implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "code", nullable = false)
-    private Integer code;
+    @Size(max = 2)
+    @Column(name = "code", length = 2, nullable = false)
+    private String code;
     
     @NotNull
     @Column(name = "name", nullable = false)
@@ -44,11 +45,11 @@ public class LookupLanguage implements Serializable {
         this.id = id;
     }
 
-    public Integer getCode() {
+    public String getCode() {
         return code;
     }
     
-    public void setCode(Integer code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

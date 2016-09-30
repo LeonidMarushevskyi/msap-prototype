@@ -4,7 +4,7 @@ describe('Controller Tests', function() {
 
     describe('LookupSpecialNeedType Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockLookupSpecialNeedType, MockProvider;
+        var MockEntity, MockLookupSpecialNeedType, MockLookupSpecialNeedGroup, MockProvider;
         var createController;
 
         beforeEach(inject(function($injector) {
@@ -12,6 +12,7 @@ describe('Controller Tests', function() {
             $scope = $rootScope.$new();
             MockEntity = jasmine.createSpy('MockEntity');
             MockLookupSpecialNeedType = jasmine.createSpy('MockLookupSpecialNeedType');
+            MockLookupSpecialNeedGroup = jasmine.createSpy('MockLookupSpecialNeedGroup');
             MockProvider = jasmine.createSpy('MockProvider');
             
 
@@ -20,6 +21,7 @@ describe('Controller Tests', function() {
                 '$rootScope': $rootScope,
                 'entity': MockEntity ,
                 'LookupSpecialNeedType': MockLookupSpecialNeedType,
+                'LookupSpecialNeedGroup': MockLookupSpecialNeedGroup,
                 'Provider': MockProvider
             };
             createController = function() {

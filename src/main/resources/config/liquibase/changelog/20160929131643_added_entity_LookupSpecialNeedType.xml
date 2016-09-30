@@ -25,12 +25,19 @@
                 <constraints nullable="false" />
             </column>
             
-            <column name="group_code" type="integer"/>
-            
+            <column name="special_need_group_id" type="bigint">
+                <constraints unique="true"/>
+            </column>
             <column name="provider_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         
+        <addForeignKeyConstraint baseColumnNames="special_need_group_id"
+                                 baseTableName="lookup_special_need_type"
+                                 constraintName="fk_lookupspecialneedtype_specialneedgroup_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="lookup_special_need_group"/>
+
         <addForeignKeyConstraint baseColumnNames="provider_id"
                                  baseTableName="lookup_special_need_type"
                                  constraintName="fk_lookupspecialneedtype_provider_id"

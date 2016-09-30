@@ -67,7 +67,7 @@ class LookupLanguageGatlingTest extends Simulation {
             .exec(http("Create new lookupLanguage")
             .post("/api/lookupLanguages")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "code":"0", "name":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "code":"SAMPLE_TEXT", "name":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_lookupLanguage_url")))
             .pause(10)

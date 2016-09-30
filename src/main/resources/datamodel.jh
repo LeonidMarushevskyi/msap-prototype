@@ -23,13 +23,11 @@ entity LookupDayOfWeek {
 }
 
 entity LookupSpecialNeedGroup {
-    groupCode Integer required,
     name String required
 }
 
 entity LookupSpecialNeedType {
-    name String required,
-    groupCode Integer
+    name String required
 }
 
 entity LookupState {
@@ -52,7 +50,7 @@ entity LookupMaritalStatus {
 }
 
 entity LookupLanguage {
-    code Integer required,
+    code String required maxlength(2),
     name String required
 }
 
@@ -275,4 +273,10 @@ relationship OneToMany {
 relationship OneToMany {
   Provider{supportedLanguage} to LookupLanguage
 }
+
+relationship OneToOne {
+  LookupSpecialNeedType{specialNeedGroup} to LookupSpecialNeedGroup
+}
+
+
 
