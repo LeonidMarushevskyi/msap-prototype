@@ -1,6 +1,5 @@
 <div class="ch-layout__subheader">
 
-
     <div class="ch-facilities-heading__mobile__view">
         <div class="ch-mobile-mailbox__nav">
 
@@ -76,9 +75,14 @@
                 </div>
             </div>
             <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_4">
-                <button class="ch-option-btn"
-                        type="button" ng-click="resetFilters();" title="Reset all selected filters" translate="facilities.reset-filters">
-                  <span class="ch-facilities-list_top-times"></span></button>
+                <button class="ch-option-btn ch-ink-btn"
+                        type="button"
+                        ng-click="resetFilters(); inkRipple()"
+                        ng-init = "inkRipple();"
+                        title="Reset all selected filters"
+                        translate="facilities.reset-filters">
+                  <span class="ch-facilities-list_top-times"></span>
+                  <span class="ink"></span></button>
             </div>
         </div>
     </section>
@@ -135,11 +139,14 @@
                 </div>
             </div>
         </div>
-
         <div class="ch-facilities-heading__mobile__view__reset-btn">
-          <button class="ch-facilities-list_mobile"
-                  type="button" ng-click="resetFilters();" title="Reset all selected filters">Reset Filters
-            <span class="ch-facilities-list_top-times"></span></button>
+          <button class="ch-facilities-list_mobile ch-ink-btn"
+                  type="button"
+                  ng-click="resetFilters(); inkRipple()"
+                  ng-init = "inkRipple();"
+                  title="Reset all selected filters">Reset Filters
+            <span class="ch-facilities-list_top-times"></span>
+            <span class="ink"></span></button>
         </div>
 
       </div>

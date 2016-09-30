@@ -34,6 +34,14 @@ class="hidden-xs"                        translate="msapApp.provider.home.create
                     <th><span translate="msapApp.provider.providerCapacity">ProviderCapacity</span></th>
                     <th><span translate="msapApp.provider.providerName">ProviderName</span></th>
                     <th><span translate="msapApp.provider.phoneNumber">PhoneNumber</span></th>
+                    <th><span translate="msapApp.provider.isOpenOvernight">IsOpenOvernight</span></th>
+                    <th><span translate="msapApp.provider.numberOfComplains">NumberOfComplains</span></th>
+                    <th><span translate="msapApp.provider.numberOfVisits">NumberOfVisits</span></th>
+                    <th><span translate="msapApp.provider.lastVisit">LastVisit</span></th>
+                    <th><span translate="msapApp.provider.description">Description</span></th>
+                    <th><span translate="msapApp.provider.isFullDay">IsFullDay</span></th>
+                    <th><span translate="msapApp.provider.isAfterSchool">IsAfterSchool</span></th>
+                    <th><span translate="msapApp.provider.isBeforeSchool">IsBeforeSchool</span></th>
                     <th><span translate="msapApp.provider.licenseType">licenseType</span></th>
                     <th><span translate="msapApp.provider.providerType">providerType</span></th>
                     <th><span translate="msapApp.provider.address">address</span></th>
@@ -47,17 +55,25 @@ class="hidden-xs"                        translate="msapApp.provider.home.create
                     <td>{{provider.providerCapacity}}</td>
                     <td>{{provider.providerName}}</td>
                     <td>{{provider.phoneNumber}}</td>
+                    <td>{{provider.isOpenOvernight}}</td>
+                    <td>{{provider.numberOfComplains}}</td>
+                    <td>{{provider.numberOfVisits}}</td>
+                        <td>{{provider.lastVisit | date:'mediumDate'}}</td>
+                    <td>{{provider.description}}</td>
+                    <td>{{provider.isFullDay}}</td>
+                    <td>{{provider.isAfterSchool}}</td>
+                    <td>{{provider.isBeforeSchool}}</td>
                     <td>
                         <a ui-sref="lookupLicenseType.detail({id:provider.licenseType.id})">{{provider.licenseType.id}}</a>
                     </td>
                     <td>
-                        <a ui-sref="lookupQualityRating.detail({id:provider.providerType.id})">{{provider.providerType.id}}</a>
+                        <a ui-sref="lookupProviderType.detail({id:provider.providerType.id})">{{provider.providerType.id}}</a>
                     </td>
                     <td>
                         <a ui-sref="place.detail({id:provider.address.id})">{{provider.address.id}}</a>
                     </td>
                     <td>
-                        <a ui-sref="lookupProviderType.detail({id:provider.qualityRating.id})">{{provider.qualityRating.id}}</a>
+                        <a ui-sref="lookupQualityRating.detail({id:provider.qualityRating.id})">{{provider.qualityRating.id}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

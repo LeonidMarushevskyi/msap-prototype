@@ -1,0 +1,54 @@
+
+<div>
+    <h2><span translate="msapApp.price.detail.title">Price</span> {{price.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="msapApp.price.minimalPrice">MinimalPrice</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{price.minimalPrice}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="msapApp.price.maximumPrice">MaximumPrice</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{price.maximumPrice}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="msapApp.price.provider">provider</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="provider.detail({id:price.provider.id})">{{price.provider.id}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="msapApp.price.ageGroup">ageGroup</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="lookupAgeGroups.detail({id:price.ageGroup.id})">{{price.ageGroup.id}}</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

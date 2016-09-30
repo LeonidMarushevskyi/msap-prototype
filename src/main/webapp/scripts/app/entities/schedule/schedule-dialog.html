@@ -1,0 +1,50 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myScheduleLabel" translate="msapApp.schedule.home.createOrEditLabel">Create or edit a Schedule</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="schedule.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="msapApp.schedule.openHour" for="field_openHour">OpenHour</label>
+            <input type="text" class="form-control" name="openHour" id="field_openHour"
+                    ng-model="schedule.openHour"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="msapApp.schedule.closeHour" for="field_closeHour">CloseHour</label>
+            <input type="text" class="form-control" name="closeHour" id="field_closeHour"
+                    ng-model="schedule.closeHour"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="msapApp.schedule.provider" for="field_provider">provider</label>
+            <select class="form-control" id="field_provider" name="provider" ng-model="schedule.provider" ng-options="provider as provider.id for provider in providers track by provider.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="msapApp.schedule.dayOfWeek" for="field_dayOfWeek">dayOfWeek</label>
+            <select class="form-control" id="field_dayOfWeek" name="dayOfWeek" ng-model="schedule.dayOfWeek" ng-options="lookupDayOfWeek as lookupDayOfWeek.id for lookupDayOfWeek in dayofweeks | orderBy:'id' track by lookupDayOfWeek.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

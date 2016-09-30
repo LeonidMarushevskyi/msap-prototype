@@ -7,12 +7,13 @@
     align-items: center;
     margin-left: -4px;
 }
-
 .ch-main-nav-item__link {
     display: block;
     height: 7.3rem;
     min-width: 12.5rem;
     padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
 
     &:hover {
         background: $secondary-color-grey-light;
@@ -27,6 +28,7 @@
 .ch-main-nav-item__text-bundle {
     display: inline-block;
     position: relative;
+    z-index: 100;
 }
 
 .ch-main-nav-item__text {
@@ -36,6 +38,7 @@
     color: #fff;
     text-transform: uppercase;
     position: relative;
+    z-index: 100;
 }
 
 .ch-main-nav-item__text_badge-notify:after {
@@ -49,6 +52,7 @@
 
 .ch-main-nav-item__icon {
     margin-right: 1rem;
+    z-index: 100;
 }
 
 .ch-main-nav-item__inbox-counter {

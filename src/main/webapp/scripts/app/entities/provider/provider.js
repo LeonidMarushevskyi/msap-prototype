@@ -64,6 +64,14 @@ angular.module('msapApp')
                                     providerCapacity: null,
                                     providerName: null,
                                     phoneNumber: null,
+                                    isOpenOvernight: null,
+                                    numberOfComplains: null,
+                                    numberOfVisits: null,
+                                    lastVisit: null,
+                                    description: null,
+                                    isFullDay: null,
+                                    isAfterSchool: null,
+                                    isBeforeSchool: null,
                                     id: null
                                 };
                             }

@@ -19,10 +19,25 @@
             "providerCapacity": "ProviderCapacity",
             "providerName": "ProviderName",
             "phoneNumber": "PhoneNumber",
+            "isOpenOvernight": "IsOpenOvernight",
+            "numberOfComplains": "NumberOfComplains",
+            "numberOfVisits": "NumberOfVisits",
+            "lastVisit": "LastVisit",
+            "description": "Description",
+            "isFullDay": "IsFullDay",
+            "isAfterSchool": "IsAfterSchool",
+            "isBeforeSchool": "IsBeforeSchool",
             "licenseType": "LicenseType",
             "providerType": "ProviderType",
             "address": "Address",
-            "qualityRating": "QualityRating"
+            "qualityRating": "QualityRating",
+            "openSlot": "OpenSlot",
+            "schedule": "Schedule",
+            "specialNeed": "SpecialNeed",
+            "review": "Review",
+            "price": "Price",
+            "substantiatedAllegation": "SubstantiatedAllegation",
+            "supportedLanguage": "SupportedLanguage"
         }
     }
 }

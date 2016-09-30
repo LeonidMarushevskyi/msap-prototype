@@ -62,6 +62,9 @@ angular.module('msapApp')
                 });
             */
             findAgenciesByFilter: function (filter) {
+                var nw = filter.bounds.northwest;
+                var se = filter.bounds.southeast;
+
                 return EntitySearchFacade.search(
                     [ "*",
                         {
@@ -72,6 +75,19 @@ angular.module('msapApp')
                             $exactMatch: true,
                             '+providerType.name': filter.providerTypes,
                             '+qualityRating.name': filter.qualityRatings
+                        },
+                        {
+                            '+address.longitude': {'[]': [
+                                nw.longitude,
+                                se.longitude
+                            ]}
+                        },
+                        {
+                            '+address.latitude': {'[]': [
+                                se.latitude,
+                                nw.latitude
+
+                            ]}
                         }
                     ],
                     // entity name

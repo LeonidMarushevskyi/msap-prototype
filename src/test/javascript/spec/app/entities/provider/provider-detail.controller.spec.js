@@ -4,7 +4,7 @@ describe('Controller Tests', function() {
 
     describe('Provider Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockProvider, MockLookupLicenseType, MockLookupQualityRating, MockPlace, MockLookupProviderType;
+        var MockEntity, MockProvider, MockLookupLicenseType, MockLookupProviderType, MockPlace, MockLookupQualityRating, MockOpenSlot, MockSchedule, MockLookupSpecialNeedType, MockReview, MockPrice, MockSubstantiatedAllegation, MockLookupLanguage;
         var createController;
 
         beforeEach(inject(function($injector) {
@@ -13,9 +13,16 @@ describe('Controller Tests', function() {
             MockEntity = jasmine.createSpy('MockEntity');
             MockProvider = jasmine.createSpy('MockProvider');
             MockLookupLicenseType = jasmine.createSpy('MockLookupLicenseType');
-            MockLookupQualityRating = jasmine.createSpy('MockLookupQualityRating');
-            MockPlace = jasmine.createSpy('MockPlace');
             MockLookupProviderType = jasmine.createSpy('MockLookupProviderType');
+            MockPlace = jasmine.createSpy('MockPlace');
+            MockLookupQualityRating = jasmine.createSpy('MockLookupQualityRating');
+            MockOpenSlot = jasmine.createSpy('MockOpenSlot');
+            MockSchedule = jasmine.createSpy('MockSchedule');
+            MockLookupSpecialNeedType = jasmine.createSpy('MockLookupSpecialNeedType');
+            MockReview = jasmine.createSpy('MockReview');
+            MockPrice = jasmine.createSpy('MockPrice');
+            MockSubstantiatedAllegation = jasmine.createSpy('MockSubstantiatedAllegation');
+            MockLookupLanguage = jasmine.createSpy('MockLookupLanguage');
             
 
             var locals = {
@@ -24,9 +31,16 @@ describe('Controller Tests', function() {
                 'entity': MockEntity ,
                 'Provider': MockProvider,
                 'LookupLicenseType': MockLookupLicenseType,
-                'LookupQualityRating': MockLookupQualityRating,
+                'LookupProviderType': MockLookupProviderType,
                 'Place': MockPlace,
-                'LookupProviderType': MockLookupProviderType
+                'LookupQualityRating': MockLookupQualityRating,
+                'OpenSlot': MockOpenSlot,
+                'Schedule': MockSchedule,
+                'LookupSpecialNeedType': MockLookupSpecialNeedType,
+                'Review': MockReview,
+                'Price': MockPrice,
+                'SubstantiatedAllegation': MockSubstantiatedAllegation,
+                'LookupLanguage': MockLookupLanguage
             };
             createController = function() {
                 $injector.get('$controller')("ProviderDetailController", locals);

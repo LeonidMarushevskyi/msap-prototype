@@ -121,7 +121,15 @@
                 </div>
 
                 <div class="ch-sign-up__form__group">
-                    <label class="control-label" for="email" >Family case/License number *</label>
+                    <div>
+                        <input id="isFosterParent" type="checkbox" ng-model="registerAccount.isFosterParent">
+                        <label for="isFosterParent" title="Mark if you are a foster Parent">I'm a foster Parent</label>
+                    </div>
+                </div>
+
+                <!--<div class="ch-sign-up__form__group">-->
+                <div class="ch-sign-up__form__group" ng-if="registerAccount.isFosterParent">
+                    <label class="control-label" for="caseNumber" >Family case/License number *</label>
                     <input type="text" class="form-control" id="caseNumber" name="caseNumber" placeholder="License number/Case number"
                            ng-model="registerAccount.caseNumber" ng-maxlength=20 required uib-tooltip="Provide number of your case or license. You can find  it in notification letter">
                     <div ng-show="form.caseNumber.$dirty && form.caseNumber.$invalid">

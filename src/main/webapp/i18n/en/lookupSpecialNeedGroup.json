@@ -1,0 +1,22 @@
+{
+    "msapApp": {
+        "lookupSpecialNeedGroup" : {
+            "home": {
+                "title": "LookupSpecialNeedGroups",
+                "createLabel": "Create a new LookupSpecialNeedGroup",
+                "createOrEditLabel": "Create or edit a LookupSpecialNeedGroup",
+                "search": "Search for LookupSpecialNeedGroup"
+            },
+            "created": "A new LookupSpecialNeedGroup is created with identifier {{ param }}",
+            "updated": "A LookupSpecialNeedGroup is updated with identifier {{ param }}",
+            "deleted": "A LookupSpecialNeedGroup is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete LookupSpecialNeedGroup {{ id }}?"
+            },
+            "detail": {
+                "title": "LookupSpecialNeedGroup"
+            },
+            "name": "Name"
+        }
+    }
+}
