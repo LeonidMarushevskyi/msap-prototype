@@ -1,7 +1,7 @@
 {
     "global": {
-        "title": "MSAP Parent Portal",
-        "browsehappy": "Bạn đang sử dụng <strong>lỗi thời</ strong> trình duyệt. Please <a href=\"http://browsehappy.com/?locale=en\">nâng cấp trình duyệt của bạn</a> để cải thiện kinh nghiệm của bạn.",
+        "title": "MSAP Portal mẹ",
+        "browsehappy": "Bạn đang sử dụng <strong>lỗi thời</strong> trình duyệt. Xin vui lòng <a href=\"http://browsehappy.com/?locale=en\">nâng cấp trình duyệt của bạn</a> để cải thiện kinh nghiệm của bạn.",
         "menu": {
             "home": "Nhà",
             "dashboard": "Bảng điều khiển",
@@ -78,6 +78,16 @@
                 "lookupProviderType": "LookupProviderType",
                 "lookupQualityRating": "LookupQualityRating",
                 "provider": "Provider",
+                "lookupAgeGroups": "LookupAgeGroups",
+                "lookupDayOfWeek": "LookupDayOfWeek",
+                "lookupSpecialNeedGroup": "LookupSpecialNeedGroup",
+                "schedule": "Schedule",
+                "price": "Price",
+                "openSlot": "OpenSlot",
+                "substantiatedAllegation": "SubstantiatedAllegation",
+                "lookupSpecialNeedType": "LookupSpecialNeedType",
+                "lookupLanguage": "LookupLanguage",
+                "review": "Review",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -106,14 +116,14 @@
             "language": "Ngôn ngữ"
         },
         "form": {
-            "username": "Username",
-            "username.placeholder": "Your username",
-            "newpassword": "New password",
-            "newpassword.placeholder": "New password",
-            "confirmpassword": "New password confirmation",
-            "confirmpassword.placeholder": "Confirm the new password",
+            "username": "Tên đăng nhập",
+            "username.placeholder": "Tên đăng nhập",
+            "newpassword": "Mật khẩu mới",
+            "newpassword.placeholder": "Mật khẩu mới",
+            "confirmpassword": "Xác nhận mật khẩu mới",
+            "confirmpassword.placeholder": "Xác nhận mật khẩu mới",
             "email": "E-mail",
-            "email.placeholder": "Email của bạn"
+            "email.placeholder": "E-mail của bạn"
         },
         "messages": {
             "info": {
@@ -121,19 +131,19 @@
                 "register": "You don't have an account yet? <a class=\"alert-link\" href=\"#/register\">Register a new account</a>"
             },
             "error": {
-                "dontmatch": "The password and its confirmation do not match!"
+                "dontmatch": "Các mật khẩu và xác nhận nó không phù hợp!"
             },
             "validate": {
                 "newpassword": {
-                    "required": "Your password is required.",
-                    "minlength": "Your password is required to be at least 5 characters.",
-                    "maxlength": "Your password cannot be longer than 50 characters.",
+                    "required": "Mật khẩu của bạn là bắt buộc.",
+                    "minlength": "Mật khẩu của bạn được yêu cầu phải có ít nhất 5 ký tự.",
+                    "maxlength": "Mật khẩu của bạn không thể lâu hơn 50 ký tự.",
                     "strength": "Mật khẩu mạnh:"
                 },
                 "confirmpassword": {
-                    "required": "Your confirmation password is required.",
-                    "minlength": "Your confirmation password is required to be at least 5 characters.",
-                    "maxlength": "Your confirmation password cannot be longer than 50 characters."
+                    "required": "Xác nhận mật khẩu của bạn là bắt buộc.",
+                    "minlength": "Xác nhận mật khẩu của bạn phải có ít nhất 5 ký tự.",
+                    "maxlength": "Xác nhận mật khẩu của bạn không thể lâu hơn 50 ký tự."
                 },
                 "email": {
                     "required": "E-mail của bạn là cần thiết.",
