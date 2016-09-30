@@ -34,10 +34,18 @@
 
 .ch-plane-btn_save {
     padding: 1.2rem 1.5rem 2.5rem;
-    border-radius: 0.4rem;
-    background-color: #0071bc;
+    border-radius: 0.2rem;
+    background-color: $primary-color-blue;
     color: #ffffff;
-    font-weight: 700;
+    font-weight: bold;
+
+    &:hover {
+        background-color: $secondary-color-blue;
+    }
+
+    &:focus {
+        box-shadow:0px 0px 10px $primary-color-blue;
+    }
 }
 
 .profile-form__section {

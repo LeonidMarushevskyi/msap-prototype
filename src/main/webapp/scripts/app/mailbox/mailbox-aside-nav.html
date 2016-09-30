@@ -5,8 +5,9 @@
         <nav class="ch-aside-nav">
 
             <div class="ch-aside-nav__action-btn">
-                <button type="button" class="ch-option-btn"  ui-sref="ch-inbox.new-mail">
+                <button type="button" class="ch-option-btn ch-ink-btn" ng-click="inkRipple()" ng-init = "inkRipple()" ui-sref="ch-inbox.new-mail">
                     <span class="ch-option-btn__text" title="Write a message to case worker">Write</span>
+                    <span class="ink"></span>
                 </button>
             </div>
 
