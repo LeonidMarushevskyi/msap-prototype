@@ -14,19 +14,11 @@
     <property name="floatType" value="float" dbms="mysql, oracle"/>
 
     <!--
-        Added the entity LookupSpecialNeedGroup.
+        Added the entity LookupAgeGroups.
     -->
-    <changeSet id="20160929131642" author="jhipster">
-        <createTable tableName="lookup_special_need_group">
-            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="name" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-            
-            <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
-        </createTable>
-        
+    <changeSet id="201609293307448" author="leonid.marushevskiy">
+        <insert tableName="lookup_language"><column name="code" value="EN"/><column name="name" value="English"/></insert>
+        <insert tableName="lookup_language"><column name="code" value="ES"/><column name="name" value="Spanish"/></insert>
+        <insert tableName="lookup_language"><column name="code" value="VE"/><column name="name" value="Vietnamese"/></insert>
     </changeSet>
 </databaseChangeLog>

@@ -62,7 +62,6 @@ angular.module('msapApp')
                             entity: function () {
                                 return {
                                     name: null,
-                                    groupCode: null,
                                     id: null
                                 };
                             }

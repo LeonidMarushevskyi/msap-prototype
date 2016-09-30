@@ -14,22 +14,6 @@
                     ng-model="lookupSpecialNeedGroup.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="msapApp.lookupSpecialNeedGroup.groupCode" for="field_groupCode">GroupCode</label>
-            <input type="number" class="form-control" name="groupCode" id="field_groupCode"
-                    ng-model="lookupSpecialNeedGroup.groupCode"
-                    required />
-            <div ng-show="editForm.groupCode.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.groupCode.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.groupCode.$error.number" translate="entity.validation.number">
-                    This field should be a number.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="control-label" translate="msapApp.lookupSpecialNeedGroup.name" for="field_name">Name</label>
             <input type="text" class="form-control" name="name" id="field_name"
                     ng-model="lookupSpecialNeedGroup.name"

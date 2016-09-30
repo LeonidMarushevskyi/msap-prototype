@@ -45,9 +45,6 @@ public class LookupSpecialNeedTypeResourceIntTest {
     private static final String DEFAULT_NAME = "AAAAA";
     private static final String UPDATED_NAME = "BBBBB";
 
-    private static final Integer DEFAULT_GROUP_CODE = 1;
-    private static final Integer UPDATED_GROUP_CODE = 2;
-
     @Inject
     private LookupSpecialNeedTypeRepository lookupSpecialNeedTypeRepository;
 
@@ -79,7 +76,6 @@ public class LookupSpecialNeedTypeResourceIntTest {
     public void initTest() {
         lookupSpecialNeedType = new LookupSpecialNeedType();
         lookupSpecialNeedType.setName(DEFAULT_NAME);
-        lookupSpecialNeedType.setGroupCode(DEFAULT_GROUP_CODE);
     }
 
     @Test
@@ -99,7 +95,6 @@ public class LookupSpecialNeedTypeResourceIntTest {
         assertThat(lookupSpecialNeedTypes).hasSize(databaseSizeBeforeCreate + 1);
         LookupSpecialNeedType testLookupSpecialNeedType = lookupSpecialNeedTypes.get(lookupSpecialNeedTypes.size() - 1);
         assertThat(testLookupSpecialNeedType.getName()).isEqualTo(DEFAULT_NAME);
-        assertThat(testLookupSpecialNeedType.getGroupCode()).isEqualTo(DEFAULT_GROUP_CODE);
     }
 
     @Test
@@ -131,8 +126,7 @@ public class LookupSpecialNeedTypeResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(lookupSpecialNeedType.getId().intValue())))
-                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
-                .andExpect(jsonPath("$.[*].groupCode").value(hasItem(DEFAULT_GROUP_CODE)));
+                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
     }
 
     @Test
@@ -146,8 +140,7 @@ public class LookupSpecialNeedTypeResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(lookupSpecialNeedType.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
-            .andExpect(jsonPath("$.groupCode").value(DEFAULT_GROUP_CODE));
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
     }
 
     @Test
@@ -168,7 +161,6 @@ public class LookupSpecialNeedTypeResourceIntTest {
 
         // Update the lookupSpecialNeedType
         lookupSpecialNeedType.setName(UPDATED_NAME);
-        lookupSpecialNeedType.setGroupCode(UPDATED_GROUP_CODE);
 
         restLookupSpecialNeedTypeMockMvc.perform(put("/api/lookupSpecialNeedTypes")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -180,7 +172,6 @@ public class LookupSpecialNeedTypeResourceIntTest {
         assertThat(lookupSpecialNeedTypes).hasSize(databaseSizeBeforeUpdate);
         LookupSpecialNeedType testLookupSpecialNeedType = lookupSpecialNeedTypes.get(lookupSpecialNeedTypes.size() - 1);
         assertThat(testLookupSpecialNeedType.getName()).isEqualTo(UPDATED_NAME);
-        assertThat(testLookupSpecialNeedType.getGroupCode()).isEqualTo(UPDATED_GROUP_CODE);
     }
 
     @Test

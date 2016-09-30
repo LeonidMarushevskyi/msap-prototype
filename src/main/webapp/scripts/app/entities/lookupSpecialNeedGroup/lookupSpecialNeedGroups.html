@@ -31,7 +31,6 @@ class="hidden-xs"                        translate="msapApp.lookupSpecialNeedGro
             <thead>
                 <tr>
                     <th><span translate="global.field.id">ID</span></th>
-                    <th><span translate="msapApp.lookupSpecialNeedGroup.groupCode">GroupCode</span></th>
                     <th><span translate="msapApp.lookupSpecialNeedGroup.name">Name</span></th>
                     <th></th>
                 </tr>
@@ -39,7 +38,6 @@ class="hidden-xs"                        translate="msapApp.lookupSpecialNeedGro
             <tbody>
                 <tr ng-repeat="lookupSpecialNeedGroup in lookupSpecialNeedGroups track by lookupSpecialNeedGroup.id">
                     <td><a ui-sref="lookupSpecialNeedGroup.detail({id:lookupSpecialNeedGroup.id})">{{lookupSpecialNeedGroup.id}}</a></td>
-                    <td>{{lookupSpecialNeedGroup.groupCode}}</td>
                     <td>{{lookupSpecialNeedGroup.name}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

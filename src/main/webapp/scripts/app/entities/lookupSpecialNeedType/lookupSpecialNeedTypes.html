@@ -32,7 +32,7 @@ class="hidden-xs"                        translate="msapApp.lookupSpecialNeedTyp
                 <tr>
                     <th><span translate="global.field.id">ID</span></th>
                     <th><span translate="msapApp.lookupSpecialNeedType.name">Name</span></th>
-                    <th><span translate="msapApp.lookupSpecialNeedType.groupCode">GroupCode</span></th>
+                    <th><span translate="msapApp.lookupSpecialNeedType.specialNeedGroup">specialNeedGroup</span></th>
                     <th><span translate="msapApp.lookupSpecialNeedType.provider">provider</span></th>
                     <th></th>
                 </tr>
@@ -41,7 +41,9 @@ class="hidden-xs"                        translate="msapApp.lookupSpecialNeedTyp
                 <tr ng-repeat="lookupSpecialNeedType in lookupSpecialNeedTypes track by lookupSpecialNeedType.id">
                     <td><a ui-sref="lookupSpecialNeedType.detail({id:lookupSpecialNeedType.id})">{{lookupSpecialNeedType.id}}</a></td>
                     <td>{{lookupSpecialNeedType.name}}</td>
-                    <td>{{lookupSpecialNeedType.groupCode}}</td>
+                    <td>
+                        <a ui-sref="lookupSpecialNeedGroup.detail({id:lookupSpecialNeedType.specialNeedGroup.id})">{{lookupSpecialNeedType.specialNeedGroup.id}}</a>
+                    </td>
                     <td>
                         <a ui-sref="provider.detail({id:lookupSpecialNeedType.provider.id})">{{lookupSpecialNeedType.provider.id}}</a>
                     </td>

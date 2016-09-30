@@ -16,7 +16,6 @@
             "detail": {
                 "title": "LookupSpecialNeedGroup"
             },
-            "groupCode": "GroupCode",
             "name": "Name"
         }
     }

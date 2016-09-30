@@ -15,17 +15,17 @@
         </div>
         <div class="form-group">
             <label class="control-label" translate="msapApp.lookupLanguage.code" for="field_code">Code</label>
-            <input type="number" class="form-control" name="code" id="field_code"
+            <input type="text" class="form-control" name="code" id="field_code"
                     ng-model="lookupLanguage.code"
-                    required />
+                    required ng-maxlength="2" />
             <div ng-show="editForm.code.$invalid">
                 <p class="help-block"
                     ng-show="editForm.code.$error.required" translate="entity.validation.required">
                     This field is required.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.code.$error.number" translate="entity.validation.number">
-                    This field should be a number.
+                    ng-show="editForm.code.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="2">
+                    This field cannot be longer than 2 characters.
                 </p>
             </div>
         </div>

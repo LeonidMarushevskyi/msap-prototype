@@ -17,7 +17,7 @@
                 "title": "LookupSpecialNeedType"
             },
             "name": "Name",
-            "groupCode": "GroupCode",
+            "specialNeedGroup": "SpecialNeedGroup",
             "provider": "Provider"
         }
     }

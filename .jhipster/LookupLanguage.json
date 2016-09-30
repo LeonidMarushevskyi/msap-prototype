@@ -12,10 +12,12 @@
     {
       "fieldId": 1,
       "fieldName": "code",
-      "fieldType": "Integer",
+      "fieldType": "String",
       "fieldValidateRules": [
-        "required"
-      ]
+        "required",
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": 2
     },
     {
       "fieldId": 2,

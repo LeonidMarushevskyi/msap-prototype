@@ -42,9 +42,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class LookupLanguageResourceIntTest {
 
-
-    private static final Integer DEFAULT_CODE = 1;
-    private static final Integer UPDATED_CODE = 2;
+    private static final String DEFAULT_CODE = "AA";
+    private static final String UPDATED_CODE = "BB";
     private static final String DEFAULT_NAME = "AAAAA";
     private static final String UPDATED_NAME = "BBBBB";
 
@@ -149,8 +148,8 @@ public class LookupLanguageResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(lookupLanguage.getId().intValue())))
-                .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE)))
-                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)));
+                .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE.toString())))
+                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
     }
 
     @Test
@@ -164,8 +163,8 @@ public class LookupLanguageResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(lookupLanguage.getId().intValue()))
-            .andExpect(jsonPath("$.code").value(DEFAULT_CODE))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME));
+            .andExpect(jsonPath("$.code").value(DEFAULT_CODE.toString()))
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
     }
 
     @Test
