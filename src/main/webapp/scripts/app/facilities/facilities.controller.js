@@ -128,8 +128,8 @@ angular.module('msapApp')
             _.each(agenciesDataSource, function (agency) {
                 agency.distanceValue = GeocoderService.distance(
                     {
-                        latitude: agency.location.coordinates[1],
-                        longitude: agency.location.coordinates[0]
+                        latitude: agency.address.latitude,
+                        longitude: agency.address.longitude
                     },
                     {
                         latitude: $scope.currentLocation.lat,
@@ -139,8 +139,8 @@ angular.module('msapApp')
                 agency.distance = agency.distanceValue.toFixed(1);
                 locations['fn' + agency.facility_number + '_' + agency.distance.replace('.', '_')] = {
                     layer: 'agencies',
-                    lat: agency.location.coordinates[1],
-                    lng: agency.location.coordinates[0],
+                    lat: agency.address.latitude,
+                    lng: agency.address.longitude,
                     message: '<div ng-include src="\'scripts/app/facilities/location-popup.html\'"></div>',
                     getMessageScope: function () {
                         var scope = $scope.$new();
@@ -179,8 +179,8 @@ angular.module('msapApp')
         };
 
         $scope.defineIcon = function(agency) {
-            var imgId =  _.find(ProviderType, {name: agency.provider_type}).label + '_'
-                + _.find(QualityRating, {name: agency.quality_rating}).color;
+            var imgId =  _.find(ProviderType, {name: agency.providerType.name}).label + '_'
+                + _.find(QualityRating, {name: agency.qualityRating.name}).color;
             return $scope.getIconeUrl(imgId);
         };
 

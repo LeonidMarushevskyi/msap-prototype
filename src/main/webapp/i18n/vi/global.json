@@ -113,7 +113,7 @@
             "confirmpassword": "New password confirmation",
             "confirmpassword.placeholder": "Confirm the new password",
             "email": "E-mail",
-            "email.placeholder": "Your e-mail"
+            "email.placeholder": "Email của bạn"
         },
         "messages": {
             "info": {
@@ -128,7 +128,7 @@
                     "required": "Your password is required.",
                     "minlength": "Your password is required to be at least 5 characters.",
                     "maxlength": "Your password cannot be longer than 50 characters.",
-                    "strength": "Password strength:"
+                    "strength": "Mật khẩu mạnh:"
                 },
                 "confirmpassword": {
                     "required": "Your confirmation password is required.",
@@ -136,10 +136,10 @@
                     "maxlength": "Your confirmation password cannot be longer than 50 characters."
                 },
                 "email": {
-                    "required": "Your e-mail is required.",
-                    "invalid": "Your e-mail is invalid.",
-                    "minlength": "Your e-mail is required to be at least 5 characters.",
-                    "maxlength": "Your e-mail cannot be longer than 50 characters."
+                    "required": "E-mail của bạn là cần thiết.",
+                    "invalid": "Địa chỉ email của bạn không hợp lệ.",
+                    "minlength": "E-mail của bạn phải có ít nhất 5 ký tự.",
+                    "maxlength": "E-mail của bạn không thể lâu hơn 50 ký tự."
                 }
             }
         },

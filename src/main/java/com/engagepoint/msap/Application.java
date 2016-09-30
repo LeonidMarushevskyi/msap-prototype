@@ -3,6 +3,7 @@ package com.engagepoint.msap;
 import com.engagepoint.msap.config.*;
 
 import com.engagepoint.msap.config.Constants;
+import com.engagepoint.msap.service.ElasticsearchIndexService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -26,13 +27,16 @@ import java.util.Collection;
 
 @ComponentScan
 @EnableAutoConfiguration(exclude = { MetricFilterAutoConfiguration.class, MetricRepositoryAutoConfiguration.class, HazelcastAutoConfiguration.class })
-@EnableConfigurationProperties({ JHipsterProperties.class, LiquibaseProperties.class, HHSAPIProperties.class, AppProperties.class})
+@EnableConfigurationProperties({ JHipsterProperties.class, LiquibaseProperties.class, AppProperties.class})
 public class Application {
 
     private static final Logger LOG = LoggerFactory.getLogger(Application.class);
 
     @Inject
     private Environment env;
+
+    @Inject
+    private ElasticsearchIndexService elasticsearchIndexService;
 
     /**
      * Initializes msap-prototype.
@@ -63,6 +67,8 @@ public class Application {
                     "It should not run with both the 'dev' and 'cloud' profiles at the same time.");
             }
         }
+
+        elasticsearchIndexService.reindexAll();
     }
 
     /**

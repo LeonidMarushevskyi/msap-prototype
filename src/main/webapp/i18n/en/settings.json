@@ -15,6 +15,11 @@
         "city": "City",
         "state": "State",
         "zip": "Zip",
+        "email-address": "Email Address",
+        "telephone": "Telephone",
+        "change-password": "Change password",
+        "new-password": "New Password",
+        "confirm-new-password": "Confirm New Password",
         "form": {
             "username": "Username",
             "firstname": "First Name",
@@ -28,14 +33,26 @@
         "messages": {
             "error": {
                 "error-occurred": "An error has occurred!",
-                "settings-not-saved": "Settings could not be saved."
+                "settings-not-saved": "Settings could not be saved.",
+                "password-not-changed": "The password could not be changed."
             },
-            "success": "<strong>Settings saved!</strong>",
+            "success": "Settings saved!",
+            "password-changed": "Password changed!",
             "validate": {
                 "email-in-use": "E-mail is already in use!",
                 "choose-other": "Please choose another one.",
+                "address-not-found": "Address cannot be found",
                 "please-populate": "Please populate.",
                 "please-update": "Please update.",
+                "password": {
+                    "not-match": "The password and its confirmation do not match!",
+                    "required": "Your password is required.",
+                    "min": "Your password is required to be at least 5 characters.",
+                    "max": "Your password cannot be longer than 50 characters.",
+                    "confirm.required": "Your password confirmation is required.",
+                    "confirm.min": "Your password confirmation is required to be at least 5 characters.",
+                    "confirm.max": "Your password confirmation cannot be longer than 50 characters."
+                },
                 "firstname": {
                     "absent": "First Name is absent",
                     "required": "Your first name is required.",
@@ -66,6 +83,9 @@
                     "invalid": "Your birth year is invalid.",
                     "min": "Your birth year is required to be at least 1900.",
                     "max": "Your birth year cannot be more than 3000."
+                },
+                "tel": {
+                    "max": "Your Phone Number cannot be longer than 20 characters"
                 }
             }
         }

@@ -123,7 +123,7 @@
             "confirmpassword": "New password confirmation",
             "confirmpassword.placeholder": "Confirm the new password",
             "email": "E-mail",
-            "email.placeholder": "Your e-mail"
+            "email.placeholder": "Tu correo electrónico"
         },
         "messages": {
             "info": {
@@ -138,7 +138,7 @@
                     "required": "Your password is required.",
                     "minlength": "Your password is required to be at least 5 characters.",
                     "maxlength": "Your password cannot be longer than 50 characters.",
-                    "strength": "Password strength:"
+                    "strength": "Seguridad de la contraseña:"
                 },
                 "confirmpassword": {
                     "required": "Your confirmation password is required.",
@@ -146,10 +146,10 @@
                     "maxlength": "Your confirmation password cannot be longer than 50 characters."
                 },
                 "email": {
-                    "required": "Your e-mail is required.",
-                    "invalid": "Your e-mail is invalid.",
-                    "minlength": "Your e-mail is required to be at least 5 characters.",
-                    "maxlength": "Your e-mail cannot be longer than 50 characters."
+                    "required": "Se requiere su dirección de e-mail.",
+                    "invalid": "Tu Correo Electrónico es Inválido.",
+                    "minlength": "Su dirección de e-mail es necesario para tener al menos 5 caracteres.",
+                    "maxlength": "Su dirección de e-mail no puede tener más de 50 caracteres."
                 }
             }
         },
