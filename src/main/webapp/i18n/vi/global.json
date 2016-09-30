@@ -112,18 +112,23 @@
                 "database": "Database",
                 "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
             },
-            "search": "Search",
+            "search": "Tìm kiếm",
             "language": "Ngôn ngữ"
         },
         "form": {
             "username": "Tên đăng nhập",
             "username.placeholder": "Tên đăng nhập",
+            "username.tooltip": "Tên đăng nhập phải có chữ thường và chữ số",
+            "password": "Mật khẩu",
+            "password.confirmation": "Xác nhận mật khẩu",
+            "password.tooltip": "Mật khẩu phải được nhiều hơn thì 5 và ít hơn 50 ký tự",
             "newpassword": "Mật khẩu mới",
             "newpassword.placeholder": "Mật khẩu mới",
             "confirmpassword": "Xác nhận mật khẩu mới",
             "confirmpassword.placeholder": "Xác nhận mật khẩu mới",
             "email": "E-mail",
-            "email.placeholder": "E-mail của bạn"
+            "email.placeholder": "E-mail của bạn",
+            "email.address": "Địa chỉ e-mail"
         },
         "messages": {
             "info": {

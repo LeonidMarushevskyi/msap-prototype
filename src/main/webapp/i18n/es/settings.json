@@ -21,7 +21,7 @@
         "new-password": "Nueva contraseña",
         "confirm-new-password": "Confirmar nueva contraseña",
         "form": {
-            "username": "nombre de usuario",
+            "username": "Nombre de usuario",
             "firstname": "Nombre de pila",
             "firstname.placeholder": "Tu nombre de pila",
             "lastname": "Apellido",

@@ -112,18 +112,23 @@
                 "database": "Database",
                 "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
             },
-            "search": "Search",
+            "search": "Buscar",
             "language": "Idioma"
         },
         "form": {
             "username": "Nombre de usuario",
             "username.placeholder": "Su nombre de usuario",
+            "username.tooltip": "Nombre de usuario debe contener letras minúsculas y dígitos",
+            "password": "Contraseña",
+            "password.confirmation": "Confirmación de contraseña",
+            "password.tooltip": "La contraseña debe tener más de 5 y menos de 50 caracteres",
             "newpassword": "Nueva contraseña",
             "newpassword.placeholder": "Nueva contraseña",
             "confirmpassword": "Nueva confirmación de contraseña",
             "confirmpassword.placeholder": "Confirme la nueva contraseña",
             "email": "Correo electrónico",
-            "email.placeholder": "Tu correo electrónico"
+            "email.placeholder": "Tu correo electrónico",
+            "email.address": "Dirección de correo electrónico"
         },
         "messages": {
             "info": {

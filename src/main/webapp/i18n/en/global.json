@@ -118,12 +118,17 @@
         "form": {
             "username": "Username",
             "username.placeholder": "Your username",
+            "username.tooltip": "Username shall contain lower-case letters and digits",
+            "password": "Password",
+            "password.confirmation": "Password confirmation",
+            "password.tooltip": "Password must be more then 5 and less then 50 characters",
             "newpassword": "New password",
             "newpassword.placeholder": "New password",
             "confirmpassword": "New password confirmation",
             "confirmpassword.placeholder": "Confirm the new password",
             "email": "E-mail",
-            "email.placeholder": "Your e-mail"
+            "email.placeholder": "Your e-mail",
+            "email.address": "E-mail Address"
         },
         "messages": {
             "info": {

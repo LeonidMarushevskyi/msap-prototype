@@ -1,0 +1,56 @@
+{
+    "register": {
+        "title": "Registro",
+        "sign-up": "Regístrate",
+        "have-account": "Tengo una cuenta",
+        "form": {
+            "firstname": "Nombre de pila",
+            "firstname.placeholder": "Tu nombre de pila",
+            "lastname": "Apellido",
+            "lastname.placeholder": "Tu apellido",
+            "mark-foster-parent": "Marca, si usted es un padre de crianza",
+            "foster": "Soy un padre de crianza",
+            "fcln": "Caso familia/Número de licencia",
+            "fcln.placeholder": "Número de licencia / número del caso",
+            "fcln.tooltip": "Proporcionar el número de su caso o licencia. Lo puede encontrar en la carta de notificación",
+            "button": "Registro"
+        },
+        "messages": {
+            "validate": {
+                "login": {
+                    "required": "Se requiere su nombre de usuario.",
+                    "minlength": "Su nombre de usuario es necesario que sea al menos 1 carácter.",
+                    "maxlength": "Su nombre de usuario no puede tener más de 50 caracteres.",
+                    "pattern": "Su nombre de usuario sólo puede contener letras minúsculas y dígitos."
+                },
+                "firstname": {
+                    "required": "Se requiere su nombre."
+                },
+                "lastname": {
+                    "required": "Se requiere su apellido."
+                },
+                "fcln": {
+                    "required": "Se requiere tu Caso familia/Número de licencia."
+                }
+            },
+            "success": "<strong>Registro salvado!</strong> Por favor, consultar su correo electrónico para la confirmación.",
+            "registration-saved": "Registro salvado!",
+            "created-not-active": "Su cuenta fue creada pero no está activo todavía.",
+            "activation-link-sent": "Enlace de activación fue enviada a su correo electrónico.",
+            "check-email": "Por favor, consultar su correo electrónico",
+            "and-follow-instructions": "y siga las instrucciones para activar su cuenta.",
+            "redirect-phrase": {
+                "part1": "Se le redirigirá automáticamente",
+                "part2": "a la",
+                "part3": "página de acceso",
+                "part4": "en",
+                "part5": "segundos"
+            },
+            "error": {
+                "fail": "<strong>¡Registro fallido!</strong> Por favor, inténtelo de nuevo más tarde.",
+                "userexists": "<strong>Nombre de usuario ya registrado!</strong> Por favor elije otro.",
+                "emailexists": "<strong>¡Correo electrónico ya está en uso!</strong> Por favor elije otro."
+            }
+        }
+    }
+}
