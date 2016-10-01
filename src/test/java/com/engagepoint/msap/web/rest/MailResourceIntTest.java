@@ -14,6 +14,7 @@ import com.engagepoint.msap.security.AuthoritiesConstants;
 import com.engagepoint.msap.service.MailService;
 import com.engagepoint.msap.web.websocket.MailBoxService;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.MockitoAnnotations;
@@ -46,6 +47,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
 @IntegrationTest
+@Ignore
 public class MailResourceIntTest {
     private static final String MSG_SUBJECT = "subject";
     private static final String MSG_SUBJECT_UPDATED = "subject updated";
