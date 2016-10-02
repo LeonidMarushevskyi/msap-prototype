@@ -1,5 +1,7 @@
 {
     "facilities": {
-        "reset-filters": "Reset Filters"
+        "reset-filters": "Reset Filters",
+        "show-all-filters": "Show All Filters",
+        "apply-filters": "Apply Filters"
     }
 }
