@@ -39,17 +39,39 @@
                 </div>
             </div>
             <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_3">
-                <div class="ch-multi-select-dropdown" title="Filter facilities by type">
-                    <button type="button" class="ch-multi-select-dropdown__btn" ng-click="typesConfig.showList = !typesConfig.showList;">
-                        <span class="ch-multi-select-dropdown__btn-text">{{typesConfig.label}}</span>
+                <div class="ch-multi-select-dropdown" title="Age group">
+                    <button type="button" class="ch-multi-select-dropdown__btn" ng-click="agesConfig.showList = !agesConfig.showList;">
+                        <span class="ch-multi-select-dropdown__btn-text">Age group</span>
                         <span class="ch-multi-select-dropdown__btn-icon"></span>
                     </button>
-                    <div class="ch-multi-select-dropdown__popup" ng-show="typesConfig.showList" ng-mouseleave="typesConfig.showList = false">
+
+                    <div class="ch-multi-select-dropdown__popup" ng-show="agesConfig.showList" ng-mouseleave="agesConfig.showList = false">
                         <ul class="ch-checkboxes-list">
-                            <li class="ch-checkboxes-list__item" ng-repeat="type in providerTypes track by type.id | orderBy: 'id'">
+                            <li class="ch-checkboxes-list__item">
                                 <div class="form-type__checkbox_empty-label">
-                                    <input id="{{type.id}}" type="checkbox" ng-model="type.selected" ng-click="onTypeClick(type)">
-                                    <label for="{{type.id}}">{{type.name | capitalize:true}}</label>
+                                    <input id="age1" type="checkbox">
+                                    <label for="age1">0-2</label>
+                                </div>
+                            </li>
+
+                            <li class="ch-checkboxes-list__item">
+                                <div class="form-type__checkbox_empty-label">
+                                    <input id="age2" type="checkbox">
+                                    <label for="age2">3-5</label>
+                                </div>
+                            </li>
+
+                            <li class="ch-checkboxes-list__item">
+                                <div class="form-type__checkbox_empty-label">
+                                    <input id="age3" type="checkbox">
+                                    <label for="age3">5-10</label>
+                                </div>
+                            </li>
+
+                            <li class="ch-checkboxes-list__item">
+                                <div class="form-type__checkbox_empty-label">
+                                    <input id="age4" type="checkbox">
+                                    <label for="age4">10-18</label>
                                 </div>
                             </li>
                         </ul>
@@ -66,8 +88,8 @@
                         <ul class="ch-checkboxes-list">
                             <li class="ch-checkboxes-list__item" ng-repeat="status in qualityRating track by status.id | orderBy: 'id'">
                                 <div class="form-type__checkbox_empty-label">
-                                    <input id="{{status.id}}" type="checkbox" ng-model="status.selected" ng-click="onStatusClick(status);">
-                                    <label for="{{status.id}}">{{status.name | capitalize:true}}</label>
+                                    <input id="status{{status.id}}" type="checkbox" ng-model="status.selected" ng-click="onStatusClick(status);">
+                                    <label for="status{{status.id}}">{{status.name | capitalize:true}}</label>
                                 </div>
                             </li>
                         </ul>
@@ -76,115 +98,431 @@
             </div>
             <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_4">
                 <button class="ch-option-btn ch-ink-btn"
-                        type="button"
-                        ng-click="resetFilters(); inkRipple()"
-                        ng-init = "inkRipple();"
-                        title="Reset all selected filters"
-                        translate="facilities.reset-filters">
-                  <span class="ch-facilities-list_top-times"></span>
-                  <span class="ink"></span></button>
+                        type="button" ng-click="showAllFilters()"
+                        translate="facilities.show-all-filters"></button>
             </div>
         </div>
     </section>
 
+    <section class="ch-facilities-extended-filters">
+
+        <div class="ch-facilities-extended-filters__popup ng-hide" ng-hide="hideExtendedFilters">
+            <div class="ch-facilities-extended-filters__section">
+
+                <ul class="ch-facilities-extended-filters__item">
+                    <div class="ch-multi-select-dropdown" title="Filter facilities by type">
+                        <button type="button" class="ch-multi-select-dropdown__btn" ng-click="typesConfig.showList = !typesConfig.showList;">
+                            <span class="ch-multi-select-dropdown__btn-text">{{typesConfig.label}}</span>
+                            <span class="ch-multi-select-dropdown__btn-icon"></span>
+                        </button>
+                        <div class="ch-multi-select-dropdown__popup" ng-show="typesConfig.showList" ng-mouseleave="typesConfig.showList = false">
+                            <ul class="ch-checkboxes-list">
+                                <li class="ch-checkboxes-list__item" ng-repeat="type in providerTypes track by type.id | orderBy: 'id'">
+                                    <div class="form-type__checkbox_empty-label">
+                                        <input id="provider{{type.id}}" type="checkbox" ng-model="type.selected" ng-click="onTypeClick(type)">
+                                        <label for="provider{{type.id}}">{{type.name | capitalize:true}}</label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </ul>
+
+                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
+                    <li class="ch-checkboxes-group__header">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="working1" type="checkbox">
+                            <label for="working1">Working hours</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="working2" type="checkbox">
+                            <label for="working2">Full Day</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="working3" type="checkbox">
+                            <label for="working3">Before School</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="working4" type="checkbox">
+                            <label for="working4">After School</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="working5" type="checkbox">
+                            <label for="working5">Open Overnight</label>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
+                    <li class="ch-checkboxes-group__header">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="language1" type="checkbox">
+                            <label for="language1">Languages</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="language2" type="checkbox">
+                            <label for="language2">English</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="language3" type="checkbox">
+                            <label for="language3">Spanish</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="language4" type="checkbox">
+                            <label for="language4">Vietnamese</label>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
+                    <li class="ch-checkboxes-group__header">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="nocomplains1" type="checkbox">
+                            <label for="nocomplains1">No Problems</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="nocomplains2" type="checkbox">
+                            <label for="nocomplains2">No Complains</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="nocomplains3" type="checkbox">
+                            <label for="nocomplains3">No Allegations</label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="ch-facilities-extended-filters__section">
+                <h3 class="ch-facilities-extended-filters__title">Special needs</h3>
+
+                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
+                    <li class="ch-checkboxes-group__header">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="physical1" type="checkbox">
+                            <label for="physical1">Physical</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="physical2" type="checkbox">
+                            <label for="physical2">Muscular Dystrophy</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="physical3" type="checkbox">
+                            <label for="physical3">Multiple Sclerosis</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="physical4" type="checkbox">
+                            <label for="physical4">Chronic Asthma</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="physical5" type="checkbox">
+                            <label for="physical5">Epilepsy</label>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
+                    <li class="ch-checkboxes-group__header">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="developmental1" type="checkbox">
+                            <label for="developmental1">Developmental</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="developmental2" type="checkbox">
+                            <label for="developmental2">Down Syndrome</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="developmental3" type="checkbox">
+                            <label for="developmental3">Dyslexia</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="developmental4" type="checkbox">
+                            <label for="developmental4">Autism</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="developmental5" type="checkbox">
+                            <label for="developmental5">Processing Disorders</label>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
+                    <li class="ch-checkboxes-group__header">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="behavioral1" type="checkbox">
+                            <label for="behavioral1">Behavioral/Emotional</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="behavioral2" type="checkbox">
+                            <label for="behavioral2">Attention Deficit Disorder (ADD)</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="behavioral3" type="checkbox">
+                            <label for="behavioral3">Bipolar disorder</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="behavioral4" type="checkbox">
+                            <label for="behavioral4">Post traumatic Stress Disorder (PTSD)</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="behavioral5" type="checkbox">
+                            <label for="behavioral5">Oppositional Defiant Disorder (ODD)</label>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
+                    <li class="ch-checkboxes-group__header">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="sensory1" type="checkbox">
+                            <label for="sensory1">Sensory Impaired</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="sensory2" type="checkbox">
+                            <label for="sensory2">Blind</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="sensory3" type="checkbox">
+                            <label for="sensory3">Deaf</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="sensory4" type="checkbox">
+                            <label for="sensory4">Visually impaired</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="sensory5" type="checkbox">
+                            <label for="sensory5">Limited hearing</label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="ch-facilities-extended-filters__apply-button">
+                <button type="button" class="ch-option-btn ch-ink-btn"
+                        translate="facilities.apply-filters">
+                </button>
+            </div>
+        </div>
+
+        <div class="ch-facilities-extended-filters__results">
+            <span class="ch-facilities-extended-filters__results-total">45 Results</span>
+
+            <div class="ch-facilities-extended-filters__results-filters">
+
+                <div class="ch-meta-tag">
+                    <span class="ch-meta-tag__text">Down Syndrome</span>
+                    <button type="button" class="ch-meta-tag__dismiss-btn"></button>
+                </div>
+
+                <div class="ch-meta-tag">
+                    <span class="ch-meta-tag__text">Muscular Dystrophy</span>
+                    <button type="button" class="ch-meta-tag__dismiss-btn"></button>
+                </div>
+
+                <div class="ch-meta-tag">
+                    <span class="ch-meta-tag__text">Before School</span>
+                    <button type="button" class="ch-meta-tag__dismiss-btn"></button>
+                </div>
+
+                <div class="ch-meta-tag">
+                    <span class="ch-meta-tag__text">No Allegations</span>
+                    <button type="button" class="ch-meta-tag__dismiss-btn"></button>
+                </div>
+
+                <div class="ch-meta-tag">
+                    <span class="ch-meta-tag__text">Behavioral/Emotional</span>
+                    <button type="button" class="ch-meta-tag__dismiss-btn"></button>
+                </div>
+
+                <div class="ch-meta-tag">
+                    <span class="ch-meta-tag__text">Visually impaired</span>
+                    <button type="button" class="ch-meta-tag__dismiss-btn"></button>
+                </div>
+
+                <div class="ch-meta-tag">
+                    <span class="ch-meta-tag__text">Vietnamese</span>
+                    <button type="button" class="ch-meta-tag__dismiss-btn"></button>
+                </div>
+            </div>
+
+            <a href="" class="ch-facilities-extended-filters__results-reset" ng-click="resetFilters(); inkRipple()"
+               ng-init="inkRipple();" translate="facilities.reset-filters">
+                <span>Reset Filters</span>
+            </a>
+        </div>
+  </section>
 </div>
 
 <div class="ch-facilities-heading__mobile__view__filter">
 
-    <div class="ch-facilities-heading__mobile__view__filter-expanded" ng-show="showFilterDetails">
+  <div class="ch-facilities-heading__mobile__view__filter-expanded" ng-show="showFilterDetails">
 
-        <div class="ch-facilities-heading__item ch-facilities-heading__item_2 ch-facilities-heading__input__item_2">
-            <div class="ch-input-block" title="Put any available information about children's residential facility like name, address or administrator name">
-                <div class="ch-input-block__form-input ch-input-block__form-input_icon ch-input-block__form-input_icon_left">
-                    <span class="ch-form-input-icon ch-form-input-icon_left ch-form-input-icon_search"></span>
-                    <input type="search" ng-model="text" ng-keypress="findAgenciesByTextQuery($event);" name="search-text" id="search-text" class="ch-form-input ch-form-input_small ch-form-input_search" placeholder="Put facility data here" />
-                </div>
-            </div>
-        </div>
-
-        <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_3">
-            <div class="ch-multi-select-dropdown" title="Filter facilities by type">
-                <button type="button" class="ch-multi-select-dropdown__btn" ng-click="typesConfig.showList = !typesConfig.showList;">
-                    <span class="ch-multi-select-dropdown__btn-text">{{typesConfig.label}}</span>
-                    <span class="ch-multi-select-dropdown__btn-icon"></span>
-                </button>
-                <div class="ch-multi-select-dropdown__popup" ng-show="typesConfig.showList" ng-mouseleave="typesConfig.showList = false">
-                    <ul class="ch-checkboxes-list">
-                        <li class="ch-checkboxes-list__item" ng-repeat="type in providerTypes track by type.id | orderBy: 'id'">
-                            <div class="form-type__checkbox_empty-label">
-                                <input id="{{type.id}}" type="checkbox" ng-model="type.selected" ng-click="onTypeClick(type)">
-                                <label for="{{type.id}}"><span class="ch-popup-label-text">{{type.name | capitalize:true}}</span></label>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_4">
-            <div class="ch-multi-select-dropdown" title="Filter facilities by status">
-                <button type="button" class="ch-multi-select-dropdown__btn" ng-click="statusesConfig.showList = !statusesConfig.showList;">
-                    <span class="ch-multi-select-dropdown__btn-text">{{statusesConfig.label}}</span>
-                    <span class="ch-multi-select-dropdown__btn-icon"></span>
-                </button>
-                <div class="ch-multi-select-dropdown__popup" ng-show="statusesConfig.showList" ng-mouseleave="statusesConfig.showList = false">
-                    <ul class="ch-checkboxes-list">
-                        <li class="ch-checkboxes-list__item" ng-repeat="status in qualityRating track by status.id | orderBy: 'id'">
-                            <div class="form-type__checkbox_empty-label">
-                                <input id="{{status.id}}" type="checkbox" ng-model="status.selected" ng-click="onStatusClick(status);">
-                                <label for="{{status.id}}"><span class="ch-popup-label-text">{{status.name | capitalize:true}}</span></label>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="ch-facilities-heading__mobile__view__reset-btn">
-          <button class="ch-facilities-list_mobile ch-ink-btn"
-                  type="button"
-                  ng-click="resetFilters(); inkRipple()"
-                  ng-init = "inkRipple();"
-                  title="Reset all selected filters">Reset Filters
-            <span class="ch-facilities-list_top-times"></span>
-            <span class="ink"></span></button>
-        </div>
-
-      </div>
-
-      <div class="ch-filter-pane__title" ng-click="showFilterDetails = !showFilterDetails">
-          <div class="ch-facilities-list_top-results">RESULTS:
-              <span class="ch-facilities-list_top-count-message">{{agenciesLength}} Agencies</span>
-          </div>
-
-          <div class="ch-filter-pane__control">
-             <span >All Filters</span>
-             <span class="ch-filter-pane__icon up" ng-show="showFilterDetails"></span>
-             <span class="ch-filter-pane__icon down" ng-show="!showFilterDetails"></span>
+      <div class="ch-facilities-heading__item ch-facilities-heading__item_2 ch-facilities-heading__input__item_2">
+          <div class="ch-input-block" title="Put any available information about children's residential facility like name, address or administrator name">
+              <div class="ch-input-block__form-input ch-input-block__form-input_icon ch-input-block__form-input_icon_left">
+                  <span class="ch-form-input-icon ch-form-input-icon_left ch-form-input-icon_search"></span>
+                  <input type="search" ng-model="text" ng-keypress="findAgenciesByTextQuery($event);" name="search-text" id="search-text" class="ch-form-input ch-form-input_small ch-form-input_search" placeholder="Put facility data here" />
+              </div>
           </div>
       </div>
+
+      <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_3">
+          <div class="ch-multi-select-dropdown" title="Filter facilities by type">
+              <button type="button" class="ch-multi-select-dropdown__btn" ng-click="typesConfig.showList = !typesConfig.showList;">
+                  <span class="ch-multi-select-dropdown__btn-text">{{typesConfig.label}}</span>
+                  <span class="ch-multi-select-dropdown__btn-icon"></span>
+              </button>
+              <div class="ch-multi-select-dropdown__popup" ng-show="typesConfig.showList" ng-mouseleave="typesConfig.showList = false">
+                  <ul class="ch-checkboxes-list">
+                      <li class="ch-checkboxes-list__item" ng-repeat="type in providerTypes track by type.id | orderBy: 'id'">
+                          <div class="form-type__checkbox_empty-label">
+                              <input id="{{type.id}}" type="checkbox" ng-model="type.selected" ng-click="onTypeClick(type)">
+                              <label for="{{type.id}}"><span class="ch-popup-label-text">{{type.name | capitalize:true}}</span></label>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_4">
+          <div class="ch-multi-select-dropdown" title="Filter facilities by status">
+              <button type="button" class="ch-multi-select-dropdown__btn" ng-click="statusesConfig.showList = !statusesConfig.showList;">
+                  <span class="ch-multi-select-dropdown__btn-text">{{statusesConfig.label}}</span>
+                  <span class="ch-multi-select-dropdown__btn-icon"></span>
+              </button>
+              <div class="ch-multi-select-dropdown__popup" ng-show="statusesConfig.showList" ng-mouseleave="statusesConfig.showList = false">
+                  <ul class="ch-checkboxes-list">
+                      <li class="ch-checkboxes-list__item" ng-repeat="status in qualityRating track by status.id | orderBy: 'id'">
+                          <div class="form-type__checkbox_empty-label">
+                              <input id="{{status.id}}" type="checkbox" ng-model="status.selected" ng-click="onStatusClick(status);">
+                              <label for="{{status.id}}"><span class="ch-popup-label-text">{{status.name | capitalize:true}}</span></label>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <div class="ch-facilities-heading__mobile__view__reset-btn">
+        <button class="ch-facilities-list_mobile ch-ink-btn"
+                type="button"
+                ng-click="resetFilters(); inkRipple()"
+                ng-init = "inkRipple();"
+                title="Reset all selected filters">Reset Filters
+          <span class="ch-facilities-list_top-times"></span>
+          <span class="ink"></span></button>
+      </div>
+
+    </div>
+
+    <div class="ch-filter-pane__title" ng-click="showFilterDetails = !showFilterDetails">
+        <div class="ch-facilities-list_top-results">RESULTS:
+            <span class="ch-facilities-list_top-count-message">{{agenciesLength}} Agencies</span>
+        </div>
+
+        <div class="ch-filter-pane__control">
+           <span >All Filters</span>
+           <span class="ch-filter-pane__icon up" ng-show="showFilterDetails"></span>
+           <span class="ch-filter-pane__icon down" ng-show="!showFilterDetails"></span>
+        </div>
+    </div>
 
 </div>
 
 <div class="ch-mobile-facilities__map-view" ng-class="showListView">
-    <div class="ch-layout__aside ch-layout__aside_facilities" ui-view="aside" ng-class="showListView"></div>
+  <div class="ch-layout__aside ch-layout__aside_facilities" ui-view="aside" ng-class="showListView"></div>
 </div>
 
 <div class="ch-mobile-facilities__list-view" ng-class="showMapView">
-    <div class = "ch-layout__content ch-layout__content_facilities" ng-class="{ 'ch-layout__content_fullwidth' : isContentFullWidth }" ui-view="main">
-        <div>
-            <leaflet defaults="defaults" lf-center="center" markers="locations" style="height: calc(100vh - 15rem);" layers="layers"></leaflet>
-        </div>
-    </div>
+  <div class = "ch-layout__content ch-layout__content_facilities" ng-class="{ 'ch-layout__content_fullwidth' : isContentFullWidth }" ui-view="main">
+      <div>
+          <leaflet defaults="defaults" lf-center="center" markers="locations" style="height: calc(100vh - 15rem);" layers="layers"></leaflet>
+      </div>
+  </div>
 </div>
 <div style="display: none">
-    <img src="assets/images/icon_pin_adoption_green.jpeg" id="icon_pin_adoption_green"/>
-    <img src="assets/images/icon_pin_adoption_red.jpeg" id="icon_pin_adoption_red"/>
-    <img src="assets/images/icon_pin_adoption_yellow.jpeg" id="icon_pin_adoption_yellow"/>
-    <img src="assets/images/icon_pin_foster_green.jpeg" id="icon_pin_foster_green"/>
-    <img src="assets/images/icon_pin_foster_red.jpeg" id="icon_pin_foster_red"/>
-    <img src="assets/images/icon_pin_foster_sub_green.jpeg" id="icon_pin_foster_sub_green"/>
-    <img src="assets/images/icon_pin_foster_sub_red.jpeg" id="icon_pin_foster_sub_red"/>
-    <img src="assets/images/icon_pin_foster_sub_yellow.jpeg" id="icon_pin_foster_sub_yellow"/>
-    <img src="assets/images/icon_pin_foster_yellow.jpeg" id="icon_pin_foster_yellow"/>
-    <img src="assets/images/icon_pin_home.jpeg" id="icon_pin_home"/>
+  <img src="assets/images/icon_pin_adoption_green.jpeg" id="icon_pin_adoption_green"/>
+  <img src="assets/images/icon_pin_adoption_red.jpeg" id="icon_pin_adoption_red"/>
+  <img src="assets/images/icon_pin_adoption_yellow.jpeg" id="icon_pin_adoption_yellow"/>
+  <img src="assets/images/icon_pin_foster_green.jpeg" id="icon_pin_foster_green"/>
+  <img src="assets/images/icon_pin_foster_red.jpeg" id="icon_pin_foster_red"/>
+  <img src="assets/images/icon_pin_foster_sub_green.jpeg" id="icon_pin_foster_sub_green"/>
+  <img src="assets/images/icon_pin_foster_sub_red.jpeg" id="icon_pin_foster_sub_red"/>
+  <img src="assets/images/icon_pin_foster_sub_yellow.jpeg" id="icon_pin_foster_sub_yellow"/>
+  <img src="assets/images/icon_pin_foster_yellow.jpeg" id="icon_pin_foster_yellow"/>
+  <img src="assets/images/icon_pin_home.jpeg" id="icon_pin_home"/>
 </div>

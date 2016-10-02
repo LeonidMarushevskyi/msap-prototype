@@ -60,6 +60,7 @@ public class UserDTO {
 
     private Place place;
 
+    private boolean fosterParent;
     public UserDTO() {
         // nothing to do
     }
@@ -154,6 +155,13 @@ public class UserDTO {
         return place;
     }
 
+    public boolean isFosterParent() {
+        return fosterParent;
+    }
+
+    public void setFosterParent(boolean fosterParent) {
+        this.fosterParent = fosterParent;
+    }
 
     @Override
     public String toString() {

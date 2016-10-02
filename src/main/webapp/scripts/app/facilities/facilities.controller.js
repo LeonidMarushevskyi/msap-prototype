@@ -318,6 +318,11 @@ angular.module('msapApp')
             }
         };
 
+        $scope.hideExtendedFilters = true;
+        $scope.showAllFilters = function() {
+            $scope.hideExtendedFilters = !$scope.hideExtendedFilters;
+        };
+
         $scope.resetFilters = function() {
             $scope.clearFilter($scope.providerTypes);
             $scope.updateTypesLabel();
