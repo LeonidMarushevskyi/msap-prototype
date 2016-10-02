@@ -141,14 +141,14 @@
 
                     <div class="ch-sign-up__form__group">
                         <div>
-                            <input id="isFosterParent" type="checkbox" ng-model="registerAccount.isFosterParent">
+                            <input id="isFosterParent" type="checkbox" ng-model="registerAccount.fosterParent">
                             <label for="isFosterParent" title="{{'register.form.mark-foster-parent' | translate}}"
                                    translate="register.form.foster">I'm a foster Parent</label>
                         </div>
                     </div>
 
                     <!--<div class="ch-sign-up__form__group">-->
-                    <div class="ch-sign-up__form__group" ng-if="registerAccount.isFosterParent">
+                    <div class="ch-sign-up__form__group" ng-if="registerAccount.fosterParent">
                         <label class="control-label" for="caseNumber">{{'register.form.fcln' | translate}} *</label>
                         <input type="text" class="form-control" id="caseNumber" name="caseNumber"
                                placeholder="{{'register.form.fcln.placeholder' | translate}}"
