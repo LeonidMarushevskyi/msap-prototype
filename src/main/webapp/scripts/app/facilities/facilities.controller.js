@@ -360,17 +360,17 @@ angular.module('msapApp')
         });
 
         $scope.openDefaultAddressModal = function(userProfile) {
-            //$uibModal.open({
-            //    templateUrl: 'scripts/app/facilities/modal/default-address-dialog.html',
-            //    controller: 'DefaultAddressModalCtrl',
-            //    size: 'facilities-default-address',
-            //    windowClass: 'ch-general-modal',
-            //    resolve: {
-            //        userProfile: function() {
-            //            return userProfile;
-            //        }
-            //    }
-            //}).result.then($scope.addressApplied, $scope.addressRejected);
+            $uibModal.open({
+                templateUrl: 'scripts/app/facilities/modal/default-address-dialog.html',
+                controller: 'DefaultAddressModalCtrl',
+                size: 'facilities-default-address',
+                windowClass: 'ch-general-modal',
+                resolve: {
+                    userProfile: function() {
+                        return userProfile;
+                    }
+                }
+            }).result.then($scope.addressApplied, $scope.addressRejected);
         };
 
         $scope.addressApplied = function(addressFeature) {
