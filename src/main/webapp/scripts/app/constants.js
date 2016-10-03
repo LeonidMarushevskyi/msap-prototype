@@ -11,16 +11,7 @@ angular.module('msapApp')
         startingDay: 1,
         showWeeks: false
     })
-    .constant('ProviderType', {
-        CENTER: {id: '01pt', name: 'Center', label: 'center'},
-        GROUP_HOME: {id: '02pt', name: 'Group Home', label: 'group name'},
-        NON_RELATIVE_IN_HOME: {id: '03pt', name: 'Non-Relative In-Home', label: 'non-relative in-home'},
-        NON_RELATIVE_OUT_OF_HOME: {id: '04pt', name: 'Non-Relative Out-of-Home', label: 'non-relative out-of-home'},
-        RELATIVE_IN_HOME: {id: '05pt', name: 'Relative In-Home', label: 'relative in-home'},
-        RELATIVE_OUT_OF_HOME: {id: '06pt', name: 'Relative Out-of-Home', label: 'relative out-of-home'},
-        SLOT_CONTRACTOR: {id: '07pt', name: 'Slot Contractor', label: 'slot contractor'}
-    })
-    .constant('QualityRating', {
+    .constant('QualityRatingStars', {
         NOT_RATED: {code: 0, label: '1star'},
         LOW: {code: 1, label: '1star'},
         AVERAGE: {code: 2, label: '2star'},

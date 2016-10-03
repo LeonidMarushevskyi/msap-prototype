@@ -30,6 +30,9 @@ angular.module('msapApp')
                     }],
                     lookupQualityRating: ['LookupQualityRating', function(LookupQualityRating) {
                         return LookupQualityRating.query().$promise;
+                    }],
+                    lookupProviderType: ['LookupProviderType', function(LookupProviderType) {
+                        return LookupProviderType.query().$promise;
                     }]
                 }
             });

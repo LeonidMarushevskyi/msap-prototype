@@ -57,6 +57,15 @@
             "3": "Good",
             "4": "Very Good",
             "5": "Excellent"
+        },
+        "provider-types": {
+            "2": "Slot Contractor",
+            "3": "Group Home",
+            "4": "Center",
+            "5": "Non-Relative In-Home",
+            "6": "Relative In-Home",
+            "7": "Non-Relative Out-of-Home",
+            "8": "Relative Out-of-Home"
         }
     }
 }
