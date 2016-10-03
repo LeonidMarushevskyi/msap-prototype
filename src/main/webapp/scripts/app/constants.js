@@ -21,12 +21,12 @@ angular.module('msapApp')
         SLOT_CONTRACTOR: {id: '07pt', name: 'Slot Contractor', label: 'slot contractor'}
     })
     .constant('QualityRating', {
-        LOW: {id: '01qr', name: 'Low', color: 'red'},
-        AVERAGE: {id: '02qr', name: 'Average', color: 'orange'},
-        GOOD: {id: '03qr', name: 'Good', color: 'yellow'},
-        VERY_GOOD: {id: '04qr', name: 'Very Good', color: 'blue'},
-        EXCELLENT: {id: '05qr', name: 'Excellent', color: 'green'},
-        NOT_RATED: {id: '06qr', name: 'Not Rated', color: 'gray'}
+        LOW: {id: '01qr', name: 'Low', label: '1star'},
+        AVERAGE: {id: '02qr', name: 'Average', label: '2star'},
+        GOOD: {id: '03qr', name: 'Good', label: '3star'},
+        VERY_GOOD: {id: '04qr', name: 'Very Good', label: '4star'},
+        EXCELLENT: {id: '05qr', name: 'Excellent', label: '5star'},
+        NOT_RATED: {id: '06qr', name: 'Not Rated', label: '1star'}
     })
     .constant('chCustomScrollConfig', {
         autoHideScrollbar: false,
