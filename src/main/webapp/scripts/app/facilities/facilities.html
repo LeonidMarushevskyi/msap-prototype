@@ -96,6 +96,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_4">
                 <button class="ch-option-btn ch-ink-btn"
                         type="button" ng-click="showAllFilters()"
@@ -109,98 +110,84 @@
         <div class="ch-facilities-extended-filters__popup ng-hide" ng-hide="hideExtendedFilters">
             <div class="ch-facilities-extended-filters__section">
 
-                <ul class="ch-facilities-extended-filters__item">
-                    <div class="ch-multi-select-dropdown" title="Filter facilities by type">
-                        <button type="button" class="ch-multi-select-dropdown__btn" ng-click="typesConfig.showList = !typesConfig.showList;">
-                            <span class="ch-multi-select-dropdown__btn-text">{{typesConfig.label}}</span>
-                            <span class="ch-multi-select-dropdown__btn-icon"></span>
-                        </button>
-                        <div class="ch-multi-select-dropdown__popup" ng-show="typesConfig.showList" ng-mouseleave="typesConfig.showList = false">
-                            <ul class="ch-checkboxes-list">
-                                <li class="ch-checkboxes-list__item" ng-repeat="type in providerTypes track by type.id | orderBy: 'id'">
-                                    <div class="form-type__checkbox_empty-label">
-                                        <input id="provider{{type.id}}" type="checkbox" ng-model="type.selected" ng-click="onTypeClick(type)">
-                                        <label for="provider{{type.id}}">{{type.name | capitalize:true}}</label>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </ul>
-
                 <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
                     <li class="ch-checkboxes-group__header">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="working1" type="checkbox">
-                            <label for="working1" translate="facilities.working-hours">Working hours</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="working2" type="checkbox">
-                            <label for="working2" translate="facilities.full-day">Full Day</label>
-                        </div>
+                        <span translate="facilities.working-hours">Working hours</span>
                     </li>
 
                     <li class="ch-checkboxes-group__item">
                         <div class="form-type__checkbox_empty-label">
                             <input id="working3" type="checkbox">
-                            <label for="working3" translate="facilities.before-school">Before School</label>
+                            <label for="working3" translate="facilities.before-school">Before School Care</label>
                         </div>
                     </li>
 
                     <li class="ch-checkboxes-group__item">
                         <div class="form-type__checkbox_empty-label">
                             <input id="working4" type="checkbox">
-                            <label for="working4" translate="facilities.after-school">After School</label>
+                            <label for="working4" translate="facilities.after-school">After School Care</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="working2" type="checkbox">
+                            <label for="working2" translate="facilities.full-day">Full Day Care</label>
                         </div>
                     </li>
 
                     <li class="ch-checkboxes-group__item">
                         <div class="form-type__checkbox_empty-label">
                             <input id="working5" type="checkbox">
-                            <label for="working5" translate="facilities.open-overnight">Open Overnight</label>
+                            <label for="working5" translate="facilities.weekend">Weekend Care</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="working6" type="checkbox">
+                            <label for="working6" translate="facilities.open-overnight">Overnight Care</label>
                         </div>
                     </li>
                 </ul>
 
                 <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
                     <li class="ch-checkboxes-group__header">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="language1" type="checkbox">
-                            <label for="language1" translate="facilities.languages">Languages</label>
+                        <span translate="facilities.available-spots">Available Spots</span>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="ch-facilities-extended-text-input">
+                            <label for="for1">For children 1-2 ages</label>
+                            <input id="for1" type="input">
                         </div>
                     </li>
 
                     <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="language2" type="checkbox">
-                            <label for="language2" translate="facilities.english">English</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="language3" type="checkbox">
-                            <label for="language3" translate="facilities.spanish">Spanish</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="language4" type="checkbox">
-                            <label for="language4" translate="facilities.vietnamese">Vietnamese</label>
+                        <div class="ch-facilities-extended-text-input">
+                            <label for="for2">For children 5-9 ages</label>
+                            <input id="for2" type="input">
                         </div>
                     </li>
                 </ul>
 
                 <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
                     <li class="ch-checkboxes-group__header">
+                        <span translate="facilities.provider-type">Provider Type</span>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item" ng-repeat="type in providerTypes track by type.id | orderBy: 'id'">
                         <div class="form-type__checkbox_empty-label">
-                            <input id="nocomplains1" type="checkbox">
-                            <label for="nocomplains1" translate="facilities.no-problems">No Problems</label>
+                            <input id="provider{{type.id}}" type="checkbox" ng-model="type.selected" ng-click="onTypeClick(type)">
+                            <label for="provider{{type.id}}">{{type.name | capitalize:true}}</label>
                         </div>
+                    </li>
+                </ul>
+
+
+                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
+                    <li class="ch-checkboxes-group__header">
+                        <span translate="facilities.no-problems">Additional</span>
                     </li>
 
                     <li class="ch-checkboxes-group__item">
@@ -216,18 +203,41 @@
                             <label for="nocomplains3" translate="facilities.no-allegations">No Allegations</label>
                         </div>
                     </li>
+
+                    <li class="ch-checkboxes-group__item ch-checkboxes-group">
+
+                        <li class="ch-checkboxes-group__header">
+                            <span translate="facilities.languages">Languages</span>
+                        </li>
+
+                        <li class="ch-checkboxes-group__item">
+                            <div class="form-type__checkbox_empty-label">
+                                <input id="language2" type="checkbox">
+                                <label for="language2" translate="facilities.english">English</label>
+                            </div>
+                        </li>
+
+                        <li class="ch-checkboxes-group__item">
+                            <div class="form-type__checkbox_empty-label">
+                                <input id="language3" type="checkbox">
+                                <label for="language3" translate="facilities.spanish">Spanish</label>
+                            </div>
+                        </li>
+
+                        <li class="ch-checkboxes-group__item">
+                            <div class="form-type__checkbox_empty-label">
+                                <input id="language4" type="checkbox">
+                                <label for="language4" translate="facilities.vietnamese">Vietnamese</label>
+                            </div>
+                        </li>
+                    </li>
                 </ul>
             </div>
 
             <div class="ch-facilities-extended-filters__section">
-                <h3 class="ch-facilities-extended-filters__title">Special needs</h3>
-
                 <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
                     <li class="ch-checkboxes-group__header">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="physical1" type="checkbox">
-                            <label for="physical1" translate="facilities.physical">Physical</label>
-                        </div>
+                        <span translate="facilities.physical">Physical</span>
                     </li>
 
                     <li class="ch-checkboxes-group__item">
@@ -261,10 +271,7 @@
 
                 <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
                     <li class="ch-checkboxes-group__header">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="developmental1" type="checkbox">
-                            <label for="developmental1" translate="facilities.developmental">Developmental</label>
-                        </div>
+                        <span translate="facilities.developmental">Developmental</span>
                     </li>
 
                     <li class="ch-checkboxes-group__item">
@@ -298,47 +305,7 @@
 
                 <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
                     <li class="ch-checkboxes-group__header">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="behavioral1" type="checkbox">
-                            <label for="behavioral1" translate="facilities.behavioral-emotional">Behavioral/Emotional</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="behavioral2" type="checkbox">
-                            <label for="behavioral2" translate="facilities.attention-deficit">Attention Deficit Disorder (ADD)</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="behavioral3" type="checkbox">
-                            <label for="behavioral3" translate="facilities.bipolar-disorder">Bipolar disorder</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="behavioral4" type="checkbox">
-                            <label for="behavioral4" translate="facilities.post-traumatic-stress">Post traumatic Stress Disorder (PTSD)</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="behavioral5" type="checkbox">
-                            <label for="behavioral5" translate="facilities.oppositional-defiant">Oppositional Defiant Disorder (ODD)</label>
-                        </div>
-                    </li>
-                </ul>
-
-                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
-                    <li class="ch-checkboxes-group__header">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="sensory1" type="checkbox">
-                            <label for="sensory1" translate="facilities.sensory-imparied">Sensory Impaired</label>
-                        </div>
+                        <span translate="facilities.sensory-imparied">Sensory Impaired</span>
                     </li>
 
                     <li class="ch-checkboxes-group__item">
@@ -369,12 +336,40 @@
                         </div>
                     </li>
                 </ul>
-            </div>
 
-            <div class="ch-facilities-extended-filters__apply-button">
-                <button type="button" class="ch-option-btn ch-ink-btn"
-                        translate="facilities.apply-filters">
-                </button>
+                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
+                    <li class="ch-checkboxes-group__header">
+                        <span translate="facilities.behavioral-emotional">Behavioral/Emotional</span>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="behavioral2" type="checkbox">
+                            <label for="behavioral2" translate="facilities.attention-deficit">Attention Deficit Disorder (ADD)</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="behavioral3" type="checkbox">
+                            <label for="behavioral3" translate="facilities.bipolar-disorder">Bipolar disorder</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="behavioral4" type="checkbox">
+                            <label for="behavioral4" translate="facilities.post-traumatic-stress">Post traumatic Stress Disorder (PTSD)</label>
+                        </div>
+                    </li>
+
+                    <li class="ch-checkboxes-group__item">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="behavioral5" type="checkbox">
+                            <label for="behavioral5" translate="facilities.oppositional-defiant">Oppositional Defiant Disorder (ODD)</label>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
 
