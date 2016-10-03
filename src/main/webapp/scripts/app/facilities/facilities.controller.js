@@ -126,6 +126,7 @@ angular.module('msapApp')
         $scope.createLocations = function() {
             var locations = {};
             _.each(agenciesDataSource, function (agency) {
+                agency.formattedAddress = AddressUtils.formatAddress(agency.address);
                 agency.distanceValue = GeocoderService.distance(
                     {
                         latitude: agency.address.latitude,
