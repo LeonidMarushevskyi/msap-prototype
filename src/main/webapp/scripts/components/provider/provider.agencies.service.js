@@ -28,19 +28,6 @@ angular.module('msapApp')
         };
 
         return {
-            findAgenciesWithinBox : function (box) {
-               return HHSService.findFosterFamilyAgencies("$where=" + createWithinBoxClause(box));
-            },
-            findAgenciesByTextQuery : function (query) {
-                query = "$q=" + query;
-                return HHSService.findFosterFamilyAgencies(query);
-            },
-            findAgenciesByType : function (type) {
-                return HHSService.findFosterFamilyAgencies("facility_type=" + type);
-            },
-            findAgenciesByStatus : function (status) {
-                return HHSService.findFosterFamilyAgencies("facility_status=" + status);
-            },
             /*
               usage:
               ProviderAgenciesService.findAgenciesByFilter({
