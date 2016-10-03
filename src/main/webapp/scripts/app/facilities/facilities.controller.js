@@ -179,8 +179,8 @@ angular.module('msapApp')
         };
 
         $scope.defineIcon = function(agency) {
-            var imgId =  _.find(ProviderType, {name: agency.providerType.name}).label + '_'
-                + _.find(QualityRating, {name: agency.qualityRating.name}).color;
+            var imgId =  'green' + '_'
+                + _.find(QualityRating, {name: agency.qualityRating.name}).label;
             return $scope.getIconeUrl(imgId);
         };
 
