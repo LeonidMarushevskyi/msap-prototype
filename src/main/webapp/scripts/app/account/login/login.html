@@ -1,5 +1,14 @@
 <div class="ch-login">
-    <div class="ch-login-bg"></div>
+    <div class="ch-login-bg">
+
+      <div class="video-container">
+          <video preload="auto" autoplay="" loop="" class="" poster="https://s3-us-west-2.amazonaws.com/coverr/poster/Hoola.jpg">
+              <source src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Hoola.mp4" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
+              <source src="https://s3-us-west-2.amazonaws.com/coverr/webm/Hoola.webm" type="video/webm">Your browser does not support the video tag. I suggest you upgrade your browser.
+          </video>
+      </div>
+
+    </div>
 
     <div class="ch-login__header">
         <div class="container-fluid">
@@ -13,8 +22,10 @@
 
                 <div class="col-md-6">
                     <div class="ch-login__header__actions">
+
                         <div class="ch-login__actions__language" ng-controller="LanguageController">
-                            <a href="" translate="global.menu.language" ng-click="toggleLanguagePopup()">Language</a>
+                            <a href="" ng-click="toggleLanguagePopup()">ENG</a>
+
                             <div class="ch-user-account-entry__popup" ng-show="isLanguagePopupShown">
                                 <div class="ch-user-account-popup">
                                     <div class="ch-user-account-popup__info clearfix" ng-repeat="language in languages">
@@ -24,10 +35,15 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="ch-user-account-entry__popup-bg" ng-show="isLanguagePopupShown" ng-click="isLanguagePopupShown = !isLanguagePopupShown"></div>
+
                         </div>
+
                         <div class="ch-login__actions__new-account">
-                            <a href="#/registerme" translate="login.create-an-account">Create an Account</a>
+                            <a href="" ng-click="openSignInModal();" translate="login.create-an-account">SIGN OUT / SIGN IN</a>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -38,27 +54,24 @@
       <div class="container-fluid ">
           <div class="row clearfix rowfix">
 
-              <div class="col-md-8">
+              <div class="col-md-12">
                   <div class="ch-login__content__text">
                       <div class="ch-login__content__text-title">
                           <h3>
-                              MSAP
-                              <span class="ch-login__content__text-subtitle">Parent Portal</span>
+                              We help you find the best <br> child care providers
                           </h3>
                       </div>
-
-                      <ul class="ch-login__content__text-item">
-                          <li><span class="icon icon-login-message"></span>
-                              Talk with your caseworker</li>
-                          <li><span class="icon icon-login-clock"></span>
-                              Keep a history of your messages</li>
-                          <li><span class="icon icon-login-search"></span>
-                              Search for children's residential facilities closer to you</li>
-                      </ul>
                   </div>
+
+                  <div class="ch-login__delimiter"></div>
+
+                  <div class="ch-login__content__description">
+                      Use filters below and "Search" button to fast searching child care providers
+                  </div>
+
               </div>
 
-              <div class="col-md-4">
+              <!-- <div class="col-md-4">
 
                   <div class="ch-login__alert-failed-login"
                        ng-show="isAuthenticationFailed()">
@@ -96,21 +109,48 @@
                       </form>
                   </div>
 
-                  <ul class="ch-login__content__text-item_tablet">
-                      <li><span class="icon icon-login-message"></span>
-                          Private communication with your caseworkers</li>
-                      <li><span class="icon icon-login-clock"></span>
-                          Storage of your messages history</li>
-                      <li><span class="icon icon-login-search"></span>
-                          Easy searching of children's residential facilities</li>
-                  </ul>
-
-              </div>
+              </div> -->
           </div>
       </div>
     </div>
 
+    <div class="ch-login__search">
+        <div class="ch-login__search__action flex-row">
+
+            <div class="ch-login__input flex-child-2">
+                  <input type="search" name="name" value="" placeholder="Search near your address">
+            </div>
+
+            <div class="ch-login__select flex-child">
+
+              <div class="ch-login__select-dropdown" title="Select the serves ages">
+                  <button type="button" class="ch-login__select-dropdown__btn"
+                          ng-click="typesConfig.showList = !typesConfig.showList;">
+                      <span class="">Select age(s) of children needing care</span>
+                  </button>
+
+                  <div class="ch-login__select-dropdown__list" ng-show="typesConfig.showList" ng-mouseleave="typesConfig.showList = false">
+                      <ul class="ch-login-dropdown-list" ng-click="typesConfig.showList = !typesConfig.showList;">
+                          <li class="ch-login-dropdown-list__item">1-3 years</li>
+                          <li class="ch-login-dropdown-list__item">4-8 years</li>
+                          <li class="ch-login-dropdown-list__item">9-12 years</li>
+                      </ul>
+                  </div>
+
+              </div>
+            </div>
+
+            <div class="ch-login__action-box flex-child">
+              <button type="button" class="ch-login__action-box__btn">
+                  <span class="ch-login__action-box__btn-text">Search</span>
+              </button>
+            </div>
+        </div>
+    </div>
+
     <div class="ch-login__social">
+
+        <div class="ch-login__social__container">
 
           <div class="container-fluid ">
               <div class="row clearfix rowfix">
@@ -140,6 +180,8 @@
 
               </div>
           </div>
+
+        </div>
 
     </div>
 

@@ -1,6 +1,6 @@
 {
     "login": {
-        "create-an-account": "Create an Account",
+        "create-an-account": "Sign Out / Sign In",
         "title": "Sign in",
         "form": {
             "username": "Username",
