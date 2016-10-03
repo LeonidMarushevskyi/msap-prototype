@@ -5,12 +5,19 @@ angular.module('msapApp')
     ['$scope', '$state', '$log', '$q',
         'leafletData', 'ProviderType', 'QualityRating', 'ProviderAgenciesService',
         'GeocoderService', 'chLayoutConfigFactory', '$uibModal', 'Principal', 'AppPropertiesService', 'AddressUtils',
+        'lookupAgeGroups', 'lookupQualityRating',
     function ($scope, $state, $log, $q,
               leafletData, ProviderType, QualityRating, ProviderAgenciesService,
-              GeocoderService, chLayoutConfigFactory, $uibModal, Principal, AppPropertiesService, AddressUtils) {
+              GeocoderService, chLayoutConfigFactory, $uibModal, Principal, AppPropertiesService, AddressUtils,
+              lookupAgeGroups, lookupQualityRating) {
+
+        $scope.lookupAgeGroups = lookupAgeGroups;
+        $scope.lookupQualityRating = lookupQualityRating;
+
         var agenciesDataSource;
         var agenciesViewIndex;
         var agenciesViewPage = 10;
+
         $scope.agenciesLength = 0;
 
         $scope.ALL_TYPES_LABEL = 'All Provider Types';
@@ -59,7 +66,7 @@ angular.module('msapApp')
         $scope.viewConfig = {presentation: 'list'};
         $scope.center = {lat: 0, lng: 0, zoom: $scope.DEFAULT_ZOOM};
 
-        $scope.getIconeUrl = function(id) {
+        $scope.getIconUrl = function(id) {
             return $('#' + 'icon_pin_' + id)[0].src;
         };
 
@@ -86,7 +93,7 @@ angular.module('msapApp')
                 //focus: true,
                 message: message,
                 icon: {
-                    iconUrl: $scope.getIconeUrl("home"),
+                    iconUrl: $scope.getIconUrl("home"),
                     iconAnchor: [46, 46]
                 }
             };
@@ -96,7 +103,6 @@ angular.module('msapApp')
 
         $scope.searchText = '';
         $scope.providerTypes = ProviderType;
-        $scope.qualityRating = QualityRating;
 
         $scope.showMapView = 'ch-show-map-view';
         $scope.showLinkMapView = 'ch-mobile-mailbox__nav-tab__link_active';
@@ -180,8 +186,8 @@ angular.module('msapApp')
 
         $scope.defineIcon = function(agency) {
             var imgId =  'green' + '_'
-                + _.find(QualityRating, {name: agency.qualityRating.name}).label;
-            return $scope.getIconeUrl(imgId);
+                + _.find(QualityRating, {code: agency.qualityRating.code}).label;
+            return $scope.getIconUrl(imgId);
         };
 
         $scope.findLocationByAddress = function(address) {
@@ -208,7 +214,6 @@ angular.module('msapApp')
             var northEast = bounds._northEast;
             var southWest = bounds._southWest;
             var providerTypes = $scope.getSelected($scope.providerTypes);
-            var qualityRatings = $scope.getSelected($scope.qualityRating);
             var request = {
                 bounds: {
                     northwest: {
@@ -222,7 +227,7 @@ angular.module('msapApp')
                 },
                 text: $scope.searchText,
                 providerTypes: providerTypes,
-                qualityRatings: qualityRatings
+                qualityRatings: $scope.getSelected(lookupQualityRating)
             };
             $log.debug('request', request);
 
@@ -301,11 +306,12 @@ angular.module('msapApp')
             $scope.invalidate();
         };
 
-        $scope.updateStatusesLabel = function() {
-            $scope.updateDropDownLabel($scope.qualityRating, $scope.statusesConfig, $scope.ALL_STATUSES_LABEL);
+        $scope.updateQualityRatingLabel = function() {
+            $scope.updateDropDownLabel(lookupQualityRating, $scope.statusesConfig, $scope.ALL_STATUSES_LABEL);
         };
-        $scope.onStatusClick = function() {
-            $scope.updateStatusesLabel();
+
+        $scope.onQualityRatingSelect = function() {
+            $scope.updateQualityRatingLabel();
             $scope.invalidate();
         };
 
@@ -327,8 +333,8 @@ angular.module('msapApp')
             $scope.clearFilter($scope.providerTypes);
             $scope.updateTypesLabel();
 
-            $scope.clearFilter($scope.qualityRating);
-            $scope.updateStatusesLabel();
+            $scope.clearFilter(lookupQualityRating);
+            $scope.updateQualityRatingLabel();
 
             $scope.searchText = $scope.text = '';
             $scope.invalidate();
@@ -341,7 +347,7 @@ angular.module('msapApp')
         };
 
         $scope.getSelected = function(model) {
-            return _.map(_.filter(model, {selected: true}), 'name');
+            return _.map(_.filter(model, {selected: true}), 'code');
         };
 
         $scope.addGeocoder = function () {
@@ -448,7 +454,7 @@ angular.module('msapApp')
 
                 ink.css({top: y+'px', left: x+'px'}).addClass("animate");
             })
-        }
+        };
 
         $scope.profileHasEnoughAddressData = function (profile) {
             var hasPlace = !_.isNil(profile) && !_.isNil(profile.place);

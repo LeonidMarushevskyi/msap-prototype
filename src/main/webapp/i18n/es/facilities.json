@@ -40,6 +40,23 @@
         "deaf": "Sordo",
         "visually-impaired": "Problemas de visión",
         "limited-hearing": "Audiencia limitada",
-        "total-results": "Resultados 45"
+        "total-results": "Resultados 45",
+        "age-groups": {
+            "1": "infantil (0-12 meses)",
+            "2": "Niño (12-24 meses)",
+            "3": "2 años",
+            "4": "3 años",
+            "5": "4 años",
+            "6": "5-9 años",
+            "7": "10-12 años"
+        },
+        "quality-ratings": {
+            "0": "No calificado",
+            "1": "Bajo",
+            "2": "Normal",
+            "3": "Bueno",
+            "4": "Muy bueno",
+            "5": "Excelente"
+        }
     }
 }
