@@ -4,7 +4,7 @@
             <button type="button" class="ch-modal__close-btn" data-dismiss="modal" aria-hidden="true"
                     ng-click="clear()"></button>
             <h3 class="ch-login__form__title" translate="login.title">Sign In</h3>
-            
+
         </div>
         <div class="ch-modal__body">
 
@@ -22,7 +22,7 @@
 
               <div class="ch-login__form">
 
-                  <form class="form" role="form" ng-submit="login($event)">
+                  <form class="form" role="form">
                       <div class="ch-login__form__group">
                           <label for="username" translate="login.form.username">Username</label>
                           <input type="text" class="form-control" id="username" placeholder="{{'login.form.username.placeholder' | translate}}" ng-model="username">
@@ -38,7 +38,7 @@
                           <a class="alert-link" href="#/reset/request" translate="login.password.forgot">Forgot Password?</a>
                       </div>
 
-                      <button type="submit" class="ch-login__form__button-submit"
+                      <button type="submit" class="ch-login__form__button-submit"  ng-click="login($event);"
                               translate="login.form.button">Sign In</button>
                   </form>
 
