@@ -47,31 +47,10 @@
 
                     <div class="ch-multi-select-dropdown__popup" ng-show="agesConfig.showList" ng-mouseleave="agesConfig.showList = false">
                         <ul class="ch-checkboxes-list">
-                            <li class="ch-checkboxes-list__item">
+                            <li class="ch-checkboxes-list__item" ng-repeat="ageGroup in lookupAgeGroups">
                                 <div class="form-type__checkbox_empty-label">
-                                    <input id="age1" type="checkbox">
-                                    <label for="age1">0-2</label>
-                                </div>
-                            </li>
-
-                            <li class="ch-checkboxes-list__item">
-                                <div class="form-type__checkbox_empty-label">
-                                    <input id="age2" type="checkbox">
-                                    <label for="age2">3-5</label>
-                                </div>
-                            </li>
-
-                            <li class="ch-checkboxes-list__item">
-                                <div class="form-type__checkbox_empty-label">
-                                    <input id="age3" type="checkbox">
-                                    <label for="age3">5-10</label>
-                                </div>
-                            </li>
-
-                            <li class="ch-checkboxes-list__item">
-                                <div class="form-type__checkbox_empty-label">
-                                    <input id="age4" type="checkbox">
-                                    <label for="age4">10-18</label>
+                                    <input id="lookupAgeGroup_{{ageGroup.code}}" type="checkbox">
+                                    <label for="lookupAgeGroup_{{ageGroup.code}}">{{'facilities.age-groups.' + ageGroup.code | translate}}</label>
                                 </div>
                             </li>
                         </ul>
@@ -86,10 +65,10 @@
                     </button>
                     <div class="ch-multi-select-dropdown__popup" ng-show="statusesConfig.showList" ng-mouseleave="statusesConfig.showList = false">
                         <ul class="ch-checkboxes-list">
-                            <li class="ch-checkboxes-list__item" ng-repeat="status in qualityRating track by status.id | orderBy: 'id'">
+                            <li class="ch-checkboxes-list__item" ng-repeat="qualityRating in lookupQualityRating track by qualityRating.id | orderBy: 'id'">
                                 <div class="form-type__checkbox_empty-label">
-                                    <input id="status{{status.id}}" type="checkbox" ng-model="status.selected" ng-click="onStatusClick(status);">
-                                    <label for="status{{status.id}}">{{status.name | capitalize:true}}</label>
+                                    <input id="qualityRating_{{qualityRating.code}}" type="checkbox" ng-model="qualityRating.selected" ng-click="onQualityRatingSelect(qualityRating);">
+                                    <label for="qualityRating_{{qualityRating.code}}">{{'facilities.quality-ratings.' + qualityRating.code | translate | capitalize:true}}</label>
                                 </div>
                             </li>
                         </ul>
@@ -454,6 +433,7 @@
           </div>
       </div>
 
+      <!-- todo remove this duplicate (was a hack for mobile)
       <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_4">
           <div class="ch-multi-select-dropdown" title="Filter facilities by status">
               <button type="button" class="ch-multi-select-dropdown__btn" ng-click="statusesConfig.showList = !statusesConfig.showList;">
@@ -472,6 +452,7 @@
               </div>
           </div>
       </div>
+      -->
       <div class="ch-facilities-heading__mobile__view__reset-btn">
         <button class="ch-facilities-list_mobile ch-ink-btn"
                 type="button"

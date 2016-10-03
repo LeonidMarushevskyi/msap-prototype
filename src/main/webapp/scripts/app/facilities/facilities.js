@@ -24,6 +24,12 @@ angular.module('msapApp')
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                         $translatePartialLoader.addPart('facilities');
                         return $translate.refresh();
+                    }],
+                    lookupAgeGroups: ['LookupAgeGroups', function(LookupAgeGroups) {
+                        return LookupAgeGroups.query().$promise;
+                    }],
+                    lookupQualityRating: ['LookupQualityRating', function(LookupQualityRating) {
+                        return LookupQualityRating.query().$promise;
                     }]
                 }
             });
