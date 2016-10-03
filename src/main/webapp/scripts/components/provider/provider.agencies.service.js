@@ -53,7 +53,8 @@ angular.module('msapApp')
                 var se = filter.bounds.southeast;
 
                 return EntitySearchFacade.search(
-                    [ "*",
+                    [
+                        "*",
                         {
                             $anySuffix: true,
                             '+providerName': filter.text
@@ -61,7 +62,7 @@ angular.module('msapApp')
                         {
                             '+address.longitude': {'[]': [nw.longitude, se.longitude]},
                             '+address.latitude': {'[]': [se.latitude, nw.latitude]},
-                            '+providerType.name': filter.providerTypes,
+                            '+providerType.code': filter.providerTypes,
                             '+qualityRating.code': filter.qualityRatings
                         }
                     ],

@@ -3,16 +3,17 @@
 angular.module('msapApp')
     .controller('FacilitiesController',
     ['$scope', '$state', '$log', '$q',
-        'leafletData', 'ProviderType', 'QualityRating', 'ProviderAgenciesService',
+        'leafletData', 'QualityRatingStars', 'ProviderAgenciesService',
         'GeocoderService', 'chLayoutConfigFactory', '$uibModal', 'Principal', 'AppPropertiesService', 'AddressUtils',
-        'lookupAgeGroups', 'lookupQualityRating',
+        'lookupAgeGroups', 'lookupQualityRating', 'lookupProviderType',
     function ($scope, $state, $log, $q,
-              leafletData, ProviderType, QualityRating, ProviderAgenciesService,
+              leafletData, QualityRatingStars, ProviderAgenciesService,
               GeocoderService, chLayoutConfigFactory, $uibModal, Principal, AppPropertiesService, AddressUtils,
-              lookupAgeGroups, lookupQualityRating) {
+              lookupAgeGroups, lookupQualityRating, lookupProviderType) {
 
         $scope.lookupAgeGroups = lookupAgeGroups;
         $scope.lookupQualityRating = lookupQualityRating;
+        $scope.lookupProviderType = lookupProviderType;
 
         var agenciesDataSource;
         var agenciesViewIndex;
@@ -20,21 +21,21 @@ angular.module('msapApp')
 
         $scope.agenciesLength = 0;
 
-        $scope.ALL_TYPES_LABEL = 'All Provider Types';
-        $scope.ALL_STATUSES_LABEL = 'All Quality Ratings';
+        $scope.ALL_PROVIDER_TYPES_LABEL = 'All Provider Types';
+        $scope.ALL_QUALITY_RATINGS_LABEL = 'All Quality Ratings';
         $scope.DEFAULT_MARKER_MESSAGE = 'You are here';
         $scope.DEFAULT_ZOOM = 13;
 
         $scope.viewContainsCaBounds = false;
         $scope.caBounds = new L.LatLngBounds(new L.LatLng(32.53, -124.43), new L.LatLng(42, -114.13));
 
-        $scope.typesConfig = {
+        $scope.providerTypesConfig = {
             showList: false,
-            label: $scope.ALL_TYPES_LABEL
+            label: $scope.ALL_PROVIDER_TYPES_LABEL
         };
-        $scope.statusesConfig = {
+        $scope.qualityRatingsConfig = {
             showList: false,
-            label: $scope.ALL_STATUSES_LABEL
+            label: $scope.ALL_QUALITY_RATINGS_LABEL
         };
         $scope.defaults = {
             zoomControlPosition: 'bottomright',
@@ -102,7 +103,6 @@ angular.module('msapApp')
         $scope.currentLocation = $scope.getHomeLocation($scope.center);
 
         $scope.searchText = '';
-        $scope.providerTypes = ProviderType;
 
         $scope.showMapView = 'ch-show-map-view';
         $scope.showLinkMapView = 'ch-mobile-mailbox__nav-tab__link_active';
@@ -132,6 +132,7 @@ angular.module('msapApp')
         $scope.createLocations = function() {
             var locations = {};
             _.each(agenciesDataSource, function (agency) {
+                agency.formattedAddress = AddressUtils.formatAddress(agency.address);
                 agency.distanceValue = GeocoderService.distance(
                     {
                         latitude: agency.address.latitude,
@@ -186,7 +187,7 @@ angular.module('msapApp')
 
         $scope.defineIcon = function(agency) {
             var imgId =  'green' + '_'
-                + _.find(QualityRating, {code: agency.qualityRating.code}).label;
+                + _.find(QualityRatingStars, {code: agency.qualityRating.code}).label;
             return $scope.getIconUrl(imgId);
         };
 
@@ -213,7 +214,6 @@ angular.module('msapApp')
 
             var northEast = bounds._northEast;
             var southWest = bounds._southWest;
-            var providerTypes = $scope.getSelected($scope.providerTypes);
             var request = {
                 bounds: {
                     northwest: {
@@ -226,7 +226,7 @@ angular.module('msapApp')
                     }
                 },
                 text: $scope.searchText,
-                providerTypes: providerTypes,
+                providerTypes: $scope.getSelected(lookupProviderType),
                 qualityRatings: $scope.getSelected(lookupQualityRating)
             };
             $log.debug('request', request);
@@ -298,18 +298,17 @@ angular.module('msapApp')
             $scope.invalidate(null, $scope.DEFAULT_ZOOM);
         };
 
-        $scope.updateTypesLabel = function() {
-            $scope.updateDropDownLabel($scope.providerTypes, $scope.typesConfig, $scope.ALL_TYPES_LABEL);
+        $scope.updateProviderTypeLabel = function() {
+            $scope.updateDropDownLabel(lookupProviderType, $scope.providerTypesConfig, $scope.ALL_PROVIDER_TYPES_LABEL);
         };
-        $scope.onTypeClick = function() {
-            $scope.updateTypesLabel();
+        $scope.onProviderTypeSelect = function() {
+            $scope.updateProviderTypeLabel();
             $scope.invalidate();
         };
 
         $scope.updateQualityRatingLabel = function() {
-            $scope.updateDropDownLabel(lookupQualityRating, $scope.statusesConfig, $scope.ALL_STATUSES_LABEL);
+            $scope.updateDropDownLabel(lookupQualityRating, $scope.qualityRatingsConfig, $scope.ALL_QUALITY_RATINGS_LABEL);
         };
-
         $scope.onQualityRatingSelect = function() {
             $scope.updateQualityRatingLabel();
             $scope.invalidate();
@@ -330,8 +329,8 @@ angular.module('msapApp')
         };
 
         $scope.resetFilters = function() {
-            $scope.clearFilter($scope.providerTypes);
-            $scope.updateTypesLabel();
+            $scope.clearFilter(lookupProviderType);
+            $scope.updateProviderTypeLabel();
 
             $scope.clearFilter(lookupQualityRating);
             $scope.updateQualityRatingLabel();

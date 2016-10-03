@@ -59,15 +59,15 @@
             </div>
             <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_4">
                 <div class="ch-multi-select-dropdown" title="Filter facilities by status">
-                    <button type="button" class="ch-multi-select-dropdown__btn" ng-click="statusesConfig.showList = !statusesConfig.showList;">
-                        <span class="ch-multi-select-dropdown__btn-text">{{statusesConfig.label}}</span>
+                    <button type="button" class="ch-multi-select-dropdown__btn" ng-click="qualityRatingsConfig.showList = !qualityRatingsConfig.showList;">
+                        <span class="ch-multi-select-dropdown__btn-text">{{qualityRatingsConfig.label}}</span>
                         <span class="ch-multi-select-dropdown__btn-icon"></span>
                     </button>
-                    <div class="ch-multi-select-dropdown__popup" ng-show="statusesConfig.showList" ng-mouseleave="statusesConfig.showList = false">
+                    <div class="ch-multi-select-dropdown__popup" ng-show="qualityRatingsConfig.showList" ng-mouseleave="qualityRatingsConfig.showList = false">
                         <ul class="ch-checkboxes-list">
                             <li class="ch-checkboxes-list__item" ng-repeat="qualityRating in lookupQualityRating track by qualityRating.id | orderBy: 'id'">
                                 <div class="form-type__checkbox_empty-label">
-                                    <input id="qualityRating_{{qualityRating.code}}" type="checkbox" ng-model="qualityRating.selected" ng-click="onQualityRatingSelect(qualityRating);">
+                                    <input id="qualityRating_{{qualityRating.code}}" type="checkbox" ng-model="qualityRating.selected" ng-click="onQualityRatingSelect();">
                                     <label for="qualityRating_{{qualityRating.code}}">{{'facilities.quality-ratings.' + qualityRating.code | translate | capitalize:true}}</label>
                                 </div>
                             </li>
@@ -155,10 +155,10 @@
                         <span translate="facilities.provider-type">Provider Type</span>
                     </li>
 
-                    <li class="ch-checkboxes-group__item" ng-repeat="type in providerTypes track by type.id | orderBy: 'id'">
+                    <li class="ch-checkboxes-group__item" ng-repeat="providerType in lookupProviderType track by providerType.id | orderBy: 'id'">
                         <div class="form-type__checkbox_empty-label">
-                            <input id="provider{{type.id}}" type="checkbox" ng-model="type.selected" ng-click="onTypeClick(type)">
-                            <label for="provider{{type.id}}">{{type.name | capitalize:true}}</label>
+                            <input id="providerType_{{providerType.code}}" type="checkbox" ng-model="providerType.selected" ng-click="onProviderTypeSelect();">
+                            <label for="providerType_{{providerType.code}}">{{'facilities.provider-types.' + providerType.code | translate | capitalize:true}}</label>
                         </div>
                     </li>
                 </ul>
@@ -442,16 +442,16 @@
 
       <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_3">
           <div class="ch-multi-select-dropdown" title="Filter facilities by type">
-              <button type="button" class="ch-multi-select-dropdown__btn" ng-click="typesConfig.showList = !typesConfig.showList;">
-                  <span class="ch-multi-select-dropdown__btn-text">{{typesConfig.label}}</span>
+              <button type="button" class="ch-multi-select-dropdown__btn" ng-click="providerTypesConfig.showList = !providerTypesConfig.showList;">
+                  <span class="ch-multi-select-dropdown__btn-text">{{providerTypesConfig.label}}</span>
                   <span class="ch-multi-select-dropdown__btn-icon"></span>
               </button>
-              <div class="ch-multi-select-dropdown__popup" ng-show="typesConfig.showList" ng-mouseleave="typesConfig.showList = false">
+              <div class="ch-multi-select-dropdown__popup" ng-show="providerTypesConfig.showList" ng-mouseleave="providerTypesConfig.showList = false">
                   <ul class="ch-checkboxes-list">
-                      <li class="ch-checkboxes-list__item" ng-repeat="type in providerTypes track by type.id | orderBy: 'id'">
+                      <li class="ch-checkboxes-list__item" ng-repeat="providerType in lookupProviderType track by providerType.id | orderBy: 'id'">
                           <div class="form-type__checkbox_empty-label">
-                              <input id="{{type.id}}" type="checkbox" ng-model="type.selected" ng-click="onTypeClick(type)">
-                              <label for="{{type.id}}"><span class="ch-popup-label-text">{{type.name | capitalize:true}}</span></label>
+                              <input id="MproviderType_{{providerType.code}}" type="checkbox" ng-model="type.selected" ng-click="onProviderTypeSelect();">
+                              <label for="MproviderType_{{providerType.code}}"><span class="ch-popup-label-text">{{'facilities.provider-types.' + providerType.code | translate | capitalize:true}}</span></label>
                           </div>
                       </li>
                   </ul>
@@ -459,26 +459,25 @@
           </div>
       </div>
 
-      <!-- todo remove this duplicate (was a hack for mobile)
       <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_4">
           <div class="ch-multi-select-dropdown" title="Filter facilities by status">
-              <button type="button" class="ch-multi-select-dropdown__btn" ng-click="statusesConfig.showList = !statusesConfig.showList;">
-                  <span class="ch-multi-select-dropdown__btn-text">{{statusesConfig.label}}</span>
+              <button type="button" class="ch-multi-select-dropdown__btn" ng-click="qualityRatingsConfig.showList = !qualityRatingsConfig.showList;">
+                  <span class="ch-multi-select-dropdown__btn-text">{{qualityRatingsConfig.label}}</span>
                   <span class="ch-multi-select-dropdown__btn-icon"></span>
               </button>
-              <div class="ch-multi-select-dropdown__popup" ng-show="statusesConfig.showList" ng-mouseleave="statusesConfig.showList = false">
+              <div class="ch-multi-select-dropdown__popup" ng-show="qualityRatingsConfig.showList" ng-mouseleave="qualityRatingsConfig.showList = false">
                   <ul class="ch-checkboxes-list">
-                      <li class="ch-checkboxes-list__item" ng-repeat="status in qualityRating track by status.id | orderBy: 'id'">
+                      <li class="ch-checkboxes-list__item" ng-repeat="qualityRating in lookupQualityRating track by qualityRating.id | orderBy: 'id'">
                           <div class="form-type__checkbox_empty-label">
-                              <input id="{{status.id}}" type="checkbox" ng-model="status.selected" ng-click="onStatusClick(status);">
-                              <label for="{{status.id}}"><span class="ch-popup-label-text">{{status.name | capitalize:true}}</span></label>
+                              <input id="MqualityRating_{{qualityRating.code}}" type="checkbox" ng-model="qualityRating.selected" ng-click="onQualityRatingSelect();">
+                              <label for="MqualityRating_{{qualityRating.code}}">{{'facilities.quality-ratings.' + qualityRating.code | translate | capitalize:true}}</label>
                           </div>
                       </li>
                   </ul>
               </div>
           </div>
       </div>
-      -->
+
       <div class="ch-facilities-heading__mobile__view__reset-btn">
         <button class="ch-facilities-list_mobile ch-ink-btn"
                 type="button"

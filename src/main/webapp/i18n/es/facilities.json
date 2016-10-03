@@ -57,6 +57,15 @@
             "3": "Bueno",
             "4": "Muy bueno",
             "5": "Excelente"
+        },
+        "provider-types": {
+            "2": "Contratista Ranura",
+            "3": "Grupo Hogar",
+            "4": "Centro",
+            "5": "No pariente en el hogar",
+            "6": "Relativa en el hogar",
+            "7": "Que no es pariente fuera de la casa",
+            "8": "En relación fuera de la casa"
         }
     }
 }

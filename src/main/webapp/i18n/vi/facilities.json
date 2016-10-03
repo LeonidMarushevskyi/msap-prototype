@@ -57,6 +57,15 @@
             "3": "Tốt",
             "4": "Rất tốt",
             "5": "Tuyệt vời"
+        },
+        "provider-types": {
+            "2": "Khe thầu",
+            "3": "Nhóm Home",
+            "4": "Trung tâm",
+            "5": "Không tương đối trong trang",
+            "6": "Họ hàng trong trang",
+            "7": "Không tương đối trong nhà",
+            "8": "Họ hàng trong nhà"
         }
     }
 }
