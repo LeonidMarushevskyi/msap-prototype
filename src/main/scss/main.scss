@@ -188,6 +188,25 @@ ul#strength {
 .angular-google-map-container { height: 370px; }
 
 /* entity tables helpers */
+@mixin clearfix() {
+    &::before {
+        visibility: hidden;
+        display: table;
+        content: " ";
+        clear: both;
+        font-size: 0;
+        height: 0;
+    }
+
+    &::after {
+        visibility: hidden;
+        display: table;
+        content: " ";
+        clear: both;
+        font-size: 0;
+        height: 0;
+    }
+}
 
 /* Remove Bootstrap padding from the element
    http://stackoverflow.com/questions/19562903/remove-padding-from-columns-in-bootstrap-3 */

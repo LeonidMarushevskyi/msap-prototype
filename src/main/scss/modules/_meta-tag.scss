@@ -1,0 +1,22 @@
+.ch-meta-tag {
+    display: inline-block;
+    background: #595c65;
+    padding: 0.2rem 0.5rem 0.3rem 1.0rem;
+    border-radius: 2em;
+
+    .ch-meta-tag__text {
+        display: inline-block;
+        padding-right: 4px;
+        color: #fff;
+    }
+
+    .ch-meta-tag__dismiss-btn {
+        display: inline-block;
+        margin: 0;
+        padding: 4px;
+        width: 16px;
+        height: 16px;
+        border: none;
+        background: url("../images/icon-closed-mark.png") no-repeat center;
+    }
+}

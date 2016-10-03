@@ -1,10 +1,10 @@
 {
     "global": {
-        "title": "MSAP Parent Portal",
-        "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
+        "title": "MSAP Portal de Padres",
+        "browsehappy": "Está utilizando un <strong>obsoleta</strong> navegador. Por favor <a href=\"http://browsehappy.com/?locale=en\">actualizar su navegador</a> para mejorar su experiencia.",
         "menu": {
-            "home": "Home",
-            "dashboard": "Dashboard",
+            "home": "Casa",
+            "dashboard": "Tablero",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entities",
@@ -112,18 +112,23 @@
                 "database": "Database",
                 "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
             },
-            "search": "Search",
+            "search": "Buscar",
             "language": "Idioma"
         },
         "form": {
-            "username": "Username",
-            "username.placeholder": "Your username",
-            "newpassword": "New password",
-            "newpassword.placeholder": "New password",
-            "confirmpassword": "New password confirmation",
-            "confirmpassword.placeholder": "Confirm the new password",
-            "email": "E-mail",
-            "email.placeholder": "Tu correo electrónico"
+            "username": "Nombre de usuario",
+            "username.placeholder": "Su nombre de usuario",
+            "username.tooltip": "Nombre de usuario debe contener letras minúsculas y dígitos",
+            "password": "Contraseña",
+            "password.confirmation": "Confirmación de contraseña",
+            "password.tooltip": "La contraseña debe tener más de 5 y menos de 50 caracteres",
+            "newpassword": "Nueva contraseña",
+            "newpassword.placeholder": "Nueva contraseña",
+            "confirmpassword": "Nueva confirmación de contraseña",
+            "confirmpassword.placeholder": "Confirme la nueva contraseña",
+            "email": "Correo electrónico",
+            "email.placeholder": "Tu correo electrónico",
+            "email.address": "Dirección de correo electrónico"
         },
         "messages": {
             "info": {
@@ -131,19 +136,19 @@
                 "register": "You don't have an account yet? <a class=\"alert-link\" href=\"#/register\">Register a new account</a>"
             },
             "error": {
-                "dontmatch": "The password and its confirmation do not match!"
+                "dontmatch": "La contraseña y su confirmación no coinciden!"
             },
             "validate": {
                 "newpassword": {
-                    "required": "Your password is required.",
-                    "minlength": "Your password is required to be at least 5 characters.",
-                    "maxlength": "Your password cannot be longer than 50 characters.",
+                    "required": "Se requiere su contraseña.",
+                    "minlength": "Su contraseña es necesaria para tener al menos 5 caracteres.",
+                    "maxlength": "La contraseña no puede ser superior a 50 caracteres.",
                     "strength": "Seguridad de la contraseña:"
                 },
                 "confirmpassword": {
-                    "required": "Your confirmation password is required.",
-                    "minlength": "Your confirmation password is required to be at least 5 characters.",
-                    "maxlength": "Your confirmation password cannot be longer than 50 characters."
+                    "required": "Se requiere la confirmación de la contraseña.",
+                    "minlength": "La confirmación de su contraseña se requiere tener al menos 5 caracteres.",
+                    "maxlength": "La confirmación de su contraseña no puede ser superior a 50 caracteres."
                 },
                 "email": {
                     "required": "Se requiere su dirección de e-mail.",

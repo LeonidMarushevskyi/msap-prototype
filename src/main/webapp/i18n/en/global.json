@@ -118,12 +118,17 @@
         "form": {
             "username": "Username",
             "username.placeholder": "Your username",
+            "username.tooltip": "Username shall contain lower-case letters and digits",
+            "password": "Password",
+            "password.confirmation": "Password confirmation",
+            "password.tooltip": "Password must be more then 5 and less then 50 characters",
             "newpassword": "New password",
             "newpassword.placeholder": "New password",
             "confirmpassword": "New password confirmation",
             "confirmpassword.placeholder": "Confirm the new password",
             "email": "E-mail",
-            "email.placeholder": "Your e-mail"
+            "email.placeholder": "Your e-mail",
+            "email.address": "E-mail Address"
         },
         "messages": {
             "info": {
@@ -141,9 +146,9 @@
                     "strength": "Password strength:"
                 },
                 "confirmpassword": {
-                    "required": "Your confirmation password is required.",
-                    "minlength": "Your confirmation password is required to be at least 5 characters.",
-                    "maxlength": "Your confirmation password cannot be longer than 50 characters."
+                    "required": "Your password confirmation is required.",
+                    "minlength": "Your password confirmation is required to be at least 5 characters.",
+                    "maxlength": "Your password confirmation cannot be longer than 50 characters."
                 },
                 "email": {
                     "required": "Your e-mail is required.",

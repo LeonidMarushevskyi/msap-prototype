@@ -110,7 +110,12 @@ public class UserService {
         MailBox mailBox = prepareMailbox();
         mailBox.setUser(newUser);
         newUser.setMailBox(mailBox);
-        Authority authority = authorityRepository.findOne(AuthoritiesConstants.PARENT);
+        Authority authority;
+        if (userDTO.isFosterParent()) {
+            authority = authorityRepository.findOne(AuthoritiesConstants.FOSTER_PARENT);
+        } else {
+            authority = authorityRepository.findOne(AuthoritiesConstants.PARENT);
+        }
         Set<Authority> authorities = new HashSet<>();
         String encryptedPassword = passwordEncoder.encode(userDTO.getPassword());
         newUser.setLogin(userDTO.getLogin());

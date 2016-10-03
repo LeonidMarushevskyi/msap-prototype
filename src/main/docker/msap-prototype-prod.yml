@@ -32,6 +32,10 @@ msap-prototype-prod:
     - COOKIE=SRV insert indirect nocache
     - TZ=America/New_York
 #   - logback_graylogHost=LOGBACK_GRAYLOGHOST
+    - jhipster_metrics_zabbix_enabled=true
+    - jhipster_metrics_zabbix_host=zabbix.msap.engagepoint.com
+    - jhipster_metrics_zabbix_periodSec=300
+    - jhipster_metrics_zabbix_hostMetadata=msap-prototype
     - SPRING_MAIL_HOST=127.0.0.1
     - SPRING_DATA_ELASTICSEARCH_CLUSTER-NAME=msap-prototype
   ports:

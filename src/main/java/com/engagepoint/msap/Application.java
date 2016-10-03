@@ -68,7 +68,8 @@ public class Application {
             }
         }
 
-        elasticsearchIndexService.reindexAll();
+        //todo: it happens that we have issue on dev env.
+//        elasticsearchIndexService.reindexAll();
     }
 
     /**

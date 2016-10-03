@@ -19,6 +19,7 @@ import com.engagepoint.msap.web.rest.dto.KeyAndPasswordDTO;
 import com.engagepoint.msap.web.rest.dto.UserDTO;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentMatcher;
@@ -205,6 +206,7 @@ public class MailOperationsIntTest {
 
     @Test
     @Transactional
+    @Ignore
     public void testRegisterValid() throws Exception {
         User user = newUserAnnaBrown(passwordEncoder, authorityRepository);
         UserDTO userDTO = new UserDTO(user, user.getPassword());

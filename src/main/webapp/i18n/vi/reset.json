@@ -1,0 +1,33 @@
+{
+    "reset": {
+        "request": {
+            "title": "Đặt lại mật khẩu",
+            "form": {
+                "button": "Đặt lại mật khẩu"
+            },
+            "messages": {
+                "info": "Nhập địa chỉ e-mail mà bạn dùng để đăng ký",
+                "success": "Kiểm tra e-mail của bạn để biết chi tiết về làm thế nào để thiết lập lại mật khẩu của bạn.",
+                "not-activated": "Tài khoản của bạn chưa được kích hoạt!",
+                "activation-sent": "Hướng dẫn kích hoạt đã được gửi đến email của bạn. Hãy kiểm tra email của bạn và làm theo hướng dẫn để kích hoạt tài khoản của bạn.",
+                "not-registered": "Địa chỉ E-Mail không được đăng ký!",
+                "try-again": "Vui lòng kiểm tra và thử lại."
+            },
+            "back": "Trở lại Đăng nhập"
+        },
+        "finish" : {
+            "title": "Đặt lại mật khẩu",
+            "form": {
+                "button": "Xác nhận mật khẩu mới"
+            },
+            "messages": {
+                "info": "Chọn một mật khẩu mới",
+                "success-reset": "Mật khẩu của bạn đã được thiết lập lại.",
+                "success-please": "Xin vui lòng",
+                "success-sign-in": "đăng nhập",
+                "missing-key": "Các nút reset là mất tích.",
+                "error": "Mật khẩu của bạn không thể được đặt lại. Hãy nhớ một yêu cầu mật khẩu chỉ có giá trị trong 24 giờ."
+            }
+        }
+    }
+}

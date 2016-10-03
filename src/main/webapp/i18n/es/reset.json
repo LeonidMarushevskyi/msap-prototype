@@ -1,0 +1,33 @@
+{
+    "reset": {
+        "request": {
+            "title": "Restablecer la contraseña",
+            "form": {
+                "button": "Restablecer la contraseña"
+            },
+            "messages": {
+                "info": "Introduzca la dirección de correo electrónico que utilizó para registrarse",
+                "success": "Revisar sus correos electrónicos para obtener más información sobre cómo restablecer su contraseña.",
+                "not-activated": "¡Tu cuenta no ha sido activada todavía!",
+                "activation-sent": "Instrucciones de activación fueron enviados a su correo electrónico. Por favor, consultar su correo electrónico y siga las instrucciones para activar su cuenta.",
+                "not-registered": "Dirección de correo electrónico no está registrado!",
+                "try-again": "Por favor revisa e intenta de nuevo."
+            },
+            "back": "Volver a entrar"
+        },
+        "finish" : {
+            "title": "Restablecer la contraseña",
+            "form": {
+                "button": "Validar la nueva contraseña"
+            },
+            "messages": {
+                "info": "Elija una contraseña nueva",
+                "success-reset": "Tu contraseña ha sido restablecida.",
+                "success-please": "Por favor",
+                "success-sign-in": "registrarse",
+                "missing-key": "La tecla de reinicio no se encuentra.",
+                "error": "La contraseña no puede ser reiniciado. Recuerde que una solicitud de contraseña sólo es válida durante 24 horas."
+            }
+        }
+    }
+}
