@@ -6,6 +6,7 @@
         "available-spots": "Điểm sẵn",
         "age-group": "Nhóm tuổi",
         "provider-type": "Loại nhà cung cấp",
+        "price-per-week": "Giá mỗi tuần",
         "working-hours": "Giờ làm việc",
         "full-day": "Chăm sóc đầy đủ ngày",
         "before-school": "Trước khi chăm sóc học đường",
@@ -39,6 +40,23 @@
         "deaf": "Điếc",
         "visually-impaired": "Khiếm thị",
         "limited-hearing": "Nghe Limited",
-        "total-results": "45 kết quả"
+        "total-results": "45 kết quả",
+        "age-groups": {
+            "1": "trẻ sơ sinh (0-12 tháng)",
+            "2": "Toddler (12-24 tháng)",
+            "3": "2 năm",
+            "4": "3 năm",
+            "5": "4 năm",
+            "6": "5-9 năm",
+            "7": "10-12 năm"
+        },
+        "quality-ratings": {
+            "0": "Không được đánh giá",
+            "1": "Thấp",
+            "2": "Trung bình",
+            "3": "Tốt",
+            "4": "Rất tốt",
+            "5": "Tuyệt vời"
+        }
     }
 }

@@ -6,6 +6,7 @@
         "available-spots": "Available Spots:",
         "age-group": "Age group",
         "provider-type": "Provider Type:",
+        "price-per-week": "Price per week",
         "working-hours": "Working hours:",
         "full-day": "Full Day Care",
         "before-school": "Before School Care",
@@ -39,6 +40,23 @@
         "deaf": "Deaf",
         "visually-impaired": "Visually impaired",
         "limited-hearing": "Limited hearing",
-        "total-results": "45 Results"
+        "total-results": "45 Results",
+        "age-groups": {
+            "1": "Infant (0-12 months)",
+            "2": "Toddler (12-24 months)",
+            "3": "2 years",
+            "4": "3 years",
+            "5": "4 years",
+            "6": "5-9 years",
+            "7": "10-12 years"
+        },
+        "quality-ratings": {
+            "0": "Not Rated",
+            "1": "Low",
+            "2": "Average",
+            "3": "Good",
+            "4": "Very Good",
+            "5": "Excellent"
+        }
     }
 }

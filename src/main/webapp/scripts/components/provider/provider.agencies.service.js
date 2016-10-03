@@ -59,22 +59,10 @@ angular.module('msapApp')
                             '+providerName': filter.text
                         },
                         {
-                            $exactMatch: true,
+                            '+address.longitude': {'[]': [nw.longitude, se.longitude]},
+                            '+address.latitude': {'[]': [se.latitude, nw.latitude]},
                             '+providerType.name': filter.providerTypes,
-                            '+qualityRating.name': filter.qualityRatings
-                        },
-                        {
-                            '+address.longitude': {'[]': [
-                                nw.longitude,
-                                se.longitude
-                            ]}
-                        },
-                        {
-                            '+address.latitude': {'[]': [
-                                se.latitude,
-                                nw.latitude
-
-                            ]}
+                            '+qualityRating.code': filter.qualityRatings
                         }
                     ],
                     // entity name
