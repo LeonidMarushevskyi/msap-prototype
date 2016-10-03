@@ -1,4 +1,4 @@
-$facilities-popup-height: 470px;
+$facilities-popup-height: 430px;
 
 .ch-facilities-extended-filters {
     overflow: hidden;
@@ -23,6 +23,7 @@ $facilities-popup-height: 470px;
         border-top: 1px solid #cbcdcf;
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-around;
     }
 
     .ch-facilities-extended-filters__title {
@@ -31,8 +32,7 @@ $facilities-popup-height: 470px;
     }
 
     .ch-facilities-extended-filters__item {
-        margin: 15px 25px 15px 25px;
-        min-width: 200px;
+        margin: 15px 5px 15px 5px;
     }
 
     .ch-facilities-extended-text-input {
