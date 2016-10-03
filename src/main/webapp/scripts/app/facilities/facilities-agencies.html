@@ -1,9 +1,16 @@
 <section class="ch-aside-facilities" ng-show="isAsideVisible">
     <div class="ch-facilities-list_top-pane">
-        <div class="ch-facilities-list_top-results">RESULTS: <span class="ch-facilities-list_top-count-message">{{agenciesLength}} Agencies</span></div>
+        <span class="ch-facilities-list_top-results">Sort By:
+            <select>
+                <option>Distance</option>
+                <option>Provider Name</option>
+                <option>Provider Type</option>
+                <option>Quality Star Rating</option>
+            </select>
+     </span>
     </div>
     <ul class="ch-facilities">
-        <li id="agency{{agency.facility_number}}" class="ch-facilities__item" ng-repeat="agency in agencies">
+        <li id="agency{{agency.id}}" class="ch-facilities__item" ng-repeat="agency in agencies">
             <data-apdq-facility-agency data-agency="agency" data-view-config="viewConfig"></data-apdq-facility-agency>
         </li>
     </ul>
