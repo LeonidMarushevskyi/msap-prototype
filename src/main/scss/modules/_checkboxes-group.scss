@@ -1,14 +1,18 @@
 .ch-checkboxes-group {
     list-style: none;
+
+    .ch-checkboxes-group {
+        margin-top: 12px;
+    }
 }
 
 .ch-checkboxes-group__header {
+    font-weight: bold;
     margin-top: 0;
     margin-left: 0;
 }
 
 .ch-checkboxes-group__item {
     display: block;
-    margin-top: 15px;
-    margin-left: 30px;
+    margin-top: 10px;
 }
