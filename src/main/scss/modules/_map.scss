@@ -1,8 +1,14 @@
 .ch-input-block__form-input_search-field-map {
-    .leaflet-pelias-results {
+    .leaflet-pelias-results.leaflet-bar {
         top: 100%;
         border: 1px solid #5b616b;
         margin: -9px 0px;
+
+        @media screen and (max-width: $break-phone) {
+            position: absolute;
+            z-index: 10000;
+            top: 6.5rem;
+        }
     }
 
     .leaflet-bar {

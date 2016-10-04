@@ -24,19 +24,20 @@
                     <div class="ch-login__header__actions">
 
                         <div class="ch-login__actions__language" ng-controller="LanguageController">
-                            <a href="" ng-click="toggleLanguagePopup()">ENG</a>
+                            <a href="" ng-click="toggleLanguagePopup()" translate="global.menu.language">Language</a>
 
-                            <div class="ch-user-account-entry__popup" ng-show="isLanguagePopupShown">
-                                <div class="ch-user-account-popup">
-                                    <div class="ch-user-account-popup__info clearfix" ng-repeat="language in languages">
-                                        <p ng-class="isCurrent(language) ? 'ch-language-popup__entry_active' : 'ch-language-popup__entry'" ng-click="clickLanguage(language)">
+                            <div class="ch-login-language__popup" ng-show="isLanguagePopupShown">
+                                <div class="ch-login-language__popup-plane">
+                                    <div class="ch-login-language__popup__info clearfix"
+                                         ng-repeat="language in languages" ng-class="isCurrent(language) ? 'ch-language-popup__entry_active' : 'ch-language-popup__entry'">
+                                        <p ng-click="clickLanguage(language)">
                                             {{language | findLanguageFromKey}}
                                         </p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="ch-user-account-entry__popup-bg" ng-show="isLanguagePopupShown" ng-click="isLanguagePopupShown = !isLanguagePopupShown"></div>
+                            <div class="ch-login-language__popup-bg" ng-show="isLanguagePopupShown" ng-click="isLanguagePopupShown = !isLanguagePopupShown"></div>
 
                         </div>
 

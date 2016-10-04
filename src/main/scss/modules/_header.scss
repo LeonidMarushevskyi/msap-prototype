@@ -54,10 +54,21 @@
 }
 
 .icon-menu-close {
-  width: 2.6rem;
-  height: 2.6rem;
-  display: inline-block;
-  background: url("../images/us-icon/icon-close.png") no-repeat center;
+    width: 2.6rem;
+    height: 2.6rem;
+    display: inline-block;
+    background: url("../images/us-icon/icon-close.png") no-repeat center;
+}
+
+.ch-user-account-entry__language-globe:before {
+    content: " ";
+    display: inline-block;
+    width: 1.6rem;
+    height: 1.6rem;
+    position: relative;
+    top: .2rem;
+    left: -1rem;
+    background: url("../images/us-icon/icon-globe.png") no-repeat center;
 }
 
 .ch-user-account-entry__dropdown-btn_collapsed:after,
@@ -85,7 +96,8 @@
     vertical-align: 3px;
 }
 
-.ch-user-account-entry__popup:before {
+.ch-user-account-entry__popup:before,
+.ch-login-language__popup:before {
     content: '\0020';
     width: 0;
     height: 0;
@@ -100,11 +112,24 @@
 .ch-user-account-entry__popup {
     background: #fff;
     box-shadow: 0 1px 1px #cbcdcf;
-    padding: 3rem;
-    min-width: 19rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    min-width: 15rem;
     position: absolute;
     top: 4rem;
-    right: 16rem;
+    right: -2rem;
+    z-index: 10000;
+}
+
+.ch-login-language__popup {
+    background: #fff;
+    box-shadow: 0 1px 1px #cbcdcf;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    min-width: 15rem;
+    position: absolute;
+    top: 4rem;
+    right: 7.7rem;
     z-index: 10000;
 }
 
@@ -128,8 +153,13 @@
     color: #5b616b;
 }
 
-.ch-user-account-popup__info:not(:last-child) {
-    padding: 0 0 2.4rem;
+.ch-login-language__popup__info,
+.ch-user-account-popup__info {
+    padding: 1rem 3rem;
+
+    &:hover {
+        background-color: #d4e4ec;
+    }
 }
 
 .ch-user-account-popup__profile-btn {
@@ -142,7 +172,8 @@
     margin: 0;
 }
 
-.ch-user-account-entry__popup-bg {
+.ch-user-account-entry__popup-bg,
+.ch-login-language__popup-bg {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -164,8 +195,9 @@
 
 .ch-language-popup__entry_active {
     font-size: 1.6rem;
-    font-weight: 400;
+    font-weight: 600;
     color: #313135;
+    background-color: #d4e4ec;
 }
 
 .ch-language-popup__entry {

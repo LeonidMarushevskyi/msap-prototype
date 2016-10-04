@@ -27,7 +27,8 @@
 
 .ch-input-block__form-input_search-field-map .leaflet-pelias-expanded  {
     @media screen and (max-width: $break-phone) {
-        width: 100% !important;
+      width: calc(100vw - 3.4rem) !important;
+      position: absolute;
     }
 }
 
