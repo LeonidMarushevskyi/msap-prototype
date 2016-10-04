@@ -28,19 +28,6 @@ angular.module('msapApp')
         };
 
         return {
-            findAgenciesWithinBox : function (box) {
-               return HHSService.findFosterFamilyAgencies("$where=" + createWithinBoxClause(box));
-            },
-            findAgenciesByTextQuery : function (query) {
-                query = "$q=" + query;
-                return HHSService.findFosterFamilyAgencies(query);
-            },
-            findAgenciesByType : function (type) {
-                return HHSService.findFosterFamilyAgencies("facility_type=" + type);
-            },
-            findAgenciesByStatus : function (status) {
-                return HHSService.findFosterFamilyAgencies("facility_status=" + status);
-            },
             /*
               usage:
               ProviderAgenciesService.findAgenciesByFilter({
@@ -62,13 +49,28 @@ angular.module('msapApp')
                 });
             */
             findAgenciesByFilter: function (filter) {
+                var nw = filter.bounds.northwest;
+                var se = filter.bounds.southeast;
+
                 return EntitySearchFacade.search(
-                    {
-                        $exactMatch: true,
-                        '+providerName': filter.text,
-                        '+providerType.name': filter.providerTypes,
-                        '+qualityRating.name': filter.qualityRatings
-                    },
+                    [
+                        "*",
+                        {
+                            $anySuffix: true,
+                            '+providerName': filter.text
+                        },
+                        {
+                            '+address.longitude': {'[]': [nw.longitude, se.longitude]},
+                            '+address.latitude': {'[]': [se.latitude, nw.latitude]},
+                            '+providerType.code': filter.providerTypes,
+                            '+qualityRating.code': filter.qualityRatings,
+                            '+isBeforeSchool': filter.isBeforeSchool ? 'true' : '',
+                            '+isAfterSchool': filter.isAfterSchool ? 'true' : '',
+                            '+isFullDay': filter.isFullDay ? 'true' : '',
+                            '+isWeekendCare': filter.isWeekendCare ? 'true' : '',
+                            '+isOpenOvernight': filter.isOpenOvernight ? 'true' : ''
+                        }
+                    ],
                     // entity name
                     'Provider'
                 ).then(function (searchResults) {

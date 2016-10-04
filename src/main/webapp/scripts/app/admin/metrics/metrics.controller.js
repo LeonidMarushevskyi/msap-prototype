@@ -1,9 +1,15 @@
 'use strict';
 
 angular.module('msapApp')
-    .controller('MetricsController', function ($scope, MonitoringService, $uibModal) {
+    .controller('MetricsController', function ($scope, MonitoringService, $uibModal, ElasticSearchIndexService, AlertService) {
         $scope.metrics = {};
         $scope.updatingMetrics = true;
+
+        $scope.reindexElastic = function () {
+            ElasticSearchIndexService.reindexAll(function (response) {
+                AlertService.info('reindexAll POST status: '+ response.data);
+            });
+        };
 
         $scope.refresh = function () {
             $scope.updatingMetrics = true;

@@ -1,0 +1,42 @@
+.mobile-filter-for-map-view {
+
+    @media screen and (max-width: $break-phone) {
+        .ch-facilities-heading__row {
+            overflow: hidden;
+        }
+
+        .ch-facilities-extended-filters__popup {
+            display: none;
+        }
+
+        .ch-facilities-extended-filters__results {
+            display: none;
+        }
+    }
+}
+
+.mobile-filter-for-list-view {
+
+    @media screen and (max-width: $break-phone) {
+        .ch-facilities-heading__row {
+            display: none;
+        }
+
+        .ch-facilities-extended-filters__popup {
+            display: none;
+        }
+
+        .ch-facilities-extended-filters__results {
+            display: none;
+        }
+    }
+}
+
+.mobile-filter-for-filter-view {
+
+    @media screen and (max-width: $break-phone) {
+        .ch-facilities-heading__row {
+            height: 100%;
+        }
+    }
+}

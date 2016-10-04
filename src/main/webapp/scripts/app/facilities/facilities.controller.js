@@ -3,32 +3,73 @@
 angular.module('msapApp')
     .controller('FacilitiesController',
     ['$scope', '$state', '$log', '$q',
-        'leafletData', 'ProviderType', 'QualityRating', 'ProviderAgenciesService',
+        'leafletData', 'QualityRatingStars', 'ProviderAgenciesService',
         'GeocoderService', 'chLayoutConfigFactory', '$uibModal', 'Principal', 'AppPropertiesService', 'AddressUtils',
+        'lookupAgeGroups', 'lookupQualityRating', 'lookupProviderType', 'lookupWorkingHours',
+        'lookupSpecialNeedGroup', 'lookupSpecialNeedType',
     function ($scope, $state, $log, $q,
-              leafletData, ProviderType, QualityRating, ProviderAgenciesService,
-              GeocoderService, chLayoutConfigFactory, $uibModal, Principal, AppPropertiesService, AddressUtils) {
+              leafletData, QualityRatingStars, ProviderAgenciesService,
+              GeocoderService, chLayoutConfigFactory, $uibModal, Principal, AppPropertiesService, AddressUtils,
+              lookupAgeGroups, lookupQualityRating, lookupProviderType, lookupWorkingHours,
+              lookupSpecialNeedGroup, lookupSpecialNeedType) {
+
+        $scope.lookupAgeGroups = lookupAgeGroups;
+        $scope.lookupProviderType = lookupProviderType;
+        $scope.lookupQualityRating = lookupQualityRating;
+        $scope.lookupWorkingHours = lookupWorkingHours;
+        $scope.lookupSpecialNeedGroup = lookupSpecialNeedGroup;
+        $scope.lookupSpecialNeedType = lookupSpecialNeedType;
+
+        $scope.filterMenuConfigs = {
+            lookupAgeGroups: {
+                showList: false,
+                selectedCount: 0
+            },
+            lookupProviderType: {
+                showList: false,
+                selectedCount: 0
+            },
+            lookupQualityRating: {
+                showList: false,
+                selectedCount: 0
+            },
+            lookupWorkingHours: {
+                showList: false,
+                selectedCount: 0
+            },
+            lookupSpecialNeedGroup: {
+                showList: false,
+                selectedCount: 0
+            },
+            lookupSpecialNeedType: {
+                showList: false,
+                selectedCount: 0
+            }
+        };
+
         var agenciesDataSource;
         var agenciesViewIndex;
         var agenciesViewPage = 10;
+        var windowWidth = $(window).width();
+
+        $scope.returnMapHeight = function() {
+          var heightMapDesktop = "height: calc(100vh - 19rem)";
+          var heightMapMobile = "height: calc(100vh - 25rem)";
+            if (windowWidth > 640) {
+                return heightMapDesktop;
+            } else {
+                return heightMapMobile;
+            }
+        };
+
         $scope.agenciesLength = 0;
 
-        $scope.ALL_TYPES_LABEL = 'All Provider Types';
-        $scope.ALL_STATUSES_LABEL = 'All Quality Ratings';
         $scope.DEFAULT_MARKER_MESSAGE = 'You are here';
         $scope.DEFAULT_ZOOM = 13;
 
         $scope.viewContainsCaBounds = false;
         $scope.caBounds = new L.LatLngBounds(new L.LatLng(32.53, -124.43), new L.LatLng(42, -114.13));
 
-        $scope.typesConfig = {
-            showList: false,
-            label: $scope.ALL_TYPES_LABEL
-        };
-        $scope.statusesConfig = {
-            showList: false,
-            label: $scope.ALL_STATUSES_LABEL
-        };
         $scope.defaults = {
             zoomControlPosition: 'bottomright',
             scrollWheelZoom: true,
@@ -59,7 +100,7 @@ angular.module('msapApp')
         $scope.viewConfig = {presentation: 'list'};
         $scope.center = {lat: 0, lng: 0, zoom: $scope.DEFAULT_ZOOM};
 
-        $scope.getIconeUrl = function(id) {
+        $scope.getIconUrl = function(id) {
             return $('#' + 'icon_pin_' + id)[0].src;
         };
 
@@ -86,7 +127,7 @@ angular.module('msapApp')
                 //focus: true,
                 message: message,
                 icon: {
-                    iconUrl: $scope.getIconeUrl("home"),
+                    iconUrl: $scope.getIconUrl("home"),
                     iconAnchor: [46, 46]
                 }
             };
@@ -95,8 +136,6 @@ angular.module('msapApp')
         $scope.currentLocation = $scope.getHomeLocation($scope.center);
 
         $scope.searchText = '';
-        $scope.providerTypes = ProviderType;
-        $scope.qualityRating = QualityRating;
 
         $scope.showMapView = 'ch-show-map-view';
         $scope.showLinkMapView = 'ch-mobile-mailbox__nav-tab__link_active';
@@ -106,13 +145,26 @@ angular.module('msapApp')
             $scope.showLinkMapView = 'ch-mobile-mailbox__nav-tab__link_active';
             $scope.showListView = '';
             $scope.showLinkListView= '';
+            $scope.showLinkFilterView = '';
+            $scope.mobileFilterState = 'mobile-filter-for-map-view';
         };
 
         $scope.changeListView = function() {
-            $scope.showListView = 'ch-show-list-view';
-            $scope.showLinkListView = 'ch-mobile-mailbox__nav-tab__link_active';
             $scope.showMapView = '';
             $scope.showLinkMapView = '';
+            $scope.showListView = 'ch-show-list-view';
+            $scope.showLinkListView = 'ch-mobile-mailbox__nav-tab__link_active';
+            $scope.showLinkFilterView = '';
+            $scope.mobileFilterState = 'mobile-filter-for-list-view';
+        };
+
+        $scope.changeFilterView = function() {
+            $scope.showListView = '';
+            $scope.showLinkListView = '';
+            $scope.showMapView = '';
+            $scope.showLinkMapView = '';
+            $scope.showLinkFilterView = 'ch-mobile-mailbox__nav-tab__link_active';
+            $scope.mobileFilterState = 'mobile-filter-for-filter-view';
         };
 
         $scope.applyInfiniteScroll = function () {
@@ -126,10 +178,12 @@ angular.module('msapApp')
         $scope.createLocations = function() {
             var locations = {};
             _.each(agenciesDataSource, function (agency) {
+                agency.formattedAddress = AddressUtils.formatAddress(agency.address);
+                agency.totalSpots = _.sumBy(agency.openSlots, 'openSlots');
                 agency.distanceValue = GeocoderService.distance(
                     {
-                        latitude: agency.location.coordinates[1],
-                        longitude: agency.location.coordinates[0]
+                        latitude: agency.address.latitude,
+                        longitude: agency.address.longitude
                     },
                     {
                         latitude: $scope.currentLocation.lat,
@@ -139,8 +193,8 @@ angular.module('msapApp')
                 agency.distance = agency.distanceValue.toFixed(1);
                 locations['fn' + agency.facility_number + '_' + agency.distance.replace('.', '_')] = {
                     layer: 'agencies',
-                    lat: agency.location.coordinates[1],
-                    lng: agency.location.coordinates[0],
+                    lat: agency.address.latitude,
+                    lng: agency.address.longitude,
                     message: '<div ng-include src="\'scripts/app/facilities/location-popup.html\'"></div>',
                     getMessageScope: function () {
                         var scope = $scope.$new();
@@ -179,9 +233,9 @@ angular.module('msapApp')
         };
 
         $scope.defineIcon = function(agency) {
-            var imgId =  _.find(ProviderType, {name: agency.provider_type}).label + '_'
-                + _.find(QualityRating, {name: agency.quality_rating}).color;
-            return $scope.getIconeUrl(imgId);
+            var imgId =  'green' + '_'
+                + _.find(QualityRatingStars, {code: agency.qualityRating.code}).stars;
+            return $scope.getIconUrl(imgId);
         };
 
         $scope.findLocationByAddress = function(address) {
@@ -207,8 +261,6 @@ angular.module('msapApp')
 
             var northEast = bounds._northEast;
             var southWest = bounds._southWest;
-            var providerTypes = $scope.getSelected($scope.providerTypes);
-            var qualityRatings = $scope.getSelected($scope.qualityRating);
             var request = {
                 bounds: {
                     northwest: {
@@ -221,8 +273,13 @@ angular.module('msapApp')
                     }
                 },
                 text: $scope.searchText,
-                providerTypes: providerTypes,
-                qualityRatings: qualityRatings
+                providerTypes: $scope.getSelected('lookupProviderType'),
+                qualityRatings: $scope.getSelected('lookupQualityRating'),
+                isBeforeSchool: $scope.isSelected('lookupWorkingHours', 1),
+                isAfterSchool: $scope.isSelected('lookupWorkingHours', 2),
+                isFullDay: $scope.isSelected('lookupWorkingHours', 3),
+                isWeekendCare: $scope.isSelected('lookupWorkingHours', 4),
+                isOpenOvernight: $scope.isSelected('lookupWorkingHours', 5)
             };
             $log.debug('request', request);
 
@@ -293,50 +350,85 @@ angular.module('msapApp')
             $scope.invalidate(null, $scope.DEFAULT_ZOOM);
         };
 
-        $scope.updateTypesLabel = function() {
-            $scope.updateDropDownLabel($scope.providerTypes, $scope.typesConfig, $scope.ALL_TYPES_LABEL);
+        /* START: buttons for dismissible selected filters */
+        //
+        // key: custom ID
+        // value: { modelName: ..., code: ... } - the structure may be changed later ...
+        $scope.selectedFilterButtons = {};
+        //
+        $scope.addSelectedFilterButton = function (modelName, code) {
+            $scope.selectedFilterButtons[modelName +':'+ code] = { modelName: modelName, code: code };
         };
-        $scope.onTypeClick = function() {
-            $scope.updateTypesLabel();
+        //
+        $scope.removeSelectedFilterButton = function (modelName, code) {
+            $scope.deselectFilterMenuItem(modelName, code);
+            delete $scope.selectedFilterButtons[modelName +':'+ code];
+        };
+        //
+        $scope.dismissFilterClick = function (modelName, code) {
+            $scope.removeSelectedFilterButton(modelName, code);
             $scope.invalidate();
         };
+        /* END: buttons for dismissible selected filters */
 
-        $scope.updateStatusesLabel = function() {
-            $scope.updateDropDownLabel($scope.qualityRating, $scope.statusesConfig, $scope.ALL_STATUSES_LABEL);
-        };
-        $scope.onStatusClick = function() {
-            $scope.updateStatusesLabel();
-            $scope.invalidate();
-        };
-
-        $scope.updateDropDownLabel = function(model, config, defaultValue) {
-            var selected = $scope.getSelected(model);
-            if (selected.length > 0) {
-                config.label = selected.length + ' Selected';
+        $scope.toggleFilterMenu = function (modelName, status) {
+            if (_.isUndefined(status)) {
+                $scope.filterMenuConfigs[modelName].showList = !$scope.filterMenuConfigs[modelName].showList;
             } else {
-                config.label = defaultValue;
+                $scope.filterMenuConfigs[modelName].showList = status;
             }
         };
 
-        $scope.resetFilters = function() {
-            $scope.clearFilter($scope.providerTypes);
-            $scope.updateTypesLabel();
+        $scope.onFilterMenuItemClick = function(modelName, code) {
+            $scope.updateSelectedCount(modelName);
 
-            $scope.clearFilter($scope.qualityRating);
-            $scope.updateStatusesLabel();
+            if ($scope.isSelected(modelName, code)) {
+                $scope.addSelectedFilterButton(modelName, code);
+            } else {
+                $scope.removeSelectedFilterButton(modelName, code);
+            }
+
+            $scope.invalidate();
+        };
+
+        $scope.updateSelectedCount = function(modelName) {
+            $scope.filterMenuConfigs[modelName].selectedCount = $scope.getSelected(modelName).length;
+        };
+
+        $scope.hideExtendedFilters = true;
+        $scope.showAllFilters = function() {
+            $scope.hideExtendedFilters = !$scope.hideExtendedFilters;
+        };
+
+        $scope.clearFilter = function(modelName) {
+            _.each($scope[modelName], function(item) {
+                item.selected = false;
+            });
+            $scope.updateSelectedCount(modelName);
+        };
+
+        $scope.resetFilters = function() {
+            _.map(_.keys($scope.filterMenuConfigs), function (modelName) {
+                $scope.clearFilter(modelName);
+            });
+
+            $scope.selectedFilterButtons = {};
 
             $scope.searchText = $scope.text = '';
             $scope.invalidate();
         };
 
-        $scope.clearFilter = function(model) {
-            _.each(model, function(item) {
-                item.selected = false;
-            });
+        $scope.getSelected = function(modelName) {
+            return _.map(_.filter($scope[modelName], {selected: true}), 'code');
         };
 
-        $scope.getSelected = function(model) {
-            return _.map(_.filter(model, {selected: true}), 'name');
+        $scope.isSelected = function(modelName, code) {
+            return _.find($scope[modelName], {code: code}).selected;
+        };
+
+        $scope.deselectFilterMenuItem = function (modelName, code) {
+            _.find($scope[modelName], {code: code}).selected = false;
+            $scope.updateSelectedCount(modelName);
         };
 
         $scope.addGeocoder = function () {
@@ -419,6 +511,30 @@ angular.module('msapApp')
                     }
                 );
             });
+        };
+
+        $scope.inkRipple = function() {
+            var parent, ink, d, x, y;
+            $(".ch-ink-btn").click(function(e){
+
+                parent = $(this).parent();
+                if(parent.find(".ink").length == 0)
+                    $(".ch-ink-btn").append("<span class='ink'></span>");
+
+                ink = parent.find(".ink");
+                ink.removeClass("animate");
+
+                //set size of .ink
+                if(!ink.height() && !ink.width()) {
+                    d = Math.max(parent.outerWidth(), parent.outerHeight());
+                    ink.css({height: d, width: d});
+                }
+
+                x = e.pageX - parent.offset().left - ink.width()/2;
+                y = e.pageY - parent.offset().top - ink.height()/2;
+
+                ink.css({top: y+'px', left: x+'px'}).addClass("animate");
+            })
         };
 
         $scope.profileHasEnoughAddressData = function (profile) {

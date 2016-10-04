@@ -17,7 +17,7 @@
 .form-type__checkbox_empty-label {
 
   input[type="checkbox"] + label {
-    width: 2.2rem;
+    width: 100%;
     margin-top: 0;
     margin-bottom: 0;
     display: inline-block;
@@ -37,6 +37,12 @@
             color: #000;
             font-size: 1.4rem;
             font-weight: 400;
+        }
+
+        @media screen and (max-width: $break-phone) {
+            input[type="checkbox"] + label {
+                font-size: 2rem;
+            }
         }
     }
 
@@ -286,12 +292,11 @@ input[type="radio"] + label {
 input[type="checkbox"] + label::before,
 input[type="radio"] + label::before {
   background: white;
-  border-radius: 0.3rem;
   box-shadow: 0 0 0 1px #757575;
   content: '\a0';
   display: inline-block;
   height: 1.8rem;
-  line-height: 0.8;
+  line-height: 1;
   margin-right: 0.6em;
   text-indent: 0.15em;
   vertical-align: 0.2em;
@@ -308,7 +313,11 @@ input[type="radio"] + label::before {
   border-radius: 100%;
 }
 
-input[type="checkbox"]:checked + label::before,
+input[type="checkbox"]:checked + label::before {
+  background-color: #fff;
+  box-shadow: 0 0 0 1px #757575;
+}
+
 input[type="radio"]:checked + label::before {
   background-color: #0071bc;
   box-shadow: 0 0 0 1px #0071bc;
@@ -323,14 +332,14 @@ input[type="radio"]:focus + label::before {
 }
 
 input[type="checkbox"]:checked + label::before {
-  background-image: url("../images/us-icon/correct8.png");
-  background-image: url("../images/us-icon/correct8.svg");
+  background-image: url("../images/us-icon/icon-check.png");
+  // background-image: url("../images/us-icon/correct8.svg");
   background-position: 50%;
   background-repeat: no-repeat;
 }
 
 input[type="checkbox"]:focus + label::before {
-  box-shadow: 0 0 0 1px #ffffff, 0 0 0 3px #0071bc;
+  box-shadow: 0 0 0 1px #757575;
 }
 
 input[type="checkbox"]:disabled + label {

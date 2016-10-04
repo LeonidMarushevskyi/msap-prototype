@@ -1,0 +1,56 @@
+{
+    "register": {
+        "title": "Đăng ký",
+        "sign-up": "Đăng ký",
+        "have-account": "Tôi có một tài khoản",
+        "form": {
+            "firstname": "Tên",
+            "firstname.placeholder": "Tên của bạn",
+            "lastname": "Họ",
+            "lastname.placeholder": "Họ của bạn",
+            "mark-foster-parent": "Đánh dấu nếu bạn là một người chuyên nuôi",
+            "foster": "Tôi là một người chuyên nuôi",
+            "fcln": "Gia đình Trường hợp/Số giấy phép",
+            "fcln.placeholder": "Số đăng ký/số trường hợp",
+            "fcln.tooltip": "Cung cấp số trường hợp hoặc giấy phép của bạn. Bạn có thể tìm thấy nó trong thư thông báo",
+            "button": "Ghi danh"
+        },
+        "messages": {
+            "validate": {
+                "login": {
+                    "required": "Tên người dùng là cần thiết.",
+                    "minlength": "Tên truy nhập của bạn được yêu cầu phải có ít nhất 1 ký tự.",
+                    "maxlength": "Tên truy nhập của bạn không thể lâu hơn 50 ký tự.",
+                    "pattern": "Tên truy nhập của bạn chỉ có thể chứa chữ thường và chữ số."
+                },
+                "firstname": {
+                    "required": "Tên của bạn là bắt buộc."
+                },
+                "lastname": {
+                    "required": "Họ của bạn là bắt buộc."
+                },
+                "fcln": {
+                    "required": "Của bạn Gia đình Trường hợp/Số giấy phép bắt buộc."
+                }
+            },
+            "success": "<strong>Đăng ký lưu!</strong> Hãy kiểm tra email của bạn để xác nhận.",
+            "registration-saved": "Đăng ký lưu!",
+            "created-not-active": "Tài khoản của bạn đã được tạo ra nhưng nó không phải là hoạt động nào.",
+            "activation-link-sent": "Liên kết kích hoạt đã được gửi đến email của bạn.",
+            "check-email": "Vui lòng kiểm tra email của bạn",
+            "and-follow-instructions": "và làm theo hướng dẫn để kích hoạt tài khoản của bạn.",
+            "redirect-phrase": {
+                "part1": "Bạn sẽ được tự động chuyển",
+                "part2": "đến",
+                "part3": "trang đăng nhập",
+                "part4": "trong",
+                "part5": "giây"
+            },
+            "error": {
+                "fail": "<strong>Đăng ký không thành công!</strong> Vui lòng thử lại sau.",
+                "userexists": "<strong>Tên đăng nhập đã đăng ký!</strong> Hãy chọn tên khác.",
+                "emailexists": "<strong>E-mail đã được sử dụng!</strong> Hãy chọn tên khác."
+            }
+        }
+    }
+}

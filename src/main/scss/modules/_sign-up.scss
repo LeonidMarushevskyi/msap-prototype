@@ -1,5 +1,15 @@
 .ch-sign-up-bg {
-    @extend .ch-login-bg;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    background: url("https://s3-us-west-2.amazonaws.com/coverr/poster/Hoola.jpg") no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .ch-sign-up {
@@ -8,11 +18,18 @@
     margin-left: 2%;
     margin-right: 2%;
     min-width: 40rem;
+
+    @media screen and (max-width: 640px) {
+      width: 80%;
+      padding-top: 2rem;
+      margin-left: 10%;        
+      position: absolute;
+      top: 0;
+    }
 }
 
 .ch-sign-up__logo-image {
     width: 100%;
-
   a {
       width: 100%;
   }

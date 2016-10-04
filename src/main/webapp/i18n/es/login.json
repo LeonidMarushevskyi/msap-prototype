@@ -2,6 +2,7 @@
     "login": {
         "create-an-account": "Crea una cuenta",
         "title": "Registrarse",
+        "sign-in": "Registrarse",
         "form": {
             "username": "Nombre de usuario",
             "username.placeholder": "Tu nombre de usuario",

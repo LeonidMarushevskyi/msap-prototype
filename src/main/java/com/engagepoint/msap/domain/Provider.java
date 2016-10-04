@@ -1,12 +1,25 @@
 package com.engagepoint.msap.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A Provider.
@@ -30,6 +43,30 @@ public class Provider implements Serializable {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @Column(name = "is_open_overnight")
+    private Boolean isOpenOvernight;
+
+    @Column(name = "number_of_complains")
+    private Integer numberOfComplains;
+
+    @Column(name = "number_of_visits")
+    private Integer numberOfVisits;
+
+    @Column(name = "last_visit")
+    private LocalDate lastVisit;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "is_full_day")
+    private Boolean isFullDay;
+
+    @Column(name = "is_after_school")
+    private Boolean isAfterSchool;
+
+    @Column(name = "is_before_school")
+    private Boolean isBeforeSchool;
+
     @OneToOne
     private LookupLicenseType licenseType;
 
@@ -41,6 +78,38 @@ public class Provider implements Serializable {
 
     @OneToOne
     private LookupQualityRating qualityRating;
+
+    @JsonManagedReference("openSlots")
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<OpenSlot> openSlots = new HashSet<>();
+
+    @JsonManagedReference("schedules")
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Schedule> schedules = new HashSet<>();
+
+    @JsonManagedReference("specialNeeds")
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<LookupSpecialNeedType> specialNeeds = new HashSet<>();
+
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Review> reviews = new HashSet<>();
+
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Price> prices = new HashSet<>();
+
+    @JsonManagedReference("substantiatedAllegations")
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<SubstantiatedAllegation> substantiatedAllegations = new HashSet<>();
+
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<LookupLanguage> supportedLanguages = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -72,6 +141,70 @@ public class Provider implements Serializable {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public Boolean getIsOpenOvernight() {
+        return isOpenOvernight;
+    }
+
+    public void setIsOpenOvernight(Boolean isOpenOvernight) {
+        this.isOpenOvernight = isOpenOvernight;
+    }
+
+    public Integer getNumberOfComplains() {
+        return numberOfComplains;
+    }
+
+    public void setNumberOfComplains(Integer numberOfComplains) {
+        this.numberOfComplains = numberOfComplains;
+    }
+
+    public Integer getNumberOfVisits() {
+        return numberOfVisits;
+    }
+
+    public void setNumberOfVisits(Integer numberOfVisits) {
+        this.numberOfVisits = numberOfVisits;
+    }
+
+    public LocalDate getLastVisit() {
+        return lastVisit;
+    }
+
+    public void setLastVisit(LocalDate lastVisit) {
+        this.lastVisit = lastVisit;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Boolean getIsFullDay() {
+        return isFullDay;
+    }
+
+    public void setIsFullDay(Boolean isFullDay) {
+        this.isFullDay = isFullDay;
+    }
+
+    public Boolean getIsAfterSchool() {
+        return isAfterSchool;
+    }
+
+    public void setIsAfterSchool(Boolean isAfterSchool) {
+        this.isAfterSchool = isAfterSchool;
+    }
+
+    public Boolean getIsBeforeSchool() {
+        return isBeforeSchool;
+    }
+
+    public void setIsBeforeSchool(Boolean isBeforeSchool) {
+        this.isBeforeSchool = isBeforeSchool;
     }
 
     public LookupLicenseType getLicenseType() {
@@ -106,6 +239,62 @@ public class Provider implements Serializable {
         this.qualityRating = lookupQualityRating;
     }
 
+    public Set<OpenSlot> getOpenSlots() {
+        return openSlots;
+    }
+
+    public void setOpenSlots(Set<OpenSlot> openSlots) {
+        this.openSlots = openSlots;
+    }
+
+    public Set<Schedule> getSchedules() {
+        return schedules;
+    }
+
+    public void setSchedules(Set<Schedule> schedules) {
+        this.schedules = schedules;
+    }
+
+    public Set<LookupSpecialNeedType> getSpecialNeeds() {
+        return specialNeeds;
+    }
+
+    public void setSpecialNeeds(Set<LookupSpecialNeedType> lookupSpecialNeedTypes) {
+        this.specialNeeds = lookupSpecialNeedTypes;
+    }
+
+    public Set<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(Set<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public Set<Price> getPrices() {
+        return prices;
+    }
+
+    public void setPrices(Set<Price> prices) {
+        this.prices = prices;
+    }
+
+    public Set<SubstantiatedAllegation> getSubstantiatedAllegations() {
+        return substantiatedAllegations;
+    }
+
+    public void setSubstantiatedAllegations(Set<SubstantiatedAllegation> substantiatedAllegations) {
+        this.substantiatedAllegations = substantiatedAllegations;
+    }
+
+    public Set<LookupLanguage> getSupportedLanguages() {
+        return supportedLanguages;
+    }
+
+    public void setSupportedLanguages(Set<LookupLanguage> lookupLanguages) {
+        this.supportedLanguages = lookupLanguages;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -133,6 +322,14 @@ public class Provider implements Serializable {
             ", providerCapacity='" + providerCapacity + "'" +
             ", providerName='" + providerName + "'" +
             ", phoneNumber='" + phoneNumber + "'" +
+            ", isOpenOvernight='" + isOpenOvernight + "'" +
+            ", numberOfComplains='" + numberOfComplains + "'" +
+            ", numberOfVisits='" + numberOfVisits + "'" +
+            ", lastVisit='" + lastVisit + "'" +
+            ", description='" + description + "'" +
+            ", isFullDay='" + isFullDay + "'" +
+            ", isAfterSchool='" + isAfterSchool + "'" +
+            ", isBeforeSchool='" + isBeforeSchool + "'" +
             '}';
     }
 }

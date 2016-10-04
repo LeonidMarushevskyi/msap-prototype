@@ -1,0 +1,24 @@
+{
+    "msapApp": {
+        "lookupSpecialNeedType" : {
+            "home": {
+                "title": "LookupSpecialNeedTypes",
+                "createLabel": "Crear nuevo LookupSpecialNeedType",
+                "createOrEditLabel": "Crear o editar LookupSpecialNeedType",
+                "search": "Search for LookupSpecialNeedType"
+            },
+            "created": "Un nuevo LookupSpecialNeedType ha sido creado con el identificador {{ param }}",
+            "updated": "Un LookupSpecialNeedType ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un LookupSpecialNeedType ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar LookupSpecialNeedType {{ id }}?"
+            },
+            "detail": {
+                "title": "LookupSpecialNeedType"
+            },
+            "name": "Name",
+            "specialNeedGroup": "SpecialNeedGroup",
+            "provider": "Provider"
+        }
+    }
+}

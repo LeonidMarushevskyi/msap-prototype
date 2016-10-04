@@ -78,7 +78,7 @@ img {
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 a {
@@ -100,3 +100,12 @@ a:hover, a:focus {
     display: block;
     margin: 0 auto;
 }
+
+.flex-row {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.flex-none { flex: none;}
+.flex-child { flex: 1;}
+.flex-child-2 { flex: 2;}

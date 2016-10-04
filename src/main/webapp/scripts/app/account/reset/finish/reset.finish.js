@@ -7,7 +7,8 @@ angular.module('msapApp')
                 parent: 'account',
                 url: '/reset/finish?key',
                 data: {
-                    authorities: []
+                    authorities: [],
+                    pageTitle: 'reset.finish.title'
                 },
                 views: {
                     'content@': {

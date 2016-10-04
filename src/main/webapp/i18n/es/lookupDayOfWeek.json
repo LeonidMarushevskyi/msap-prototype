@@ -1,0 +1,23 @@
+{
+    "msapApp": {
+        "lookupDayOfWeek" : {
+            "home": {
+                "title": "LookupDayOfWeeks",
+                "createLabel": "Crear nuevo LookupDayOfWeek",
+                "createOrEditLabel": "Crear o editar LookupDayOfWeek",
+                "search": "Search for LookupDayOfWeek"
+            },
+            "created": "Un nuevo LookupDayOfWeek ha sido creado con el identificador {{ param }}",
+            "updated": "Un LookupDayOfWeek ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un LookupDayOfWeek ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar LookupDayOfWeek {{ id }}?"
+            },
+            "detail": {
+                "title": "LookupDayOfWeek"
+            },
+            "code": "Code",
+            "name": "Name"
+        }
+    }
+}

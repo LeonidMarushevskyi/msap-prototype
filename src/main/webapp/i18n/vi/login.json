@@ -2,21 +2,22 @@
     "login": {
         "create-an-account": "Tạo một tài khoản",
         "title": "Đăng nhập",
+        "sign-in": "Đăng nhập",
         "form": {
             "username": "Tên đăng nhập",
-            "username.placeholder": "Your username",
-            "password": "Password",
-            "password.placeholder": "Your password",
-            "rememberme": "Remember me",
-            "button": "Sign in"
+            "username.placeholder": "Tên tài khoản",
+            "password": "Mật khẩu",
+            "password.placeholder": "Mật khẩu của bạn",
+            "rememberme": "Ghi nhớ tôi",
+            "button": "Đăng nhập"
         },
         "messages": {
             "error": {
-                "authentication": "<strong>Failed to sign in!</strong> Please check your credentials and try again."
+                "authentication": "<strong>Không đăng nhập!</strong> Hãy kiểm tra thông tin của bạn và thử lại."
             }
         },
         "password" : {
-            "forgot": "Did you forget your password?"
+            "forgot": "Bạn đã quên mật khẩu của bạn?"
         }
     }
 }

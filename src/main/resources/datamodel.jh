@@ -1,8 +1,3 @@
-entity LookupState {
-    stateCode String required maxlength(2),
-    stateName String required
-}
-
 entity LookupLicenseType {
     name String required
 }
@@ -17,6 +12,29 @@ entity LookupQualityRating {
     name String required
 }
 
+entity LookupAgeGroups {
+    code Integer required,
+    name String required
+}
+
+entity LookupDayOfWeek {
+    code Integer required,
+    name String required
+}
+
+entity LookupSpecialNeedGroup {
+    name String required
+}
+
+entity LookupSpecialNeedType {
+    name String required
+}
+
+entity LookupState {
+    stateCode String required maxlength(2),
+    stateName String required
+}
+
 entity LookupCounty {
     countyName String required maxlength(40),
     countyCode Integer required
@@ -29,6 +47,11 @@ entity LookupGender {
 
 entity LookupMaritalStatus {
     maritalStatusName String required
+}
+
+entity LookupLanguage {
+    code String required maxlength(2),
+    name String required
 }
 
 entity Place {
@@ -48,7 +71,135 @@ entity Place {
 entity Provider {
     providerCapacity Integer,
     providerName String,
-    phoneNumber String
+    phoneNumber String,
+    isOpenOvernight Boolean,
+    numberOfComplains Integer,
+    numberOfVisits Integer,
+    lastVisit LocalDate,
+    description String,
+    isFullDay Boolean,
+    isAfterSchool Boolean,
+    isBeforeSchool Boolean
+}
+
+entity Schedule {
+    openHour String,
+    closeHour String
+}
+
+entity Price {
+    minimalPrice Integer,
+    maximumPrice Integer
+}
+
+entity OpenSlot {
+    openSlots Integer
+}
+
+entity SubstantiatedAllegation {
+    description String,
+    severity String,
+    allegationDate LocalDate
+}
+
+entity Review {
+    content String,
+    reviewDate ZonedDateTime
+}
+
+entity MailBox {
+}
+
+entity Inbox {
+}
+
+entity Outbox {
+}
+
+entity Deleted {
+}
+
+entity Draft {
+}
+
+enum MessageStatus {
+    NEW, READ
+}
+
+entity Message {
+    body String maxlength(4000),
+    subject String maxlength(100),
+    caseNumber String maxlength(20),
+    dateCreated ZonedDateTime,
+    dateRead ZonedDateTime,
+    status MessageStatus,
+    dateUpdated ZonedDateTime,
+    unreadMessagesCount Integer
+}
+
+entity Attachment {
+    fileName String,
+    fileMimeType String,
+    fileSize Integer,
+    fileDescription String,
+    creationDate ZonedDateTime,
+    file AnyBlob
+}
+
+relationship OneToMany {
+  Message{attachment} to Attachment{message}
+}
+
+relationship OneToOne {
+  User{mailBox} to MailBox{user}
+}
+
+relationship OneToOne {
+  MailBox{inbox} to Inbox{mailBox}
+}
+
+relationship OneToOne {
+  MailBox{outbox} to Outbox{mailBox}
+}
+
+relationship OneToMany {
+  MailBox{contact} to User{contact}
+}
+
+relationship OneToOne {
+  MailBox{deleted} to Deleted{mailBox}
+}
+
+relationship OneToOne {
+  MailBox{draft} to Draft{mailBox}
+}
+
+relationship OneToMany {
+  Inbox{message} to Message{inbox}
+}
+
+relationship OneToMany {
+  Outbox{message} to Message{outbox}
+}
+
+relationship OneToMany {
+  Draft{message} to Message{draft}
+}
+
+relationship OneToMany {
+  Deleted{message} to Message{deleted}
+}
+
+relationship OneToOne {
+  Message{replyOn} to Message
+}
+
+relationship OneToOne {
+  Message{to} to User
+}
+
+relationship OneToOne {
+  Message{from} to User
 }
 
 relationship ManyToOne {
@@ -78,3 +229,54 @@ relationship OneToOne {
 relationship OneToOne {
   Provider{qualityRating} to LookupQualityRating
 }
+
+relationship OneToOne {
+  OpenSlot{ageGroup} to LookupAgeGroups
+}
+
+relationship OneToOne {
+  Price{ageGroup} to LookupAgeGroups
+}
+
+relationship OneToMany {
+  Provider{openSlot} to OpenSlot
+}
+
+relationship OneToMany {
+  Provider{schedule} to Schedule
+}
+
+relationship OneToOne {
+  Schedule{dayOfWeek} to LookupDayOfWeek
+}
+
+relationship OneToMany {
+  Provider{specialNeed} to LookupSpecialNeedType
+}
+
+relationship OneToMany {
+  Provider{review} to Review
+}
+
+relationship OneToMany {
+  Provider{price} to Price
+}
+
+relationship OneToOne {
+  Review{user} to User
+}
+
+relationship OneToMany {
+  Provider{substantiatedAllegation} to SubstantiatedAllegation
+}
+
+relationship OneToMany {
+  Provider{supportedLanguage} to LookupLanguage
+}
+
+relationship OneToOne {
+  LookupSpecialNeedType{specialNeedGroup} to LookupSpecialNeedGroup
+}
+
+
+

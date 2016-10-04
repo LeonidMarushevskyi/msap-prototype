@@ -2,13 +2,37 @@
     display: inline-block;
     padding: 0.8rem 3rem;
     min-width: 5rem;
-    background: #0071bc;
-    border-radius: 4px;
+    background: $primary-color-blue;
+    border-radius: 0.2rem;
     width: 100%;
+    color: #fff;
+    font-weight: bold;
+    position: relative;
+    user-select: none;
+    position: relative;
+	  overflow: hidden;
 
     &:hover {
-        background-color: #205493;
+        background-color: $secondary-color-blue;
     }
+
+    &:focus {
+        box-shadow:0px 0px 10px $primary-color-blue;
+    }
+
+    @media screen and (max-width: $break-phone) {
+        font-size: 2rem;
+    }
+}
+
+.ch-option-btn.ch-option-btn__login {
+    height: 4.4rem;
+    margin: 3rem 0 0 0;
+}
+
+.ch-option-btn.ch-option-btn__sign-up {
+    height: 4.4rem;
+    margin: 2rem 0 2rem 0;
 }
 
 .ch-option-btn.ch-option-btn_fullwidth {
@@ -21,7 +45,7 @@
     color: #fff;
 
     @media screen and (max-width: 640px) {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 }
 
@@ -161,4 +185,32 @@
     padding: 1rem;
     color: #5b616b;
     text-decoration: underline;
+}
+
+.ink {
+  	display: block;
+    position: absolute;
+  	background: #6aa4bd;
+  	border-radius: 100%;
+  	transform: scale(0);
+}
+
+.ch-main-nav-item__link .ink {
+    display: block;
+    position: absolute;
+    background: #6a7b84;
+  	border-radius: 100%;
+  	transform: scale(0);
+    z-index: 1;
+}
+
+.ink.animate {
+    animation: ripple 0.55s linear;
+}
+
+@keyframes ripple {
+	100% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
 }

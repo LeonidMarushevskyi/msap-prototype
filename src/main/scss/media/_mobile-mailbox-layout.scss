@@ -108,7 +108,8 @@
 .ch-mobile-contacts,
 .ch-mobile-folders,
 .ch-mobile-facilities__map-view,
-.ch-mobile-facilities__list-view {
+.ch-mobile-facilities__list-view,
+.ch-mobile-facilities__filter-view {
     @media screen and (max-width: $break-phone) {
     display: none;}
 }

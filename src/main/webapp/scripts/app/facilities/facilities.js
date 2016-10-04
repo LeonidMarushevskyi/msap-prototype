@@ -24,6 +24,24 @@ angular.module('msapApp')
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                         $translatePartialLoader.addPart('facilities');
                         return $translate.refresh();
+                    }],
+                    lookupAgeGroups: ['LookupAgeGroups', function(LookupAgeGroups) {
+                        return LookupAgeGroups.query().$promise;
+                    }],
+                    lookupQualityRating: ['LookupQualityRating', function(LookupQualityRating) {
+                        return LookupQualityRating.query().$promise;
+                    }],
+                    lookupProviderType: ['LookupProviderType', function(LookupProviderType) {
+                        return LookupProviderType.query().$promise;
+                    }],
+                    lookupWorkingHours: ['$q', 'lookupWorkingHours', function ($q, lookupWorkingHours) {
+                        return $q.when(lookupWorkingHours); // lookupWorkingHours is defined in constants.js
+                    }],
+                    lookupSpecialNeedGroup: ['LookupSpecialNeedGroup', function(LookupSpecialNeedGroup) {
+                        return LookupSpecialNeedGroup.query().$promise;
+                    }],
+                    lookupSpecialNeedType: ['LookupSpecialNeedType', function(LookupSpecialNeedType) {
+                        return LookupSpecialNeedType.query().$promise;
                     }]
                 }
             });

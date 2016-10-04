@@ -1,5 +1,77 @@
 {
     "facilities": {
-        "reset-filters": "Reiniciar los filtros"
+        "reset-filters": "Reiniciar los filtros",
+        "show-all-filters": "Mostrar todos los filtros",
+        "apply-filters": "Aplicar filtros",
+        "available-spots": "Spots disponibles",
+        "age-group": "Grupo de edad",
+        "provider-type": "Tipo de proveedor",
+        "price-per-week": "Precio por semana",
+        "working-hours": "Horas laborales",
+        "languages": "Idiomas",
+        "english": "Inglés",
+        "spanish": "Español",
+        "vietnamese": "Vietnamita",
+        "no-problems": "Adicional",
+        "no-complains": "No tengo quejas",
+        "no-allegations": "No hay acusaciones",
+        "physical": "Físico",
+        "muscular-dystrophy": "Distrofia muscular",
+        "multiple-sclerosis": "Esclerosis múltiple",
+        "chronic-asthma": "El asma crónica",
+        "epilepsy": "Epilepsia",
+        "developmental": "De desarrollo",
+        "down-syndrome": "Síndrome de Down",
+        "dyslexia": "Dislexia",
+        "autism": "Autismo",
+        "processing-disorders": "Trastornos de procesado",
+        "behavioral-emotional": "Comportamiento / Emocional",
+        "attention-deficit": "Trastorno de Déficit de Atención (ADD)",
+        "bipolar-disorder": "Desorden bipolar",
+        "post-traumatic-stress": "Trastorno de estrés postraumático (TEPT)",
+        "oppositional-defiant": "Trastorno de oposición desafiante (ODD)",
+        "sensory-imparied": "Impedimentos Sensoriales",
+        "blind": "Ciego",
+        "deaf": "Sordo",
+        "visually-impaired": "Problemas de visión",
+        "limited-hearing": "Audiencia limitada",
+        "total-results": "Resultados {{number}}",
+        "age-groups-selected": "{{selectedCount}} seleccionado",
+        "lookupAgeGroups": {
+            "1": "infantil (0-12 meses)",
+            "2": "Niño (12-24 meses)",
+            "3": "2 años",
+            "4": "3 años",
+            "5": "4 años",
+            "6": "5-9 años",
+            "7": "10-12 años"
+        },
+        "all-quality-ratings": "Todos los votos de calidad",
+        "quality-ratings-selected": "{{selectedCount}} seleccionado",
+        "lookupQualityRating": {
+            "0": "No calificado",
+            "1": "Bajo",
+            "2": "Normal",
+            "3": "Bueno",
+            "4": "Muy bueno",
+            "5": "Excelente"
+        },
+        "all-provider-types": "Todos los Tipos de Proveedores",
+        "lookupProviderType": {
+            "2": "Contratista Ranura",
+            "3": "Grupo Hogar",
+            "4": "Centro",
+            "5": "No pariente en el hogar",
+            "6": "Relativa en el hogar",
+            "7": "Que no es pariente fuera de la casa",
+            "8": "En relación fuera de la casa"
+        },
+        "lookupWorkingHours": {
+            "1": "Antes de Cuidado de la escuela",
+            "2": "Después de la escuela",
+            "3": "Llena de Día",
+            "4": "Cuidado de fin de semana",
+            "5": "Cuidado de la noche a la mañana"
+        }
     }
 }

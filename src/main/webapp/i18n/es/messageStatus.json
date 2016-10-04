@@ -1,0 +1,9 @@
+{
+    "msapApp": {
+        "MessageStatus" : {
+            "null": "",
+            "NEW": "NEW",
+            "READ": "READ"
+        }
+    }
+}

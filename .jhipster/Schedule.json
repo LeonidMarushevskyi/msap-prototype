@@ -1,0 +1,36 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "provider",
+      "otherEntityName": "provider",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "dayOfWeek",
+      "otherEntityName": "lookupDayOfWeek",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "schedule"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "openHour",
+      "fieldType": "String"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "closeHour",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20160929131651",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no"
+}

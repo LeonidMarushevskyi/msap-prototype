@@ -1,0 +1,36 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "provider",
+      "otherEntityName": "provider",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "ageGroup",
+      "otherEntityName": "lookupAgeGroups",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "price"
+    }
+  ],
+  "fields": [
+    {
+      "fieldId": 1,
+      "fieldName": "minimalPrice",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldId": 2,
+      "fieldName": "maximumPrice",
+      "fieldType": "Integer"
+    }
+  ],
+  "changelogDate": "20160929131652",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no"
+}

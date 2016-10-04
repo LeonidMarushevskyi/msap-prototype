@@ -1,0 +1,20 @@
+.ch-checkboxes-group {
+    list-style: none;
+
+    .ch-checkboxes-group {
+        margin-top: 12px;
+    }
+}
+
+.ch-checkboxes-group__header {
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 0;
+    margin-left: 0;
+}
+
+.ch-checkboxes-group__item {
+    display: block;
+    margin-top: 10px;
+}

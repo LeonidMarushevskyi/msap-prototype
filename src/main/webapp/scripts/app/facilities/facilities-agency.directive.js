@@ -8,10 +8,6 @@ angular.module('msapApp')
                 agency: '=',
                 viewConfig: '='
             },
-            templateUrl: 'scripts/app/facilities/facilities-agency.html',
-
-            controller: ['$scope', '$log', '$state', function ($scope, $log, $state) {
-
-            }]
+            templateUrl: 'scripts/app/facilities/facilities-agency.html'
         }
     });

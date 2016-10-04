@@ -10,5 +10,5 @@ Feature: APQD-137  I want to be able to put city or zip code in address lookup f
     When do Ask About for facility with address '4043 El Camino Way, Palo Alto, CA 94306' and name 'AFRICAN CRADLE, INC.' and send letter
     When open facilities page
     When open inbox page
-    When verify letter to 'CHHS Support' with subject 'AFRICAN CRADLE, INC.' and text 'I am interested in more information about' is sent
+    When verify letter to 'MDHS Support' with subject 'AFRICAN CRADLE, INC.' and text 'I am interested in more information about' is sent
 

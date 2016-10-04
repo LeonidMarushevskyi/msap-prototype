@@ -2,31 +2,90 @@
     "settings": {
         "title": "La configuración de usuario [<b>{{username}}</b>]",
         "my-profile": "Mi perfil",
+        "general-information": "Información general",
+        "date-of-birth": "Fecha de nacimiento",
+        "for-example": "Por ejemplo",
+        "month": "Mes",
+        "day": "Día",
+        "year": "Año",
+        "gender": "Género",
+        "contact-information": "Información del contacto",
+        "search-address": "Búsqueda de dirección",
+        "street-address": "Dirección",
+        "city": "Ciudad",
+        "state": "Estado",
+        "zip": "Código postal",
+        "email-address": "Dirección de correo electrónico",
+        "telephone": "Teléfono",
+        "change-password": "Cambia la contraseña",
+        "new-password": "Nueva contraseña",
+        "confirm-new-password": "Confirmar nueva contraseña",
         "form": {
-            "username": "nombre de usuario",
+            "username": "Nombre de usuario",
             "firstname": "Nombre de pila",
             "firstname.placeholder": "Tu nombre de pila",
             "lastname": "Apellido",
             "lastname.placeholder": "Tu apellido",
             "language": "Idioma",
+            "family-case-license-number": "Caso familia/Número de licencia",
             "button": "Salvar cambios"
         },
         "messages": {
             "error": {
-                "fail": "<strong>Se ha producido un error!</strong> Los ajustes no podrían salvarse.",
-                "emailexists": "<strong>Correo electrónico ya está en uso!</strong> Por favor elije otro."
+                "error-occurred": "Se ha producido un error!",
+                "settings-not-saved": "Los ajustes no podrían salvarse.",
+                "password-not-changed": "La contraseña no puede ser cambiado."
             },
-            "success": "<strong>Ajustes guardados!</strong>",
+            "success": "Ajustes guardados!",
+            "password-changed": "Contraseña cambiada!",
             "validate": {
+                "email-in-use": "Correo electrónico ya está en uso!",
+                "choose-other": "Por favor elije otro.",
+                "address-not-found": "La dirección no se puede encontrar",
+                "please-populate": "Por favor rellenar.",
+                "please-update": "Por favor actualice.",
+                "password": {
+                    "not-match": "La confirmación de la contraseña no coinciden và!",
+                    "required": "Se requiere su contraseña.",
+                    "min": "Su contraseña es necesaria para tener al menos 5 caracteres.",
+                    "max": "La contraseña no puede ser más largo de carbón de 50 caracteres.",
+                    "confirm.required": "Se requiere la confirmación de la contraseña.",
+                    "confirm.min": "La confirmación de su contraseña se requiere tener al menos 5 caracteres.",
+                    "confirm.max": "La confirmación de su contraseña no puede ser superior a 50 caracteres."
+                },
                 "firstname": {
+                    "absent": "Primer nombre está ausente",
                     "required": "Se requiere su nombre.",
                     "minlength": "Su nombre se requiere que sea al menos 1 carácter",
                     "maxlength": "Su nombre no puede tener más de 50 caracteres"
                 },
                 "lastname": {
+                    "absent": "Apellido está ausente",
                     "required": "Se requiere su apellido.",
                     "minlength": "Su apellido se requiere que sea al menos 1 carácter",
                     "maxlength": "Su apellido no puede tener más de 50 caracteres"
+                },
+                "family-case-license-number": {
+                    "absent": "Caso familia/Número de licencia está ausente",
+                    "required": "Se requiere tu Caso familia/Número de licencia."
+                },
+                "birth-month": {
+                    "invalid": "Tu mes de nacimiento no es válida.",
+                    "min": "Tu mes de nacimiento se requiere que sea al menos 1.",
+                    "max": "Su mes de nacimiento no puede contener más de 12."
+                },
+                "birth-day": {
+                    "invalid": "Su cumpleaños es válido.",
+                    "min": "Su cumpleaños se requiere que sea al menos 1.",
+                    "max": "Su cumpleaños no puede contener más de 31."
+                },
+                "birth-year": {
+                    "invalid": "Su año de nacimiento no es válido.",
+                    "min": "Su año de nacimiento se requiere que sea al menos 1900.",
+                    "max": "Su año de nacimiento no puede contener más de 3000."
+                },
+                "tel": {
+                    "max": "Your Phone Number cannot be longer than 20 characters"
                 }
             }
         }

@@ -1,5 +1,77 @@
 {
     "facilities": {
-        "reset-filters": "Reset Filters"
+        "reset-filters": "Reset Filters",
+        "show-all-filters": "Show All Filters",
+        "apply-filters": "Apply Filters",
+        "available-spots": "Available Spots:",
+        "age-group": "Age group",
+        "provider-type": "Provider Type:",
+        "price-per-week": "Price per week:",
+        "working-hours": "Working hours:",
+        "languages": "Languages:",
+        "english": "English",
+        "spanish": "Spanish",
+        "vietnamese": "Vietnamese",
+        "no-problems": "Additional:",
+        "no-complains": "No Complains",
+        "no-allegations": "No Allegations",
+        "physical": "Physical:",
+        "muscular-dystrophy": "Muscular Dystrophy",
+        "multiple-sclerosis": "Multiple Sclerosis",
+        "chronic-asthma": "Chronic Asthma",
+        "epilepsy": "Epilepsy",
+        "developmental": "Developmental:",
+        "down-syndrome": "Down Syndrome",
+        "dyslexia": "Dyslexia",
+        "autism": "Autism",
+        "processing-disorders": "Processing Disorders",
+        "behavioral-emotional": "Behavioral/Emotional:",
+        "attention-deficit": "Attention Deficit Disorder (ADD)",
+        "bipolar-disorder": "Bipolar disorder",
+        "post-traumatic-stress": "Post traumatic Stress Disorder (PTSD)",
+        "oppositional-defiant": "Oppositional Defiant Disorder (ODD)",
+        "sensory-imparied": "Sensory Impaired:",
+        "blind": "Blind",
+        "deaf": "Deaf",
+        "visually-impaired": "Visually impaired",
+        "limited-hearing": "Limited hearing",
+        "total-results": "{{number}} Results",
+        "age-groups-selected": "{{selectedCount}} Selected",
+        "lookupAgeGroups": {
+            "1": "Infant (0-12 months)",
+            "2": "Toddler (12-24 months)",
+            "3": "2 years",
+            "4": "3 years",
+            "5": "4 years",
+            "6": "5-9 years",
+            "7": "10-12 years"
+        },
+        "all-quality-ratings": "All Quality Ratings",
+        "quality-ratings-selected": "{{selectedCount}} Selected",
+        "lookupQualityRating": {
+            "0": "Not Rated",
+            "1": "Low",
+            "2": "Average",
+            "3": "Good",
+            "4": "Very Good",
+            "5": "Excellent"
+        },
+        "all-provider-types": "All Provider Types",
+        "lookupProviderType": {
+            "2": "Slot Contractor",
+            "3": "Group Home",
+            "4": "Center",
+            "5": "Non-Relative In-Home",
+            "6": "Relative In-Home",
+            "7": "Non-Relative Out-of-Home",
+            "8": "Relative Out-of-Home"
+        },
+        "lookupWorkingHours": {
+            "1": "Before School Care",
+            "2": "After School Care",
+            "3": "Full Day Care",
+            "4": "Weekend Care",
+            "5": "Overnight Care"
+        }
     }
 }

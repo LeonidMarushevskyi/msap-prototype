@@ -27,10 +27,26 @@
 
             <column name="phone_number" type="varchar(255)"/>
 
-            <column name="license_type_id" type="bigint" />
+            <column name="is_open_overnight" type="bit"/>
 
-            <column name="provider_type_id" type="bigint" />
+            <column name="number_of_complains" type="integer"/>
 
+            <column name="number_of_visits" type="integer"/>
+
+            <column name="last_visit" type="date"/>
+
+            <column name="description" type="varchar(255)"/>
+
+            <column name="is_full_day" type="bit"/>
+
+            <column name="is_after_school" type="bit"/>
+
+            <column name="is_before_school" type="bit"/>
+
+            <column name="license_type_id" type="bigint">
+            </column>
+            <column name="provider_type_id" type="bigint">
+            </column>
             <column name="address_id" type="bigint">
                 <constraints unique="true"/>
             </column>
