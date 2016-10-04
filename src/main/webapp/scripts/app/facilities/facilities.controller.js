@@ -386,6 +386,7 @@ angular.module('msapApp')
         };
 
         $scope.resetFilters = function() {
+            $scope.clearFilter('lookupAgeGroups');
             $scope.clearFilter('lookupProviderType');
             $scope.clearFilter('lookupQualityRating');
 
