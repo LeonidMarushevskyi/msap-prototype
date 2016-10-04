@@ -54,11 +54,22 @@
     <div class="ch-facility__info" ng-show="viewConfig.presentation == 'popup' || agency.showPartFlag">
         <ul class="ch-facility-info">
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Facility Number: {{agency.facility_number}}</div>
+                <div class="ch-facility-info-text">{{agency.totalSpots}} Spots:</div>
+                <div ng-repeat="openSlot in agency.openSlots">
+                    {{openSlot.ageGroup.name}} - {{openSlot.openSlots}} spots
+                </div>
+            </li>
+
+            <li class="ch-facility-info__part">
+                <div class="ch-facility-info-text">Schedule:</div>
             </li>
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Licensee: {{agency.licensee | uppercase}}</div>
+                <div class="ch-facility-info-text">Special needs:</div>
+                <div ng-repeat="specialNeed in agency.specialNeeds">
+                    - {{specialNeed.name}}
+                </div>
             </li>
+
             <li class="ch-facility-info__part">
                 <div class="ch-facility-info-text">License First Date: {{agency.license_first_date | date: 'MM/dd/yyyy'}}</div>
             </li>

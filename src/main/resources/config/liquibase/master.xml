@@ -46,7 +46,6 @@
     <include file="classpath:config/liquibase/changelog/20160929131655_added_entity_Review.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/201609260507_populate_data_Provider.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160929131643_added_entity_LookupSpecialNeedType.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160929131641_populate_data_LookupSpecialNeedType.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160929131648_added_entity_LookupLanguage.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160929131641_populate_data_LookupLanguage.xml" relativeToChangelogFile="false"/>
 
