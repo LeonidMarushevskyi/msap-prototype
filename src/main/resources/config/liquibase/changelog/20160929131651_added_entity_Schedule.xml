@@ -22,16 +22,14 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="open_hour" type="varchar(255)"/>
-            
+
             <column name="close_hour" type="varchar(255)"/>
-            
+
             <column name="provider_id" type="bigint"/>
-            <column name="day_of_week_id" type="bigint">
-                <constraints unique="true"/>
-            </column>
+            <column name="day_of_week_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+
         <addForeignKeyConstraint baseColumnNames="provider_id"
                                  baseTableName="schedule"
                                  constraintName="fk_schedule_provider_id"
