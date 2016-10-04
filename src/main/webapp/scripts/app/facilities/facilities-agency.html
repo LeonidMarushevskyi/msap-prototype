@@ -72,7 +72,13 @@
                     - {{specialNeed.name}}
                 </div>
             </li>
-
+            <li class="ch-facility-info__part">
+                <div class="ch-facility-info-text">{{agency.length}} Substantiated Allegations:</div>
+                <div ng-repeat="allegation in agency.substantiatedAllegations">
+                    {{allegation.description}}
+                    <div>{{allegation.allegationDate}} {{allegation.severity}}</div>
+                </div>
+            </li>
             <li class="ch-facility-info__part">
                 <div class="ch-facility-info-text">License First Date: {{agency.license_first_date | date: 'MM/dd/yyyy'}}</div>
             </li>
