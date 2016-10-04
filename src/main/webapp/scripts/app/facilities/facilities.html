@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_3">
-                <div class="ch-multi-select-dropdown" title="Age group">
+                <div class="ch-multi-select-dropdown" title="{{'facilities.age-group' | translate}}">
                     <button type="button" class="ch-multi-select-dropdown__btn" ng-click="toggleFilterMenu('lookupAgeGroups');">
                         <span class="ch-multi-select-dropdown__btn-text"
                               ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount == 0"
@@ -159,22 +159,22 @@
                     </li>
                 </ul>
 
-                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
+                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group"
+                    ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount > 0">
                     <li class="ch-checkboxes-group__header">
                         <span translate="facilities.available-spots">Available Spots</span>
                     </li>
 
-                    <li class="ch-checkboxes-group__item">
+                    <li class="ch-checkboxes-group__item"
+                        ng-repeat="ageGroup in lookupAgeGroups"
+                        ng-if="isSelected('lookupAgeGroups', ageGroup.code);">
                         <div class="ch-facilities-extended-text-input">
-                            <label for="for1">For children 1-2 ages</label>
-                            <input id="for1" type="input">
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="ch-facilities-extended-text-input">
-                            <label for="for2">For children 5-9 ages</label>
-                            <input id="for2" type="input">
+                            <label for="spots_ageGroup_{{ageGroup.code}}">
+                                {{'facilities.age-group' | translate}}:
+                                {{'facilities.lookupAgeGroups.' + ageGroup.code | translate}}
+                            </label>
+                            <input id="spots_ageGroup_{{ageGroup.code}}" type="input"
+                                   ng-model="ageGroup.availableSpots">
                         </div>
                     </li>
                 </ul>
