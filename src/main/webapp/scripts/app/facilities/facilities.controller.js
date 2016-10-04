@@ -162,6 +162,7 @@ angular.module('msapApp')
             var locations = {};
             _.each(agenciesDataSource, function (agency) {
                 agency.formattedAddress = AddressUtils.formatAddress(agency.address);
+                agency.totalSpots = _.sumBy(agency.openSlots, 'openSlots');
                 agency.distanceValue = GeocoderService.distance(
                     {
                         latitude: agency.address.latitude,

@@ -1,16 +1,25 @@
 package com.engagepoint.msap.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import java.time.LocalDate;
 import org.springframework.data.elasticsearch.annotations.Document;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A Provider.
@@ -70,38 +79,33 @@ public class Provider implements Serializable {
     @OneToOne
     private LookupQualityRating qualityRating;
 
-    @OneToMany(mappedBy = "provider")
-    //@JsonIgnore
+    @JsonManagedReference("openSlots")
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<OpenSlot> openSlots = new HashSet<>();
 
-    @OneToMany(mappedBy = "provider")
-    //@JsonIgnore
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Schedule> schedules = new HashSet<>();
 
-    @OneToMany(mappedBy = "provider")
-    //@JsonIgnore
+    @JsonManagedReference("specialNeeds")
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<LookupSpecialNeedType> specialNeeds = new HashSet<>();
 
-    @OneToMany(mappedBy = "provider")
-    //@JsonIgnore
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Review> reviews = new HashSet<>();
 
-    @OneToMany(mappedBy = "provider")
-    //@JsonIgnore
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Price> prices = new HashSet<>();
 
-    @OneToMany(mappedBy = "provider")
-    //@JsonIgnore
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<SubstantiatedAllegation> substantiatedAllegations = new HashSet<>();
 
-    @OneToMany(mappedBy = "provider")
-    //@JsonIgnore
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<LookupLanguage> supportedLanguages = new HashSet<>();
 
