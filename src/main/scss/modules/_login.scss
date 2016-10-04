@@ -12,7 +12,7 @@ $break-phone: 640px;
     bottom: 0;
     left: 0;
     right: 0;
-    // background: url("../images/us-icon/login-bg.jpg") no-repeat center top fixed;
+    // background: url("https://s3-us-west-2.amazonaws.com/coverr/poster/Hoola.jpg") no-repeat center top fixed;
     // -webkit-background-size: cover;
     // -moz-background-size: cover;
     // -o-background-size: cover;
@@ -20,7 +20,6 @@ $break-phone: 640px;
 }
 
 .ch-login-bg {
-
     position: fixed;
     top: 0;
     bottom: 0;
@@ -142,6 +141,14 @@ $break-phone: 640px;
     z-index: 0;
     top: 0;
     bottom: 0;
+
+    @media screen and (max-width: 1200px) {
+        width: 150%;
+    }
+
+    @media screen and (max-width: 740px) {
+        width: 200%;
+    }
 }
 
 .ch-reset-request {
@@ -282,11 +289,7 @@ $break-phone: 640px;
 }
 
 .ch-login__form {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
-    border: .1rem solid #cbcdcf;
+
     background: rgba(255, 255, 255, 0.8);
 }
 
@@ -423,7 +426,6 @@ $break-phone: 640px;
 
 .ch-login__form__group,
 .ch-reset-request__form__group {
-    padding-top: 1rem;
 
     label {
         font-size: 1.4rem;
@@ -435,20 +437,28 @@ $break-phone: 640px;
         height: 4.3rem;
         background: rgba(255, 255, 255, 0.4);
         border-radius: 0 !important;
-        border: .1rem solid #000;
+        border: .1rem solid #aab4bd;
     }
 }
 
-.ch-login__form__alert-link {
-    padding-top: 1rem;
+.ch-login__form__alert-link,
+.ch-login__form__create-an-account {
+    padding-top: .5rem;
 
     .alert-link {
         text-decoration: underline;
-        color: #0071bc;
+        font-size: 1.7rem;
+        color: $primary-color-blue;
+
         &:hover {
-            color: #205493;
+            color: $secondary-color-blue;
         }
     }
+}
+
+.ch-login__form__create-an-account {
+    text-align: center;
+    margin-top: 1.7rem;
 }
 
 .ch-profile-feedback__link {
@@ -465,7 +475,7 @@ $break-phone: 640px;
 .ch-reset-request__form__button-submit {
     height: 3.6rem;
     margin-top: 2.5rem;
-    margin-bottom: 3rem;
+
     &:hover {
         background-color: #205493;
     }

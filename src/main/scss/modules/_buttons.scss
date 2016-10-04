@@ -21,6 +21,16 @@
     }
 }
 
+.ch-option-btn.ch-option-btn__login {
+    height: 4.4rem;
+    margin: 3rem 0 0 0;
+}
+
+.ch-option-btn.ch-option-btn__sign-up {
+    height: 4.4rem;
+    margin: 2rem 0 2rem 0;
+}
+
 .ch-option-btn.ch-option-btn_fullwidth {
     width: 100%;
 }
@@ -184,7 +194,7 @@
 .ch-main-nav-item__link .ink {
     display: block;
     position: absolute;
-    background: #6a7b84;  	
+    background: #6a7b84;
   	border-radius: 100%;
   	transform: scale(0);
     z-index: 1;
