@@ -17,12 +17,12 @@
         Added the entity LookupAgeGroups.
     -->
     <changeSet id="201609293307458" author="leonid.marushevskiy">
-        <insert tableName="lookup_age_groups"><column name="code" value="1"/><column name="name" value="Infant (0-12 months)"/></insert>
-        <insert tableName="lookup_age_groups"><column name="code" value="2"/><column name="name" value="Toddler (12 -24 months)"/></insert>
-        <insert tableName="lookup_age_groups"><column name="code" value="3"/><column name="name" value="2 years"/></insert>
-        <insert tableName="lookup_age_groups"><column name="code" value="4"/><column name="name" value="3 years"/></insert>
-        <insert tableName="lookup_age_groups"><column name="code" value="5"/><column name="name" value="4 years"/></insert>
-        <insert tableName="lookup_age_groups"><column name="code" value="6"/><column name="name" value="5-9 years"/></insert>
-        <insert tableName="lookup_age_groups"><column name="code" value="7"/><column name="name" value="10-12 years"/></insert>
+        <insert tableName="lookup_age_groups"><column name="id" value="1"/><column name="code" value="1"/><column name="name" value="Infant (0-12 months)"/></insert>
+        <insert tableName="lookup_age_groups"><column name="id" value="2"/><column name="code" value="2"/><column name="name" value="Toddler (12 -24 months)"/></insert>
+        <insert tableName="lookup_age_groups"><column name="id" value="3"/><column name="code" value="3"/><column name="name" value="2 years"/></insert>
+        <insert tableName="lookup_age_groups"><column name="id" value="4"/><column name="code" value="4"/><column name="name" value="3 years"/></insert>
+        <insert tableName="lookup_age_groups"><column name="id" value="5"/><column name="code" value="5"/><column name="name" value="4 years"/></insert>
+        <insert tableName="lookup_age_groups"><column name="id" value="6"/><column name="code" value="6"/><column name="name" value="5-9 years"/></insert>
+        <insert tableName="lookup_age_groups"><column name="id" value="7"/><column name="code" value="7"/><column name="name" value="10-12 years"/></insert>
     </changeSet>
 </databaseChangeLog>
