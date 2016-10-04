@@ -298,19 +298,33 @@ angular.module('msapApp')
             $scope.invalidate(null, $scope.DEFAULT_ZOOM);
         };
 
+        /* START: buttons for dismissible selected filters */
+        //
+        // key: custom ID
+        // value: { lookupName: ..., code: ... } - the structure may be changed later ...
+        var selectedFilterButtons = {};
+        //
+        $scope.addSelectedFilterButton = function (lookupName, code) {
+            selectedFilterButtons[lookupName +':'+ code] = { lookupName: lookupName, code: code };
+        };
+        //
+        /* END: buttons for dismissible selected filters */
+
         $scope.updateProviderTypeLabel = function() {
             $scope.updateDropDownLabel(lookupProviderType, $scope.providerTypesConfig, $scope.ALL_PROVIDER_TYPES_LABEL);
         };
-        $scope.onProviderTypeSelect = function() {
+        $scope.onProviderTypeSelect = function(code) {
             $scope.updateProviderTypeLabel();
+            $scope.addSelectedFilterButton('lookupProviderType', code);
             $scope.invalidate();
         };
 
         $scope.updateQualityRatingLabel = function() {
             $scope.updateDropDownLabel(lookupQualityRating, $scope.qualityRatingsConfig, $scope.ALL_QUALITY_RATINGS_LABEL);
         };
-        $scope.onQualityRatingSelect = function() {
+        $scope.onQualityRatingSelect = function(code) {
             $scope.updateQualityRatingLabel();
+            $scope.addSelectedFilterButton('lookupQualityRating', code);
             $scope.invalidate();
         };
 
