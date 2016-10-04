@@ -12,8 +12,19 @@ angular.module('msapApp')
               lookupAgeGroups, lookupQualityRating, lookupProviderType) {
 
         $scope.lookupAgeGroups = lookupAgeGroups;
-        $scope.lookupQualityRating = lookupQualityRating;
         $scope.lookupProviderType = lookupProviderType;
+        $scope.lookupQualityRating = lookupQualityRating;
+
+        $scope.filterMenuConfigs = {
+            lookupProviderType: {
+                showList: false,
+                selectedCount: 0
+            },
+            lookupQualityRating: {
+                showList: false,
+                selectedCount: 0
+            }
+        };
 
         var agenciesDataSource;
         var agenciesViewIndex;
@@ -32,22 +43,12 @@ angular.module('msapApp')
 
         $scope.agenciesLength = 0;
 
-        $scope.ALL_PROVIDER_TYPES_LABEL = 'All Provider Types';
-        $scope.ALL_QUALITY_RATINGS_LABEL = 'All Quality Ratings';
         $scope.DEFAULT_MARKER_MESSAGE = 'You are here';
         $scope.DEFAULT_ZOOM = 13;
 
         $scope.viewContainsCaBounds = false;
         $scope.caBounds = new L.LatLngBounds(new L.LatLng(32.53, -124.43), new L.LatLng(42, -114.13));
 
-        $scope.providerTypesConfig = {
-            showList: false,
-            label: $scope.ALL_PROVIDER_TYPES_LABEL
-        };
-        $scope.qualityRatingsConfig = {
-            showList: false,
-            label: $scope.ALL_QUALITY_RATINGS_LABEL
-        };
         $scope.defaults = {
             zoomControlPosition: 'bottomright',
             scrollWheelZoom: true,
@@ -211,7 +212,7 @@ angular.module('msapApp')
 
         $scope.defineIcon = function(agency) {
             var imgId =  'green' + '_'
-                + _.find(QualityRatingStars, {code: agency.qualityRating.code}).label;
+                + _.find(QualityRatingStars, {code: agency.qualityRating.code}).stars;
             return $scope.getIconUrl(imgId);
         };
 
@@ -250,8 +251,8 @@ angular.module('msapApp')
                     }
                 },
                 text: $scope.searchText,
-                providerTypes: $scope.getSelected(lookupProviderType),
-                qualityRatings: $scope.getSelected(lookupQualityRating)
+                providerTypes: $scope.getSelected('lookupProviderType'),
+                qualityRatings: $scope.getSelected('lookupQualityRating')
             };
             $log.debug('request', request);
 
@@ -325,40 +326,46 @@ angular.module('msapApp')
         /* START: buttons for dismissible selected filters */
         //
         // key: custom ID
-        // value: { lookupName: ..., code: ... } - the structure may be changed later ...
-        var selectedFilterButtons = {};
+        // value: { modelName: ..., code: ... } - the structure may be changed later ...
+        $scope.selectedFilterButtons = {};
         //
-        $scope.addSelectedFilterButton = function (lookupName, code) {
-            selectedFilterButtons[lookupName +':'+ code] = { lookupName: lookupName, code: code };
+        $scope.addSelectedFilterButton = function (modelName, code) {
+            $scope.selectedFilterButtons[modelName +':'+ code] = { modelName: modelName, code: code };
         };
         //
+        $scope.removeSelectedFilterButton = function (modelName, code) {
+            $scope.deselectFilterMenuItem(modelName, code);
+            delete $scope.selectedFilterButtons[modelName +':'+ code];
+        };
+        //
+        $scope.dismissFilterClick = function (modelName, code) {
+            $scope.removeSelectedFilterButton(modelName, code);
+            $scope.invalidate();
+        };
         /* END: buttons for dismissible selected filters */
 
-        $scope.updateProviderTypeLabel = function() {
-            $scope.updateDropDownLabel(lookupProviderType, $scope.providerTypesConfig, $scope.ALL_PROVIDER_TYPES_LABEL);
-        };
-        $scope.onProviderTypeSelect = function(code) {
-            $scope.updateProviderTypeLabel();
-            $scope.addSelectedFilterButton('lookupProviderType', code);
-            $scope.invalidate();
-        };
-
-        $scope.updateQualityRatingLabel = function() {
-            $scope.updateDropDownLabel(lookupQualityRating, $scope.qualityRatingsConfig, $scope.ALL_QUALITY_RATINGS_LABEL);
-        };
-        $scope.onQualityRatingSelect = function(code) {
-            $scope.updateQualityRatingLabel();
-            $scope.addSelectedFilterButton('lookupQualityRating', code);
-            $scope.invalidate();
-        };
-
-        $scope.updateDropDownLabel = function(model, config, defaultValue) {
-            var selected = $scope.getSelected(model);
-            if (selected.length > 0) {
-                config.label = selected.length + ' Selected';
+        $scope.toggleFilterMenu = function (modelName, status) {
+            if (_.isUndefined(status)) {
+                $scope.filterMenuConfigs[modelName].showList = !$scope.filterMenuConfigs[modelName].showList;
             } else {
-                config.label = defaultValue;
+                $scope.filterMenuConfigs[modelName].showList = status;
             }
+        };
+
+        $scope.onFilterMenuItemClick = function(modelName, code) {
+            $scope.updateSelectedCount(modelName);
+
+            if ($scope.isSelected(modelName, code)) {
+                $scope.addSelectedFilterButton(modelName, code);
+            } else {
+                $scope.removeSelectedFilterButton(modelName, code);
+            }
+
+            $scope.invalidate();
+        };
+
+        $scope.updateSelectedCount = function(modelName) {
+            $scope.filterMenuConfigs[modelName].selectedCount = $scope.getSelected(modelName).length;
         };
 
         $scope.hideExtendedFilters = true;
@@ -366,25 +373,34 @@ angular.module('msapApp')
             $scope.hideExtendedFilters = !$scope.hideExtendedFilters;
         };
 
-        $scope.resetFilters = function() {
-            $scope.clearFilter(lookupProviderType);
-            $scope.updateProviderTypeLabel();
+        $scope.clearFilter = function(modelName) {
+            _.each($scope[modelName], function(item) {
+                item.selected = false;
+            });
+            $scope.updateSelectedCount(modelName);
+        };
 
-            $scope.clearFilter(lookupQualityRating);
-            $scope.updateQualityRatingLabel();
+        $scope.resetFilters = function() {
+            $scope.clearFilter('lookupProviderType');
+            $scope.clearFilter('lookupQualityRating');
+
+            $scope.selectedFilterButtons = {};
 
             $scope.searchText = $scope.text = '';
             $scope.invalidate();
         };
 
-        $scope.clearFilter = function(model) {
-            _.each(model, function(item) {
-                item.selected = false;
-            });
+        $scope.getSelected = function(modelName) {
+            return _.map(_.filter($scope[modelName], {selected: true}), 'code');
         };
 
-        $scope.getSelected = function(model) {
-            return _.map(_.filter(model, {selected: true}), 'code');
+        $scope.isSelected = function(modelName, code) {
+            return _.find($scope[modelName], {code: code}).selected;
+        };
+
+        $scope.deselectFilterMenuItem = function (modelName, code) {
+            _.find($scope[modelName], {code: code}).selected = false;
+            $scope.updateSelectedCount(modelName);
         };
 
         $scope.addGeocoder = function () {
