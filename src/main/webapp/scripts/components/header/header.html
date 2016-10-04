@@ -53,15 +53,16 @@
         <div class="ch-header__subsection ch-header__subsection-language" ng-controller="LanguageController">
             <div class="ch-user-account-entry">
                 <div class="ch-user-account-entry__dropdown" title="Language">
-                    <button type="button" class="ch-user-account-entry__dropdown-btn" ng-click="toggleLanguagePopup()"
+                    <button type="button" class="ch-user-account-entry__dropdown-btn ch-user-account-entry__language-globe" ng-click="toggleLanguagePopup()"
                             ng-class="isLanguagePopupShown ? 'ch-user-account-entry__dropdown-btn_expanded': 'ch-user-account-entry__dropdown-btn_collapsed'">
                         <span class="ch-main-nav-item__text" translate="global.menu.language">Language</span>
                     </button>
                 </div>
                 <div class="ch-user-account-entry__popup" ng-show="isLanguagePopupShown">
                     <div class="ch-user-account-popup">
-                        <div class="ch-user-account-popup__info clearfix" ng-repeat="language in languages">
-                            <p ng-class="isCurrent(language) ? 'ch-language-popup__entry_active' : 'ch-language-popup__entry'" ng-click="clickLanguage(language)">
+                        <div class="ch-user-account-popup__info clearfix"
+                             ng-class="isCurrent(language) ? 'ch-language-popup__entry_active' : 'ch-language-popup__entry'" ng-repeat="language in languages">
+                            <p ng-click="clickLanguage(language)">
                                 {{language | findLanguageFromKey}}
                             </p>
                         </div>

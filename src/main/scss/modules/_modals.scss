@@ -11,7 +11,6 @@
 }
 
 .ch-general-modal {
-
     .modal-dialog {
         margin: 25rem auto;
 
@@ -25,10 +24,16 @@
     }
 }
 
+.modal-dialog.modal-sign-in {
+    @media screen and (max-width: $break-phone) {
+        width: 48rem;
+    }
+}
+
 .ch-modal__header,
 .ch-modal__body,
 .ch-modal__footer {
-    padding: 0 4.5rem;
+    padding: 0 5rem;
 
     @media screen and (max-width: $break-phone) {
         padding: 0 2.5rem;
@@ -36,20 +41,20 @@
 }
 
 .ch-modal__footer {
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
 }
 
 .ch-modal__close-btn {
     display: inline-block;
-    width: .8rem;
-    height: .8rem;
+    width: 1.4rem;
+    height: 1.4rem;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -1rem;
+    right: -4rem;
     opacity: 1;
     border: none;
     padding: 1.8rem;
-    background: url("../images/out-sprite-icons/icon-close.png") no-repeat center;
+    background: url("../images/us-icon/icon-close.png") no-repeat center;
 }
 
 .ch-modal__title {

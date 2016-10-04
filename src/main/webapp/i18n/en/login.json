@@ -17,7 +17,7 @@
             }
         },
         "password" : {
-            "forgot": "Did you forget your password?"
+            "forgot": "Forgot password?"
         }
     }
 }

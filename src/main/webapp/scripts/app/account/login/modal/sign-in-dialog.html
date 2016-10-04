@@ -24,22 +24,29 @@
 
                   <form class="form" role="form">
                       <div class="ch-login__form__group">
-                          <label for="username" translate="login.form.username">Username</label>
+                          <label for="username"></label>
                           <input type="text" class="form-control" id="username" placeholder="{{'login.form.username.placeholder' | translate}}" ng-model="username">
                       </div>
 
                       <div class="ch-login__form__group">
-                          <label for="password" translate="login.form.password">Password</label>
+                          <label for="password"></label>
                           <input type="password" class="form-control" id="password" placeholder="{{'login.form.password.placeholder' | translate}}"
                                  ng-model="password">
                       </div>
 
                       <div class="ch-login__form__alert-link">
-                          <a class="alert-link" href="#/reset/request" translate="login.password.forgot">Forgot Password?</a>
+                          <a class="alert-link" href="#/reset/request" ng-click="clear()" translate="login.password.forgot">Forgot Password?</a>
                       </div>
 
-                      <button type="submit" class="ch-login__form__button-submit"  ng-click="login($event);"
-                              translate="login.form.button">Sign In</button>
+                      <button type="submit" class="ch-option-btn ch-option-btn__login"
+                              ng-click="login($event); inkRipple()" ng-init="inkRipple();"
+                              translate="login.form.button">Sign In
+                              <span class="ink"></span>
+                      </button>
+
+                      <div class="ch-login__form__create-an-account">
+                          <a class="alert-link" href="#/registerme" ng-click="clear()" translate="login.create-an-account">Create an account</a>
+                      </div>
                   </form>
 
           </div>

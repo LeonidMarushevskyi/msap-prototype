@@ -18,6 +18,17 @@ angular.module('msapApp')
         var agenciesDataSource;
         var agenciesViewIndex;
         var agenciesViewPage = 10;
+        var windowWidth = $(window).width();
+
+        $scope.returnMapHeight = function() {
+          var heightMapDesktop = "height: calc(100vh - 19rem)";
+          var heightMapMobile = "height: calc(100vh - 25rem)";
+            if (windowWidth > 640) {
+                return heightMapDesktop;
+            } else {
+                return heightMapMobile;
+            }
+        };
 
         $scope.agenciesLength = 0;
 
@@ -112,13 +123,26 @@ angular.module('msapApp')
             $scope.showLinkMapView = 'ch-mobile-mailbox__nav-tab__link_active';
             $scope.showListView = '';
             $scope.showLinkListView= '';
+            $scope.showLinkFilterView = '';
+            $scope.mobileFilterState = 'mobile-filter-for-map-view';
         };
 
         $scope.changeListView = function() {
-            $scope.showListView = 'ch-show-list-view';
-            $scope.showLinkListView = 'ch-mobile-mailbox__nav-tab__link_active';
             $scope.showMapView = '';
             $scope.showLinkMapView = '';
+            $scope.showListView = 'ch-show-list-view';
+            $scope.showLinkListView = 'ch-mobile-mailbox__nav-tab__link_active';
+            $scope.showLinkFilterView = '';
+            $scope.mobileFilterState = 'mobile-filter-for-list-view';
+        };
+
+        $scope.changeFilterView = function() {
+            $scope.showListView = '';
+            $scope.showLinkListView = '';
+            $scope.showMapView = '';
+            $scope.showLinkMapView = '';
+            $scope.showLinkFilterView = 'ch-mobile-mailbox__nav-tab__link_active';
+            $scope.mobileFilterState = 'mobile-filter-for-filter-view';
         };
 
         $scope.applyInfiniteScroll = function () {
