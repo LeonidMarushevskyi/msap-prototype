@@ -24,10 +24,10 @@ public class Price implements Serializable {
     private Long id;
 
     @Column(name = "minimal_price")
-    private Double minimalPrice;
+    private Integer minimalPrice;
     
     @Column(name = "maximum_price")
-    private Double maximumPrice;
+    private Integer maximumPrice;
     
     @ManyToOne
     @JoinColumn(name = "provider_id")
@@ -44,19 +44,19 @@ public class Price implements Serializable {
         this.id = id;
     }
 
-    public Double getMinimalPrice() {
+    public Integer getMinimalPrice() {
         return minimalPrice;
     }
     
-    public void setMinimalPrice(Double minimalPrice) {
+    public void setMinimalPrice(Integer minimalPrice) {
         this.minimalPrice = minimalPrice;
     }
 
-    public Double getMaximumPrice() {
+    public Integer getMaximumPrice() {
         return maximumPrice;
     }
     
-    public void setMaximumPrice(Double maximumPrice) {
+    public void setMaximumPrice(Integer maximumPrice) {
         this.maximumPrice = maximumPrice;
     }
 

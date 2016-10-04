@@ -88,8 +88,8 @@ entity Schedule {
 }
 
 entity Price {
-    minimalPrice Double,
-    maximumPrice Double
+    minimalPrice Integer,
+    maximumPrice Integer
 }
 
 entity OpenSlot {

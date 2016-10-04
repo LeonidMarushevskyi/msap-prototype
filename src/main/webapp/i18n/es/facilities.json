@@ -40,7 +40,7 @@
         "deaf": "Sordo",
         "visually-impaired": "Problemas de visión",
         "limited-hearing": "Audiencia limitada",
-        "total-results": "Resultados 45",
+        "total-results": "Resultados {{number}}",
         "age-groups": {
             "1": "infantil (0-12 meses)",
             "2": "Niño (12-24 meses)",
@@ -50,7 +50,9 @@
             "6": "5-9 años",
             "7": "10-12 años"
         },
-        "quality-ratings": {
+        "all-quality-ratings": "Todos los votos de calidad",
+        "quality-ratings-selected": "{{selectedCount}} seleccionado",
+        "lookupQualityRating": {
             "0": "No calificado",
             "1": "Bajo",
             "2": "Normal",
@@ -58,7 +60,8 @@
             "4": "Muy bueno",
             "5": "Excelente"
         },
-        "provider-types": {
+        "all-provider-types": "Todos los Tipos de Proveedores",
+        "lookupProviderType": {
             "2": "Contratista Ranura",
             "3": "Grupo Hogar",
             "4": "Centro",

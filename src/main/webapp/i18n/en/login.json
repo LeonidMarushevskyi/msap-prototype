@@ -2,7 +2,8 @@
     "login": {
         "create-an-account": "Create an Account",
         "title": "Sign in",
-        "sign-in": "Sign in",
+        "login": "Login",
+        "register": "Register",
         "form": {
             "username": "Username",
             "username.placeholder": "Your username",

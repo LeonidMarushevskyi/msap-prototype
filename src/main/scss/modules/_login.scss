@@ -212,6 +212,7 @@ $break-phone: 640px;
     justify-content: flex-end;
     padding-top: 0.4rem;
 }
+
 .ch-login__footer__links {
     float: right;
     margin-right: 4rem;
@@ -222,7 +223,6 @@ $break-phone: 640px;
 }
 
 .ch-login__actions__new-account {
-
     a {
         font-size: 1.7rem;
         color: #fff;
@@ -234,11 +234,18 @@ $break-phone: 640px;
         text-align: center;
         text-decoration: none;
         text-transform: uppercase;
-        width: 100%;
+        display: inline-block;
+        width: 10rem;
         -webkit-font-smoothing: antialiased;
+
+        a:hover {
+            color: #d6d7d9;
+            border-color: #d6d7d9;
+        }
 
         @media screen and (max-width: 640px) {
             margin-top: 1.429rem;
+            float: none !important;
         }
     }
 }
@@ -569,18 +576,6 @@ $break-phone: 640px;
     background: $primary-color-grey-light;
     position: relative;
     z-index: 10;
-}
-
-.ch-login__actions__new-account {
-
-    a:hover {
-        color: #d6d7d9;
-        border-color: #d6d7d9;
-    }
-
-    @media screen and (max-width: 640px) {
-        float: none !important;
-    }
 }
 
 .ch-login__actions__lang {

@@ -43,11 +43,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class PriceResourceIntTest {
 
 
-    private static final Double DEFAULT_MINIMAL_PRICE = 1D;
-    private static final Double UPDATED_MINIMAL_PRICE = 2D;
+    private static final Integer DEFAULT_MINIMAL_PRICE = 1;
+    private static final Integer UPDATED_MINIMAL_PRICE = 2;
 
-    private static final Double DEFAULT_MAXIMUM_PRICE = 1D;
-    private static final Double UPDATED_MAXIMUM_PRICE = 2D;
+    private static final Integer DEFAULT_MAXIMUM_PRICE = 1;
+    private static final Integer UPDATED_MAXIMUM_PRICE = 2;
 
     @Inject
     private PriceRepository priceRepository;
@@ -114,8 +114,8 @@ public class PriceResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(price.getId().intValue())))
-                .andExpect(jsonPath("$.[*].minimalPrice").value(hasItem(DEFAULT_MINIMAL_PRICE.doubleValue())))
-                .andExpect(jsonPath("$.[*].maximumPrice").value(hasItem(DEFAULT_MAXIMUM_PRICE.doubleValue())));
+                .andExpect(jsonPath("$.[*].minimalPrice").value(hasItem(DEFAULT_MINIMAL_PRICE)))
+                .andExpect(jsonPath("$.[*].maximumPrice").value(hasItem(DEFAULT_MAXIMUM_PRICE)));
     }
 
     @Test
