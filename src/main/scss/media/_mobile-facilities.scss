@@ -2,14 +2,15 @@
 
     @media screen and (max-width: $break-phone) {
         display: block;
-        height: 10.5rem;
-        padding-top: 2.8rem;
-        padding-bottom: 2.8rem;
+        height: 8rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
         padding-left: 1.7rem;
         padding-right: 1.7rem;
 
         .ch-facilities-heading__item:first-of-type {
             padding-left: 0;
+            margin-bottom: 80px;
         }
 
         .ch-facilities-heading__item:last-of-type {
@@ -68,14 +69,6 @@
     @media screen and (max-width: $break-phone) {
         margin-top: -.6rem;
         margin-right: .8rem;
-    }
-}
-
-.ch-facilities-heading__input__item_2,
-.ch-facilities-heading__input__item_3,
-.ch-facilities-heading__input__item_4 {
-    @media screen and (max-width: $break-phone) {
-        display: none;
     }
 }
 

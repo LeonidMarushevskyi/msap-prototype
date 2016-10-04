@@ -11,16 +11,22 @@
             </div>
 
             <div class="ch-mobile-mailbox__nav-tab">
-                <a href="" class="ch-mobile-mailbox__nav-tab__link" ng-class="showLinkListView" ng-click="changeListView()">
+                <a href="" class="ch-mobile-mailbox__nav-tab__link"
+                   ng-class="showLinkListView" ng-click="changeListView()">
                     <span class="ch-mobile-mailbox__nav-tab__text">List View</span>
                 </a>
             </div>
 
+            <div class="ch-mobile-mailbox__nav-tab">
+                <a href="" class="ch-mobile-mailbox__nav-tab__link"
+                   ng-class="showLinkFilterView" ng-click="changeFilterView()">
+                    <span class="ch-mobile-mailbox__nav-tab__text">Filters</span>
+                </a>
+            </div>
         </div>
-
     </div>
 
-    <section class="ch-facilities-heading">
+    <section class="ch-facilities-heading mobile-filter-for-map-view" ng-class="mobileFilterState">
         <div class="ch-facilities-heading__row">
             <div class="ch-facilities-heading__item ch-facilities-heading__item_2 ch-facilities-heading__input__item_1">
                 <div class="ch-input-block">
@@ -84,7 +90,7 @@
         </div>
     </section>
 
-    <section class="ch-facilities-extended-filters">
+    <section class="ch-facilities-extended-filters mobile-filter-for-map-view" ng-class="mobileFilterState">
 
         <div class="ch-facilities-extended-filters__popup ng-hide" ng-hide="hideExtendedFilters">
             <div class="ch-facilities-extended-filters__section">
@@ -427,83 +433,6 @@
   </section>
 </div>
 
-<div class="ch-facilities-heading__mobile__view__filter">
-
-  <div class="ch-facilities-heading__mobile__view__filter-expanded" ng-show="showFilterDetails">
-
-      <div class="ch-facilities-heading__item ch-facilities-heading__item_2 ch-facilities-heading__input__item_2">
-          <div class="ch-input-block" title="Put any available information about children's residential facility like name, address or administrator name">
-              <div class="ch-input-block__form-input ch-input-block__form-input_icon ch-input-block__form-input_icon_left">
-                  <span class="ch-form-input-icon ch-form-input-icon_left ch-form-input-icon_search"></span>
-                  <input type="search" ng-model="text" ng-keypress="findAgenciesByTextQuery($event);" name="search-text" id="search-text" class="ch-form-input ch-form-input_small ch-form-input_search" placeholder="Put facility data here" />
-              </div>
-          </div>
-      </div>
-
-      <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_3">
-          <div class="ch-multi-select-dropdown" title="Filter facilities by type">
-              <button type="button" class="ch-multi-select-dropdown__btn" ng-click="providerTypesConfig.showList = !providerTypesConfig.showList;">
-                  <span class="ch-multi-select-dropdown__btn-text">{{providerTypesConfig.label}}</span>
-                  <span class="ch-multi-select-dropdown__btn-icon"></span>
-              </button>
-              <div class="ch-multi-select-dropdown__popup" ng-show="providerTypesConfig.showList" ng-mouseleave="providerTypesConfig.showList = false">
-                  <ul class="ch-checkboxes-list">
-                      <li class="ch-checkboxes-list__item" ng-repeat="providerType in lookupProviderType track by providerType.id | orderBy: 'id'">
-                          <div class="form-type__checkbox_empty-label">
-                              <input id="MproviderType_{{providerType.code}}" type="checkbox" ng-model="type.selected" ng-click="onProviderTypeSelect();">
-                              <label for="MproviderType_{{providerType.code}}"><span class="ch-popup-label-text">{{'facilities.provider-types.' + providerType.code | translate | capitalize:true}}</span></label>
-                          </div>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-
-      <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_4">
-          <div class="ch-multi-select-dropdown" title="Filter facilities by status">
-              <button type="button" class="ch-multi-select-dropdown__btn" ng-click="qualityRatingsConfig.showList = !qualityRatingsConfig.showList;">
-                  <span class="ch-multi-select-dropdown__btn-text">{{qualityRatingsConfig.label}}</span>
-                  <span class="ch-multi-select-dropdown__btn-icon"></span>
-              </button>
-              <div class="ch-multi-select-dropdown__popup" ng-show="qualityRatingsConfig.showList" ng-mouseleave="qualityRatingsConfig.showList = false">
-                  <ul class="ch-checkboxes-list">
-                      <li class="ch-checkboxes-list__item" ng-repeat="qualityRating in lookupQualityRating track by qualityRating.id | orderBy: 'id'">
-                          <div class="form-type__checkbox_empty-label">
-                              <input id="MqualityRating_{{qualityRating.code}}" type="checkbox" ng-model="qualityRating.selected" ng-click="onQualityRatingSelect();">
-                              <label for="MqualityRating_{{qualityRating.code}}">{{'facilities.quality-ratings.' + qualityRating.code | translate | capitalize:true}}</label>
-                          </div>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-
-      <div class="ch-facilities-heading__mobile__view__reset-btn">
-        <button class="ch-facilities-list_mobile ch-ink-btn"
-                type="button"
-                ng-click="resetFilters(); inkRipple()"
-                ng-init = "inkRipple();"
-                title="Reset all selected filters">Reset Filters
-          <span class="ch-facilities-list_top-times"></span>
-          <span class="ink"></span></button>
-      </div>
-
-    </div>
-
-    <div class="ch-filter-pane__title" ng-click="showFilterDetails = !showFilterDetails">
-        <div class="ch-facilities-list_top-results">RESULTS:
-            <span class="ch-facilities-list_top-count-message">{{agenciesLength}} Agencies</span>
-        </div>
-
-        <div class="ch-filter-pane__control">
-           <span >All Filters</span>
-           <span class="ch-filter-pane__icon up" ng-show="showFilterDetails"></span>
-           <span class="ch-filter-pane__icon down" ng-show="!showFilterDetails"></span>
-        </div>
-    </div>
-
-</div>
-
 <div class="ch-mobile-facilities__map-view" ng-class="showListView">
   <div class="ch-layout__aside ch-layout__aside_facilities" ui-view="aside" ng-class="showListView"></div>
 </div>
@@ -515,6 +444,7 @@
       </div>
   </div>
 </div>
+
 <div style="display: none">
   <img src="assets/images/green_1star.png" id="icon_pin_green_1star"/>
   <img src="assets/images/green_2star.png" id="icon_pin_green_2star"/>
