@@ -6,15 +6,19 @@ angular.module('msapApp')
         'leafletData', 'QualityRatingStars', 'ProviderAgenciesService',
         'GeocoderService', 'chLayoutConfigFactory', '$uibModal', 'Principal', 'AppPropertiesService', 'AddressUtils',
         'lookupAgeGroups', 'lookupQualityRating', 'lookupProviderType', 'lookupWorkingHours',
+        'lookupSpecialNeedGroup', 'lookupSpecialNeedType',
     function ($scope, $state, $log, $q,
               leafletData, QualityRatingStars, ProviderAgenciesService,
               GeocoderService, chLayoutConfigFactory, $uibModal, Principal, AppPropertiesService, AddressUtils,
-              lookupAgeGroups, lookupQualityRating, lookupProviderType, lookupWorkingHours) {
+              lookupAgeGroups, lookupQualityRating, lookupProviderType, lookupWorkingHours,
+              lookupSpecialNeedGroup, lookupSpecialNeedType) {
 
         $scope.lookupAgeGroups = lookupAgeGroups;
         $scope.lookupProviderType = lookupProviderType;
         $scope.lookupQualityRating = lookupQualityRating;
         $scope.lookupWorkingHours = lookupWorkingHours;
+        $scope.lookupSpecialNeedGroup = lookupSpecialNeedGroup;
+        $scope.lookupSpecialNeedType = lookupSpecialNeedType;
 
         $scope.filterMenuConfigs = {
             lookupAgeGroups: {
@@ -30,6 +34,14 @@ angular.module('msapApp')
                 selectedCount: 0
             },
             lookupWorkingHours: {
+                showList: false,
+                selectedCount: 0
+            },
+            lookupSpecialNeedGroup: {
+                showList: false,
+                selectedCount: 0
+            },
+            lookupSpecialNeedType: {
                 showList: false,
                 selectedCount: 0
             }
@@ -396,10 +408,9 @@ angular.module('msapApp')
         };
 
         $scope.resetFilters = function() {
-            $scope.clearFilter('lookupAgeGroups');
-            $scope.clearFilter('lookupProviderType');
-            $scope.clearFilter('lookupQualityRating');
-            $scope.clearFilter('lookupWorkingHours');
+            _.map(_.keys($scope.filterMenuConfigs), function (modelName) {
+                $scope.clearFilter(modelName);
+            });
 
             $scope.selectedFilterButtons = {};
 
