@@ -8,6 +8,6 @@ angular.module('msapApp')
                 agency: '=',
                 viewConfig: '='
             },
-            templateUrl: 'scripts/app/facilities/facilities-agency.html',
+            templateUrl: 'scripts/app/facilities/facilities-agency.html'
         }
     });
