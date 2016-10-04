@@ -5,15 +5,16 @@ angular.module('msapApp')
     ['$scope', '$state', '$log', '$q',
         'leafletData', 'QualityRatingStars', 'ProviderAgenciesService',
         'GeocoderService', 'chLayoutConfigFactory', '$uibModal', 'Principal', 'AppPropertiesService', 'AddressUtils',
-        'lookupAgeGroups', 'lookupQualityRating', 'lookupProviderType',
+        'lookupAgeGroups', 'lookupQualityRating', 'lookupProviderType', 'lookupWorkingHours',
     function ($scope, $state, $log, $q,
               leafletData, QualityRatingStars, ProviderAgenciesService,
               GeocoderService, chLayoutConfigFactory, $uibModal, Principal, AppPropertiesService, AddressUtils,
-              lookupAgeGroups, lookupQualityRating, lookupProviderType) {
+              lookupAgeGroups, lookupQualityRating, lookupProviderType, lookupWorkingHours) {
 
         $scope.lookupAgeGroups = lookupAgeGroups;
         $scope.lookupProviderType = lookupProviderType;
         $scope.lookupQualityRating = lookupQualityRating;
+        $scope.lookupWorkingHours = lookupWorkingHours;
 
         $scope.filterMenuConfigs = {
             lookupAgeGroups: {
@@ -25,6 +26,10 @@ angular.module('msapApp')
                 selectedCount: 0
             },
             lookupQualityRating: {
+                showList: false,
+                selectedCount: 0
+            },
+            lookupWorkingHours: {
                 showList: false,
                 selectedCount: 0
             }
@@ -257,7 +262,12 @@ angular.module('msapApp')
                 },
                 text: $scope.searchText,
                 providerTypes: $scope.getSelected('lookupProviderType'),
-                qualityRatings: $scope.getSelected('lookupQualityRating')
+                qualityRatings: $scope.getSelected('lookupQualityRating'),
+                isBeforeSchool: $scope.isSelected('lookupWorkingHours', 1),
+                isAfterSchool: $scope.isSelected('lookupWorkingHours', 2),
+                isFullDay: $scope.isSelected('lookupWorkingHours', 3),
+                isWeekendCare: $scope.isSelected('lookupWorkingHours', 4),
+                isOpenOvernight: $scope.isSelected('lookupWorkingHours', 5)
             };
             $log.debug('request', request);
 
@@ -389,6 +399,7 @@ angular.module('msapApp')
             $scope.clearFilter('lookupAgeGroups');
             $scope.clearFilter('lookupProviderType');
             $scope.clearFilter('lookupQualityRating');
+            $scope.clearFilter('lookupWorkingHours');
 
             $scope.selectedFilterButtons = {};
 

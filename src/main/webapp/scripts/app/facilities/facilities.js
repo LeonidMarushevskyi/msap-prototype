@@ -33,6 +33,9 @@ angular.module('msapApp')
                     }],
                     lookupProviderType: ['LookupProviderType', function(LookupProviderType) {
                         return LookupProviderType.query().$promise;
+                    }],
+                    lookupWorkingHours: ['$q', 'lookupWorkingHours', function ($q, lookupWorkingHours) {
+                        return $q.when(lookupWorkingHours); // lookupWorkingHours is defined in constants.js
                     }]
                 }
             });

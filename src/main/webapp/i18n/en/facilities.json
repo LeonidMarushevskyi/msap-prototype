@@ -8,11 +8,6 @@
         "provider-type": "Provider Type:",
         "price-per-week": "Price per week:",
         "working-hours": "Working hours:",
-        "full-day": "Full Day Care",
-        "before-school": "Before School Care",
-        "after-school": "After School Care",
-        "open-overnight": "Overnight Care",
-        "weekend": "Weekend Care",
         "languages": "Languages:",
         "english": "English",
         "spanish": "Spanish",
@@ -70,6 +65,13 @@
             "6": "Relative In-Home",
             "7": "Non-Relative Out-of-Home",
             "8": "Relative Out-of-Home"
+        },
+        "lookupWorkingHours": {
+            "1": "Before School Care",
+            "2": "After School Care",
+            "3": "Full Day Care",
+            "4": "Weekend Care",
+            "5": "Overnight Care"
         }
     }
 }

@@ -26,4 +26,11 @@ angular.module('msapApp')
             updateOnContentResize: true
         },
         scrollInertia: 0
-    });
+    })
+    .constant('lookupWorkingHours', [
+        {code: 1, name: 'Before School Care'},
+        {code: 2, name: 'After School Care'},
+        {code: 3, name: 'Full Day Care'},
+        {code: 4, name: 'Weekend Care'},
+        {code: 5, name: 'Overnight Care'}
+    ]);
