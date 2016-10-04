@@ -130,6 +130,10 @@
 .ch-form-input::-webkit-input-placeholder {
     color: #5b616b;
     font-size: 1.4rem;
+
+    @media screen and (max-width: $break-phone) {
+        font-size: 2rem;
+    }
 }
 
 .ch-input-block__label-radio {
