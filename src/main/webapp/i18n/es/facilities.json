@@ -8,11 +8,6 @@
         "provider-type": "Tipo de proveedor",
         "price-per-week": "Precio por semana",
         "working-hours": "Horas laborales",
-        "full-day": "Llena de Día",
-        "before-school": "Antes de Cuidado de la escuela",
-        "after-school": "Después de la escuela",
-        "open-overnight": "Cuidado de la noche a la mañana",
-        "weekend": "Cuidado de fin de semana",
         "languages": "Idiomas",
         "english": "Inglés",
         "spanish": "Español",
@@ -70,6 +65,13 @@
             "6": "Relativa en el hogar",
             "7": "Que no es pariente fuera de la casa",
             "8": "En relación fuera de la casa"
+        },
+        "lookupWorkingHours": {
+            "1": "Antes de Cuidado de la escuela",
+            "2": "Después de la escuela",
+            "3": "Llena de Día",
+            "4": "Cuidado de fin de semana",
+            "5": "Cuidado de la noche a la mañana"
         }
     }
 }

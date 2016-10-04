@@ -63,7 +63,12 @@ angular.module('msapApp')
                             '+address.longitude': {'[]': [nw.longitude, se.longitude]},
                             '+address.latitude': {'[]': [se.latitude, nw.latitude]},
                             '+providerType.code': filter.providerTypes,
-                            '+qualityRating.code': filter.qualityRatings
+                            '+qualityRating.code': filter.qualityRatings,
+                            '+isBeforeSchool': filter.isBeforeSchool ? 'true' : '',
+                            '+isAfterSchool': filter.isAfterSchool ? 'true' : '',
+                            '+isFullDay': filter.isFullDay ? 'true' : '',
+                            '+isWeekendCare': filter.isWeekendCare ? 'true' : '',
+                            '+isOpenOvernight': filter.isOpenOvernight ? 'true' : ''
                         }
                     ],
                     // entity name

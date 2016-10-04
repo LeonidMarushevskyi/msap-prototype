@@ -8,11 +8,6 @@
         "provider-type": "Loại nhà cung cấp",
         "price-per-week": "Giá mỗi tuần",
         "working-hours": "Giờ làm việc",
-        "full-day": "Chăm sóc đầy đủ ngày",
-        "before-school": "Trước khi chăm sóc học đường",
-        "after-school": "Sau khi chăm sóc học đường",
-        "open-overnight": "Chăm sóc Nghỉ đêm",
-        "weekend": "Chăm sóc Weekend",
         "languages": "Ngôn ngữ",
         "english": "Anh",
         "spanish": "Người Tây Ban Nha",
@@ -70,6 +65,13 @@
             "6": "Họ hàng trong trang",
             "7": "Không tương đối trong nhà",
             "8": "Họ hàng trong nhà"
+        },
+        "lookupWorkingHours": {
+            "1": "Trước khi chăm sóc học đường",
+            "2": "Sau khi chăm sóc học đường",
+            "3": "Chăm sóc đầy đủ ngày",
+            "4": "Chăm sóc Weekend",
+            "5": "Chăm sóc Nghỉ đêm"
         }
     }
 }

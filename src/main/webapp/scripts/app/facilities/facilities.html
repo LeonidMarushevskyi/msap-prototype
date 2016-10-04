@@ -123,38 +123,12 @@
                         <span translate="facilities.working-hours">Working hours</span>
                     </li>
 
-                    <li class="ch-checkboxes-group__item">
+                    <li class="ch-checkboxes-group__item" ng-repeat="workingHours in lookupWorkingHours">
                         <div class="form-type__checkbox_empty-label">
-                            <input id="working3" type="checkbox">
-                            <label for="working3" translate="facilities.before-school">Before School Care</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="working4" type="checkbox">
-                            <label for="working4" translate="facilities.after-school">After School Care</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="working2" type="checkbox">
-                            <label for="working2" translate="facilities.full-day">Full Day Care</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="working5" type="checkbox">
-                            <label for="working5" translate="facilities.weekend">Weekend Care</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="working6" type="checkbox">
-                            <label for="working6" translate="facilities.open-overnight">Overnight Care</label>
+                            <input id="workingHours_{{workingHours.code}}" type="checkbox"
+                                   ng-model="workingHours.selected"
+                                   ng-click="onFilterMenuItemClick('lookupWorkingHours', workingHours.code);">
+                            <label for="workingHours_{{workingHours.code}}">{{'facilities.lookupWorkingHours.' + workingHours.code | translate}}</label>
                         </div>
                     </li>
                 </ul>

@@ -33,6 +33,15 @@ angular.module('msapApp')
                     }],
                     lookupProviderType: ['LookupProviderType', function(LookupProviderType) {
                         return LookupProviderType.query().$promise;
+                    }],
+                    lookupWorkingHours: ['$q', function ($q) {
+                        return $q.when([
+                            {code: 1, name: 'Before School Care'},
+                            {code: 2, name: 'After School Care'},
+                            {code: 3, name: 'Full Day Care'},
+                            {code: 4, name: 'Weekend Care'},
+                            {code: 5, name: 'Overnight Care'}
+                        ]);
                     }]
                 }
             });
