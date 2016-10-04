@@ -62,6 +62,9 @@
 
             <li class="ch-facility-info__part">
                 <div class="ch-facility-info-text">Schedule:</div>
+                <div ng-repeat="schedule in agency.schedules">
+                    {{schedule.dayOfWeek.name}}: {{schedule.openHour}} - {{schedule.closeHour}}
+                </div>
             </li>
             <li class="ch-facility-info__part">
                 <div class="ch-facility-info-text">Special needs:</div>

@@ -17,12 +17,12 @@
         Added the entity LookupDayOfWeek.
     -->
     <changeSet id="20160929330" author="leonid.marushevskiy">
-        <insert tableName="lookup_day_of_week"><column name="code" value="1"/><column name="name" value="Monday"/></insert>
-        <insert tableName="lookup_day_of_week"><column name="code" value="2"/><column name="name" value="Tuesday"/></insert>
-        <insert tableName="lookup_day_of_week"><column name="code" value="3"/><column name="name" value="Wednesday"/></insert>
-        <insert tableName="lookup_day_of_week"><column name="code" value="4"/><column name="name" value="Thursday"/></insert>
-        <insert tableName="lookup_day_of_week"><column name="code" value="5"/><column name="name" value="Friday"/></insert>
-        <insert tableName="lookup_day_of_week"><column name="code" value="6"/><column name="name" value="Saturday"/></insert>
-        <insert tableName="lookup_day_of_week"><column name="code" value="7"/><column name="name" value="Sunday"/></insert>
+        <insert tableName="lookup_day_of_week"><column name="id" value="1"/><column name="code" value="1"/><column name="name" value="Monday"/></insert>
+        <insert tableName="lookup_day_of_week"><column name="id" value="2"/><column name="code" value="2"/><column name="name" value="Tuesday"/></insert>
+        <insert tableName="lookup_day_of_week"><column name="id" value="3"/><column name="code" value="3"/><column name="name" value="Wednesday"/></insert>
+        <insert tableName="lookup_day_of_week"><column name="id" value="4"/><column name="code" value="4"/><column name="name" value="Thursday"/></insert>
+        <insert tableName="lookup_day_of_week"><column name="id" value="5"/><column name="code" value="5"/><column name="name" value="Friday"/></insert>
+        <insert tableName="lookup_day_of_week"><column name="id" value="6"/><column name="code" value="6"/><column name="name" value="Saturday"/></insert>
+        <insert tableName="lookup_day_of_week"><column name="id" value="7"/><column name="code" value="7"/><column name="name" value="Sunday"/></insert>
     </changeSet>
 </databaseChangeLog>

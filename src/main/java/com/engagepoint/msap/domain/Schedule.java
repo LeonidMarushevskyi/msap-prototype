@@ -1,5 +1,6 @@
 package com.engagepoint.msap.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
@@ -25,11 +26,12 @@ public class Schedule implements Serializable {
 
     @Column(name = "open_hour")
     private String openHour;
-    
+
     @Column(name = "close_hour")
     private String closeHour;
-    
+
     @ManyToOne
+    @JsonBackReference("schedules")
     @JoinColumn(name = "provider_id")
     private Provider provider;
 
@@ -47,7 +49,7 @@ public class Schedule implements Serializable {
     public String getOpenHour() {
         return openHour;
     }
-    
+
     public void setOpenHour(String openHour) {
         this.openHour = openHour;
     }
@@ -55,7 +57,7 @@ public class Schedule implements Serializable {
     public String getCloseHour() {
         return closeHour;
     }
-    
+
     public void setCloseHour(String closeHour) {
         this.closeHour = closeHour;
     }
