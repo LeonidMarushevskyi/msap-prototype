@@ -41,7 +41,8 @@
         "visually-impaired": "Visually impaired",
         "limited-hearing": "Limited hearing",
         "total-results": "{{number}} Results",
-        "age-groups": {
+        "age-groups-selected": "{{selectedCount}} Selected",
+        "lookupAgeGroups": {
             "1": "Infant (0-12 months)",
             "2": "Toddler (12-24 months)",
             "3": "2 years",

@@ -41,7 +41,8 @@
         "visually-impaired": "Khiếm thị",
         "limited-hearing": "Nghe Limited",
         "total-results": "{{number}} kết quả",
-        "age-groups": {
+        "age-groups-selected": "{{selectedCount}} lựa chọn",
+        "lookupAgeGroups": {
             "1": "trẻ sơ sinh (0-12 tháng)",
             "2": "Toddler (12-24 tháng)",
             "3": "2 năm",

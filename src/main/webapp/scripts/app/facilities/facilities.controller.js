@@ -16,6 +16,10 @@ angular.module('msapApp')
         $scope.lookupQualityRating = lookupQualityRating;
 
         $scope.filterMenuConfigs = {
+            lookupAgeGroups: {
+                showList: false,
+                selectedCount: 0
+            },
             lookupProviderType: {
                 showList: false,
                 selectedCount: 0

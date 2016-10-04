@@ -41,7 +41,8 @@
         "visually-impaired": "Problemas de visión",
         "limited-hearing": "Audiencia limitada",
         "total-results": "Resultados {{number}}",
-        "age-groups": {
+        "age-groups-selected": "{{selectedCount}} seleccionado",
+        "lookupAgeGroups": {
             "1": "infantil (0-12 meses)",
             "2": "Niño (12-24 meses)",
             "3": "2 años",
