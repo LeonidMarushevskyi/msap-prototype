@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <section class="ch-facilities-heading mobile-filter-for-map-view" ng-class="mobileFilterState">
+    <section class="ch-facilities-heading" ng-class="mobileFilterState">
         <div class="ch-facilities-heading__row">
             <div class="ch-facilities-heading__item ch-facilities-heading__item_2 ch-facilities-heading__input__item_1">
                 <div class="ch-input-block">
@@ -108,12 +108,12 @@
             <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_4">
                 <button class="ch-option-btn ch-ink-btn"
                         type="button" ng-click="showAllFilters()"
-                        translate="facilities.show-all-filters"></button>
+                        translate="{{hideExtendedFiltersButtonTitle}}"></button>
             </div>
         </div>
     </section>
 
-    <section class="ch-facilities-extended-filters mobile-filter-for-map-view" ng-class="mobileFilterState">
+    <section class="ch-facilities-extended-filters" ng-class="mobileFilterState">
 
         <div class="ch-facilities-extended-filters__popup ng-hide" ng-hide="hideExtendedFilters">
             <div class="ch-facilities-extended-filters__section">
@@ -389,8 +389,26 @@
                   translate-values="{number: agenciesLength}">{{agenciesLength}} Results</span>
 
             <div class="ch-facilities-extended-filters__results-filters">
-                <div class="ch-meta-tag" ng-repeat="value in selectedFilterButtons">
-                    <span class="ch-meta-tag__text">{{'facilities.' + value.modelName + '.' + value.code | translate}}</span>
+                <div class="ch-meta-tag">
+                    <span class="ch-meta-tag__text">KLFKKD343434</span>
+                    <button type="button" class="ch-meta-tag__dismiss-btn"
+                            ng-click="dismissFilterClick(value.modelName, value.code);"></button>
+                </div>
+
+                <div class="ch-meta-tag">
+                    <span class="ch-meta-tag__text">DDDD3249804</span>
+                    <button type="button" class="ch-meta-tag__dismiss-btn"
+                            ng-click="dismissFilterClick(value.modelName, value.code);"></button>
+                </div>
+
+                <div class="ch-meta-tag">
+                    <span class="ch-meta-tag__text">BBBBB32234234</span>
+                    <button type="button" class="ch-meta-tag__dismiss-btn"
+                            ng-click="dismissFilterClick(value.modelName, value.code);"></button>
+                </div>
+
+                <div class="ch-meta-tag">
+                    <span class="ch-meta-tag__text">AAAA213123</span>
                     <button type="button" class="ch-meta-tag__dismiss-btn"
                             ng-click="dismissFilterClick(value.modelName, value.code);"></button>
                 </div>

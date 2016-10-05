@@ -2,6 +2,7 @@
     "facilities": {
         "reset-filters": "Reset Filters",
         "show-all-filters": "Show All Filters",
+        "hide-all-filters": "Hide Filters",
         "apply-filters": "Apply Filters",
         "available-spots": "Available Spots:",
         "age-group": "Age group",
