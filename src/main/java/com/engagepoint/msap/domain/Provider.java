@@ -85,7 +85,6 @@ public class Provider implements Serializable {
     private Set<Schedule> schedules = new HashSet<>();
 
     @OneToMany(mappedBy = "provider")
-    @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<LookupSpecialNeedType> specialNeeds = new HashSet<>();
 
@@ -95,7 +94,6 @@ public class Provider implements Serializable {
     private Set<Review> reviews = new HashSet<>();
 
     @OneToMany(mappedBy = "provider")
-    @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Price> prices = new HashSet<>();
 
@@ -105,7 +103,6 @@ public class Provider implements Serializable {
     private Set<SubstantiatedAllegation> substantiatedAllegations = new HashSet<>();
 
     @OneToMany(mappedBy = "provider")
-    @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<LookupLanguage> supportedLanguages = new HashSet<>();
 
