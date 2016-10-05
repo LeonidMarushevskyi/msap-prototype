@@ -1,8 +1,8 @@
 {
     "login": {
         "create-an-account": "Tạo một tài khoản",
-        "title": "Đăng nhập",
-        "sign-in": "Đăng nhập",
+        "login": "Đăng nhập",
+        "register": "Đăng Ký",
         "form": {
             "username": "Tên đăng nhập",
             "username.placeholder": "Tên tài khoản",

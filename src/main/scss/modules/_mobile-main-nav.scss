@@ -1,19 +1,21 @@
 .ch-menu-mobile__pane {
     position: fixed;
     z-index: 10000;
-    width: 100%;
-    top: -1000px;
-    right: 0;
-    left: 0;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: -1000px;
     box-shadow: 0 2px 2px #343c47;
     transition-property: opacity;
-    transition-property: top;
+    transition-property: right;
     transition-duration: 200ms;
     opacity: 0;
+    background-color: #545d6b;
 }
 
 .ch-menu-mobile__pane.ch-menu-mobile__active {
     top: 0;
+    right: -20vw;
     opacity: 1;
 }
 
@@ -23,7 +25,6 @@
     right: 0;
     top: 10rem;
     bottom: 0;
-    left: 0;
     position: fixed;
     background: #cbcdcf;
     opacity: 0.4;
@@ -48,6 +49,7 @@
     border-bottom: 1px solid #cbcdcf;
     text-align: center;
     color: #fff;
+    background-color: $primary-color-blue;
 }
 
 .ch-menu-mobile__title__icon {
@@ -61,6 +63,7 @@
     font-size: 2.8rem;
     position: relative;
     top: -.2rem;
+    left: -38vw;
 }
 
 .ch-mobile-main-nav-item {
@@ -70,7 +73,7 @@
 .ch-mobile-main-nav-item__link {
     display: block;
     width: 100%;
-    padding: 3rem 4rem 3rem 5rem;
+    padding: 2rem 4rem 2rem 5rem;
     background: #343c47;
 
     .icon {

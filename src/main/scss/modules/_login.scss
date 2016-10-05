@@ -300,7 +300,9 @@
 
 .ch-login__actions__new-account {
     a:first-child {
-        width: 5rem;
+        @media screen and (max-width: $break-phone) {
+            width: 5rem;
+        }
     }
     a {
         font-size: 1.7rem;

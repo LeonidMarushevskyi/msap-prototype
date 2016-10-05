@@ -24,7 +24,7 @@
 
 .ch-header__subsection-user-account {
     float: right;
-    padding: 22px 25px 0 0;
+    padding: 2.2rem 2.5rem 0 0;
 }
 
 .ch-user-account-entry {
@@ -35,7 +35,7 @@
     position: absolute;
     top: 2rem;
     right: 1rem;
-    z-index: 900;
+    z-index: 1000;
 
     .icon {
         width: 4.4rem;
@@ -166,6 +166,12 @@
     }
 }
 
+.ch-user-account-popup__controls {
+    padding-left: 2rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
 .ch-user-account-popup__profile-btn {
     display: inline-block;
     margin-right: 2.5rem;
@@ -194,7 +200,7 @@
 
 .ch-header__subsection-language {
     float: right;
-    padding: 22px 25px 0 0;
+    padding: 2.2rem 2.2rem 0 0;
 }
 
 .ch-language-popup__entry_active {

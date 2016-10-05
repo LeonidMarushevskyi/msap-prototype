@@ -20,6 +20,13 @@ angular.module('msapApp')
                     }
                 };
 
+                var slideout = new Slideout({
+                  'panel': document.getElementById('panel'),
+                  'menu': document.getElementById('menu'),
+                  'padding': 256,
+                  'tolerance': 70
+                });
+
                 $document.on('click', function (e) {
                     if (element !== e.target && !element[0].contains(e.target)) {
                         scope.$apply(function () {

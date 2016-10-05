@@ -70,10 +70,18 @@
 
 .ch-aside-nav-item__link_icon {
     padding: 0 0 0 3rem;
+
+    @media screen and (max-width: $break-phone) {
+        padding: 1rem 1rem 1rem 2.7rem;
+    }
 }
 
 .ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon {
     padding: 0 0 0 2.7rem;
+
+    @media screen and (max-width: $break-phone) {
+        padding: 1rem 1rem 1rem 2.7rem;
+    }
 }
 
 .ch-aside-nav-item__link_icon:before {

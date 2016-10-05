@@ -14,6 +14,12 @@
   height: 3.5rem;
   padding: .8rem 3rem .8rem 1.7rem;
   float: left;
+
+  @media screen and (max-width: $break-phone) {
+      float: none;
+      font-size: 2.6rem;
+      text-align: center;
+  }
 }
 
 .ch-page-heading__actions_hidden {

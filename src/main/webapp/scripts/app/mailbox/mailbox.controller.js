@@ -49,7 +49,7 @@ angular.module('msapApp')
             } else {
                 $state.go('ch-inbox.messages', {directory: $state.params.directory}, {reload: true});
             }
-        };
+        };        
 
         $scope.inkRipple = function() {
             var parent, ink, d, x, y;
