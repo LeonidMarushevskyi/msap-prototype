@@ -86,28 +86,38 @@
             </div>
 
             <div class="ch-login__select flex-child">
-
-              <div class="ch-login__select-dropdown" title="Select the serves ages">
-                  <button type="button" class="ch-login__select-dropdown__btn"
-                          ng-click="typesConfig.showList = !typesConfig.showList;">
-                      <span class="">Select age(s) of children <span class="ch-mobile-text__cut">needing care</span></span>
-                  </button>
-                  <div class="ch-multi-select-dropdown__popup" ng-show="ageGroupConfig.showList" ng-mouseleave="ageGroupConfig.showList = false">
-                      <ul class="ch-checkboxes-list">
-                          <li class="ch-checkboxes-list__item" ng-repeat="ageGroup in lookupAgeGroups track by ageGroup.id | orderBy: 'id'">
-                              <div class="form-type__checkbox_empty-label">
-                                  <input id="ageGroup_{{ageGroup.code}}" type="checkbox" ng-model="ageGroup.selected" ng-click="onAgeGroupSelect();">
-                                  <label for="ageGroup_{{ageGroup.code}}">{{'facilities.lookupAgeGroups.' + ageGroup.code | translate}}</label>
-                              </div>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
+                <div class="ch-login__select-dropdown" title="Select the serves ages">
+                    <button type="button" class="ch-login__select-dropdown__btn" ng-click="toggleFilterMenu('lookupAgeGroups');">
+                          <span class=""
+                                ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount == 0"
+                                translate="login.age-group-dropdown.line1">
+                              Select age(s) of children <span class="ch-mobile-text__cut" translate="login.age-group-dropdown.line2">needing care</span>
+                          </span>
+                          <span class=""
+                                ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount > 0"
+                                translate="facilities.age-groups-selected"
+                                translate-values="{selectedCount: filterMenuConfigs['lookupAgeGroups'].selectedCount}">
+                              {{filterMenuConfigs['lookupAgeGroups'].selectedCount}} Selected
+                          </span>
+                    </button>
+                    <div class="ch-multi-select-dropdown__popup" ng-show="filterMenuConfigs['lookupAgeGroups'].showList" ng-mouseleave="toggleFilterMenu('lookupAgeGroups', false);">
+                        <ul class="ch-checkboxes-list">
+                            <li class="ch-checkboxes-list__item" ng-repeat="ageGroup in lookupAgeGroups">
+                                <div class="form-type__checkbox_empty-label">
+                                    <input id="lookupAgeGroup_{{ageGroup.code}}" type="checkbox"
+                                           ng-model="ageGroup.selected"
+                                           ng-click="onFilterMenuItemClick('lookupAgeGroups', ageGroup.code);">
+                                    <label for="lookupAgeGroup_{{ageGroup.code}}">{{'facilities.lookupAgeGroups.' + ageGroup.code | translate}}</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <div class="ch-login__action-box flex-child">
-              <button type="button" class="ch-login__action-box__btn">
-                  <span class="ch-login__action-box__btn-text">Search</span>
+              <button type="button" class="ch-login__action-box__btn" ng-click="doSearch();">
+                  <span class="ch-login__action-box__btn-text" translate="login.search">Search</span>
               </button>
             </div>
         </div>

@@ -26,7 +26,10 @@ angular.module('msapApp')
                         $translatePartialLoader.addPart('lookups');
                         return $translate.refresh();
                     }],
-                    lookupAgeGroups: ['LookupAgeGroups', '$stateParams', '$state', function(LookupAgeGroups, $stateParams, $state) {
+                    searchParams: ['$state', '$q', function($state, $q) {
+                        return $q.when($state.params);
+                    }],
+                    lookupAgeGroups: ['LookupAgeGroups', function(LookupAgeGroups) {
                         return LookupAgeGroups.query().$promise;
                     }],
                     lookupQualityRating: ['LookupQualityRating', function(LookupQualityRating) {
