@@ -19,6 +19,8 @@
         "total-results": "Resultados {{number}}",
         "all-quality-ratings": "Todos los votos de calidad",
         "all-provider-types": "Todos los Tipos de Proveedores",
-        "license-type": "Tipo de licencia"
+        "license-type": "Tipo de licencia",
+        "askcaseworker": "Pregunta Asistente Social",
+        "spots": "{{totalSpots}} Manchas:"
     }
 }

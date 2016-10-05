@@ -19,6 +19,8 @@
         "total-results": "{{number}} Results",
         "all-quality-ratings": "All Quality Ratings",
         "all-provider-types": "All Provider Types",
-        "license-type": "License Type"
+        "license-type": "License Type",
+        "askcaseworker": "Ask Caseworker",
+        "spots": "{{totalSpots}} Spots:"
     }
 }

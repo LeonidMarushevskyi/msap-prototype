@@ -19,6 +19,8 @@
         "total-results": "{{number}} kết quả",
         "all-quality-ratings": "Tất cả hàng Xếp hạng chất lượng",
         "all-provider-types": "Tất cả các loại nhà cung cấp",
-        "license-type": "Loại giấy phép"
+        "license-type": "Loại giấy phép",
+        "askcaseworker": "Hãy hỏi nhân viên phụ trách",
+        "spots": "{{totalSpots}} điểm:"
     }
 }
