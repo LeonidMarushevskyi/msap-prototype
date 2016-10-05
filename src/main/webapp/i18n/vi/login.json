@@ -1,6 +1,7 @@
 {
     "login": {
         "create-an-account": "Tạo một tài khoản",
+        "title": "Đăng nhập",
         "login": "Đăng nhập",
         "register": "Đăng Ký",
         "form": {
