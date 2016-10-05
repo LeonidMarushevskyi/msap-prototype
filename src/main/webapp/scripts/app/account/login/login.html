@@ -89,9 +89,8 @@
                 <div class="ch-login__select-dropdown" title="Select the serves ages">
                     <button type="button" class="ch-login__select-dropdown__btn" ng-click="toggleFilterMenu('lookupAgeGroups');">
                           <span class=""
-                                ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount == 0"
-                                translate="login.age-group-dropdown.line1">
-                              Select age(s) of children <span class="ch-mobile-text__cut" translate="login.age-group-dropdown.line2">needing care</span>
+                                ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount == 0">
+                              <span translate="login.age-group-dropdown.line1">Select age(s) of children </span><span class="ch-mobile-text__cut" translate="login.age-group-dropdown.line2">needing care</span>
                           </span>
                           <span class=""
                                 ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount > 0"
