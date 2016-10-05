@@ -68,7 +68,8 @@ module.exports = function (config) {
             'main/webapp/scripts/components/**/*.+(js|html)',
             'test/javascript/spec/helpers/module.js',
             'test/javascript/spec/helpers/httpBackend.js',
-            'test/javascript/**/!(karma.conf|protractor.conf).js',
+            //'test/javascript/**/!(karma.conf|protractor.conf).js',
+            'test/javascript/spec/app/entities/**/*.js',
             'main/webapp/bower_components/ngToast/dist/ngToast.min.js'
         ],
 
