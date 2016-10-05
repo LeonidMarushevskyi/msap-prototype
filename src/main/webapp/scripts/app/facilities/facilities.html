@@ -54,7 +54,7 @@
                         </span>
                         <span class="ch-multi-select-dropdown__btn-text"
                               ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount > 0"
-                              translate="facilities.age-groups-selected"
+                              translate="global.form.filters-selected"
                               translate-values="{selectedCount: filterMenuConfigs['lookupAgeGroups'].selectedCount}">
                             {{filterMenuConfigs['lookupAgeGroups'].selectedCount}} Selected
                         </span>
@@ -67,7 +67,7 @@
                                     <input id="lookupAgeGroup_{{ageGroup.code}}" type="checkbox"
                                            ng-model="ageGroup.selected"
                                            ng-click="onFilterMenuItemClick('lookupAgeGroups', ageGroup.code);">
-                                    <label for="lookupAgeGroup_{{ageGroup.code}}">{{'facilities.lookupAgeGroups.' + ageGroup.code | translate}}</label>
+                                    <label for="lookupAgeGroup_{{ageGroup.code}}">{{'lookups.lookupAgeGroups.' + ageGroup.code | translate}}</label>
                                 </div>
                             </li>
                         </ul>
@@ -84,7 +84,7 @@
                         </span>
                         <span class="ch-multi-select-dropdown__btn-text"
                               ng-if="filterMenuConfigs['lookupQualityRating'].selectedCount > 0"
-                              translate="facilities.quality-ratings-selected"
+                              translate="global.form.filters-selected"
                               translate-values="{selectedCount: filterMenuConfigs['lookupQualityRating'].selectedCount}">
                             {{filterMenuConfigs['lookupQualityRating'].selectedCount}} Selected
                         </span>
@@ -97,7 +97,7 @@
                                     <input id="qualityRating_{{qualityRating.code}}" type="checkbox"
                                            ng-model="qualityRating.selected"
                                            ng-click="onFilterMenuItemClick('lookupQualityRating', qualityRating.code);">
-                                    <label for="qualityRating_{{qualityRating.code}}">{{'facilities.lookupQualityRating.' + qualityRating.code | translate | capitalize:true}}</label>
+                                    <label for="qualityRating_{{qualityRating.code}}">{{'lookups.lookupQualityRating.' + qualityRating.code | translate | capitalize:true}}</label>
                                 </div>
                             </li>
                         </ul>
@@ -128,7 +128,7 @@
                             <input id="workingHours_{{workingHours.code}}" type="checkbox"
                                    ng-model="workingHours.selected"
                                    ng-click="onFilterMenuItemClick('lookupWorkingHours', workingHours.code);">
-                            <label for="workingHours_{{workingHours.code}}">{{'facilities.lookupWorkingHours.' + workingHours.code | translate}}</label>
+                            <label for="workingHours_{{workingHours.code}}">{{'lookups.lookupWorkingHours.' + workingHours.code | translate}}</label>
                         </div>
                     </li>
                 </ul>
@@ -145,7 +145,7 @@
                         <div class="ch-facilities-extended-text-input">
                             <label for="spots_ageGroup_{{ageGroup.code}}">
                                 {{'facilities.age-group' | translate}}:
-                                {{'facilities.lookupAgeGroups.' + ageGroup.code | translate}}
+                                {{'lookups.lookupAgeGroups.' + ageGroup.code | translate}}
                             </label>
                             <input id="spots_ageGroup_{{ageGroup.code}}" type="input"
                                    ng-model="ageGroup.availableSpots">
@@ -163,7 +163,7 @@
                             <input id="providerType_{{providerType.code}}" type="checkbox"
                                    ng-model="providerType.selected"
                                    ng-click="onFilterMenuItemClick('lookupProviderType', providerType.code);">
-                            <label for="providerType_{{providerType.code}}">{{'facilities.lookupProviderType.' + providerType.code | translate | capitalize:true}}</label>
+                            <label for="providerType_{{providerType.code}}">{{'lookups.lookupProviderType.' + providerType.code | translate | capitalize:true}}</label>
                         </div>
                     </li>
                 </ul>
@@ -391,7 +391,7 @@
                             <input id="licenseType_{{licenseType.code}}" type="checkbox"
                                    ng-model="licenseType.selected"
                                    ng-click="onFilterMenuItemClick('lookupLicenseType', licenseType.code);">
-                            <label for="licenseType_{{licenseType.code}}">{{'facilities.lookupLicenseType.' + licenseType.code | translate | capitalize:true}}</label>
+                            <label for="licenseType_{{licenseType.code}}">{{'lookups.lookupLicenseType.' + licenseType.code | translate | capitalize:true}}</label>
                         </div>
                     </li>
                 </ul>
@@ -406,7 +406,7 @@
 
             <div class="ch-facilities-extended-filters__results-filters">
                 <div class="ch-meta-tag" ng-repeat="value in selectedFilterButtons">
-                    <span class="ch-meta-tag__text">{{'facilities.' + value.modelName + '.' + value.code | translate}}</span>
+                    <span class="ch-meta-tag__text">{{'lookups.' + value.modelName + '.' + value.code | translate}}</span>
                     <button type="button" class="ch-meta-tag__dismiss-btn"
                             ng-click="dismissFilterClick(value.modelName, value.code);"></button>
                 </div>

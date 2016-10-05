@@ -1,5 +1,42 @@
 {
     "lookups": {
+        "lookupAgeGroups": {
+            "1": "infantil (0-12 meses)",
+            "2": "Niño (12-24 meses)",
+            "3": "2 años",
+            "4": "3 años",
+            "5": "4 años",
+            "6": "5-9 años",
+            "7": "10-12 años"
+        },
+        "lookupQualityRating": {
+            "0": "No calificado",
+            "1": "Bajo",
+            "2": "Normal",
+            "3": "Bueno",
+            "4": "Muy bueno",
+            "5": "Excelente"
+        },
+        "lookupProviderType": {
+            "2": "Contratista Ranura",
+            "3": "Grupo Hogar",
+            "4": "Centro",
+            "5": "No pariente en el hogar",
+            "6": "Relativa en el hogar",
+            "7": "Que no es pariente fuera de la casa",
+            "8": "En relación fuera de la casa"
+        },
+        "lookupWorkingHours": {
+            "1": "Antes de Cuidado de la escuela",
+            "2": "Después de la escuela",
+            "3": "Llena de Día",
+            "4": "Cuidado de fin de semana",
+            "5": "Cuidado de la noche a la mañana"
+        },
+        "lookupLicenseType": {
+            "1": "NO LICENCIADO",
+            "2": "CON LICENCIA"
+        },
         "lookupSpecialNeedGroup": {
             "1": "Físico",
             "2": "Desarrollo",
