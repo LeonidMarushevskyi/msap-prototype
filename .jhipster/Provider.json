@@ -141,6 +141,11 @@
       "fieldId": 11,
       "fieldName": "isBeforeSchool",
       "fieldType": "Boolean"
+    },
+    {
+      "fieldId": 12,
+      "fieldName": "isWeekendCare",
+      "fieldType": "Boolean"
     }
   ],
   "changelogDate": "20160924025854",

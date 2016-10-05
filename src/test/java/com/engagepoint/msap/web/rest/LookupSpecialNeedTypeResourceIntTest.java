@@ -42,6 +42,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class LookupSpecialNeedTypeResourceIntTest {
 
+
+    private static final Integer DEFAULT_CODE = 1;
+    private static final Integer UPDATED_CODE = 2;
     private static final String DEFAULT_NAME = "AAAAA";
     private static final String UPDATED_NAME = "BBBBB";
 
@@ -75,6 +78,7 @@ public class LookupSpecialNeedTypeResourceIntTest {
     @Before
     public void initTest() {
         lookupSpecialNeedType = new LookupSpecialNeedType();
+        lookupSpecialNeedType.setCode(DEFAULT_CODE);
         lookupSpecialNeedType.setName(DEFAULT_NAME);
     }
 
@@ -94,7 +98,26 @@ public class LookupSpecialNeedTypeResourceIntTest {
         List<LookupSpecialNeedType> lookupSpecialNeedTypes = lookupSpecialNeedTypeRepository.findAll();
         assertThat(lookupSpecialNeedTypes).hasSize(databaseSizeBeforeCreate + 1);
         LookupSpecialNeedType testLookupSpecialNeedType = lookupSpecialNeedTypes.get(lookupSpecialNeedTypes.size() - 1);
+        assertThat(testLookupSpecialNeedType.getCode()).isEqualTo(DEFAULT_CODE);
         assertThat(testLookupSpecialNeedType.getName()).isEqualTo(DEFAULT_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void checkCodeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = lookupSpecialNeedTypeRepository.findAll().size();
+        // set the field null
+        lookupSpecialNeedType.setCode(null);
+
+        // Create the LookupSpecialNeedType, which fails.
+
+        restLookupSpecialNeedTypeMockMvc.perform(post("/api/lookupSpecialNeedTypes")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(lookupSpecialNeedType)))
+                .andExpect(status().isBadRequest());
+
+        List<LookupSpecialNeedType> lookupSpecialNeedTypes = lookupSpecialNeedTypeRepository.findAll();
+        assertThat(lookupSpecialNeedTypes).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
@@ -126,7 +149,8 @@ public class LookupSpecialNeedTypeResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(lookupSpecialNeedType.getId().intValue())))
-                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
+                .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE)))
+                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)));
     }
 
     @Test
@@ -140,7 +164,8 @@ public class LookupSpecialNeedTypeResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(lookupSpecialNeedType.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
+            .andExpect(jsonPath("$.code").value(DEFAULT_CODE))
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME));
     }
 
     @Test
@@ -160,6 +185,7 @@ public class LookupSpecialNeedTypeResourceIntTest {
 		int databaseSizeBeforeUpdate = lookupSpecialNeedTypeRepository.findAll().size();
 
         // Update the lookupSpecialNeedType
+        lookupSpecialNeedType.setCode(UPDATED_CODE);
         lookupSpecialNeedType.setName(UPDATED_NAME);
 
         restLookupSpecialNeedTypeMockMvc.perform(put("/api/lookupSpecialNeedTypes")
@@ -171,6 +197,7 @@ public class LookupSpecialNeedTypeResourceIntTest {
         List<LookupSpecialNeedType> lookupSpecialNeedTypes = lookupSpecialNeedTypeRepository.findAll();
         assertThat(lookupSpecialNeedTypes).hasSize(databaseSizeBeforeUpdate);
         LookupSpecialNeedType testLookupSpecialNeedType = lookupSpecialNeedTypes.get(lookupSpecialNeedTypes.size() - 1);
+        assertThat(testLookupSpecialNeedType.getCode()).isEqualTo(UPDATED_CODE);
         assertThat(testLookupSpecialNeedType.getName()).isEqualTo(UPDATED_NAME);
     }
 

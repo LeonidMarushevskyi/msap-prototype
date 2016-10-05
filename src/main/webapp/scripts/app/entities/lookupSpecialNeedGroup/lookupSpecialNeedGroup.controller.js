@@ -29,6 +29,7 @@ angular.module('msapApp')
 
         $scope.clear = function () {
             $scope.lookupSpecialNeedGroup = {
+                code: null,
                 name: null,
                 id: null
             };

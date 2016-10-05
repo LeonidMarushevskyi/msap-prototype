@@ -27,6 +27,7 @@
             "isFullDay": "IsFullDay",
             "isAfterSchool": "IsAfterSchool",
             "isBeforeSchool": "IsBeforeSchool",
+            "isWeekendCare": "IsWeekendCare",
             "licenseType": "LicenseType",
             "providerType": "ProviderType",
             "address": "Address",

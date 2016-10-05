@@ -16,6 +16,7 @@
             "detail": {
                 "title": "LookupMaritalStatus"
             },
+            "code": "Code",
             "maritalStatusName": "MaritalStatusName"
         }
     }

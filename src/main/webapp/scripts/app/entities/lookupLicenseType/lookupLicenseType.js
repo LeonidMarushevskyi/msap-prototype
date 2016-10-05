@@ -61,6 +61,7 @@ angular.module('msapApp')
                         resolve: {
                             entity: function () {
                                 return {
+                                    code: null,
                                     name: null,
                                     id: null
                                 };

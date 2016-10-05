@@ -1,20 +1,11 @@
 package com.engagepoint.msap.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -32,13 +23,16 @@ public class LookupSpecialNeedType implements Serializable {
     private Long id;
 
     @NotNull
+    @Column(name = "code", nullable = false)
+    private Integer code;
+
+    @NotNull
     @Column(name = "name", nullable = false)
     private String name;
 
     @OneToOne
     private LookupSpecialNeedGroup specialNeedGroup;
 
-    @JsonBackReference("specialNeeds")
     @ManyToOne
     @JoinColumn(name = "provider_id")
     private Provider provider;
@@ -49,6 +43,14 @@ public class LookupSpecialNeedType implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
     public String getName() {
@@ -99,6 +101,7 @@ public class LookupSpecialNeedType implements Serializable {
     public String toString() {
         return "LookupSpecialNeedType{" +
             "id=" + id +
+            ", code='" + code + "'" +
             ", name='" + name + "'" +
             '}';
     }

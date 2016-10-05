@@ -23,9 +23,13 @@ public class LookupMaritalStatus implements Serializable {
     private Long id;
 
     @NotNull
+    @Column(name = "code", nullable = false)
+    private Integer code;
+    
+    @NotNull
     @Column(name = "marital_status_name", nullable = false)
     private String maritalStatusName;
-
+    
     public Long getId() {
         return id;
     }
@@ -34,10 +38,18 @@ public class LookupMaritalStatus implements Serializable {
         this.id = id;
     }
 
+    public Integer getCode() {
+        return code;
+    }
+    
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
     public String getMaritalStatusName() {
         return maritalStatusName;
     }
-
+    
     public void setMaritalStatusName(String maritalStatusName) {
         this.maritalStatusName = maritalStatusName;
     }
@@ -66,6 +78,7 @@ public class LookupMaritalStatus implements Serializable {
     public String toString() {
         return "LookupMaritalStatus{" +
             "id=" + id +
+            ", code='" + code + "'" +
             ", maritalStatusName='" + maritalStatusName + "'" +
             '}';
     }

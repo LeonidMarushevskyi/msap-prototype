@@ -67,7 +67,7 @@ class LookupSpecialNeedGroupGatlingTest extends Simulation {
             .exec(http("Create new lookupSpecialNeedGroup")
             .post("/api/lookupSpecialNeedGroups")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "name":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "code":"0", "name":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_lookupSpecialNeedGroup_url")))
             .pause(10)

@@ -16,6 +16,7 @@
             "detail": {
                 "title": "LookupLicenseType"
             },
+            "code": "Code",
             "name": "Name"
         }
     }

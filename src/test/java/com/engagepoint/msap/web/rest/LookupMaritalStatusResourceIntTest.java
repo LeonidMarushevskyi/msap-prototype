@@ -42,6 +42,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class LookupMaritalStatusResourceIntTest {
 
+
+    private static final Integer DEFAULT_CODE = 1;
+    private static final Integer UPDATED_CODE = 2;
     private static final String DEFAULT_MARITAL_STATUS_NAME = "AAAAA";
     private static final String UPDATED_MARITAL_STATUS_NAME = "BBBBB";
 
@@ -75,6 +78,7 @@ public class LookupMaritalStatusResourceIntTest {
     @Before
     public void initTest() {
         lookupMaritalStatus = new LookupMaritalStatus();
+        lookupMaritalStatus.setCode(DEFAULT_CODE);
         lookupMaritalStatus.setMaritalStatusName(DEFAULT_MARITAL_STATUS_NAME);
     }
 
@@ -94,7 +98,26 @@ public class LookupMaritalStatusResourceIntTest {
         List<LookupMaritalStatus> lookupMaritalStatuss = lookupMaritalStatusRepository.findAll();
         assertThat(lookupMaritalStatuss).hasSize(databaseSizeBeforeCreate + 1);
         LookupMaritalStatus testLookupMaritalStatus = lookupMaritalStatuss.get(lookupMaritalStatuss.size() - 1);
+        assertThat(testLookupMaritalStatus.getCode()).isEqualTo(DEFAULT_CODE);
         assertThat(testLookupMaritalStatus.getMaritalStatusName()).isEqualTo(DEFAULT_MARITAL_STATUS_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void checkCodeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = lookupMaritalStatusRepository.findAll().size();
+        // set the field null
+        lookupMaritalStatus.setCode(null);
+
+        // Create the LookupMaritalStatus, which fails.
+
+        restLookupMaritalStatusMockMvc.perform(post("/api/lookupMaritalStatuss")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(lookupMaritalStatus)))
+                .andExpect(status().isBadRequest());
+
+        List<LookupMaritalStatus> lookupMaritalStatuss = lookupMaritalStatusRepository.findAll();
+        assertThat(lookupMaritalStatuss).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
@@ -126,7 +149,8 @@ public class LookupMaritalStatusResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(lookupMaritalStatus.getId().intValue())))
-                .andExpect(jsonPath("$.[*].maritalStatusName").value(hasItem(DEFAULT_MARITAL_STATUS_NAME.toString())));
+                .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE)))
+                .andExpect(jsonPath("$.[*].maritalStatusName").value(hasItem(DEFAULT_MARITAL_STATUS_NAME)));
     }
 
     @Test
@@ -140,7 +164,8 @@ public class LookupMaritalStatusResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(lookupMaritalStatus.getId().intValue()))
-            .andExpect(jsonPath("$.maritalStatusName").value(DEFAULT_MARITAL_STATUS_NAME.toString()));
+            .andExpect(jsonPath("$.code").value(DEFAULT_CODE))
+            .andExpect(jsonPath("$.maritalStatusName").value(DEFAULT_MARITAL_STATUS_NAME));
     }
 
     @Test
@@ -160,6 +185,7 @@ public class LookupMaritalStatusResourceIntTest {
 		int databaseSizeBeforeUpdate = lookupMaritalStatusRepository.findAll().size();
 
         // Update the lookupMaritalStatus
+        lookupMaritalStatus.setCode(UPDATED_CODE);
         lookupMaritalStatus.setMaritalStatusName(UPDATED_MARITAL_STATUS_NAME);
 
         restLookupMaritalStatusMockMvc.perform(put("/api/lookupMaritalStatuss")
@@ -171,6 +197,7 @@ public class LookupMaritalStatusResourceIntTest {
         List<LookupMaritalStatus> lookupMaritalStatuss = lookupMaritalStatusRepository.findAll();
         assertThat(lookupMaritalStatuss).hasSize(databaseSizeBeforeUpdate);
         LookupMaritalStatus testLookupMaritalStatus = lookupMaritalStatuss.get(lookupMaritalStatuss.size() - 1);
+        assertThat(testLookupMaritalStatus.getCode()).isEqualTo(UPDATED_CODE);
         assertThat(testLookupMaritalStatus.getMaritalStatusName()).isEqualTo(UPDATED_MARITAL_STATUS_NAME);
     }
 

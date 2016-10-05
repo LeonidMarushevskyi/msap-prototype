@@ -75,6 +75,9 @@ public class ProviderResourceIntTest {
     private static final Boolean DEFAULT_IS_BEFORE_SCHOOL = false;
     private static final Boolean UPDATED_IS_BEFORE_SCHOOL = true;
 
+    private static final Boolean DEFAULT_IS_WEEKEND_CARE = false;
+    private static final Boolean UPDATED_IS_WEEKEND_CARE = true;
+
     @Inject
     private ProviderRepository providerRepository;
 
@@ -116,6 +119,7 @@ public class ProviderResourceIntTest {
         provider.setIsFullDay(DEFAULT_IS_FULL_DAY);
         provider.setIsAfterSchool(DEFAULT_IS_AFTER_SCHOOL);
         provider.setIsBeforeSchool(DEFAULT_IS_BEFORE_SCHOOL);
+        provider.setIsWeekendCare(DEFAULT_IS_WEEKEND_CARE);
     }
 
     @Test
@@ -145,6 +149,7 @@ public class ProviderResourceIntTest {
         assertThat(testProvider.getIsFullDay()).isEqualTo(DEFAULT_IS_FULL_DAY);
         assertThat(testProvider.getIsAfterSchool()).isEqualTo(DEFAULT_IS_AFTER_SCHOOL);
         assertThat(testProvider.getIsBeforeSchool()).isEqualTo(DEFAULT_IS_BEFORE_SCHOOL);
+        assertThat(testProvider.getIsWeekendCare()).isEqualTo(DEFAULT_IS_WEEKEND_CARE);
     }
 
     @Test
@@ -168,7 +173,8 @@ public class ProviderResourceIntTest {
                 .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
                 .andExpect(jsonPath("$.[*].isFullDay").value(hasItem(DEFAULT_IS_FULL_DAY.booleanValue())))
                 .andExpect(jsonPath("$.[*].isAfterSchool").value(hasItem(DEFAULT_IS_AFTER_SCHOOL.booleanValue())))
-                .andExpect(jsonPath("$.[*].isBeforeSchool").value(hasItem(DEFAULT_IS_BEFORE_SCHOOL.booleanValue())));
+                .andExpect(jsonPath("$.[*].isBeforeSchool").value(hasItem(DEFAULT_IS_BEFORE_SCHOOL.booleanValue())))
+                .andExpect(jsonPath("$.[*].isWeekendCare").value(hasItem(DEFAULT_IS_WEEKEND_CARE.booleanValue())));
     }
 
     @Test
@@ -192,7 +198,8 @@ public class ProviderResourceIntTest {
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
             .andExpect(jsonPath("$.isFullDay").value(DEFAULT_IS_FULL_DAY))
             .andExpect(jsonPath("$.isAfterSchool").value(DEFAULT_IS_AFTER_SCHOOL))
-            .andExpect(jsonPath("$.isBeforeSchool").value(DEFAULT_IS_BEFORE_SCHOOL));
+            .andExpect(jsonPath("$.isBeforeSchool").value(DEFAULT_IS_BEFORE_SCHOOL))
+            .andExpect(jsonPath("$.isWeekendCare").value(DEFAULT_IS_WEEKEND_CARE));
     }
 
     @Test
@@ -223,6 +230,7 @@ public class ProviderResourceIntTest {
         provider.setIsFullDay(UPDATED_IS_FULL_DAY);
         provider.setIsAfterSchool(UPDATED_IS_AFTER_SCHOOL);
         provider.setIsBeforeSchool(UPDATED_IS_BEFORE_SCHOOL);
+        provider.setIsWeekendCare(UPDATED_IS_WEEKEND_CARE);
 
         restProviderMockMvc.perform(put("/api/providers")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -244,6 +252,7 @@ public class ProviderResourceIntTest {
         assertThat(testProvider.getIsFullDay()).isEqualTo(UPDATED_IS_FULL_DAY);
         assertThat(testProvider.getIsAfterSchool()).isEqualTo(UPDATED_IS_AFTER_SCHOOL);
         assertThat(testProvider.getIsBeforeSchool()).isEqualTo(UPDATED_IS_BEFORE_SCHOOL);
+        assertThat(testProvider.getIsWeekendCare()).isEqualTo(UPDATED_IS_WEEKEND_CARE);
     }
 
     @Test

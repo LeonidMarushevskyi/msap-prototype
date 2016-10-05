@@ -29,6 +29,7 @@ angular.module('msapApp')
 
         $scope.clear = function () {
             $scope.lookupMaritalStatus = {
+                code: null,
                 maritalStatusName: null,
                 id: null
             };
