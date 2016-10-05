@@ -2,17 +2,18 @@
 
 angular.module('msapApp')
     .controller('FacilitiesController',
-    ['$scope', '$state', '$log', '$q',
+    ['$scope', '$state', '$log', '$q', 'searchParams',
         'leafletData', 'QualityRatingStars', 'ProviderAgenciesService',
         'GeocoderService', 'chLayoutConfigFactory', '$uibModal', 'Principal', 'AppPropertiesService', 'AddressUtils',
         'lookupAgeGroups', 'lookupQualityRating', 'lookupProviderType', 'lookupWorkingHours',
         'lookupSpecialNeedGroup', 'lookupSpecialNeedType', 'lookupLicenseType',
-    function ($scope, $state, $log, $q,
+    function ($scope, $state, $log, $q, searchParams,
               leafletData, QualityRatingStars, ProviderAgenciesService,
               GeocoderService, chLayoutConfigFactory, $uibModal, Principal, AppPropertiesService, AddressUtils,
               lookupAgeGroups, lookupQualityRating, lookupProviderType, lookupWorkingHours,
               lookupSpecialNeedGroup, lookupSpecialNeedType, lookupLicenseType) {
 
+        $scope.searchParams = searchParams;
         $scope.lookupAgeGroups = lookupAgeGroups;
         $scope.lookupProviderType = lookupProviderType;
         $scope.lookupQualityRating = lookupQualityRating;
@@ -276,7 +277,6 @@ angular.module('msapApp')
 
             ProviderAgenciesService.findAgenciesByFilter(request).then(
                 function(agencies) {
-                    $log.debug('agencies', agencies);
                     agenciesDataSource = agencies;
                     $scope.updateLocations();
                 },
@@ -417,6 +417,16 @@ angular.module('msapApp')
             return _.map(_.filter($scope[modelName], {selected: true}), 'code');
         };
 
+        $scope.setSelected = function(modelName, code) {
+            _.find($scope[modelName], {code: code}).selected = true;
+            $scope.addSelectedFilterButton(modelName, code);
+        };
+        if ($scope.searchParams.ageGroups) {
+            _.each($scope.searchParams.ageGroups, function (ageGroupCode) {
+                $scope.setSelected('lookupAgeGroups', ageGroupCode);
+            });
+        }
+
         $scope.isSelected = function(modelName, code) {
             return _.find($scope[modelName], {code: code}).selected;
         };
@@ -539,21 +549,35 @@ angular.module('msapApp')
             return hasLatLng && hasCityState;
         };
 
-        Principal.identity().then(function(userProfile) {
-            if (! $scope.profileHasEnoughAddressData(userProfile)) {
-                $scope.openDefaultAddressModal(userProfile);
-            } else {
-                $scope.onSelectAddress({
-                    latlng: {
-                        lat: userProfile.place.latitude,
-                        lng: userProfile.place.longitude
-                    },
-                    feature: {
-                        properties: {
-                            label: AddressUtils.formatAddress(userProfile.place)
-                        }
+        if ($scope.searchParams.latitude && $scope.searchParams.longitude) {
+            $scope.onSelectAddress({
+                latlng: {
+                    lat: $scope.searchParams.latitude,
+                    lng: $scope.searchParams.longitude
+                },
+                feature: {
+                    properties: {
+                        label: $scope.searchParams.geoLabel
                     }
-                });
-            }
-        });
+                }
+            });
+        } else {
+            Principal.identity().then(function (userProfile) {
+                if (!$scope.profileHasEnoughAddressData(userProfile)) {
+                    $scope.openDefaultAddressModal(userProfile);
+                } else {
+                    $scope.onSelectAddress({
+                        latlng: {
+                            lat: userProfile.place.latitude,
+                            lng: userProfile.place.longitude
+                        },
+                        feature: {
+                            properties: {
+                                label: AddressUtils.formatAddress(userProfile.place)
+                            }
+                        }
+                    });
+                }
+            });
+        }
     }]);
