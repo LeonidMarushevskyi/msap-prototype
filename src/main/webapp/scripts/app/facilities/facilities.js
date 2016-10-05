@@ -23,6 +23,7 @@ angular.module('msapApp')
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                         $translatePartialLoader.addPart('facilities');
+                        $translatePartialLoader.addPart('lookups');
                         return $translate.refresh();
                     }],
                     lookupAgeGroups: ['LookupAgeGroups', '$stateParams', '$state', function(LookupAgeGroups, $stateParams, $state) {

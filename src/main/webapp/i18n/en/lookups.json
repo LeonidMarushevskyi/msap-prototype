@@ -1,0 +1,28 @@
+{
+    "lookups": {
+        "lookupSpecialNeedGroup": {
+            "1": "Physical",
+            "2": "Developmental",
+            "3": "Behavioral/Emotional",
+            "4": "Sensory Impaired"
+        },
+        "lookupSpecialNeedType": {
+            "1": "Muscular Dystrophy",
+            "2": "Multiple Sclerosis",
+            "3": "Chronic Asthma",
+            "4": "Epilepsy",
+            "5": "Down Syndrome",
+            "6": "Dyslexia",
+            "7": "Autism",
+            "8": "Processing Disorders",
+            "9": "Attention Deficit Disorder (ADD)",
+            "10": "Bipolar disorder",
+            "11": "Post traumatic Stress Disorder (PTSD)",
+            "12": "Oppositional Defiant Disorder (ODD)",
+            "13": "Blind",
+            "14": "Deaf",
+            "15": "Visually impaired",
+            "16": "Limited hearing"
+        }
+    }
+}

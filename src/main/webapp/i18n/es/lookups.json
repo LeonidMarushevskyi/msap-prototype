@@ -1,0 +1,28 @@
+{
+    "lookups": {
+        "lookupSpecialNeedGroup": {
+            "1": "Físico",
+            "2": "Desarrollo",
+            "3": "Comportamiento/Emocional",
+            "4": "Impedimentos Sensoriales"
+        },
+        "lookupSpecialNeedType": {
+            "1": "Distrofia muscular",
+            "2": "Esclerosis múltiple",
+            "3": "Asma crónica",
+            "4": "Epilepsia",
+            "5": "Síndrome de Down",
+            "6": "Dislexia",
+            "7": "Autismo",
+            "8": "Trastornos del procesamiento",
+            "9": "Trastorno por Déficit de Atención",
+            "10": "Desorden bipolar",
+            "11": "Trastorno de estrés postraumático",
+            "12": "Trastorno de oposición desafiante",
+            "13": "Ciego",
+            "14": "Sordo",
+            "15": "Discapacidad visual",
+            "16": "Audiencia limitada"
+        }
+    }
+}

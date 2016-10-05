@@ -1,0 +1,28 @@
+{
+    "lookups": {
+        "lookupSpecialNeedGroup": {
+            "1": "Vật lý",
+            "2": "Phát triển",
+            "3": "Hành vi / tình cảm",
+            "4": "Giác Khiếm"
+        },
+        "lookupSpecialNeedType": {
+            "1": "Loạn dưỡng cơ bắp",
+            "2": "Đa xơ cứng",
+            "3": "Hen suyễn mãn tính",
+            "4": "Bệnh động kinh",
+            "5": "Hội chứng Down",
+            "6": "Chứng khó đọc",
+            "7": "Tự kỷ",
+            "8": "Rối loạn chế biến",
+            "9": "Rối loạn thiếu tập trung",
+            "10": "Rối loạn lưỡng cực",
+            "11": "Dẫn tới chấn thương tâm lý",
+            "12": "Rối loạn thách thức chống đối",
+            "13": "Mù",
+            "14": "Điếc",
+            "15": "Khiếm thị",
+            "16": "Nghe hạn chế"
+        }
+    }
+}
