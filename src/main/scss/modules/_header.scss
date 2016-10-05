@@ -131,6 +131,10 @@
     top: 4rem;
     right: 22.8rem;
     z-index: 10000;
+
+    @media screen and (max-width: $break-phone) {
+        right: 1.1rem;
+    }
 }
 
 .ch-user-account-popup__icon {
@@ -198,6 +202,10 @@
     font-weight: 600;
     color: #313135;
     background-color: #d4e4ec;
+
+    @media screen and (max-width: $break-phone) {
+        font-size: 2rem;
+    }
 }
 
 .ch-language-popup__entry {
