@@ -389,26 +389,8 @@
                   translate-values="{number: agenciesLength}">{{agenciesLength}} Results</span>
 
             <div class="ch-facilities-extended-filters__results-filters">
-                <div class="ch-meta-tag">
-                    <span class="ch-meta-tag__text">KLFKKD343434</span>
-                    <button type="button" class="ch-meta-tag__dismiss-btn"
-                            ng-click="dismissFilterClick(value.modelName, value.code);"></button>
-                </div>
-
-                <div class="ch-meta-tag">
-                    <span class="ch-meta-tag__text">DDDD3249804</span>
-                    <button type="button" class="ch-meta-tag__dismiss-btn"
-                            ng-click="dismissFilterClick(value.modelName, value.code);"></button>
-                </div>
-
-                <div class="ch-meta-tag">
-                    <span class="ch-meta-tag__text">BBBBB32234234</span>
-                    <button type="button" class="ch-meta-tag__dismiss-btn"
-                            ng-click="dismissFilterClick(value.modelName, value.code);"></button>
-                </div>
-
-                <div class="ch-meta-tag">
-                    <span class="ch-meta-tag__text">AAAA213123</span>
+                <div class="ch-meta-tag" ng-repeat="value in selectedFilterButtons">
+                    <span class="ch-meta-tag__text">{{'facilities.' + value.modelName + '.' + value.code | translate}}</span>
                     <button type="button" class="ch-meta-tag__dismiss-btn"
                             ng-click="dismissFilterClick(value.modelName, value.code);"></button>
                 </div>
