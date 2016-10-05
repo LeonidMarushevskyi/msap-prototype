@@ -1,7 +1,7 @@
 <div class="ch-facility">
 
     <div class="ch-facility__header ch-facility__header_has-subinfo">
-        <div class="ch-facility__heading-subinfo" ng-show="viewConfig.presentation == 'list'">
+        <div class="ch-facility__heading-subinfo" >
             <span class="ch-facility__heading-subinfo-prefix">{{agency.distance}}</span>
             <span class="ch-facility__heading-subinfo-ending">miles</span>
         </div>
@@ -33,7 +33,7 @@
         </ul>
     </div>
 
-    <div class="ch-facility__info" ng-show="viewConfig.presentation === 'list'">
+    <div class="ch-facility__info" >
 
         <ul class="ch-facility-info">
             <li class="ch-facility-info__part">
@@ -110,6 +110,9 @@
     </div>
     <div class="ch-facility__btn-group clearfix">
         <div class="ch-facilities-btn-group">
+            <div class="ch-facilities-btn-group__btn" has-authority="FOSTER_PARENT">
+                <button type="button" ng-click="askAbout(agency)" class="ch-plane-btn ch-plane-btn_primary">Ask Caseworker</button>
+            </div>
             <div class="ch-facilities-btn-group__btn" ng-show="viewConfig.presentation !== 'popup' && !agency.showPartFlag" ng-click="agency.showPartFlag = !agency.showPartFlag">
                 <button type="button" class="ch-plane-btn ch-plane-btn_secondary">Show more</button>
             </div>
