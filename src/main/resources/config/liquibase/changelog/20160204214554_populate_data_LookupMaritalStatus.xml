@@ -17,10 +17,10 @@
         Added the entity LookupAbuseFrequencyPeriod.
     -->
     <changeSet id="20160210330" author="leonid.marushevskiy">
-        <insert tableName="lookup_marital_status"><column name="marital_status_name" value="Divorced"/></insert>
-        <insert tableName="lookup_marital_status"><column name="marital_status_name" value="Legally Separated"/></insert>
-        <insert tableName="lookup_marital_status"><column name="marital_status_name" value="Married"/></insert>
-        <insert tableName="lookup_marital_status"><column name="marital_status_name" value="Unmarried"/></insert>
-        <insert tableName="lookup_marital_status"><column name="marital_status_name" value="Widowed"/></insert>
+        <insert tableName="lookup_marital_status"><column name="code" value="1"/><column name="marital_status_name" value="Divorced"/></insert>
+        <insert tableName="lookup_marital_status"><column name="code" value="2"/><column name="marital_status_name" value="Legally Separated"/></insert>
+        <insert tableName="lookup_marital_status"><column name="code" value="3"/><column name="marital_status_name" value="Married"/></insert>
+        <insert tableName="lookup_marital_status"><column name="code" value="4"/><column name="marital_status_name" value="Unmarried"/></insert>
+        <insert tableName="lookup_marital_status"><column name="code" value="5"/><column name="marital_status_name" value="Widowed"/></insert>
     </changeSet>
 </databaseChangeLog>

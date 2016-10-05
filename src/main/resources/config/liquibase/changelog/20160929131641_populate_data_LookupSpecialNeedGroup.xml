@@ -17,21 +17,9 @@
         Added the entity LookupSpecialNeedGroup.
     -->
     <changeSet id="2016092933133" author="leonid.marushevskiy">
-        <insert tableName="lookup_special_need_group"><column name="id" value="1"/><column name="name" value="Muscular Dystrophy"/></insert>
-        <insert tableName="lookup_special_need_group"><column name="id" value="2"/><column name="name" value="Multiple Sclerosis"/></insert>
-        <insert tableName="lookup_special_need_group"><column name="id" value="3"/><column name="name" value="Chronic Asthma"/></insert>
-        <insert tableName="lookup_special_need_group"><column name="id" value="4"/><column name="name" value="Epilepsy"/></insert>
-        <insert tableName="lookup_special_need_group"><column name="id" value="5"/><column name="name" value="Down Syndrome"/></insert>
-        <insert tableName="lookup_special_need_group"><column name="id" value="6"/><column name="name" value="Dyslexia"/></insert>
-        <insert tableName="lookup_special_need_group"><column name="id" value="7"/><column name="name" value="Autism"/></insert>
-        <insert tableName="lookup_special_need_group"><column name="id" value="8"/><column name="name" value="Processing Disorders"/></insert>
-        <insert tableName="lookup_special_need_group"><column name="id" value="9"/><column name="name" value="Attention Deficit Disorder (ADD)"/></insert>
-        <insert tableName="lookup_special_need_group"><column name="id" value="10"/><column name="name" value="Bipolar disorder"/></insert>
-        <insert tableName="lookup_special_need_group"><column name="id" value="11"/><column name="name" value="Post traumatic Stress Disorder (PTSD)"/></insert>
-        <insert tableName="lookup_special_need_group"><column name="id" value="12"/><column name="name" value="Oppositional Defiant Disorder (ODD)"/></insert>
-        <insert tableName="lookup_special_need_group"><column name="id" value="13"/><column name="name" value="Blind"/></insert>
-        <insert tableName="lookup_special_need_group"><column name="id" value="14"/><column name="name" value="Deaf"/></insert>
-        <insert tableName="lookup_special_need_group"><column name="id" value="15"/><column name="name" value="Visually impaired"/></insert>
-        <insert tableName="lookup_special_need_group"><column name="id" value="16"/><column name="name" value="Limited hearing"/></insert>
+        <insert tableName="lookup_special_need_group"><column name="code" value="1"/><column name="name" value="Physical"/></insert>
+        <insert tableName="lookup_special_need_group"><column name="code" value="2"/><column name="name" value="Developmental"/></insert>
+        <insert tableName="lookup_special_need_group"><column name="code" value="3"/><column name="name" value="Behavioral/Emotional"/></insert>
+        <insert tableName="lookup_special_need_group"><column name="code" value="4"/><column name="name" value="Sensory Impaired"/></insert>
     </changeSet>
 </databaseChangeLog>
