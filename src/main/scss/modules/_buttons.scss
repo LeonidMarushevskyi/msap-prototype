@@ -10,7 +10,9 @@
     position: relative;
     user-select: none;
     position: relative;
-	  overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	overflow: hidden;
 
     &:hover {
         background-color: $secondary-color-blue;

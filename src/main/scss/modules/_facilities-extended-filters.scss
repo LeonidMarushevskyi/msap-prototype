@@ -5,6 +5,7 @@ $facilities-popup-height: 430px;
 
     .ch-facilities-extended-filters__popup {
         position: relative;
+        overflow: hidden;
         top: 0;
         height: $facilities-popup-height;
         transition-property: height, top;
@@ -13,6 +14,7 @@ $facilities-popup-height: 430px;
 
     .ch-facilities-extended-filters__popup.ng-hide {
         display: block !important;
+        overflow: hidden;
         height: 0;
         top: -$facilities-popup-height;
         transition-property: height, top;
@@ -82,5 +84,71 @@ $facilities-popup-height: 430px;
         margin-right: 25px;
         color: #0071bc;
         text-decoration: underline;
+    }
+}
+
+@media screen and (max-width: $break-phone) {
+    .ch-facilities-extended-filters {
+
+        .ch-facilities-extended-filters__popup {
+            position: relative;
+            top: 0;
+            height: auto;
+            transition-property: height, top;
+            transition-duration: 0.3s, 0.3s;
+        }
+
+        .ch-facilities-extended-filters__popup.ng-hide {
+            display: block !important;
+            height: 0;
+            top: -$facilities-popup-height;
+            transition-property: height, top;
+            transition-duration: 0.3s, 0.3s;
+        }
+
+        .ch-facilities-extended-filters__section {
+            border: none;
+            display: block;
+            padding: 0 10px 0 20px;
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .form-type__checkbox_empty-label input[type="checkbox"] + label {
+            width: 100%;
+        }
+    }
+
+    .ch-facilities-extended-filters__results {
+        padding: 20px 10px 20px 10px;
+
+        .ch-facilities-extended-filters__results-total {
+            display: none;
+        }
+
+        .ch-facilities-extended-filters__results-filters {
+            max-width: 100%;
+            float: none;
+            display: block;
+            font-size: 2rem;
+
+            > * {
+                margin-bottom: 15px;
+                padding-right: 10px;
+            }
+
+            .ch-meta-tag__dismiss-btn {
+                vertical-align: middle;
+                background-size: cover;
+            }
+        }
+
+        .ch-facilities-extended-filters__results-reset {
+            float: none;
+            display: block;
+            font-size: 2.2rem;
+            margin-top: 15px;
+            margin-left: 10px;
+        }
     }
 }

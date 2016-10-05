@@ -1,7 +1,8 @@
 {
     "facilities": {
         "reset-filters": "Reiniciar los filtros",
-        "show-all-filters": "Mostrar todos los filtros",
+        "show-all-filters": "Mostrar todos los Filtros",
+        "hide-all-filters": "Ocultar Filtros",
         "apply-filters": "Aplicar filtros",
         "available-spots": "Spots disponibles",
         "age-group": "Grupo de edad",
