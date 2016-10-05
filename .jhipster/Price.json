@@ -21,12 +21,12 @@
     {
       "fieldId": 1,
       "fieldName": "minimalPrice",
-      "fieldType": "Double"
+      "fieldType": "Integer"
     },
     {
       "fieldId": 2,
       "fieldName": "maximumPrice",
-      "fieldType": "Double"
+      "fieldType": "Integer"
     }
   ],
   "changelogDate": "20160929131652",

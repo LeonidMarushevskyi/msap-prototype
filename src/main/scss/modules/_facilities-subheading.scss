@@ -88,6 +88,11 @@
 
 .ch-form-input.ch-form-input_small.ch-form-input_search {
     height: 3.6rem;
+
+    @media screen and (max-width: $break-phone) {
+        height: 5rem;
+        font-size: 2rem;
+    }
 }
 
 .ch-multi-select-dropdown__btn {

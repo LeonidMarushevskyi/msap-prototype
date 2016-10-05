@@ -12,12 +12,12 @@ angular.module('msapApp')
         showWeeks: false
     })
     .constant('QualityRatingStars', {
-        NOT_RATED: {code: 0, label: '1star'},
-        LOW: {code: 1, label: '1star'},
-        AVERAGE: {code: 2, label: '2star'},
-        GOOD: {code: 3, label: '3star'},
-        VERY_GOOD: {code: 4, label: '4star'},
-        EXCELLENT: {code: 5, label: '5star'}
+        NOT_RATED: {code: 0, stars: '1star'},
+        LOW: {code: 1, stars: '1star'},
+        AVERAGE: {code: 2, stars: '2star'},
+        GOOD: {code: 3, stars: '3star'},
+        VERY_GOOD: {code: 4, stars: '4star'},
+        EXCELLENT: {code: 5, stars: '5star'}
     })
     .constant('chCustomScrollConfig', {
         autoHideScrollbar: false,
@@ -26,4 +26,11 @@ angular.module('msapApp')
             updateOnContentResize: true
         },
         scrollInertia: 0
-    });
+    })
+    .constant('lookupWorkingHours', [
+        {code: 1, name: 'Before School Care'},
+        {code: 2, name: 'After School Care'},
+        {code: 3, name: 'Full Day Care'},
+        {code: 4, name: 'Weekend Care'},
+        {code: 5, name: 'Overnight Care'}
+    ]);

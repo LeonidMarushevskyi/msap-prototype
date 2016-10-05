@@ -8,11 +8,6 @@
         "provider-type": "Loại nhà cung cấp",
         "price-per-week": "Giá mỗi tuần",
         "working-hours": "Giờ làm việc",
-        "full-day": "Chăm sóc đầy đủ ngày",
-        "before-school": "Trước khi chăm sóc học đường",
-        "after-school": "Sau khi chăm sóc học đường",
-        "open-overnight": "Chăm sóc Nghỉ đêm",
-        "weekend": "Chăm sóc Weekend",
         "languages": "Ngôn ngữ",
         "english": "Anh",
         "spanish": "Người Tây Ban Nha",
@@ -40,8 +35,9 @@
         "deaf": "Điếc",
         "visually-impaired": "Khiếm thị",
         "limited-hearing": "Nghe Limited",
-        "total-results": "45 kết quả",
-        "age-groups": {
+        "total-results": "{{number}} kết quả",
+        "age-groups-selected": "{{selectedCount}} lựa chọn",
+        "lookupAgeGroups": {
             "1": "trẻ sơ sinh (0-12 tháng)",
             "2": "Toddler (12-24 tháng)",
             "3": "2 năm",
@@ -50,7 +46,9 @@
             "6": "5-9 năm",
             "7": "10-12 năm"
         },
-        "quality-ratings": {
+        "all-quality-ratings": "Tất cả hàng Xếp hạng chất lượng",
+        "quality-ratings-selected": "{{selectedCount}} lựa chọn",
+        "lookupQualityRating": {
             "0": "Không được đánh giá",
             "1": "Thấp",
             "2": "Trung bình",
@@ -58,7 +56,8 @@
             "4": "Rất tốt",
             "5": "Tuyệt vời"
         },
-        "provider-types": {
+        "all-provider-types": "Tất cả các loại nhà cung cấp",
+        "lookupProviderType": {
             "2": "Khe thầu",
             "3": "Nhóm Home",
             "4": "Trung tâm",
@@ -66,6 +65,13 @@
             "6": "Họ hàng trong trang",
             "7": "Không tương đối trong nhà",
             "8": "Họ hàng trong nhà"
+        },
+        "lookupWorkingHours": {
+            "1": "Trước khi chăm sóc học đường",
+            "2": "Sau khi chăm sóc học đường",
+            "3": "Chăm sóc đầy đủ ngày",
+            "4": "Chăm sóc Weekend",
+            "5": "Chăm sóc Nghỉ đêm"
         }
     }
 }

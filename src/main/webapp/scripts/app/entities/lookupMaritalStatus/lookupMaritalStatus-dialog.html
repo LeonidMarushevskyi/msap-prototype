@@ -14,6 +14,22 @@
                     ng-model="lookupMaritalStatus.id" readonly />
         </div>
         <div class="form-group">
+            <label class="control-label" translate="msapApp.lookupMaritalStatus.code" for="field_code">Code</label>
+            <input type="number" class="form-control" name="code" id="field_code"
+                    ng-model="lookupMaritalStatus.code"
+                    required />
+            <div ng-show="editForm.code.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.code.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.code.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
             <label class="control-label" translate="msapApp.lookupMaritalStatus.maritalStatusName" for="field_maritalStatusName">MaritalStatusName</label>
             <input type="text" class="form-control" name="maritalStatusName" id="field_maritalStatusName"
                     ng-model="lookupMaritalStatus.maritalStatusName"

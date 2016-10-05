@@ -16,6 +16,7 @@
             "detail": {
                 "title": "LookupSpecialNeedType"
             },
+            "code": "Code",
             "name": "Name",
             "specialNeedGroup": "SpecialNeedGroup",
             "provider": "Provider"

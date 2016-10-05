@@ -6,9 +6,6 @@ import java.util.logging.Logger;
 
 import static com.engagepoint.msap.cucumber.SessionStorage.session;
 
-/**
- * Created by Bogdan.Polikovskiy on 5/29/2016.
- */
 public class CustomSteps {
 
     private static final Logger log = Logger.getLogger(CustomSteps.class.getName());

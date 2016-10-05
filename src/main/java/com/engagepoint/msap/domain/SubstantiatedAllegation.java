@@ -1,5 +1,6 @@
 package com.engagepoint.msap.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import java.time.LocalDate;
@@ -26,14 +27,15 @@ public class SubstantiatedAllegation implements Serializable {
 
     @Column(name = "description")
     private String description;
-    
+
     @Column(name = "severity")
     private String severity;
-    
+
     @Column(name = "allegation_date")
     private LocalDate allegationDate;
-    
+
     @ManyToOne
+    @JsonBackReference("substantiatedAllegations")
     @JoinColumn(name = "provider_id")
     private Provider provider;
 
@@ -48,7 +50,7 @@ public class SubstantiatedAllegation implements Serializable {
     public String getDescription() {
         return description;
     }
-    
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -56,7 +58,7 @@ public class SubstantiatedAllegation implements Serializable {
     public String getSeverity() {
         return severity;
     }
-    
+
     public void setSeverity(String severity) {
         this.severity = severity;
     }
@@ -64,7 +66,7 @@ public class SubstantiatedAllegation implements Serializable {
     public LocalDate getAllegationDate() {
         return allegationDate;
     }
-    
+
     public void setAllegationDate(LocalDate allegationDate) {
         this.allegationDate = allegationDate;
     }

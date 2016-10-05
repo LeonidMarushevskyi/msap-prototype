@@ -18,10 +18,10 @@
     -->
     <changeSet id="201609230401" author="serbin">
         <insert tableName="lookup_license_type">
-              <column name="id" value="1"/><column name="name" value="UNLICENSED"/>
+              <column name="id" value="1"/><column name="code" value="1"/><column name="name" value="UNLICENSED"/>
         </insert>
         <insert tableName="lookup_license_type">
-            <column name="id" value="2"/><column name="name" value="LICENSED"/>
+            <column name="id" value="2"/><column name="code" value="2"/><column name="name" value="LICENSED"/>
         </insert>
     </changeSet>
 </databaseChangeLog>

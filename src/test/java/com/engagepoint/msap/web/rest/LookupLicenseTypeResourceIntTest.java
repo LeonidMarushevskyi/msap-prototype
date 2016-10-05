@@ -42,6 +42,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class LookupLicenseTypeResourceIntTest {
 
+
+    private static final Integer DEFAULT_CODE = 1;
+    private static final Integer UPDATED_CODE = 2;
     private static final String DEFAULT_NAME = "AAAAA";
     private static final String UPDATED_NAME = "BBBBB";
 
@@ -75,6 +78,7 @@ public class LookupLicenseTypeResourceIntTest {
     @Before
     public void initTest() {
         lookupLicenseType = new LookupLicenseType();
+        lookupLicenseType.setCode(DEFAULT_CODE);
         lookupLicenseType.setName(DEFAULT_NAME);
     }
 
@@ -94,7 +98,26 @@ public class LookupLicenseTypeResourceIntTest {
         List<LookupLicenseType> lookupLicenseTypes = lookupLicenseTypeRepository.findAll();
         assertThat(lookupLicenseTypes).hasSize(databaseSizeBeforeCreate + 1);
         LookupLicenseType testLookupLicenseType = lookupLicenseTypes.get(lookupLicenseTypes.size() - 1);
+        assertThat(testLookupLicenseType.getCode()).isEqualTo(DEFAULT_CODE);
         assertThat(testLookupLicenseType.getName()).isEqualTo(DEFAULT_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void checkCodeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = lookupLicenseTypeRepository.findAll().size();
+        // set the field null
+        lookupLicenseType.setCode(null);
+
+        // Create the LookupLicenseType, which fails.
+
+        restLookupLicenseTypeMockMvc.perform(post("/api/lookupLicenseTypes")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(lookupLicenseType)))
+                .andExpect(status().isBadRequest());
+
+        List<LookupLicenseType> lookupLicenseTypes = lookupLicenseTypeRepository.findAll();
+        assertThat(lookupLicenseTypes).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
@@ -126,7 +149,8 @@ public class LookupLicenseTypeResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(lookupLicenseType.getId().intValue())))
-                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
+                .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE)))
+                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)));
     }
 
     @Test
@@ -140,7 +164,8 @@ public class LookupLicenseTypeResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(lookupLicenseType.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
+            .andExpect(jsonPath("$.code").value(DEFAULT_CODE))
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME));
     }
 
     @Test
@@ -160,6 +185,7 @@ public class LookupLicenseTypeResourceIntTest {
 		int databaseSizeBeforeUpdate = lookupLicenseTypeRepository.findAll().size();
 
         // Update the lookupLicenseType
+        lookupLicenseType.setCode(UPDATED_CODE);
         lookupLicenseType.setName(UPDATED_NAME);
 
         restLookupLicenseTypeMockMvc.perform(put("/api/lookupLicenseTypes")
@@ -171,6 +197,7 @@ public class LookupLicenseTypeResourceIntTest {
         List<LookupLicenseType> lookupLicenseTypes = lookupLicenseTypeRepository.findAll();
         assertThat(lookupLicenseTypes).hasSize(databaseSizeBeforeUpdate);
         LookupLicenseType testLookupLicenseType = lookupLicenseTypes.get(lookupLicenseTypes.size() - 1);
+        assertThat(testLookupLicenseType.getCode()).isEqualTo(UPDATED_CODE);
         assertThat(testLookupLicenseType.getName()).isEqualTo(UPDATED_NAME);
     }
 

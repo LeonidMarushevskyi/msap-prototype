@@ -38,6 +38,7 @@
         <ul class="ch-facility-info">
             <li class="ch-facility-info__part">
                 <div class="ch-facility-info-text">
+                    <p class="ch-facility-info__name">{{agency.providerName}}</p>
                     <p class="ch-facility-info__name">{{agency.licenseType.name}}</p>
                     <p class="ch-facility-info__phone">{{agency.phoneNumber}}</p>
                 </div>
@@ -53,10 +54,30 @@
     <div class="ch-facility__info" ng-show="viewConfig.presentation == 'popup' || agency.showPartFlag">
         <ul class="ch-facility-info">
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Facility Number: {{agency.facility_number}}</div>
+                <div class="ch-facility-info-text">{{agency.totalSpots}} Spots:</div>
+                <div ng-repeat="openSlot in agency.openSlots">
+                    {{openSlot.ageGroup.name}} - {{openSlot.openSlots}} spots
+                </div>
+            </li>
+
+            <li class="ch-facility-info__part">
+                <div class="ch-facility-info-text">Schedule:</div>
+                <div ng-repeat="schedule in agency.schedules">
+                    {{schedule.dayOfWeek.name}}: {{schedule.openHour}} - {{schedule.closeHour}}
+                </div>
             </li>
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Licensee: {{agency.licensee | uppercase}}</div>
+                <div class="ch-facility-info-text">Special needs:</div>
+                <div ng-repeat="specialNeed in agency.specialNeeds">
+                    - {{specialNeed.name}}
+                </div>
+            </li>
+            <li class="ch-facility-info__part">
+                <div class="ch-facility-info-text">{{agency.length}} Substantiated Allegations:</div>
+                <div ng-repeat="allegation in agency.substantiatedAllegations">
+                    {{allegation.description}}
+                    <div>{{allegation.allegationDate}} {{allegation.severity}}</div>
+                </div>
             </li>
             <li class="ch-facility-info__part">
                 <div class="ch-facility-info-text">License First Date: {{agency.license_first_date | date: 'MM/dd/yyyy'}}</div>

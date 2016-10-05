@@ -72,6 +72,7 @@ angular.module('msapApp')
                                     isFullDay: null,
                                     isAfterSchool: null,
                                     isBeforeSchool: null,
+                                    isWeekendCare: null,
                                     id: null
                                 };
                             }

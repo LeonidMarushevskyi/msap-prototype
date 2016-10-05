@@ -17,21 +17,21 @@
         Added the entity LookupSpecialNeedType.
     -->
     <changeSet id="201609293307678" author="leonid.marushevskiy">
-        <insert tableName="lookup_special_need_type"><column name="name" value="Muscular Dystrophy"/></insert>
-        <insert tableName="lookup_special_need_type"><column name="name" value="Multiple Sclerosis"/></insert>
-        <insert tableName="lookup_special_need_type"><column name="name" value="Chronic Asthma"/></insert>
-        <insert tableName="lookup_special_need_type"><column name="name" value="Epilepsy"/></insert>
-        <insert tableName="lookup_special_need_type"><column name="name" value="Down Syndrome"/></insert>
-        <insert tableName="lookup_special_need_type"><column name="name" value="Dyslexia"/></insert>
-        <insert tableName="lookup_special_need_type"><column name="name" value="Autism"/></insert>
-        <insert tableName="lookup_special_need_type"><column name="name" value="Processing Disorders"/></insert>
-        <insert tableName="lookup_special_need_type"><column name="name" value="Attention Deficit Disorder (ADD)"/></insert>
-        <insert tableName="lookup_special_need_type"><column name="name" value="Bipolar disorder"/></insert>
-        <insert tableName="lookup_special_need_type"><column name="name" value="Post traumatic Stress Disorder (PTSD)"/></insert>
-        <insert tableName="lookup_special_need_type"><column name="name" value="Oppositional Defiant Disorder (ODD)"/></insert>
-        <insert tableName="lookup_special_need_type"><column name="name" value="Blind"/></insert>
-        <insert tableName="lookup_special_need_type"><column name="name" value="Deaf"/></insert>
-        <insert tableName="lookup_special_need_type"><column name="name" value="Visually impaired"/></insert>
-        <insert tableName="lookup_special_need_type"><column name="name" value="Limited hearing"/></insert>
+        <insert tableName="lookup_special_need_type"><column name="code" value="1"/><column name="name" value="Muscular Dystrophy"/><column name="special_need_group_id" value="1"/></insert>
+        <insert tableName="lookup_special_need_type"><column name="code" value="2"/><column name="name" value="Multiple Sclerosis"/><column name="special_need_group_id" value="1"/></insert>
+        <insert tableName="lookup_special_need_type"><column name="code" value="3"/><column name="name" value="Chronic Asthma"/><column name="special_need_group_id" value="1"/></insert>
+        <insert tableName="lookup_special_need_type"><column name="code" value="4"/><column name="name" value="Epilepsy"/><column name="special_need_group_id" value="1"/></insert>
+        <insert tableName="lookup_special_need_type"><column name="code" value="5"/><column name="name" value="Down Syndrome"/><column name="special_need_group_id" value="2"/></insert>
+        <insert tableName="lookup_special_need_type"><column name="code" value="6"/><column name="name" value="Dyslexia"/><column name="special_need_group_id" value="2"/></insert>
+        <insert tableName="lookup_special_need_type"><column name="code" value="7"/><column name="name" value="Autism"/><column name="special_need_group_id" value="2"/></insert>
+        <insert tableName="lookup_special_need_type"><column name="code" value="8"/><column name="name" value="Processing Disorders"/><column name="special_need_group_id" value="2"/></insert>
+        <insert tableName="lookup_special_need_type"><column name="code" value="9"/><column name="name" value="Attention Deficit Disorder (ADD)"/><column name="special_need_group_id" value="3"/></insert>
+        <insert tableName="lookup_special_need_type"><column name="code" value="10"/><column name="name" value="Bipolar disorder"/><column name="special_need_group_id" value="3"/></insert>
+        <insert tableName="lookup_special_need_type"><column name="code" value="11"/><column name="name" value="Post traumatic Stress Disorder (PTSD)"/><column name="special_need_group_id" value="3"/></insert>
+        <insert tableName="lookup_special_need_type"><column name="code" value="12"/><column name="name" value="Oppositional Defiant Disorder (ODD)"/><column name="special_need_group_id" value="3"/></insert>
+        <insert tableName="lookup_special_need_type"><column name="code" value="13"/><column name="name" value="Blind"/><column name="special_need_group_id" value="4"/></insert>
+        <insert tableName="lookup_special_need_type"><column name="code" value="14"/><column name="name" value="Deaf"/><column name="special_need_group_id" value="4"/></insert>
+        <insert tableName="lookup_special_need_type"><column name="code" value="15"/><column name="name" value="Visually impaired"/><column name="special_need_group_id" value="4"/></insert>
+        <insert tableName="lookup_special_need_type"><column name="code" value="16"/><column name="name" value="Limited hearing"/><column name="special_need_group_id" value="4"/></insert>
     </changeSet>
 </databaseChangeLog>

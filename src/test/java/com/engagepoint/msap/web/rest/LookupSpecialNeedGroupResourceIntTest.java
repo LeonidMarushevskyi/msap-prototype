@@ -42,6 +42,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class LookupSpecialNeedGroupResourceIntTest {
 
+
+    private static final Integer DEFAULT_CODE = 1;
+    private static final Integer UPDATED_CODE = 2;
     private static final String DEFAULT_NAME = "AAAAA";
     private static final String UPDATED_NAME = "BBBBB";
 
@@ -75,6 +78,7 @@ public class LookupSpecialNeedGroupResourceIntTest {
     @Before
     public void initTest() {
         lookupSpecialNeedGroup = new LookupSpecialNeedGroup();
+        lookupSpecialNeedGroup.setCode(DEFAULT_CODE);
         lookupSpecialNeedGroup.setName(DEFAULT_NAME);
     }
 
@@ -94,7 +98,26 @@ public class LookupSpecialNeedGroupResourceIntTest {
         List<LookupSpecialNeedGroup> lookupSpecialNeedGroups = lookupSpecialNeedGroupRepository.findAll();
         assertThat(lookupSpecialNeedGroups).hasSize(databaseSizeBeforeCreate + 1);
         LookupSpecialNeedGroup testLookupSpecialNeedGroup = lookupSpecialNeedGroups.get(lookupSpecialNeedGroups.size() - 1);
+        assertThat(testLookupSpecialNeedGroup.getCode()).isEqualTo(DEFAULT_CODE);
         assertThat(testLookupSpecialNeedGroup.getName()).isEqualTo(DEFAULT_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void checkCodeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = lookupSpecialNeedGroupRepository.findAll().size();
+        // set the field null
+        lookupSpecialNeedGroup.setCode(null);
+
+        // Create the LookupSpecialNeedGroup, which fails.
+
+        restLookupSpecialNeedGroupMockMvc.perform(post("/api/lookupSpecialNeedGroups")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(lookupSpecialNeedGroup)))
+                .andExpect(status().isBadRequest());
+
+        List<LookupSpecialNeedGroup> lookupSpecialNeedGroups = lookupSpecialNeedGroupRepository.findAll();
+        assertThat(lookupSpecialNeedGroups).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
@@ -126,7 +149,8 @@ public class LookupSpecialNeedGroupResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(lookupSpecialNeedGroup.getId().intValue())))
-                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
+                .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE)))
+                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)));
     }
 
     @Test
@@ -140,7 +164,8 @@ public class LookupSpecialNeedGroupResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(lookupSpecialNeedGroup.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
+            .andExpect(jsonPath("$.code").value(DEFAULT_CODE))
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME));
     }
 
     @Test
@@ -160,6 +185,7 @@ public class LookupSpecialNeedGroupResourceIntTest {
 		int databaseSizeBeforeUpdate = lookupSpecialNeedGroupRepository.findAll().size();
 
         // Update the lookupSpecialNeedGroup
+        lookupSpecialNeedGroup.setCode(UPDATED_CODE);
         lookupSpecialNeedGroup.setName(UPDATED_NAME);
 
         restLookupSpecialNeedGroupMockMvc.perform(put("/api/lookupSpecialNeedGroups")
@@ -171,6 +197,7 @@ public class LookupSpecialNeedGroupResourceIntTest {
         List<LookupSpecialNeedGroup> lookupSpecialNeedGroups = lookupSpecialNeedGroupRepository.findAll();
         assertThat(lookupSpecialNeedGroups).hasSize(databaseSizeBeforeUpdate);
         LookupSpecialNeedGroup testLookupSpecialNeedGroup = lookupSpecialNeedGroups.get(lookupSpecialNeedGroups.size() - 1);
+        assertThat(testLookupSpecialNeedGroup.getCode()).isEqualTo(UPDATED_CODE);
         assertThat(testLookupSpecialNeedGroup.getName()).isEqualTo(UPDATED_NAME);
     }
 

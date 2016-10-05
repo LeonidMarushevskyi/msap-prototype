@@ -64,7 +64,7 @@ class LookupMaritalStatusGatlingTest extends Simulation {
             .exec(http("Create new lookupMaritalStatus")
             .post("/api/lookupMaritalStatuss")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "maritalStatusName":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "code":"0", "maritalStatusName":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_lookupMaritalStatus_url")))
             .pause(10)

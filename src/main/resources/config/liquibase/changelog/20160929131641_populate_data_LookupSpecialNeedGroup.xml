@@ -17,9 +17,9 @@
         Added the entity LookupSpecialNeedGroup.
     -->
     <changeSet id="2016092933133" author="leonid.marushevskiy">
-        <insert tableName="lookup_special_need_group"><column name="name" value="Physical"/></insert>
-        <insert tableName="lookup_special_need_group"><column name="name" value="Developmental"/></insert>
-        <insert tableName="lookup_special_need_group"><column name="name" value="Behavioral/Emotional"/></insert>
-        <insert tableName="lookup_special_need_group"><column name="name" value="Sensory Impaired"/></insert>
+        <insert tableName="lookup_special_need_group"><column name="code" value="1"/><column name="name" value="Physical"/></insert>
+        <insert tableName="lookup_special_need_group"><column name="code" value="2"/><column name="name" value="Developmental"/></insert>
+        <insert tableName="lookup_special_need_group"><column name="code" value="3"/><column name="name" value="Behavioral/Emotional"/></insert>
+        <insert tableName="lookup_special_need_group"><column name="code" value="4"/><column name="name" value="Sensory Impaired"/></insert>
     </changeSet>
 </databaseChangeLog>

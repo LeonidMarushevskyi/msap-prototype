@@ -1,8 +1,3 @@
-$break-desktop-large: 1200px;
-$break-desktop: 992px;
-$break-tablet: 770px;
-$break-phone: 640px;
-
 html {
     @media screen and (max-width: $break-phone) {
       -ms-text-size-adjust: 100%;

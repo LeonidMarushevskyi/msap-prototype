@@ -45,18 +45,29 @@
                 </div>
             </div>
             <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_3">
-                <div class="ch-multi-select-dropdown" title="Age group">
-                    <button type="button" class="ch-multi-select-dropdown__btn" ng-click="agesConfig.showList = !agesConfig.showList;">
-                        <span class="ch-multi-select-dropdown__btn-text" translate="facilities.age-group">Age group</span>
+                <div class="ch-multi-select-dropdown" title="{{'facilities.age-group' | translate}}">
+                    <button type="button" class="ch-multi-select-dropdown__btn" ng-click="toggleFilterMenu('lookupAgeGroups');">
+                        <span class="ch-multi-select-dropdown__btn-text"
+                              ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount == 0"
+                              translate="facilities.age-group">
+                            Age group
+                        </span>
+                        <span class="ch-multi-select-dropdown__btn-text"
+                              ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount > 0"
+                              translate="facilities.age-groups-selected"
+                              translate-values="{selectedCount: filterMenuConfigs['lookupAgeGroups'].selectedCount}">
+                            {{filterMenuConfigs['lookupAgeGroups'].selectedCount}} Selected
+                        </span>
                         <span class="ch-multi-select-dropdown__btn-icon"></span>
                     </button>
-
-                    <div class="ch-multi-select-dropdown__popup" ng-show="agesConfig.showList" ng-mouseleave="agesConfig.showList = false">
+                    <div class="ch-multi-select-dropdown__popup" ng-show="filterMenuConfigs['lookupAgeGroups'].showList" ng-mouseleave="toggleFilterMenu('lookupAgeGroups', false);">
                         <ul class="ch-checkboxes-list">
                             <li class="ch-checkboxes-list__item" ng-repeat="ageGroup in lookupAgeGroups">
                                 <div class="form-type__checkbox_empty-label">
-                                    <input id="lookupAgeGroup_{{ageGroup.code}}" type="checkbox">
-                                    <label for="lookupAgeGroup_{{ageGroup.code}}">{{'facilities.age-groups.' + ageGroup.code | translate}}</label>
+                                    <input id="lookupAgeGroup_{{ageGroup.code}}" type="checkbox"
+                                           ng-model="ageGroup.selected"
+                                           ng-click="onFilterMenuItemClick('lookupAgeGroups', ageGroup.code);">
+                                    <label for="lookupAgeGroup_{{ageGroup.code}}">{{'facilities.lookupAgeGroups.' + ageGroup.code | translate}}</label>
                                 </div>
                             </li>
                         </ul>
@@ -65,16 +76,28 @@
             </div>
             <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_4">
                 <div class="ch-multi-select-dropdown" title="Filter facilities by status">
-                    <button type="button" class="ch-multi-select-dropdown__btn" ng-click="qualityRatingsConfig.showList = !qualityRatingsConfig.showList;">
-                        <span class="ch-multi-select-dropdown__btn-text">{{qualityRatingsConfig.label}}</span>
+                    <button type="button" class="ch-multi-select-dropdown__btn" ng-click="toggleFilterMenu('lookupQualityRating');">
+                        <span class="ch-multi-select-dropdown__btn-text"
+                              ng-if="filterMenuConfigs['lookupQualityRating'].selectedCount == 0"
+                              translate="facilities.all-quality-ratings">
+                            All Quality Ratings
+                        </span>
+                        <span class="ch-multi-select-dropdown__btn-text"
+                              ng-if="filterMenuConfigs['lookupQualityRating'].selectedCount > 0"
+                              translate="facilities.quality-ratings-selected"
+                              translate-values="{selectedCount: filterMenuConfigs['lookupQualityRating'].selectedCount}">
+                            {{filterMenuConfigs['lookupQualityRating'].selectedCount}} Selected
+                        </span>
                         <span class="ch-multi-select-dropdown__btn-icon"></span>
                     </button>
-                    <div class="ch-multi-select-dropdown__popup" ng-show="qualityRatingsConfig.showList" ng-mouseleave="qualityRatingsConfig.showList = false">
+                    <div class="ch-multi-select-dropdown__popup" ng-show="filterMenuConfigs['lookupQualityRating'].showList" ng-mouseleave="toggleFilterMenu('lookupQualityRating', false);">
                         <ul class="ch-checkboxes-list">
                             <li class="ch-checkboxes-list__item" ng-repeat="qualityRating in lookupQualityRating track by qualityRating.id | orderBy: 'id'">
                                 <div class="form-type__checkbox_empty-label">
-                                    <input id="qualityRating_{{qualityRating.code}}" type="checkbox" ng-model="qualityRating.selected" ng-click="onQualityRatingSelect();">
-                                    <label for="qualityRating_{{qualityRating.code}}">{{'facilities.quality-ratings.' + qualityRating.code | translate | capitalize:true}}</label>
+                                    <input id="qualityRating_{{qualityRating.code}}" type="checkbox"
+                                           ng-model="qualityRating.selected"
+                                           ng-click="onFilterMenuItemClick('lookupQualityRating', qualityRating.code);">
+                                    <label for="qualityRating_{{qualityRating.code}}">{{'facilities.lookupQualityRating.' + qualityRating.code | translate | capitalize:true}}</label>
                                 </div>
                             </li>
                         </ul>
@@ -100,58 +123,32 @@
                         <span translate="facilities.working-hours">Working hours</span>
                     </li>
 
-                    <li class="ch-checkboxes-group__item">
+                    <li class="ch-checkboxes-group__item" ng-repeat="workingHours in lookupWorkingHours">
                         <div class="form-type__checkbox_empty-label">
-                            <input id="working3" type="checkbox">
-                            <label for="working3" translate="facilities.before-school">Before School Care</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="working4" type="checkbox">
-                            <label for="working4" translate="facilities.after-school">After School Care</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="working2" type="checkbox">
-                            <label for="working2" translate="facilities.full-day">Full Day Care</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="working5" type="checkbox">
-                            <label for="working5" translate="facilities.weekend">Weekend Care</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="working6" type="checkbox">
-                            <label for="working6" translate="facilities.open-overnight">Overnight Care</label>
+                            <input id="workingHours_{{workingHours.code}}" type="checkbox"
+                                   ng-model="workingHours.selected"
+                                   ng-click="onFilterMenuItemClick('lookupWorkingHours', workingHours.code);">
+                            <label for="workingHours_{{workingHours.code}}">{{'facilities.lookupWorkingHours.' + workingHours.code | translate}}</label>
                         </div>
                     </li>
                 </ul>
 
-                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
+                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group"
+                    ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount > 0">
                     <li class="ch-checkboxes-group__header">
                         <span translate="facilities.available-spots">Available Spots</span>
                     </li>
 
-                    <li class="ch-checkboxes-group__item">
+                    <li class="ch-checkboxes-group__item"
+                        ng-repeat="ageGroup in lookupAgeGroups"
+                        ng-if="isSelected('lookupAgeGroups', ageGroup.code);">
                         <div class="ch-facilities-extended-text-input">
-                            <label for="for1">For children 1-2 ages</label>
-                            <input id="for1" type="input">
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="ch-facilities-extended-text-input">
-                            <label for="for2">For children 5-9 ages</label>
-                            <input id="for2" type="input">
+                            <label for="spots_ageGroup_{{ageGroup.code}}">
+                                {{'facilities.age-group' | translate}}:
+                                {{'facilities.lookupAgeGroups.' + ageGroup.code | translate}}
+                            </label>
+                            <input id="spots_ageGroup_{{ageGroup.code}}" type="input"
+                                   ng-model="ageGroup.availableSpots">
                         </div>
                     </li>
                 </ul>
@@ -163,8 +160,10 @@
 
                     <li class="ch-checkboxes-group__item" ng-repeat="providerType in lookupProviderType track by providerType.id | orderBy: 'id'">
                         <div class="form-type__checkbox_empty-label">
-                            <input id="providerType_{{providerType.code}}" type="checkbox" ng-model="providerType.selected" ng-click="onProviderTypeSelect();">
-                            <label for="providerType_{{providerType.code}}">{{'facilities.provider-types.' + providerType.code | translate | capitalize:true}}</label>
+                            <input id="providerType_{{providerType.code}}" type="checkbox"
+                                   ng-model="providerType.selected"
+                                   ng-click="onFilterMenuItemClick('lookupProviderType', providerType.code);">
+                            <label for="providerType_{{providerType.code}}">{{'facilities.lookupProviderType.' + providerType.code | translate | capitalize:true}}</label>
                         </div>
                     </li>
                 </ul>
@@ -385,43 +384,15 @@
         </div>
 
         <div class="ch-facilities-extended-filters__results">
-            <span class="ch-facilities-extended-filters__results-total" translate="facilities.total-results">45 Results</span>
+            <span class="ch-facilities-extended-filters__results-total"
+                  translate="facilities.total-results"
+                  translate-values="{number: agenciesLength}">{{agenciesLength}} Results</span>
 
             <div class="ch-facilities-extended-filters__results-filters">
-
-                <div class="ch-meta-tag">
-                    <span class="ch-meta-tag__text" translate="facilities.down-syndrome">Down Syndrome</span>
-                    <button type="button" class="ch-meta-tag__dismiss-btn"></button>
-                </div>
-
-                <div class="ch-meta-tag">
-                    <span class="ch-meta-tag__text">Muscular Dystrophy</span>
-                    <button type="button" class="ch-meta-tag__dismiss-btn"></button>
-                </div>
-
-                <div class="ch-meta-tag">
-                    <span class="ch-meta-tag__text">Before School</span>
-                    <button type="button" class="ch-meta-tag__dismiss-btn"></button>
-                </div>
-
-                <div class="ch-meta-tag">
-                    <span class="ch-meta-tag__text">No Allegations</span>
-                    <button type="button" class="ch-meta-tag__dismiss-btn"></button>
-                </div>
-
-                <div class="ch-meta-tag">
-                    <span class="ch-meta-tag__text">Behavioral/Emotional</span>
-                    <button type="button" class="ch-meta-tag__dismiss-btn"></button>
-                </div>
-
-                <div class="ch-meta-tag">
-                    <span class="ch-meta-tag__text">Visually impaired</span>
-                    <button type="button" class="ch-meta-tag__dismiss-btn"></button>
-                </div>
-
-                <div class="ch-meta-tag">
-                    <span class="ch-meta-tag__text">Vietnamese</span>
-                    <button type="button" class="ch-meta-tag__dismiss-btn"></button>
+                <div class="ch-meta-tag" ng-repeat="value in selectedFilterButtons">
+                    <span class="ch-meta-tag__text">{{'facilities.' + value.modelName + '.' + value.code | translate}}</span>
+                    <button type="button" class="ch-meta-tag__dismiss-btn"
+                            ng-click="dismissFilterClick(value.modelName, value.code);"></button>
                 </div>
             </div>
 

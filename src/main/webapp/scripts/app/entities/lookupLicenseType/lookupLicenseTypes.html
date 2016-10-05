@@ -31,6 +31,7 @@ class="hidden-xs"                        translate="msapApp.lookupLicenseType.ho
             <thead>
                 <tr>
                     <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="msapApp.lookupLicenseType.code">Code</span></th>
                     <th><span translate="msapApp.lookupLicenseType.name">Name</span></th>
                     <th></th>
                 </tr>
@@ -38,6 +39,7 @@ class="hidden-xs"                        translate="msapApp.lookupLicenseType.ho
             <tbody>
                 <tr ng-repeat="lookupLicenseType in lookupLicenseTypes track by lookupLicenseType.id">
                     <td><a ui-sref="lookupLicenseType.detail({id:lookupLicenseType.id})">{{lookupLicenseType.id}}</a></td>
+                    <td>{{lookupLicenseType.code}}</td>
                     <td>{{lookupLicenseType.name}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

@@ -40,7 +40,8 @@ public class UserStepDefs {
 
     @Before
     public void setup() {
-        baseUrl = "http://mdc-mrq-was8-a1.engagepoint.us:6080/#/";
+        //baseUrl = "http://localhost:8080/#/";
+        baseUrl = "http://mdc-mrq-was8-a1.engagepoint.us:4080/#/";
         //Configuration.browser = "firefox";
 
         this.restUserMockMvc = MockMvcBuilders.standaloneSetup(userResource).build();
@@ -71,9 +72,24 @@ public class UserStepDefs {
     }
 
     @When("^register new user with email '(.*)', login '(.*)' and password '(.*)'$")
-    public void open_home_page(@Transform(VarsConverter.class) String email, @Transform(VarsConverter.class) String login, String password) throws Throwable {
+    public void register_new_user(@Transform(VarsConverter.class) String email, @Transform(VarsConverter.class) String login, String password) throws Throwable {
         click_css_and_wait("a[href*='#/registerme']");
         $("#email").setValue(email + "@yopmail.com");
+        $("#login").setValue(login);
+        $("[ng-model='registerAccount.firstName']").setValue(login);
+        $("[ng-model='registerAccount.lastName']").setValue(login);
+        $("#password").setValue(password);
+        $("#confirmPassword").setValue(password);
+        click_css_and_wait("[type*='submit']");
+        $(By.xpath(".//*[contains(text(),'check your email')]")).shouldBe(visible).shouldHave(text("Please check your email"));
+    }
+
+    @When("^register new foster parent with email '(.*)', login '(.*)' and password '(.*)'$")
+    public void register_new_foster_parent(@Transform(VarsConverter.class) String email, @Transform(VarsConverter.class) String login, String password) throws Throwable {
+        click_css_and_wait("a[href*='#/registerme']");
+        $("#email").setValue(email + "@yopmail.com");
+        click_css_and_wait("label[for='isFosterParent']");
+        $("#caseNumber").shouldBe(visible);
         $("#caseNumber").setValue("12345");
         $("#login").setValue(login);
         $("[ng-model='registerAccount.firstName']").setValue(login);
@@ -110,6 +126,9 @@ public class UserStepDefs {
 
     @When("^login with login '(.*)' and password '(.*)'$")
          public void login_with_login_and_password(@Transform(VarsConverter.class) String login, String password) throws Throwable {
+        $("[ng-click*='openSignInModal()']").shouldBe(visible);
+        click_css_and_wait("[ng-click*='openSignInModal()']");
+        $(".ch-login__form").shouldBe(visible);
         $("#username").shouldBe(visible);
         $("#username").setValue(login);
         $("#password").setValue(password);
@@ -117,102 +136,37 @@ public class UserStepDefs {
         $(By.xpath(".//button[@type='submit' and text()='Sign in']")).shouldBe(disappear);
     }
 
-    @When("^open facilities page$")
-    public void open_facilities_page() throws Throwable {
-        click_xpath_and_wait(".//a[@href='#/facilities']");
-        sleep(2000);
-        click_xpath_and_wait(".//*[@class='ch-modal__row']/descendant::input");
-        $(By.xpath(".//*[@class='ch-modal__row']/descendant::input")).setValue("90807");
-        click_xpath_and_wait(".//*[@class='modal-content']/descendant::button");
-        $(By.xpath(".//*[@class='modal-content']/descendant::button")).waitUntil(disappear, 4000);
-        $("#search-text").shouldBe(visible);
+    @When("^element '(.*)' has text '(.*)'$")
+         public void element_has_text(@Transform(VarsConverter.class) String element, String text) throws Throwable {
+        $(element).waitUntil(hasText(text), 10000);
     }
 
-    @When("^search '(.*)' in facility address search$")
-    public void search_in_facility_address_search(String address) throws Throwable {
-        click_css_and_wait(".leaflet-pelias-input");
-        $(".leaflet-pelias-input").setValue(address);
-        click_xpath_and_wait(".//a[@class='leaflet-pelias-search-icon']");
-        sleep(1000);
-        $(By.xpath(".//ul/li/*[contains(text(),'" + address + "')]")).shouldBe(visible);
-        click_xpath_and_wait(".//ul/li/*[contains(text(),'" + address + "')]");
+    @When("^change language to English$")
+    public void change_language_to_english() throws Throwable {
+        $("[ng-click='toggleLanguagePopup()']").shouldBe(visible);
+        click_css_and_wait("[ng-click='toggleLanguagePopup()']");
+        $(By.xpath(".//p[contains(text(),'English')]")).waitUntil(appear, 4000);
+        click_xpath_and_wait(".//p[contains(text(),'English')]");
+        element_has_text("[ng-click='toggleLanguagePopup()']", "Language");
     }
 
-    @Then("^verify facility with address '(.*)' and name '(.*)' presents in the list$")
-    public void verify_facility_with_address_and_name_presents_in_the_list(String facilityAddress, String facilityName) throws Throwable {
-        $(By.xpath(".//span[contains(text(),'" + facilityAddress + "')]/ancestor::div[@class='ch-facility']/descendant::*[text()='" + facilityName + "']")).shouldBe(visible);
-        $(By.xpath(".//*[text()='" + facilityName + "']/ancestor::div[@class='ch-facility']/descendant::button[text()='Ask Caseworker']")).shouldBe(visible);
+    @When("^change language to Spanish$")
+    public void change_language_to_spanish() throws Throwable {
+        $("[ng-click='toggleLanguagePopup()']").shouldBe(visible);
+        click_css_and_wait("[ng-click='toggleLanguagePopup()']");
+        $(By.xpath(".//p[contains(text(),'Español')]")).waitUntil(appear, 4000);
+        click_xpath_and_wait(".//p[contains(text(),'Español')]");
+        element_has_text("[ng-click='toggleLanguagePopup()']", "Idioma");
     }
 
-    @When("^do Ask About for facility with address '(.*)' and name '(.*)' and send letter$")
-    public void do_Ask_About_for_facility_with_address_and_name_and_send_letter(String facilityAddress, String facilityName) throws Throwable {
-        click_xpath_and_wait(".//span[contains(text(),'" + facilityAddress + "')]/ancestor::div[@class='ch-facility']/descendant::*[text()='" + facilityName + "']/ancestor::div[@class='ch-facility']/descendant::button[text()='Ask Caseworker']");
-        click_css_and_wait("[ng-click='sendMail()']");
-        $("[ng-click='sendMail()']").waitUntil(disappear, 4000);
-        click_xpath_and_wait(".//*[contains(@class,'ch-alert-msg')]/*[text()='Message has been sent!']");
-        $(By.xpath(".//*[contains(@class,'ch-alert-msg')]/*[text()='Message has been sent!']")).waitUntil(disappear, 4000);
 
-    }
-
-    @Then("^verify letter contains attachment$")
-    public void verify_letter_contains_attachment() throws Throwable {
-//todo verify attached file
-    }
-
-    @When("^open my profile$")
-    public void open_my_profile() throws Throwable {
-        click_css_and_wait(".ch-user-account-entry__dropdown-btn");
-        click_xpath_and_wait(".//button/span[text()='My Profile']");
-        $(By.xpath(".//h1[text()='My Profile']")).shouldBe(visible);
-    }
-
-    @When("^fill gender '(.*)', DOB mm-dd-yyyy '(.*)'-'(.*)'-'(.*)', license number '(.*)' in General Information$")
-    public void fill_gender_DOB_license_number_in_General_Information(String gender, String month, String day, String year, String licenseNum) throws Throwable {
-        click_xpath_and_wait(".//span[text()='" + gender + "']");
-        $("[placeholder='Month']").shouldBe(visible);
-        click_css_and_wait("[placeholder='Month']");
-        $("[placeholder='Month']").setValue(month);
-        click_css_and_wait("[placeholder='Day']");
-        $("[placeholder='Day']").setValue(day);
-        click_css_and_wait("[placeholder='Year']");
-        $("[placeholder='Year']").setValue(year);
-        $("#license").setValue(licenseNum);
-    }
-
-    @When("^fill address '(.*)', email '(.*)', telephone '(.*)' in Contact Information$")
-    public void fill_address_email_telephone_in_Contact_Information(String address, String email, String telephone ) throws Throwable {
-        click_xpath_and_wait(".//span[text()='Contact information']");
-        if (!address.isEmpty() & !address.equals(" ")) {
-            $("[title='Search']").setValue(address);
-            $(By.xpath(".//li/*[contains(text(),'" + address + "')]")).click();
-            $("[title='Close']").click();
-        }
-        if (!email.isEmpty() & !email.equals(" ")) {
-            click_css_and_wait("#email");
-            $("#email").setValue(email);
-        }
-        if (!telephone.isEmpty() & !telephone.equals(" ")) {
-            click_css_and_wait("#telephone");
-            click_css_and_wait("#telephone");
-            $("#telephone").setValue(email);
-        }
-        click_xpath_and_wait(".//span[text()='Contact information']");
-    }
-
-    @When("^change old password to the new one '(.*)'$")
-    public void change_old_password_to_the_new_one(String newPass) throws Throwable {
-        click_xpath_and_wait(".//span[text()='Change password']");
-        $("#newPassword").setValue(newPass);
-        $("#confirmPassword").setValue(newPass);
-        click_css_and_wait("[ng-click='changePassword()']");
-        $(By.xpath(".//strong[text()='Password changed!']")).waitUntil(appear, 4000);
-        click_xpath_and_wait(".//span[text()='Change password']");
-    }
-
-    @When("^save changes in profile$")
-    public void save_changes_in_profile() throws Throwable {
-        click_css_and_wait("[value='Save Changes']");
-        $(By.xpath(".//strong[text()='Settings saved!']")).waitUntil(appear, 4000);
+    @When("^change language to Vietnamese$")
+    public void change_language_to_vietnamese() throws Throwable {
+        $("[ng-click='toggleLanguagePopup()']").shouldBe(visible);
+        click_css_and_wait("[ng-click='toggleLanguagePopup()']");
+        $(By.xpath(".//p[contains(text(),'Tiếng Việt')]")).waitUntil(appear, 4000);
+        click_xpath_and_wait(".//p[contains(text(),'Tiếng Việt')]");
+        element_has_text("[ng-click='toggleLanguagePopup()']", "Ngôn ngữ");
     }
 
     @When("^log out$")
@@ -224,10 +178,8 @@ public class UserStepDefs {
 
     @Then("^tweet with text '(.*)' from '(.*)' should be presented$")
     public void tweet_with_text_sss_from_mic_should_be_presented(String text, String from) throws Throwable {
-        $(By.xpath(".//iframe[contains(@id,'twitter')]")).waitUntil(appear, 4000);
-        //switchTo().frame("[title='Twitter Timeline']");
+        $(By.xpath(".//iframe[contains(@id,'twitter')]")).waitUntil(appear, 10000);
         switchTo().frame(2);
-        //switchTo().innerFrame("Twitter Timeline");
         $(By.xpath(".//*[contains(@class,'timeline-TweetList-tweet')]/*/*[@class='timeline-Tweet-text' and contains(text(),'" + text + "')]/../../descendant::div[@class='TweetAuthor']/a/span[text()='" + from + "']")).shouldBe(visible);
         $("[aria-label='Like']").shouldBe(visible);
         $("[aria-label='Share Tweet']").shouldBe(visible);

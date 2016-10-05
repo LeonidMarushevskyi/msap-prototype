@@ -21,9 +21,9 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="minimal_price" type="double"/>
+            <column name="minimal_price" type="integer"/>
             
-            <column name="maximum_price" type="double"/>
+            <column name="maximum_price" type="integer"/>
             
             <column name="provider_id" type="bigint"/>
             <column name="age_group_id" type="bigint">

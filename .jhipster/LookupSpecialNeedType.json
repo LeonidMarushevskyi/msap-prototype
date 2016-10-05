@@ -20,6 +20,14 @@
   "fields": [
     {
       "fieldId": 1,
+      "fieldName": "code",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldId": 2,
       "fieldName": "name",
       "fieldType": "String",
       "fieldValidateRules": [

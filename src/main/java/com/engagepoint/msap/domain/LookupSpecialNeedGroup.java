@@ -23,6 +23,10 @@ public class LookupSpecialNeedGroup implements Serializable {
     private Long id;
 
     @NotNull
+    @Column(name = "code", nullable = false)
+    private Integer code;
+    
+    @NotNull
     @Column(name = "name", nullable = false)
     private String name;
     
@@ -32,6 +36,14 @@ public class LookupSpecialNeedGroup implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getCode() {
+        return code;
+    }
+    
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
     public String getName() {
@@ -66,6 +78,7 @@ public class LookupSpecialNeedGroup implements Serializable {
     public String toString() {
         return "LookupSpecialNeedGroup{" +
             "id=" + id +
+            ", code='" + code + "'" +
             ", name='" + name + "'" +
             '}';
     }

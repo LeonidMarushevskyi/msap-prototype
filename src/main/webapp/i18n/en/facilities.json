@@ -8,11 +8,6 @@
         "provider-type": "Provider Type:",
         "price-per-week": "Price per week:",
         "working-hours": "Working hours:",
-        "full-day": "Full Day Care",
-        "before-school": "Before School Care",
-        "after-school": "After School Care",
-        "open-overnight": "Overnight Care",
-        "weekend": "Weekend Care",
         "languages": "Languages:",
         "english": "English",
         "spanish": "Spanish",
@@ -40,8 +35,9 @@
         "deaf": "Deaf",
         "visually-impaired": "Visually impaired",
         "limited-hearing": "Limited hearing",
-        "total-results": "45 Results",
-        "age-groups": {
+        "total-results": "{{number}} Results",
+        "age-groups-selected": "{{selectedCount}} Selected",
+        "lookupAgeGroups": {
             "1": "Infant (0-12 months)",
             "2": "Toddler (12-24 months)",
             "3": "2 years",
@@ -50,7 +46,9 @@
             "6": "5-9 years",
             "7": "10-12 years"
         },
-        "quality-ratings": {
+        "all-quality-ratings": "All Quality Ratings",
+        "quality-ratings-selected": "{{selectedCount}} Selected",
+        "lookupQualityRating": {
             "0": "Not Rated",
             "1": "Low",
             "2": "Average",
@@ -58,7 +56,8 @@
             "4": "Very Good",
             "5": "Excellent"
         },
-        "provider-types": {
+        "all-provider-types": "All Provider Types",
+        "lookupProviderType": {
             "2": "Slot Contractor",
             "3": "Group Home",
             "4": "Center",
@@ -66,6 +65,13 @@
             "6": "Relative In-Home",
             "7": "Non-Relative Out-of-Home",
             "8": "Relative Out-of-Home"
+        },
+        "lookupWorkingHours": {
+            "1": "Before School Care",
+            "2": "After School Care",
+            "3": "Full Day Care",
+            "4": "Weekend Care",
+            "5": "Overnight Care"
         }
     }
 }

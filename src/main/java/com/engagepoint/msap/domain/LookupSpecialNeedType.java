@@ -7,8 +7,6 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -25,9 +23,13 @@ public class LookupSpecialNeedType implements Serializable {
     private Long id;
 
     @NotNull
+    @Column(name = "code", nullable = false)
+    private Integer code;
+
+    @NotNull
     @Column(name = "name", nullable = false)
     private String name;
-    
+
     @OneToOne
     private LookupSpecialNeedGroup specialNeedGroup;
 
@@ -43,10 +45,18 @@ public class LookupSpecialNeedType implements Serializable {
         this.id = id;
     }
 
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
     public String getName() {
         return name;
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
@@ -91,6 +101,7 @@ public class LookupSpecialNeedType implements Serializable {
     public String toString() {
         return "LookupSpecialNeedType{" +
             "id=" + id +
+            ", code='" + code + "'" +
             ", name='" + name + "'" +
             '}';
     }
