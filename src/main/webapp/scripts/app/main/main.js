@@ -18,7 +18,11 @@ angular.module('msapApp')
                 resolve: {
                     mainTranslatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
                         $translatePartialLoader.addPart('login');
+                        $translatePartialLoader.addPart('facilities');
                         return $translate.refresh();
+                    }],
+                    lookupAgeGroups: ['LookupAgeGroups', function(LookupAgeGroups) {
+                        return LookupAgeGroups.query().$promise;
                     }]
                 }
             });

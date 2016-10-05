@@ -4,7 +4,8 @@ angular.module('msapApp')
     .constant('SecurityRole', {
         ADMIN: 'ROLE_ADMIN',
         CASE_WORKER: 'CASE_WORKER',
-        PARENT: 'PARENT'
+        PARENT: 'PARENT',
+        FOSTER_PARENT: 'FOSTER_PARENT'
     })
     .constant('uibCustomDatepickerConfig', {
         formatYear: 'yyyy',

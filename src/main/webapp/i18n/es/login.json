@@ -1,6 +1,7 @@
 {
     "login": {
         "create-an-account": "Crea una cuenta",
+        "title": "Registrarse",
         "login": "Iniciar",
         "register": "Registro",
         "form": {
