@@ -140,6 +140,7 @@ angular.module('msapApp')
         $scope.showMapView = 'ch-show-map-view';
         $scope.showLinkMapView = 'ch-mobile-mailbox__nav-tab__link_active';
 
+        $scope.mobileFilterState = 'mobile-filter-for-map-view';
         $scope.changeMapView = function() {
             $scope.showMapView = 'ch-show-map-view';
             $scope.showLinkMapView = 'ch-mobile-mailbox__nav-tab__link_active';
@@ -396,8 +397,12 @@ angular.module('msapApp')
         };
 
         $scope.hideExtendedFilters = true;
+        $scope.hideExtendedFiltersButtonTitle = "facilities.show-all-filters";
         $scope.showAllFilters = function() {
             $scope.hideExtendedFilters = !$scope.hideExtendedFilters;
+            $scope.hideExtendedFiltersButtonTitle =
+                $scope.hideExtendedFiltersButtonTitle === "facilities.show-all-filters"
+                    ? "facilities.hide-all-filters" : "facilities.show-all-filters";
         };
 
         $scope.clearFilter = function(modelName) {

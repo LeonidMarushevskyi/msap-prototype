@@ -2,6 +2,7 @@
     "facilities": {
         "reset-filters": "Bộ lọc Thiết lập lại",
         "show-all-filters": "Hiện tất cả bộ lọc",
+        "hide-all-filters": "Ẩn bộ lọc",
         "apply-filters": "Áp dụng bộ lọc",
         "available-spots": "Điểm sẵn",
         "age-group": "Nhóm tuổi",

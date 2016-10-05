@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <section class="ch-facilities-heading mobile-filter-for-map-view" ng-class="mobileFilterState">
+    <section class="ch-facilities-heading" ng-class="mobileFilterState">
         <div class="ch-facilities-heading__row">
             <div class="ch-facilities-heading__item ch-facilities-heading__item_2 ch-facilities-heading__input__item_1">
                 <div class="ch-input-block">
@@ -108,12 +108,12 @@
             <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_4">
                 <button class="ch-option-btn ch-ink-btn"
                         type="button" ng-click="showAllFilters()"
-                        translate="facilities.show-all-filters"></button>
+                        translate="{{hideExtendedFiltersButtonTitle}}"></button>
             </div>
         </div>
     </section>
 
-    <section class="ch-facilities-extended-filters mobile-filter-for-map-view" ng-class="mobileFilterState">
+    <section class="ch-facilities-extended-filters" ng-class="mobileFilterState">
 
         <div class="ch-facilities-extended-filters__popup ng-hide" ng-hide="hideExtendedFilters">
             <div class="ch-facilities-extended-filters__section">
