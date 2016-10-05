@@ -67,7 +67,7 @@
                 </div>
             </li>
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Special needs:</div>
+                <div class="ch-facility-info-text">Special Needs:</div>
                 <div ng-repeat="specialNeed in agency.specialNeeds">
                     - {{specialNeed.name}}
                 </div>
@@ -80,28 +80,31 @@
                 </div>
             </li>
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">License First Date: {{agency.license_first_date | date: 'MM/dd/yyyy'}}</div>
-            </li>
-            <li class="ch-facility-info__part" ng-show="viewConfig.presentation === 'popup'">
-                <div class="ch-facility-info-text">Administrator: {{agency.facility_administrator | capitalize:true}}</div>
-            </li>
-            <li class="ch-facility-info__part" ng-show="viewConfig.presentation === 'popup'">
-                <div class="ch-facility-info-text">Address: {{agency.location_address | capitalize:true}}, {{agency.location_city | capitalize:true}}, {{agency.facility_state}} {{agency.location_zip}}</div>
-            </li>
-            <li class="ch-facility-info__part" ng-show="viewConfig.presentation === 'popup'">
-                <div class="ch-facility-info-text">Distance: {{agency.distance}} miles</div>
-            </li>
-            <li class="ch-facility-info__part" ng-show="viewConfig.presentation === 'popup'">
-                <div class="ch-facility-info-text">License First Date: {{agency.license_first_date | date: 'MM/dd/yyyy'}}</div>
+                <div class="ch-facility-info-text">License Type:</div>
+                <div class="ch-facility-info-text">{{agency.licenseType.name}}</div>
             </li>
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">County Name: {{agency.county_name}}</div>
+                <div class="ch-facility-info-text">Provider Capacity:</div>
+                <div class="ch-facility-info-text">{{agency.providerCapacity}}</div>
             </li>
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Regional Office: {{agency.regional_office}}</div>
+                <div class="ch-facility-info-text">Provider Description:</div>
+                <div class="ch-facility-info-text">{{agency.description}}</div>
             </li>
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Facility Capacity: {{agency.facility_capacity}}</div>
+                <div class="ch-facility-info-text">Number of Complains:</div>
+                <div class="ch-facility-info-text">{{agency.numberOfComplains}}</div>
+            </li>
+            <li class="ch-facility-info__part">
+                <div class="ch-facility-info-text">Number of Visits:</div>
+                <div class="ch-facility-info-text">{{agency.numberOfVisits}}</div>
+            </li>
+            <li class="ch-facility-info__part">
+                <div class="ch-facility-info-text">Date of Last Visit:</div>
+                <div class="ch-facility-info-text">{{agency.lastVisit}}</div>
+            </li>
+            <li class="ch-facility-info__part">
+                <div class="ch-facility-info-text">Supported Languages::</div>
             </li>
         </ul>
     </div>
