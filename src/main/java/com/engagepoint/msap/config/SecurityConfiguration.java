@@ -123,6 +123,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/api/lookupAgeGroupss").permitAll()
             .antMatchers("/api/lookupProviderTypes").permitAll()
             .antMatchers("/api/lookupQualityRatings").permitAll()
+            .antMatchers("/api/lookupLicenseTypes").permitAll()
             .antMatchers("/api/register").permitAll()
             .antMatchers("/api/activate").permitAll()
             .antMatchers("/api/authenticate").permitAll()

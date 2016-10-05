@@ -42,6 +42,9 @@ angular.module('msapApp')
                     }],
                     lookupSpecialNeedType: ['LookupSpecialNeedType', function(LookupSpecialNeedType) {
                         return LookupSpecialNeedType.query().$promise;
+                    }],
+                    lookupLicenseType: ['LookupLicenseType', function(LookupLicenseType) {
+                        return LookupLicenseType.query().$promise;
                     }]
                 }
             });

@@ -6,12 +6,12 @@ angular.module('msapApp')
         'leafletData', 'QualityRatingStars', 'ProviderAgenciesService',
         'GeocoderService', 'chLayoutConfigFactory', '$uibModal', 'Principal', 'AppPropertiesService', 'AddressUtils',
         'lookupAgeGroups', 'lookupQualityRating', 'lookupProviderType', 'lookupWorkingHours',
-        'lookupSpecialNeedGroup', 'lookupSpecialNeedType',
+        'lookupSpecialNeedGroup', 'lookupSpecialNeedType', 'lookupLicenseType',
     function ($scope, $state, $log, $q,
               leafletData, QualityRatingStars, ProviderAgenciesService,
               GeocoderService, chLayoutConfigFactory, $uibModal, Principal, AppPropertiesService, AddressUtils,
               lookupAgeGroups, lookupQualityRating, lookupProviderType, lookupWorkingHours,
-              lookupSpecialNeedGroup, lookupSpecialNeedType) {
+              lookupSpecialNeedGroup, lookupSpecialNeedType, lookupLicenseType) {
 
         $scope.lookupAgeGroups = lookupAgeGroups;
         $scope.lookupProviderType = lookupProviderType;
@@ -19,32 +19,21 @@ angular.module('msapApp')
         $scope.lookupWorkingHours = lookupWorkingHours;
         $scope.lookupSpecialNeedGroup = lookupSpecialNeedGroup;
         $scope.lookupSpecialNeedType = lookupSpecialNeedType;
-
+        $scope.lookupLicenseType = lookupLicenseType;
+        //
+        $scope.MENU_CONFIG = {
+            showList: false,
+            selectedCount: 0
+        };
+        //
         $scope.filterMenuConfigs = {
-            lookupAgeGroups: {
-                showList: false,
-                selectedCount: 0
-            },
-            lookupProviderType: {
-                showList: false,
-                selectedCount: 0
-            },
-            lookupQualityRating: {
-                showList: false,
-                selectedCount: 0
-            },
-            lookupWorkingHours: {
-                showList: false,
-                selectedCount: 0
-            },
-            lookupSpecialNeedGroup: {
-                showList: false,
-                selectedCount: 0
-            },
-            lookupSpecialNeedType: {
-                showList: false,
-                selectedCount: 0
-            }
+            lookupAgeGroups: _.cloneDeep($scope.MENU_CONFIG),
+            lookupProviderType: _.cloneDeep($scope.MENU_CONFIG),
+            lookupQualityRating: _.cloneDeep($scope.MENU_CONFIG),
+            lookupWorkingHours: _.cloneDeep($scope.MENU_CONFIG),
+            lookupSpecialNeedGroup: _.cloneDeep($scope.MENU_CONFIG),
+            lookupSpecialNeedType: _.cloneDeep($scope.MENU_CONFIG),
+            lookupLicenseType: _.cloneDeep($scope.MENU_CONFIG)
         };
 
         var agenciesDataSource;
@@ -280,7 +269,8 @@ angular.module('msapApp')
                 isAfterSchool: $scope.isSelected('lookupWorkingHours', 2),
                 isFullDay: $scope.isSelected('lookupWorkingHours', 3),
                 isWeekendCare: $scope.isSelected('lookupWorkingHours', 4),
-                isOpenOvernight: $scope.isSelected('lookupWorkingHours', 5)
+                isOpenOvernight: $scope.isSelected('lookupWorkingHours', 5),
+                licenseTypes: $scope.getSelected('lookupLicenseType')
             };
             $log.debug('request', request);
 

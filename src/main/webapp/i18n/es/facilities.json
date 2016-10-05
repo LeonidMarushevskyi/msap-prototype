@@ -73,6 +73,11 @@
             "3": "Llena de Día",
             "4": "Cuidado de fin de semana",
             "5": "Cuidado de la noche a la mañana"
+        },
+        "license-type": "Tipo de licencia",
+        "lookupLicenseType": {
+            "1": "NO LICENCIADO",
+            "2": "CON LICENCIA"
         }
     }
 }
