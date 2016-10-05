@@ -73,6 +73,11 @@
             "3": "Full Day Care",
             "4": "Weekend Care",
             "5": "Overnight Care"
+        },
+        "license-type": "License Type",
+        "lookupLicenseType": {
+            "1": "UNLICENSED",
+            "2": "LICENSED"
         }
     }
 }

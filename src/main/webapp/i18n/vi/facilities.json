@@ -73,6 +73,11 @@
             "3": "Chăm sóc đầy đủ ngày",
             "4": "Chăm sóc Weekend",
             "5": "Chăm sóc Nghỉ đêm"
+        },
+        "license-type": "Loại giấy phép",
+        "lookupLicenseType": {
+            "1": "KHÔNG CÓ GIẤY PHÉP",
+            "2": "PHÉP"
         }
     }
 }

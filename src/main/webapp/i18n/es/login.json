@@ -19,6 +19,11 @@
         },
         "password" : {
             "forgot": "¿Olvidaste tu contraseña?"
-        }
+        },
+        "age-group-dropdown" : {
+            "line1": "Selecciona la edad de los niños ",
+            "line2": "cuidado de necesidad"
+        },
+        "search": "Buscar"
     }
 }

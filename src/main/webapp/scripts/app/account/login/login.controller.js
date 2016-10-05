@@ -3,6 +3,8 @@
 angular.module('msapApp')
     .controller('LoginController', ['$scope', '$state', '$uibModal', 'GeocoderService', 'lookupAgeGroups',
     function ($scope, $state, $uibModal, GeocoderService, lookupAgeGroups) {
+        $scope.addressFeature;
+
         $scope.openSignInModal = function() {
             $uibModal.open({
                 templateUrl: 'scripts/app/account/login/modal/sign-in-dialog.html',
@@ -20,40 +22,47 @@ angular.module('msapApp')
 
         $scope.initTwitterTimeline();
 
-        $scope.ageGroupsConfig = {
-            showList: false,
-            label: "Select age(s) of children needing care"
+        $scope.filterMenuConfigs = {
+            lookupAgeGroups: {
+                showList: false,
+                selectedCount: 0
+            }
+        };
+        $scope.toggleFilterMenu = function (modelName, status) {
+            if (_.isUndefined(status)) {
+                $scope.filterMenuConfigs[modelName].showList = !$scope.filterMenuConfigs[modelName].showList;
+            } else {
+                $scope.filterMenuConfigs[modelName].showList = status;
+            }
         };
 
         $scope.lookupAgeGroups = lookupAgeGroups;
 
-        $scope.getSelected = function(model) {
-            return _.map(_.filter(model, {selected: true}), 'code');
+        $scope.getSelected = function(modelName) {
+            return _.map(_.filter($scope[modelName], {selected: true}), 'code');
         };
 
-        $scope.updateDropDownLabel = function(model, config, defaultValue) {
-            var selected = $scope.getSelected(model);
-            if (selected.length > 0) {
-                config.label = selected.length + ' Selected';
-            } else {
-                config.label = defaultValue;
-            }
+        $scope.onFilterMenuItemClick = function(modelName, code) {
+            $scope.updateSelectedCount(modelName);
         };
-        $scope.updateAgeGroupLabel = function() {
-            $scope.updateDropDownLabel(lookupAgeGroups, $scope.ageGroupsConfig, $scope.ageGroupsConfig.label);
-        };
-        $scope.onAgeGroupSelect = function() {
-            $scope.updateAgeGroupLabel();
+        $scope.updateSelectedCount = function(modelName) {
+            $scope.filterMenuConfigs[modelName].selectedCount = $scope.getSelected(modelName).length;
         };
 
         $scope.onSelectAddress = function (addressFeature) {
+            $scope.addressFeature = addressFeature;
+        };
+
+        $scope.doSearch = function () {
             $state.go('ch-facilities',
                 angular.merge($state.params,
                     {
-                        test: 'testing'
+                        latitude: $scope.addressFeature ? $scope.addressFeature.latlng.lat : null,
+                        longitude: $scope.addressFeature ? $scope.addressFeature.latlng.lng : null,
+                        geoLabel: $scope.addressFeature ? $scope.addressFeature.feature.properties.label : null,
+                        ageGroups: $scope.getSelected('lookupAgeGroups')
                     }
-                )
-            )
+                ));
         };
 
         $scope.addGeocoder = function () {
