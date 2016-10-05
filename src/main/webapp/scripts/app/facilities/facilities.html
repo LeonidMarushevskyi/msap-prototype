@@ -245,138 +245,22 @@
             </div>
 
             <div class="ch-facilities-extended-filters__section">
-                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
+
+                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group"
+                    ng-repeat="specialNeedGroup in lookupSpecialNeedGroup track by specialNeedGroup.id | orderBy: 'id'">
+
                     <li class="ch-checkboxes-group__header">
-                        <span translate="facilities.physical">Physical</span>
+                        <span>{{'lookups.lookupSpecialNeedGroup.' + specialNeedGroup.code | translate}}</span>
                     </li>
 
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="physical2" type="checkbox">
-                            <label for="physical2" translate="facilities.muscular-dystrophy">Muscular Dystrophy</label>
-                        </div>
-                    </li>
+                    <li class="ch-checkboxes-group__item"
+                        ng-repeat="specialNeedType in lookupSpecialNeedType track by specialNeedType.id | orderBy: 'id'">
 
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="physical3" type="checkbox">
-                            <label for="physical3" translate="facilities.multiple-sclerosis">Multiple Sclerosis</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="physical4" type="checkbox">
-                            <label for="physical4" translate="facilities.chronic-asthma">Chronic Asthma</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="physical5" type="checkbox">
-                            <label for="physical5" translate="facilities.epilepsy">Epilepsy</label>
-                        </div>
-                    </li>
-                </ul>
-
-                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
-                    <li class="ch-checkboxes-group__header">
-                        <span translate="facilities.developmental">Developmental</span>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="developmental2" type="checkbox">
-                            <label for="developmental2" translate="facilities.down-syndrome">Down Syndrome</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="developmental3" type="checkbox">
-                            <label for="developmental3" translate="facilities.dyslexia">Dyslexia</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="developmental4" type="checkbox">
-                            <label for="developmental4" translate="facilities.autism">Autism</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="developmental5" type="checkbox">
-                            <label for="developmental5" translate="facilities.processing-disorders">Processing Disorders</label>
-                        </div>
-                    </li>
-                </ul>
-
-                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
-                    <li class="ch-checkboxes-group__header">
-                        <span translate="facilities.sensory-imparied">Sensory Impaired</span>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="sensory2" type="checkbox">
-                            <label for="sensory2" translate="facilities.blind">Blind</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="sensory3" type="checkbox">
-                            <label for="sensory3" translate="facilities.deaf">Deaf</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="sensory4" type="checkbox">
-                            <label for="sensory4" translate="facilities.visually-impaired">Visually impaired</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="sensory5" type="checkbox">
-                            <label for="sensory5" translate="facilities.limited-hearing">Limited hearing</label>
-                        </div>
-                    </li>
-                </ul>
-
-                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
-                    <li class="ch-checkboxes-group__header">
-                        <span translate="facilities.behavioral-emotional">Behavioral/Emotional</span>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="behavioral2" type="checkbox">
-                            <label for="behavioral2" translate="facilities.attention-deficit">Attention Deficit Disorder (ADD)</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="behavioral3" type="checkbox">
-                            <label for="behavioral3" translate="facilities.bipolar-disorder">Bipolar disorder</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="behavioral4" type="checkbox">
-                            <label for="behavioral4" translate="facilities.post-traumatic-stress">Post traumatic Stress Disorder (PTSD)</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="behavioral5" type="checkbox">
-                            <label for="behavioral5" translate="facilities.oppositional-defiant">Oppositional Defiant Disorder (ODD)</label>
+                        <div class="form-type__checkbox_empty-label" ng-if="specialNeedType.specialNeedGroup.code == specialNeedGroup.code">
+                            <input id="specialNeedType_{{specialNeedType.code}}" type="checkbox"
+                                   ng-model="specialNeedType.selected"
+                                   ng-click="onFilterMenuItemClick('lookupSpecialNeedType', specialNeedType.code);">
+                            <label for="specialNeedType_{{specialNeedType.code}}">{{'lookups.lookupSpecialNeedType.' + specialNeedType.code | translate}}</label>
                         </div>
                     </li>
                 </ul>
