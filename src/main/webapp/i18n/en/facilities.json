@@ -78,6 +78,9 @@
         "lookupLicenseType": {
             "1": "UNLICENSED",
             "2": "LICENSED"
-        }
+        },
+        "askcaseworker": "Ask Caseworker",
+        "spots": "{{totalSpots}} Spots:"
+
     }
 }

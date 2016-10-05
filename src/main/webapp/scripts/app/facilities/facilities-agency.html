@@ -3,32 +3,32 @@
     <div class="ch-facility__header ch-facility__header_has-subinfo">
         <div class="ch-facility__heading-subinfo" >
             <span class="ch-facility__heading-subinfo-prefix">{{agency.distance}}</span>
-            <span class="ch-facility__heading-subinfo-ending">miles</span>
+            <span class="ch-facility__heading-subinfo-ending">{{'global.miles' | translate}}</span>
         </div>
     </div>
 
     <div class="ch-facility__tags">
         <ul class="ch-facility-tags clearfix">
             <li class="ch-facility-tags__tag">
-                <span class="ch-facilities-tag ch-facilities-tag_foster-family">{{agency.providerType.name}}</span>
+                <span class="ch-facilities-tag ch-facilities-tag_foster-family" translate="facilities.lookupProviderType.{{agency.providerType.code}}">{{agency.providerType.name}}</span>
             </li>
             <li class="ch-facility-tags__tag" ng-show="agency.qualityRating.name === 'Low'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_red">{{agency.qualityRating.name}}</span>
+                <span class="ch-facilities-tag ch-facilities-tag_status_red" translate="facilities.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
             </li>
             <li class="ch-facility-tags__tag" ng-show="agency.qualityRating.name === 'Average'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_orange">{{agency.qualityRating.name}}</span>
+                <span class="ch-facilities-tag ch-facilities-tag_status_orange" translate="facilities.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
             </li>
             <li class="ch-facility-tags__tag" ng-show="agency.qualityRating.name === 'Good'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_green">{{agency.qualityRating.name}}</span>
+                <span class="ch-facilities-tag ch-facilities-tag_status_green" translate="facilities.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
             </li>
             <li class="ch-facility-tags__tag" ng-show="agency.qualityRating.name === 'Very Good'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_green">{{agency.qualityRating.name}}</span>
+                <span class="ch-facilities-tag ch-facilities-tag_status_green" translate="facilities.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
             </li>
             <li class="ch-facility-tags__tag" ng-show="agency.qualityRating.name === 'Excellent'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_green">{{agency.qualityRating.name}}</span>
+                <span class="ch-facilities-tag ch-facilities-tag_status_green" translate="facilities.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
             </li>
             <li class="ch-facility-tags__tag" ng-show="agency.qualityRating.name === 'Not Rated'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_green">{{agency.qualityRating.name}}</span>
+                <span class="ch-facilities-tag ch-facilities-tag_status_green" translate="facilities.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
             </li>
         </ul>
     </div>
@@ -39,7 +39,7 @@
             <li class="ch-facility-info__part">
                 <div class="ch-facility-info-text">
                     <p class="ch-facility-info__name">{{agency.providerName}}</p>
-                    <p class="ch-facility-info__name">{{agency.licenseType.name}}</p>
+                    <p class="ch-facility-info__name" translate="facilities.lookupLicenseType.{{agency.licenseType.code}}">{{agency.licenseType.name}}</p>
                     <p class="ch-facility-info__phone">{{agency.phoneNumber}}</p>
                 </div>
             </li>
@@ -54,7 +54,7 @@
     <div class="ch-facility__info" ng-show="viewConfig.presentation == 'popup' || agency.showPartFlag">
         <ul class="ch-facility-info">
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">{{agency.totalSpots}} Spots:</div>
+                <div class="ch-facility-info-text" translate="facilities.spots" translate-values="{totalSpots: agency.totalSpots}">Spots:</div>
                 <div ng-repeat="openSlot in agency.openSlots">
                     {{openSlot.ageGroup.name}} - {{openSlot.openSlots}} spots
                 </div>
@@ -111,13 +111,13 @@
     <div class="ch-facility__btn-group clearfix">
         <div class="ch-facilities-btn-group">
             <div class="ch-facilities-btn-group__btn" has-authority="FOSTER_PARENT">
-                <button type="button" ng-click="askAbout(agency)" class="ch-plane-btn ch-plane-btn_primary">Ask Caseworker</button>
+                <button type="button" ng-click="askAbout(agency)" class="ch-plane-btn ch-plane-btn_primary"><span translate="facilities.askcaseworker">Ask Caseworker</span></button>
             </div>
             <div class="ch-facilities-btn-group__btn" ng-show="viewConfig.presentation !== 'popup' && !agency.showPartFlag" ng-click="agency.showPartFlag = !agency.showPartFlag">
-                <button type="button" class="ch-plane-btn ch-plane-btn_secondary">Show more</button>
+                <button type="button" class="ch-plane-btn ch-plane-btn_secondary" ><span translate="global.showmore">Show more</span></button>
             </div>
             <div class="ch-facilities-btn-group__btn" ng-show="viewConfig.presentation !== 'popup' && agency.showPartFlag" ng-click="agency.showPartFlag = !agency.showPartFlag">
-                <button type="button" class="ch-plane-btn ch-plane-btn_secondary">Hide details</button>
+                <button type="button" class="ch-plane-btn ch-plane-btn_secondary" ><span translate="global.hidedetails">Hide details</span></button>
             </div>
         </div>
     </div>

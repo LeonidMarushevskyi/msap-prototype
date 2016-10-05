@@ -78,6 +78,8 @@
         "lookupLicenseType": {
             "1": "KHÔNG CÓ GIẤY PHÉP",
             "2": "PHÉP"
-        }
+        },
+        "askcaseworker": "Hãy hỏi nhân viên phụ trách",
+        "spots": "{{totalSpots}} điểm:"
     }
 }

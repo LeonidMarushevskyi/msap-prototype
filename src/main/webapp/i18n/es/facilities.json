@@ -78,6 +78,8 @@
         "lookupLicenseType": {
             "1": "NO LICENCIADO",
             "2": "CON LICENCIA"
-        }
+        },
+        "askcaseworker": "Pregunta Asistente Social",
+        "spots": "{{totalSpots}} Manchas:"
     }
 }
