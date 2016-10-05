@@ -425,6 +425,7 @@ angular.module('msapApp')
             _.each($scope.searchParams.ageGroups, function (ageGroupCode) {
                 $scope.setSelected('lookupAgeGroups', ageGroupCode);
             });
+            $scope.updateSelectedCount('lookupAgeGroups');
         }
 
         $scope.isSelected = function(modelName, code) {
