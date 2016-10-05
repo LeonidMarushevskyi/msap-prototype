@@ -79,8 +79,10 @@
     <div class="ch-login__search">
         <div class="ch-login__search__action flex-row">
 
+            <leaflet style="display: none"></leaflet>
+
             <div class="ch-login__input flex-child-2">
-                  <input type="search" name="name" value="" placeholder="Search near your address">
+                <div id="geoaddress" title="Search near your address"></div>
             </div>
 
             <div class="ch-login__select flex-child">
@@ -90,15 +92,16 @@
                           ng-click="typesConfig.showList = !typesConfig.showList;">
                       <span class="">Select age(s) of children <span class="ch-mobile-text__cut">needing care</span></span>
                   </button>
-
-                  <div class="ch-login__select-dropdown__list" ng-show="typesConfig.showList" ng-mouseleave="typesConfig.showList = false">
-                      <ul class="ch-login-dropdown-list" ng-click="typesConfig.showList = !typesConfig.showList;">
-                          <li class="ch-login-dropdown-list__item">1-3 years</li>
-                          <li class="ch-login-dropdown-list__item">4-8 years</li>
-                          <li class="ch-login-dropdown-list__item">9-12 years</li>
+                  <div class="ch-multi-select-dropdown__popup" ng-show="ageGroupConfig.showList" ng-mouseleave="ageGroupConfig.showList = false">
+                      <ul class="ch-checkboxes-list">
+                          <li class="ch-checkboxes-list__item" ng-repeat="ageGroup in lookupAgeGroups track by ageGroup.id | orderBy: 'id'">
+                              <div class="form-type__checkbox_empty-label">
+                                  <input id="ageGroup_{{ageGroup.code}}" type="checkbox" ng-model="ageGroup.selected" ng-click="onAgeGroupSelect();">
+                                  <label for="ageGroup_{{ageGroup.code}}">{{'facilities.lookupAgeGroups.' + ageGroup.code | translate}}</label>
+                              </div>
+                          </li>
                       </ul>
                   </div>
-
               </div>
             </div>
 
