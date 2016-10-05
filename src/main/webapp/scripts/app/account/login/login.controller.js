@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('msapApp')
-    .controller('LoginController', function ($scope, $uibModal) {
+    .controller('LoginController', ['$scope', '$state', '$uibModal', 'GeocoderService', 'lookupAgeGroups',
+    function ($scope, $state, $uibModal, GeocoderService, lookupAgeGroups) {
         $scope.openSignInModal = function() {
             $uibModal.open({
                 templateUrl: 'scripts/app/account/login/modal/sign-in-dialog.html',
@@ -18,4 +19,48 @@ angular.module('msapApp')
         };
 
         $scope.initTwitterTimeline();
-    });
+
+        $scope.ageGroupsConfig = {
+            showList: false,
+            label: "Select age(s) of children needing care"
+        };
+
+        $scope.lookupAgeGroups = lookupAgeGroups;
+
+        $scope.getSelected = function(model) {
+            return _.map(_.filter(model, {selected: true}), 'code');
+        };
+
+        $scope.updateDropDownLabel = function(model, config, defaultValue) {
+            var selected = $scope.getSelected(model);
+            if (selected.length > 0) {
+                config.label = selected.length + ' Selected';
+            } else {
+                config.label = defaultValue;
+            }
+        };
+        $scope.updateAgeGroupLabel = function() {
+            $scope.updateDropDownLabel(lookupAgeGroups, $scope.ageGroupsConfig, $scope.ageGroupsConfig.label);
+        };
+        $scope.onAgeGroupSelect = function() {
+            $scope.updateAgeGroupLabel();
+        };
+
+        $scope.onSelectAddress = function (addressFeature) {
+            $state.go('ch-facilities',
+                angular.merge($state.params,
+                    {
+                        test: 'testing'
+                    }
+                )
+            )
+        };
+
+        $scope.addGeocoder = function () {
+            if(!$scope.geocoder) {
+                $scope.geocoder = GeocoderService.createGeocoder("geoaddress", $scope.onSelectAddress);
+            }
+        };
+        $scope.addGeocoder();
+
+    }]);
