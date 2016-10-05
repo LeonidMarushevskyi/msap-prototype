@@ -60,6 +60,11 @@
             "14": "Sordo",
             "15": "Discapacidad visual",
             "16": "Audiencia limitada"
+        },
+        "lookupLanguage": {
+            "EN": "Inglés",
+            "ES": "Español",
+            "VE": "Vietnamita"
         }
     }
 }

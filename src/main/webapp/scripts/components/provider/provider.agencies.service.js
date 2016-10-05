@@ -70,7 +70,8 @@ angular.module('msapApp')
                             '+isWeekendCare': filter.isWeekendCare ? 'true' : '',
                             '+isOpenOvernight': filter.isOpenOvernight ? 'true' : '',
                             '+licenseType.code': filter.licenseTypes,
-                            '+specialNeeds.code': filter.specialNeeds
+                            '+specialNeeds.code': filter.specialNeeds,
+                            '+supportedLanguages.code': filter.supportedLanguages
                         }
                     ],
                     // entity name

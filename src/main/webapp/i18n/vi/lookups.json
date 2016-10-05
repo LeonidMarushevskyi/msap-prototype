@@ -60,6 +60,11 @@
             "14": "Điếc",
             "15": "Khiếm thị",
             "16": "Nghe hạn chế"
+        },
+        "lookupLanguage": {
+            "EN": "Anh",
+            "ES": "Người Tây Ban Nha",
+            "VE": "Tiếng Việt"
         }
     }
 }

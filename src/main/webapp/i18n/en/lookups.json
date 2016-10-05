@@ -60,6 +60,11 @@
             "14": "Deaf",
             "15": "Visually impaired",
             "16": "Limited hearing"
+        },
+        "lookupLanguage": {
+            "EN": "English",
+            "ES": "Spanish",
+            "VE": "Vietnamese"
         }
     }
 }

@@ -6,12 +6,12 @@ angular.module('msapApp')
         'leafletData', 'QualityRatingStars', 'ProviderAgenciesService',
         'GeocoderService', 'chLayoutConfigFactory', '$uibModal', 'Principal', 'AppPropertiesService', 'AddressUtils',
         'lookupAgeGroups', 'lookupQualityRating', 'lookupProviderType', 'lookupWorkingHours',
-        'lookupSpecialNeedGroup', 'lookupSpecialNeedType', 'lookupLicenseType',
+        'lookupSpecialNeedGroup', 'lookupSpecialNeedType', 'lookupLicenseType', 'lookupLanguage',
     function ($scope, $state, $log, $q, searchParams,
               leafletData, QualityRatingStars, ProviderAgenciesService,
               GeocoderService, chLayoutConfigFactory, $uibModal, Principal, AppPropertiesService, AddressUtils,
               lookupAgeGroups, lookupQualityRating, lookupProviderType, lookupWorkingHours,
-              lookupSpecialNeedGroup, lookupSpecialNeedType, lookupLicenseType) {
+              lookupSpecialNeedGroup, lookupSpecialNeedType, lookupLicenseType, lookupLanguage) {
 
         $scope.searchParams = searchParams;
         $scope.lookupAgeGroups = lookupAgeGroups;
@@ -21,6 +21,7 @@ angular.module('msapApp')
         $scope.lookupSpecialNeedGroup = lookupSpecialNeedGroup;
         $scope.lookupSpecialNeedType = lookupSpecialNeedType;
         $scope.lookupLicenseType = lookupLicenseType;
+        $scope.lookupLanguage = lookupLanguage;
         //
         $scope.MENU_CONFIG = {
             showList: false,
@@ -34,7 +35,8 @@ angular.module('msapApp')
             lookupWorkingHours: _.cloneDeep($scope.MENU_CONFIG),
             lookupSpecialNeedGroup: _.cloneDeep($scope.MENU_CONFIG),
             lookupSpecialNeedType: _.cloneDeep($scope.MENU_CONFIG),
-            lookupLicenseType: _.cloneDeep($scope.MENU_CONFIG)
+            lookupLicenseType: _.cloneDeep($scope.MENU_CONFIG),
+            lookupLanguage: _.cloneDeep($scope.MENU_CONFIG)
         };
 
         var agenciesDataSource;
@@ -272,7 +274,8 @@ angular.module('msapApp')
                 isWeekendCare: $scope.isSelected('lookupWorkingHours', 4),
                 isOpenOvernight: $scope.isSelected('lookupWorkingHours', 5),
                 licenseTypes: $scope.getSelected('lookupLicenseType'),
-                specialNeeds: $scope.getSelected('lookupSpecialNeedType')
+                specialNeeds: $scope.getSelected('lookupSpecialNeedType'),
+                supportedLanguages: $scope.getSelected('lookupLanguage')
             };
             //$log.debug('request', request);
 

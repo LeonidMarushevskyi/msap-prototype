@@ -220,24 +220,16 @@
                             <span translate="facilities.languages">Languages</span>
                         </li>
 
-                        <li class="ch-checkboxes-group__item">
-                            <div class="form-type__checkbox_empty-label">
-                                <input id="language2" type="checkbox">
-                                <label for="language2" translate="facilities.english">English</label>
-                            </div>
-                        </li>
+                        <li class="ch-checkboxes-group__item"
+                            ng-repeat="lang in lookupLanguage track by lang.id | orderBy: 'id'">
 
-                        <li class="ch-checkboxes-group__item">
                             <div class="form-type__checkbox_empty-label">
-                                <input id="language3" type="checkbox">
-                                <label for="language3" translate="facilities.spanish">Spanish</label>
-                            </div>
-                        </li>
-
-                        <li class="ch-checkboxes-group__item">
-                            <div class="form-type__checkbox_empty-label">
-                                <input id="language4" type="checkbox">
-                                <label for="language4" translate="facilities.vietnamese">Vietnamese</label>
+                                <input id="lang_{{lang.code}}" type="checkbox"
+                                       ng-model="lang.selected"
+                                       ng-click="onFilterMenuItemClick('lookupLanguage', lang.code);">
+                                <label for="lang_{{lang.code}}">
+                                    {{'lookups.lookupLanguage.' + lang.code | translate}}
+                                </label>
                             </div>
                         </li>
                     </li>
