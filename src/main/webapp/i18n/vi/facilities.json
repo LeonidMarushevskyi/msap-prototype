@@ -16,70 +16,9 @@
         "no-problems": "thêm vào",
         "no-complains": "Không Kêu",
         "no-allegations": "Không có cáo buộc",
-        "physical": "Vật lý",
-        "muscular-dystrophy": "Loạn dưỡng cơ bắp",
-        "multiple-sclerosis": "Đa xơ cứng",
-        "chronic-asthma": "Hen suyễn mãn tính",
-        "epilepsy": "Bệnh động kinh",
-        "developmental": "Phát triển",
-        "down-syndrome": "Hội chứng Down",
-        "dyslexia": "Chứng khó đọc",
-        "autism": "Tự kỷ",
-        "processing-disorders": "Chế biến rối loạn",
-        "behavioral-emotional": "Hành vi / tình cảm",
-        "attention-deficit": "Attention Deficit Disorder (ADD)",
-        "bipolar-disorder": "Rối loạn lưỡng cực",
-        "post-traumatic-stress": "Post traumatic rối loạn stress (PTSD)",
-        "oppositional-defiant": "Rối loạn chống đối thách thức (ODD)",
-        "sensory-imparied": "Giác Khiếm",
-        "blind": "Blind",
-        "deaf": "Điếc",
-        "visually-impaired": "Khiếm thị",
-        "limited-hearing": "Nghe Limited",
         "total-results": "{{number}} kết quả",
-        "age-groups-selected": "{{selectedCount}} lựa chọn",
-        "lookupAgeGroups": {
-            "1": "trẻ sơ sinh (0-12 tháng)",
-            "2": "Toddler (12-24 tháng)",
-            "3": "2 năm",
-            "4": "3 năm",
-            "5": "4 năm",
-            "6": "5-9 năm",
-            "7": "10-12 năm"
-        },
         "all-quality-ratings": "Tất cả hàng Xếp hạng chất lượng",
-        "quality-ratings-selected": "{{selectedCount}} lựa chọn",
-        "lookupQualityRating": {
-            "0": "Không được đánh giá",
-            "1": "Thấp",
-            "2": "Trung bình",
-            "3": "Tốt",
-            "4": "Rất tốt",
-            "5": "Tuyệt vời"
-        },
         "all-provider-types": "Tất cả các loại nhà cung cấp",
-        "lookupProviderType": {
-            "2": "Khe thầu",
-            "3": "Nhóm Home",
-            "4": "Trung tâm",
-            "5": "Không tương đối trong trang",
-            "6": "Họ hàng trong trang",
-            "7": "Không tương đối trong nhà",
-            "8": "Họ hàng trong nhà"
-        },
-        "lookupWorkingHours": {
-            "1": "Trước khi chăm sóc học đường",
-            "2": "Sau khi chăm sóc học đường",
-            "3": "Chăm sóc đầy đủ ngày",
-            "4": "Chăm sóc Weekend",
-            "5": "Chăm sóc Nghỉ đêm"
-        },
-        "license-type": "Loại giấy phép",
-        "lookupLicenseType": {
-            "1": "KHÔNG CÓ GIẤY PHÉP",
-            "2": "PHÉP"
-        },
-        "askcaseworker": "Hãy hỏi nhân viên phụ trách",
-        "spots": "{{totalSpots}} điểm:"
+        "license-type": "Loại giấy phép"
     }
 }

@@ -1,0 +1,65 @@
+{
+    "lookups": {
+        "lookupAgeGroups": {
+            "1": "trẻ sơ sinh (0-12 tháng)",
+            "2": "Toddler (12-24 tháng)",
+            "3": "2 năm",
+            "4": "3 năm",
+            "5": "4 năm",
+            "6": "5-9 năm",
+            "7": "10-12 năm"
+        },
+        "lookupQualityRating": {
+            "0": "Không được đánh giá",
+            "1": "Thấp",
+            "2": "Trung bình",
+            "3": "Tốt",
+            "4": "Rất tốt",
+            "5": "Tuyệt vời"
+        },
+        "lookupProviderType": {
+            "2": "Khe thầu",
+            "3": "Nhóm Home",
+            "4": "Trung tâm",
+            "5": "Không tương đối trong trang",
+            "6": "Họ hàng trong trang",
+            "7": "Không tương đối trong nhà",
+            "8": "Họ hàng trong nhà"
+        },
+        "lookupWorkingHours": {
+            "1": "Trước khi chăm sóc học đường",
+            "2": "Sau khi chăm sóc học đường",
+            "3": "Chăm sóc đầy đủ ngày",
+            "4": "Chăm sóc Weekend",
+            "5": "Chăm sóc Nghỉ đêm"
+        },
+        "lookupLicenseType": {
+            "1": "KHÔNG CÓ GIẤY PHÉP",
+            "2": "PHÉP"
+        },
+        "lookupSpecialNeedGroup": {
+            "1": "Vật lý",
+            "2": "Phát triển",
+            "3": "Hành vi / tình cảm",
+            "4": "Giác Khiếm"
+        },
+        "lookupSpecialNeedType": {
+            "1": "Loạn dưỡng cơ bắp",
+            "2": "Đa xơ cứng",
+            "3": "Hen suyễn mãn tính",
+            "4": "Bệnh động kinh",
+            "5": "Hội chứng Down",
+            "6": "Chứng khó đọc",
+            "7": "Tự kỷ",
+            "8": "Rối loạn chế biến",
+            "9": "Rối loạn thiếu tập trung",
+            "10": "Rối loạn lưỡng cực",
+            "11": "Dẫn tới chấn thương tâm lý",
+            "12": "Rối loạn thách thức chống đối",
+            "13": "Mù",
+            "14": "Điếc",
+            "15": "Khiếm thị",
+            "16": "Nghe hạn chế"
+        }
+    }
+}

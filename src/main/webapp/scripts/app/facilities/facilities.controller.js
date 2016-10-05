@@ -271,9 +271,10 @@ angular.module('msapApp')
                 isFullDay: $scope.isSelected('lookupWorkingHours', 3),
                 isWeekendCare: $scope.isSelected('lookupWorkingHours', 4),
                 isOpenOvernight: $scope.isSelected('lookupWorkingHours', 5),
-                licenseTypes: $scope.getSelected('lookupLicenseType')
+                licenseTypes: $scope.getSelected('lookupLicenseType'),
+                specialNeeds: $scope.getSelected('lookupSpecialNeedType')
             };
-            $log.debug('request', request);
+            //$log.debug('request', request);
 
             ProviderAgenciesService.findAgenciesByFilter(request).then(
                 function(agencies) {
@@ -425,6 +426,7 @@ angular.module('msapApp')
             _.each($scope.searchParams.ageGroups, function (ageGroupCode) {
                 $scope.setSelected('lookupAgeGroups', ageGroupCode);
             });
+            $scope.updateSelectedCount('lookupAgeGroups');
         }
 
         $scope.isSelected = function(modelName, code) {

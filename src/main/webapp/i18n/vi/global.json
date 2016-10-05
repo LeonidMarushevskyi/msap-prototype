@@ -128,7 +128,8 @@
             "confirmpassword.placeholder": "Xác nhận mật khẩu mới",
             "email": "E-mail",
             "email.placeholder": "E-mail của bạn",
-            "email.address": "Địa chỉ e-mail"
+            "email.address": "Địa chỉ e-mail",
+            "filters-selected": "{{selectedCount}} lựa chọn"
         },
         "messages": {
             "info": {
