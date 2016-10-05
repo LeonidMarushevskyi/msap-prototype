@@ -161,7 +161,10 @@
         },
         "field": {
             "id": "ID"
-        }
+        },
+        "miles": "dặm",
+        "showmore": "Cho xem nhiều hơn",
+        "hidedetails": "Giấu các chi tiết"
     },
     "entity": {
         "action": {

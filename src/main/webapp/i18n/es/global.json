@@ -161,7 +161,10 @@
         },
         "field": {
             "id": "ID"
-        }
+        },
+        "miles": "millas",
+        "showmore": "Mostrar más",
+        "hidedetails": "Ocultar detalles"
     },
     "entity": {
         "action": {

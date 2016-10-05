@@ -13,7 +13,7 @@ angular.module('msapApp')
         showWeeks: false
     })
     .constant('QualityRatingStars', {
-        NOT_RATED: {code: 0, stars: '1star'},
+        NOT_RATED: {code: 0, stars: 'not_rated'},
         LOW: {code: 1, stars: '1star'},
         AVERAGE: {code: 2, stars: '2star'},
         GOOD: {code: 3, stars: '3star'},
