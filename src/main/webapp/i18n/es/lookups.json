@@ -74,6 +74,10 @@
             "5": "Viernes",
             "6": "Sábado",
             "7": "Domingo"
+        },
+        "filterComplainsAndAllegations": {
+            "1": "No tengo quejas",
+            "2": "No hay acusaciones"
         }
     }
 }

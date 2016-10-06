@@ -22,6 +22,10 @@ angular.module('msapApp')
         $scope.lookupSpecialNeedType = lookupSpecialNeedType;
         $scope.lookupLicenseType = lookupLicenseType;
         $scope.lookupLanguage = lookupLanguage;
+        $scope.filterComplainsAndAllegations = [
+            { id: 1, code: 1 }, // complains
+            { id: 2, code: 2 } // allegations
+        ];
         //
         $scope.MENU_CONFIG = {
             showList: false,
@@ -36,7 +40,8 @@ angular.module('msapApp')
             lookupSpecialNeedGroup: _.cloneDeep($scope.MENU_CONFIG),
             lookupSpecialNeedType: _.cloneDeep($scope.MENU_CONFIG),
             lookupLicenseType: _.cloneDeep($scope.MENU_CONFIG),
-            lookupLanguage: _.cloneDeep($scope.MENU_CONFIG)
+            lookupLanguage: _.cloneDeep($scope.MENU_CONFIG),
+            filterComplainsAndAllegations: _.cloneDeep($scope.MENU_CONFIG)
         };
 
         var agenciesDataSource;
@@ -280,7 +285,9 @@ angular.module('msapApp')
                 isOpenOvernight: $scope.isSelected('lookupWorkingHours', 5),
                 licenseTypeCodes: $scope.getSelectedCodes('lookupLicenseType'),
                 specialNeedCodes: $scope.getSelectedCodes('lookupSpecialNeedType'),
-                supportedLanguageCodes: $scope.getSelectedCodes('lookupLanguage')
+                supportedLanguageCodes: $scope.getSelectedCodes('lookupLanguage'),
+                isNoComplains: $scope.isSelected('filterComplainsAndAllegations', 1),
+                isNoAllegations: $scope.isSelected('filterComplainsAndAllegations', 2)
             };
             //$log.debug('request', request);
 
