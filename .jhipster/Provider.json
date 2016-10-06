@@ -52,8 +52,8 @@
     },
     {
       "relationshipId": 7,
-      "relationshipName": "specialNeed",
-      "otherEntityName": "lookupSpecialNeedType",
+      "relationshipName": "supportedSpecialNeed",
+      "otherEntityName": "supportedSpecialNeed",
       "relationshipType": "one-to-many",
       "otherEntityRelationshipName": "provider"
     },
@@ -81,7 +81,7 @@
     {
       "relationshipId": 11,
       "relationshipName": "supportedLanguage",
-      "otherEntityName": "lookupLanguage",
+      "otherEntityName": "supportedLanguage",
       "relationshipType": "one-to-many",
       "otherEntityRelationshipName": "provider"
     }

@@ -18,8 +18,7 @@
             },
             "code": "Code",
             "name": "Name",
-            "specialNeedGroup": "SpecialNeedGroup",
-            "provider": "Provider"
+            "specialNeedGroup": "SpecialNeedGroup"
         }
     }
 }

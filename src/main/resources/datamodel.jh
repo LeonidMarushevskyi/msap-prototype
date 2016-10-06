@@ -107,6 +107,13 @@ entity SubstantiatedAllegation {
     allegationDate LocalDate
 }
 
+entity SupportedSpecialNeed {
+}
+
+entity SupportedLanguage {
+}
+
+
 entity Review {
     content String,
     reviewDate ZonedDateTime
@@ -256,8 +263,13 @@ relationship OneToOne {
 }
 
 relationship OneToMany {
-  Provider{specialNeed} to LookupSpecialNeedType
+  Provider{SupportedSpecialNeed} to SupportedSpecialNeed
 }
+
+relationship OneToOne {
+  SupportedSpecialNeed{specialNeedType} to LookupSpecialNeedType
+}
+
 
 relationship OneToMany {
   Provider{review} to Review
@@ -276,7 +288,11 @@ relationship OneToMany {
 }
 
 relationship OneToMany {
-  Provider{supportedLanguage} to LookupLanguage
+  Provider{supportedLanguage} to SupportedLanguage
+}
+
+relationship OneToOne {
+  SupportedLanguage{language} to LookupLanguage
 }
 
 relationship OneToOne {
