@@ -84,7 +84,8 @@ public class Provider implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Schedule> schedules = new HashSet<>();
 
-    @OneToMany(mappedBy = "provider")
+    @JsonManagedReference("supportedSpecialNeeds")
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<SupportedSpecialNeed> supportedSpecialNeeds = new HashSet<>();
 
