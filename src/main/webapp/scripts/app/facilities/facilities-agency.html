@@ -57,9 +57,9 @@
     <div class="ch-facility__info" ng-show="viewConfig.presentation == 'popup' || agency.showPartFlag">
         <ul class="ch-facility-info">
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text" translate="facilities.spots" translate-values="{totalSpots: agency.totalSpots}">Spots:</div>
+                <div class="ch-facility-info-text" translate="facilities.spots-capitalized" translate-values="{totalSpots: agency.totalSpots}">Spots:</div>
                 <div ng-repeat="openSlot in agency.openSlots">
-                    {{openSlot.ageGroup.name}} - {{openSlot.openSlots}} spots
+                    <span translate="lookups.lookupAgeGroups.{{openSlot.ageGroup.code}}">{{openSlot.ageGroup.name}}</span> - <span translate="facilities.spots-small" translate-values="{totalSpots: openSlot.openSlots}">{{openSlot.openSlots}} spots</span>
                 </div>
             </li>
 
