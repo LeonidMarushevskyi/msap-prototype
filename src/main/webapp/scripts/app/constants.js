@@ -4,7 +4,8 @@ angular.module('msapApp')
     .constant('SecurityRole', {
         ADMIN: 'ROLE_ADMIN',
         CASE_WORKER: 'CASE_WORKER',
-        PARENT: 'PARENT'
+        PARENT: 'PARENT',
+        FOSTER_PARENT: 'FOSTER_PARENT'
     })
     .constant('uibCustomDatepickerConfig', {
         formatYear: 'yyyy',
@@ -12,7 +13,7 @@ angular.module('msapApp')
         showWeeks: false
     })
     .constant('QualityRatingStars', {
-        NOT_RATED: {code: 0, stars: '1star'},
+        NOT_RATED: {code: 0, stars: 'not_rated'},
         LOW: {code: 1, stars: '1star'},
         AVERAGE: {code: 2, stars: '2star'},
         GOOD: {code: 3, stars: '3star'},

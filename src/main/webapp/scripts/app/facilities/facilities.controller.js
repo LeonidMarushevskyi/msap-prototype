@@ -2,49 +2,41 @@
 
 angular.module('msapApp')
     .controller('FacilitiesController',
-    ['$scope', '$state', '$log', '$q',
+    ['$scope', '$state', '$log', '$q', 'searchParams',
         'leafletData', 'QualityRatingStars', 'ProviderAgenciesService',
         'GeocoderService', 'chLayoutConfigFactory', '$uibModal', 'Principal', 'AppPropertiesService', 'AddressUtils',
         'lookupAgeGroups', 'lookupQualityRating', 'lookupProviderType', 'lookupWorkingHours',
-        'lookupSpecialNeedGroup', 'lookupSpecialNeedType',
-    function ($scope, $state, $log, $q,
+        'lookupSpecialNeedGroup', 'lookupSpecialNeedType', 'lookupLicenseType', 'lookupLanguage',
+    function ($scope, $state, $log, $q, searchParams,
               leafletData, QualityRatingStars, ProviderAgenciesService,
               GeocoderService, chLayoutConfigFactory, $uibModal, Principal, AppPropertiesService, AddressUtils,
               lookupAgeGroups, lookupQualityRating, lookupProviderType, lookupWorkingHours,
-              lookupSpecialNeedGroup, lookupSpecialNeedType) {
+              lookupSpecialNeedGroup, lookupSpecialNeedType, lookupLicenseType, lookupLanguage) {
 
+        $scope.searchParams = searchParams;
         $scope.lookupAgeGroups = lookupAgeGroups;
         $scope.lookupProviderType = lookupProviderType;
         $scope.lookupQualityRating = lookupQualityRating;
         $scope.lookupWorkingHours = lookupWorkingHours;
         $scope.lookupSpecialNeedGroup = lookupSpecialNeedGroup;
         $scope.lookupSpecialNeedType = lookupSpecialNeedType;
-
+        $scope.lookupLicenseType = lookupLicenseType;
+        $scope.lookupLanguage = lookupLanguage;
+        //
+        $scope.MENU_CONFIG = {
+            showList: false,
+            selectedCount: 0
+        };
+        //
         $scope.filterMenuConfigs = {
-            lookupAgeGroups: {
-                showList: false,
-                selectedCount: 0
-            },
-            lookupProviderType: {
-                showList: false,
-                selectedCount: 0
-            },
-            lookupQualityRating: {
-                showList: false,
-                selectedCount: 0
-            },
-            lookupWorkingHours: {
-                showList: false,
-                selectedCount: 0
-            },
-            lookupSpecialNeedGroup: {
-                showList: false,
-                selectedCount: 0
-            },
-            lookupSpecialNeedType: {
-                showList: false,
-                selectedCount: 0
-            }
+            lookupAgeGroups: _.cloneDeep($scope.MENU_CONFIG),
+            lookupProviderType: _.cloneDeep($scope.MENU_CONFIG),
+            lookupQualityRating: _.cloneDeep($scope.MENU_CONFIG),
+            lookupWorkingHours: _.cloneDeep($scope.MENU_CONFIG),
+            lookupSpecialNeedGroup: _.cloneDeep($scope.MENU_CONFIG),
+            lookupSpecialNeedType: _.cloneDeep($scope.MENU_CONFIG),
+            lookupLicenseType: _.cloneDeep($scope.MENU_CONFIG),
+            lookupLanguage: _.cloneDeep($scope.MENU_CONFIG)
         };
 
         var agenciesDataSource;
@@ -140,6 +132,7 @@ angular.module('msapApp')
         $scope.showMapView = 'ch-show-map-view';
         $scope.showLinkMapView = 'ch-mobile-mailbox__nav-tab__link_active';
 
+        $scope.mobileFilterState = 'mobile-filter-for-map-view';
         $scope.changeMapView = function() {
             $scope.showMapView = 'ch-show-map-view';
             $scope.showLinkMapView = 'ch-mobile-mailbox__nav-tab__link_active';
@@ -279,13 +272,15 @@ angular.module('msapApp')
                 isAfterSchool: $scope.isSelected('lookupWorkingHours', 2),
                 isFullDay: $scope.isSelected('lookupWorkingHours', 3),
                 isWeekendCare: $scope.isSelected('lookupWorkingHours', 4),
-                isOpenOvernight: $scope.isSelected('lookupWorkingHours', 5)
+                isOpenOvernight: $scope.isSelected('lookupWorkingHours', 5),
+                licenseTypes: $scope.getSelected('lookupLicenseType'),
+                specialNeeds: $scope.getSelected('lookupSpecialNeedType'),
+                supportedLanguages: $scope.getSelected('lookupLanguage')
             };
-            $log.debug('request', request);
+            //$log.debug('request', request);
 
             ProviderAgenciesService.findAgenciesByFilter(request).then(
                 function(agencies) {
-                    $log.debug('agencies', agencies);
                     agenciesDataSource = agencies;
                     $scope.updateLocations();
                 },
@@ -396,8 +391,12 @@ angular.module('msapApp')
         };
 
         $scope.hideExtendedFilters = true;
+        $scope.hideExtendedFiltersButtonTitle = "facilities.show-all-filters";
         $scope.showAllFilters = function() {
             $scope.hideExtendedFilters = !$scope.hideExtendedFilters;
+            $scope.hideExtendedFiltersButtonTitle =
+                $scope.hideExtendedFiltersButtonTitle === "facilities.show-all-filters"
+                    ? "facilities.hide-all-filters" : "facilities.show-all-filters";
         };
 
         $scope.clearFilter = function(modelName) {
@@ -421,6 +420,17 @@ angular.module('msapApp')
         $scope.getSelected = function(modelName) {
             return _.map(_.filter($scope[modelName], {selected: true}), 'code');
         };
+
+        $scope.setSelected = function(modelName, code) {
+            _.find($scope[modelName], {code: code}).selected = true;
+            $scope.addSelectedFilterButton(modelName, code);
+        };
+        if ($scope.searchParams.ageGroups) {
+            _.each($scope.searchParams.ageGroups, function (ageGroupCode) {
+                $scope.setSelected('lookupAgeGroups', ageGroupCode);
+            });
+            $scope.updateSelectedCount('lookupAgeGroups');
+        }
 
         $scope.isSelected = function(modelName, code) {
             return _.find($scope[modelName], {code: code}).selected;
@@ -544,21 +554,35 @@ angular.module('msapApp')
             return hasLatLng && hasCityState;
         };
 
-        Principal.identity().then(function(userProfile) {
-            if (! $scope.profileHasEnoughAddressData(userProfile)) {
-                $scope.openDefaultAddressModal(userProfile);
-            } else {
-                $scope.onSelectAddress({
-                    latlng: {
-                        lat: userProfile.place.latitude,
-                        lng: userProfile.place.longitude
-                    },
-                    feature: {
-                        properties: {
-                            label: AddressUtils.formatAddress(userProfile.place)
-                        }
+        if ($scope.searchParams.latitude && $scope.searchParams.longitude) {
+            $scope.onSelectAddress({
+                latlng: {
+                    lat: $scope.searchParams.latitude,
+                    lng: $scope.searchParams.longitude
+                },
+                feature: {
+                    properties: {
+                        label: $scope.searchParams.geoLabel
                     }
-                });
-            }
-        });
+                }
+            });
+        } else {
+            Principal.identity().then(function (userProfile) {
+                if (!$scope.profileHasEnoughAddressData(userProfile)) {
+                    $scope.openDefaultAddressModal(userProfile);
+                } else {
+                    $scope.onSelectAddress({
+                        latlng: {
+                            lat: userProfile.place.latitude,
+                            lng: userProfile.place.longitude
+                        },
+                        feature: {
+                            properties: {
+                                label: AddressUtils.formatAddress(userProfile.place)
+                            }
+                        }
+                    });
+                }
+            });
+        }
     }]);

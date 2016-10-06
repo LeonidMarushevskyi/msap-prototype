@@ -128,7 +128,8 @@
             "confirmpassword.placeholder": "Confirme la nueva contraseña",
             "email": "Correo electrónico",
             "email.placeholder": "Tu correo electrónico",
-            "email.address": "Dirección de correo electrónico"
+            "email.address": "Dirección de correo electrónico",
+            "filters-selected": "{{selectedCount}} seleccionado"
         },
         "messages": {
             "info": {
@@ -160,7 +161,10 @@
         },
         "field": {
             "id": "ID"
-        }
+        },
+        "miles": "millas",
+        "showmore": "Mostrar más",
+        "hidedetails": "Ocultar detalles"
     },
     "entity": {
         "action": {

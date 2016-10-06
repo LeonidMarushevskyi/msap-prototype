@@ -7,7 +7,7 @@ angular.module('msapApp')
                 parent: 'site',
                 url: '/facilities',
                 data: {
-                    authorities: ['PARENT'],
+                    //authorities: ['PARENT', 'FOSTER_PARENT', ],
                     pageTitle: ''
                 },
                 views: {
@@ -24,6 +24,9 @@ angular.module('msapApp')
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                         $translatePartialLoader.addPart('facilities');
                         return $translate.refresh();
+                    }],
+                    searchParams: ['$state', '$q', function($state, $q) {
+                        return $q.when($state.params);
                     }],
                     lookupAgeGroups: ['LookupAgeGroups', function(LookupAgeGroups) {
                         return LookupAgeGroups.query().$promise;
@@ -42,6 +45,12 @@ angular.module('msapApp')
                     }],
                     lookupSpecialNeedType: ['LookupSpecialNeedType', function(LookupSpecialNeedType) {
                         return LookupSpecialNeedType.query().$promise;
+                    }],
+                    lookupLicenseType: ['LookupLicenseType', function(LookupLicenseType) {
+                        return LookupLicenseType.query().$promise;
+                    }],
+                    lookupLanguage: ['LookupLanguage', function (LookupLanguage) {
+                        return LookupLanguage.query().$promise;
                     }]
                 }
             });

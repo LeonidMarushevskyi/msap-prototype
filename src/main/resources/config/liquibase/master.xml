@@ -49,6 +49,8 @@
     <include file="classpath:config/liquibase/changelog/20160929131641_populate_data_LookupSpecialNeedType.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160929131648_added_entity_LookupLanguage.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160929131641_populate_data_LookupLanguage.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/201609260507_populate_Price.xml" relativeToChangelogFile="false"/>
+
 
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

@@ -21,6 +21,11 @@
         },
         "password" : {
             "forgot": "Forgot password?"
-        }
+        },
+        "age-group-dropdown" : {
+            "line1": "Select age(s) of children ",
+            "line2": "needing care"
+        },
+        "search": "Search"
     }
 }

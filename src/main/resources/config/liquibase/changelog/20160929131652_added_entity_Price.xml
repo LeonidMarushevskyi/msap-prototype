@@ -22,16 +22,12 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="minimal_price" type="integer"/>
-            
             <column name="maximum_price" type="integer"/>
-            
             <column name="provider_id" type="bigint"/>
-            <column name="age_group_id" type="bigint">
-                <constraints unique="true"/>
-            </column>
+            <column name="age_group_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+
         <addForeignKeyConstraint baseColumnNames="provider_id"
                                  baseTableName="price"
                                  constraintName="fk_price_provider_id"

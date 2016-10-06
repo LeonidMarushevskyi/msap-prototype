@@ -21,6 +21,11 @@
         },
         "password" : {
             "forgot": "Bạn đã quên mật khẩu của bạn?"
-        }
+        },
+        "age-group-dropdown" : {
+            "line1": "Chọn tuổi của trẻ em ",
+            "line2": "chăm sóc cần"
+        },
+        "search": "Tìm kiếm"
     }
 }

@@ -1,6 +1,7 @@
 package com.engagepoint.msap.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import java.time.LocalDate;
@@ -27,40 +28,40 @@ public class Provider implements Serializable {
 
     @Column(name = "provider_capacity")
     private Integer providerCapacity;
-    
+
     @Column(name = "provider_name")
     private String providerName;
-    
+
     @Column(name = "phone_number")
     private String phoneNumber;
-    
+
     @Column(name = "is_open_overnight")
     private Boolean isOpenOvernight;
-    
+
     @Column(name = "number_of_complains")
     private Integer numberOfComplains;
-    
+
     @Column(name = "number_of_visits")
     private Integer numberOfVisits;
-    
+
     @Column(name = "last_visit")
     private LocalDate lastVisit;
-    
+
     @Column(name = "description")
     private String description;
-    
+
     @Column(name = "is_full_day")
     private Boolean isFullDay;
-    
+
     @Column(name = "is_after_school")
     private Boolean isAfterSchool;
-    
+
     @Column(name = "is_before_school")
     private Boolean isBeforeSchool;
-    
+
     @Column(name = "is_weekend_care")
     private Boolean isWeekendCare;
-    
+
     @OneToOne
     private LookupLicenseType licenseType;
 
@@ -73,18 +74,17 @@ public class Provider implements Serializable {
     @OneToOne
     private LookupQualityRating qualityRating;
 
-    @OneToMany(mappedBy = "provider")
-    @JsonIgnore
+    @JsonManagedReference("openSlots")
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<OpenSlot> openSlots = new HashSet<>();
 
-    @OneToMany(mappedBy = "provider")
-    @JsonIgnore
+    @JsonManagedReference("schedules")
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Schedule> schedules = new HashSet<>();
 
     @OneToMany(mappedBy = "provider")
-    @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<LookupSpecialNeedType> specialNeeds = new HashSet<>();
 
@@ -94,17 +94,15 @@ public class Provider implements Serializable {
     private Set<Review> reviews = new HashSet<>();
 
     @OneToMany(mappedBy = "provider")
-    @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Price> prices = new HashSet<>();
 
-    @OneToMany(mappedBy = "provider")
-    @JsonIgnore
+    @JsonManagedReference("substantiatedAllegations")
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<SubstantiatedAllegation> substantiatedAllegations = new HashSet<>();
 
     @OneToMany(mappedBy = "provider")
-    @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<LookupLanguage> supportedLanguages = new HashSet<>();
 
@@ -119,7 +117,7 @@ public class Provider implements Serializable {
     public Integer getProviderCapacity() {
         return providerCapacity;
     }
-    
+
     public void setProviderCapacity(Integer providerCapacity) {
         this.providerCapacity = providerCapacity;
     }
@@ -127,7 +125,7 @@ public class Provider implements Serializable {
     public String getProviderName() {
         return providerName;
     }
-    
+
     public void setProviderName(String providerName) {
         this.providerName = providerName;
     }
@@ -135,7 +133,7 @@ public class Provider implements Serializable {
     public String getPhoneNumber() {
         return phoneNumber;
     }
-    
+
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
@@ -143,7 +141,7 @@ public class Provider implements Serializable {
     public Boolean getIsOpenOvernight() {
         return isOpenOvernight;
     }
-    
+
     public void setIsOpenOvernight(Boolean isOpenOvernight) {
         this.isOpenOvernight = isOpenOvernight;
     }
@@ -151,7 +149,7 @@ public class Provider implements Serializable {
     public Integer getNumberOfComplains() {
         return numberOfComplains;
     }
-    
+
     public void setNumberOfComplains(Integer numberOfComplains) {
         this.numberOfComplains = numberOfComplains;
     }
@@ -159,7 +157,7 @@ public class Provider implements Serializable {
     public Integer getNumberOfVisits() {
         return numberOfVisits;
     }
-    
+
     public void setNumberOfVisits(Integer numberOfVisits) {
         this.numberOfVisits = numberOfVisits;
     }
@@ -167,7 +165,7 @@ public class Provider implements Serializable {
     public LocalDate getLastVisit() {
         return lastVisit;
     }
-    
+
     public void setLastVisit(LocalDate lastVisit) {
         this.lastVisit = lastVisit;
     }
@@ -175,7 +173,7 @@ public class Provider implements Serializable {
     public String getDescription() {
         return description;
     }
-    
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -183,7 +181,7 @@ public class Provider implements Serializable {
     public Boolean getIsFullDay() {
         return isFullDay;
     }
-    
+
     public void setIsFullDay(Boolean isFullDay) {
         this.isFullDay = isFullDay;
     }
@@ -191,7 +189,7 @@ public class Provider implements Serializable {
     public Boolean getIsAfterSchool() {
         return isAfterSchool;
     }
-    
+
     public void setIsAfterSchool(Boolean isAfterSchool) {
         this.isAfterSchool = isAfterSchool;
     }
@@ -199,7 +197,7 @@ public class Provider implements Serializable {
     public Boolean getIsBeforeSchool() {
         return isBeforeSchool;
     }
-    
+
     public void setIsBeforeSchool(Boolean isBeforeSchool) {
         this.isBeforeSchool = isBeforeSchool;
     }
@@ -207,7 +205,7 @@ public class Provider implements Serializable {
     public Boolean getIsWeekendCare() {
         return isWeekendCare;
     }
-    
+
     public void setIsWeekendCare(Boolean isWeekendCare) {
         this.isWeekendCare = isWeekendCare;
     }

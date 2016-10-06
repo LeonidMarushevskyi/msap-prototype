@@ -1,0 +1,70 @@
+{
+    "lookups": {
+        "lookupAgeGroups": {
+            "1": "Infant (0-12 months)",
+            "2": "Toddler (12-24 months)",
+            "3": "2 years",
+            "4": "3 years",
+            "5": "4 years",
+            "6": "5-9 years",
+            "7": "10-12 years"
+        },
+        "lookupQualityRating": {
+            "0": "Not Rated",
+            "1": "Low",
+            "2": "Average",
+            "3": "Good",
+            "4": "Very Good",
+            "5": "Excellent"
+        },
+        "lookupProviderType": {
+            "2": "Slot Contractor",
+            "3": "Group Home",
+            "4": "Center",
+            "5": "Non-Relative In-Home",
+            "6": "Relative In-Home",
+            "7": "Non-Relative Out-of-Home",
+            "8": "Relative Out-of-Home"
+        },
+        "lookupWorkingHours": {
+            "1": "Before School Care",
+            "2": "After School Care",
+            "3": "Full Day Care",
+            "4": "Weekend Care",
+            "5": "Overnight Care"
+        },
+        "lookupLicenseType": {
+            "1": "UNLICENSED",
+            "2": "LICENSED"
+        },
+        "lookupSpecialNeedGroup": {
+            "1": "Physical",
+            "2": "Developmental",
+            "3": "Behavioral/Emotional",
+            "4": "Sensory Impaired"
+        },
+        "lookupSpecialNeedType": {
+            "1": "Muscular Dystrophy",
+            "2": "Multiple Sclerosis",
+            "3": "Chronic Asthma",
+            "4": "Epilepsy",
+            "5": "Down Syndrome",
+            "6": "Dyslexia",
+            "7": "Autism",
+            "8": "Processing Disorders",
+            "9": "Attention Deficit Disorder (ADD)",
+            "10": "Bipolar disorder",
+            "11": "Post traumatic Stress Disorder (PTSD)",
+            "12": "Oppositional Defiant Disorder (ODD)",
+            "13": "Blind",
+            "14": "Deaf",
+            "15": "Visually impaired",
+            "16": "Limited hearing"
+        },
+        "lookupLanguage": {
+            "EN": "English",
+            "ES": "Spanish",
+            "VE": "Vietnamese"
+        }
+    }
+}

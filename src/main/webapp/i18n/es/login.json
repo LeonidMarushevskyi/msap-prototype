@@ -1,7 +1,7 @@
 {
     "login": {
         "create-an-account": "Crea una cuenta",
-        "title": "Sign in",
+        "title": "Registrarse",
         "login": "Iniciar",
         "register": "Registro",
         "landing-title": "Ayudamos a encontrar la mejor proveedores <br> de cuidado infantil",
@@ -21,6 +21,11 @@
         },
         "password" : {
             "forgot": "¿Olvidaste tu contraseña?"
-        }
+        },
+        "age-group-dropdown" : {
+            "line1": "Selecciona la edad de los niños ",
+            "line2": "cuidado de necesidad"
+        },
+        "search": "Buscar"
     }
 }

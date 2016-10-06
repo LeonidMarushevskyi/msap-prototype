@@ -68,7 +68,10 @@ angular.module('msapApp')
                             '+isAfterSchool': filter.isAfterSchool ? 'true' : '',
                             '+isFullDay': filter.isFullDay ? 'true' : '',
                             '+isWeekendCare': filter.isWeekendCare ? 'true' : '',
-                            '+isOpenOvernight': filter.isOpenOvernight ? 'true' : ''
+                            '+isOpenOvernight': filter.isOpenOvernight ? 'true' : '',
+                            '+licenseType.code': filter.licenseTypes,
+                            '+specialNeeds.code': filter.specialNeeds,
+                            '+supportedLanguages.code': filter.supportedLanguages
                         }
                     ],
                     // entity name

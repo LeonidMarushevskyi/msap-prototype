@@ -78,32 +78,45 @@
     <div class="ch-login__search">
         <div class="ch-login__search__action flex-row">
 
+            <leaflet style="display: none"></leaflet>
+
             <div class="ch-login__input flex-child-2">
-                  <input type="search" name="name" value="" placeholder="Search near your address">
+                <div id="geoaddress" title="Search near your address"></div>
             </div>
 
             <div class="ch-login__select flex-child">
-
-              <div class="ch-login__select-dropdown" title="Select the serves ages">
-                  <button type="button" class="ch-login__select-dropdown__btn"
-                          ng-click="typesConfig.showList = !typesConfig.showList;">
-                      <span class="">Select age(s) of children <span class="ch-mobile-text__cut">needing care</span></span>
-                  </button>
-
-                  <div class="ch-login__select-dropdown__list" ng-show="typesConfig.showList" ng-mouseleave="typesConfig.showList = false">
-                      <ul class="ch-login-dropdown-list" ng-click="typesConfig.showList = !typesConfig.showList;">
-                          <li class="ch-login-dropdown-list__item">1-3 years</li>
-                          <li class="ch-login-dropdown-list__item">4-8 years</li>
-                          <li class="ch-login-dropdown-list__item">9-12 years</li>
-                      </ul>
-                  </div>
-
-              </div>
+                <div class="ch-login__select-dropdown" title="Select the serves ages">
+                    <button type="button" class="ch-login__select-dropdown__btn" ng-click="toggleFilterMenu('lookupAgeGroups');">
+                          <span class=""
+                                ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount == 0">
+                              <span translate="login.age-group-dropdown.line1">Select age(s) of children</span>
+                              <span class="ch-mobile-text__cut" translate="login.age-group-dropdown.line2">needing care</span>
+                          </span>
+                          <span class=""
+                                ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount > 0"
+                                translate="global.form.filters-selected"
+                                translate-values="{selectedCount: filterMenuConfigs['lookupAgeGroups'].selectedCount}">
+                              {{filterMenuConfigs['lookupAgeGroups'].selectedCount}} Selected
+                          </span>
+                    </button>
+                    <div class="ch-multi-select-dropdown__popup" ng-show="filterMenuConfigs['lookupAgeGroups'].showList" ng-mouseleave="toggleFilterMenu('lookupAgeGroups', false);">
+                        <ul class="ch-checkboxes-list">
+                            <li class="ch-checkboxes-list__item" ng-repeat="ageGroup in lookupAgeGroups">
+                                <div class="form-type__checkbox_empty-label">
+                                    <input id="lookupAgeGroup_{{ageGroup.code}}" type="checkbox"
+                                           ng-model="ageGroup.selected"
+                                           ng-click="onFilterMenuItemClick('lookupAgeGroups', ageGroup.code);">
+                                    <label for="lookupAgeGroup_{{ageGroup.code}}">{{'lookups.lookupAgeGroups.' + ageGroup.code | translate}}</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <div class="ch-login__action-box flex-child">
-              <button type="button" class="ch-login__action-box__btn">
-                  <span class="ch-login__action-box__btn-text">Search</span>
+              <button type="button" class="ch-login__action-box__btn" ng-click="doSearch();">
+                  <span class="ch-login__action-box__btn-text" translate="login.search">Search</span>
               </button>
             </div>
         </div>
