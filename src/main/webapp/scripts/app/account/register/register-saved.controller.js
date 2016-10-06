@@ -8,7 +8,7 @@ angular.module('msapApp')
             $scope.timeLeft--;
             if ($scope.timeLeft === 0) {
                 $interval.cancel($scope.interval);
-                $state.go("login");
+                $state.go("home");
             }
         }, 1000);
     });

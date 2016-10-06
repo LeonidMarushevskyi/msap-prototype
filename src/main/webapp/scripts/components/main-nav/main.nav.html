@@ -1,4 +1,15 @@
 <ul class="ch-main-nav-list">
+
+    <li class="ch-main-nav-list__item">
+        <div class="ch-main-nav-item">
+            <a class="ch-main-nav-item__link ch-ink-btn" ng-click="inkRipple()" ng-init = "inkRipple()" ui-sref="ch-facilities" ui-sref-active="ch-main-nav-item__link_active">
+                <span class="icon icon-facilities ch-main-nav-item__icon"></span>
+                <span class="ch-main-nav-item__text" title="Child Care Provider Search">Providers</span>
+                <span class="ink"></span>
+            </a>
+        </div>
+    </li>
+
     <li class="ch-main-nav-list__item" has-any-authority="PARENT, CASE_WORKER">
         <div class="ch-main-nav-item">
             <a class="ch-main-nav-item__link ch-ink-btn" ng-click="inkRipple()" ng-init = "inkRipple()" ui-sref="ch-inbox.messages({directory: 'inbox'})" ng-class="{'ch-main-nav-item__link_active': $state.includes('ch-inbox')}">
@@ -11,15 +22,7 @@
             </a>
         </div>
     </li>
-    <li class="ch-main-nav-list__item">
-        <div class="ch-main-nav-item">
-            <a class="ch-main-nav-item__link ch-ink-btn" ng-click="inkRipple()" ng-init = "inkRipple()" ui-sref="ch-facilities" ui-sref-active="ch-main-nav-item__link_active">
-                <span class="icon icon-facilities ch-main-nav-item__icon"></span>
-                <span class="ch-main-nav-item__text" title="Child Care Provider Search">Providers</span>
-                <span class="ink"></span>
-            </a>
-        </div>
-    </li>
+
     <li class="ch-main-nav-list__item" has-authority="ROLE_ADMIN">
         <div class="ch-main-nav-item">
             <a class="ch-main-nav-item__link" ui-sref="metrics" ui-sref-active="ch-main-nav-item__link_active">

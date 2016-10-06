@@ -27,7 +27,7 @@
 
 .ch-input-block__form-input_search-field-map .leaflet-pelias-expanded  {
     @media screen and (max-width: $break-phone) {
-      width: calc(100vw - 3.4rem) !important;
+      width: calc(100vw - 5rem) !important;
       position: absolute;
     }
 }
@@ -68,7 +68,7 @@
 
 .ch-facilities-heading__row .ch-input-block__form-input_search-field-map .leaflet-pelias-expanded .leaflet-pelias-close {
     @media screen and (max-width: $break-phone) {
-        margin-top: -.6rem;
+        margin-top: -2.4rem;
         margin-right: .8rem;
     }
 }

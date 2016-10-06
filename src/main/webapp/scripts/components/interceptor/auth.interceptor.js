@@ -14,7 +14,7 @@ angular.module('msapApp')
                     Auth.logout();
                     $rootScope.previousStateName = to;
                     $rootScope.previousStateNameParams = params;
-                    $state.go('login');
+                    $state.go('home');
                 }
                 return $q.reject(response);
             }

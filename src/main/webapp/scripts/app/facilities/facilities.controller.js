@@ -226,7 +226,13 @@ angular.module('msapApp')
         };
 
         $scope.defineIcon = function(agency) {
-            var imgId =  'green' + '_'
+            var iconColor;
+            if (agency.totalSpots > 0) {
+                iconColor = 'green';
+            } else {
+                iconColor = 'grey';
+            }
+            var imgId = iconColor + '_'
                 + _.find(QualityRatingStars, {code: agency.qualityRating.code}).stars;
             return $scope.getIconUrl(imgId);
         };
