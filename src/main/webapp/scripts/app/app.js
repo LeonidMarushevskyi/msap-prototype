@@ -54,7 +54,7 @@ angular.module('msapApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalpre
             // reset the state memory after logout. If we're redirected to login, our
             // previousState is already set in the authExpiredInterceptor. If we're going
             // to login directly, we don't want to be sent to some previous state anyway
-            if (toState.name !== 'login' && $rootScope.previousStateName) {
+            if (toState.name !== 'home' && $rootScope.previousStateName) {
               $rootScope.previousStateName = fromState.name;
               $rootScope.previousStateParams = fromParams;
             }
