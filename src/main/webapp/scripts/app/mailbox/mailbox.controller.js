@@ -49,14 +49,14 @@ angular.module('msapApp')
             } else {
                 $state.go('ch-inbox.messages', {directory: $state.params.directory}, {reload: true});
             }
-        };        
+        };
 
         $scope.inkRipple = function() {
             var parent, ink, d, x, y;
             $(".ch-ink-btn").click(function(e){
 
                 parent = $(this).parent();
-                if(parent.find(".ink").length == 0)
+                if(parent.find(".ink").length === 0)
                     $(".ch-ink-btn").append("<span class='ink'></span>");
 
                 ink = parent.find(".ink");
