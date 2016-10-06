@@ -20,6 +20,7 @@
         "askcaseworker": "Pregunta Asistente Social",
         "spots-capitalized": "{{totalSpots}} Manchas:",
         "spots-small": "{{totalSpots}} manchas:",
-        "freespots": "LUGARES LIBRES"
+        "freespots": "LUGARES LIBRES",
+        "schedule": "Programar:"
     }
 }

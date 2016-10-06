@@ -64,9 +64,9 @@
             </li>
 
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Schedule:</div>
+                <div class="ch-facility-info-text"><span translate="facilities.schedule">Schedule:</span></div>
                 <div ng-repeat="schedule in agency.schedules">
-                    {{schedule.dayOfWeek.name}}: {{schedule.openHour}} - {{schedule.closeHour}}
+                    <span translate="lookups.lookupDayOfWeek.{{schedule.dayOfWeek.code}}">{{schedule.dayOfWeek.name}}</span>: {{schedule.openHour}} - {{schedule.closeHour}}
                 </div>
             </li>
             <li class="ch-facility-info__part">

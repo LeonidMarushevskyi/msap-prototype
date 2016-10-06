@@ -1,7 +1,7 @@
 {
     "lookups": {
         "lookupAgeGroups": {
-            "1": "infantil (0-12 meses)",
+            "1": "Infantil (0-12 meses)",
             "2": "Niño (12-24 meses)",
             "3": "2 años",
             "4": "3 años",
@@ -65,6 +65,15 @@
             "EN": "Inglés",
             "ES": "Español",
             "VE": "Vietnamita"
+        },
+        "lookupDayOfWeek": {
+            "1": "Lunes",
+            "2": "Martes",
+            "3": "Miércoles",
+            "4": "Jueves",
+            "5": "Viernes",
+            "6": "Sábado",
+            "7": "Domingo"
         }
     }
 }
