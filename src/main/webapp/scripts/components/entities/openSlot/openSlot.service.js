@@ -20,26 +20,4 @@ angular.module('msapApp')
                 }
             }
         });
-    })
-    .factory('OpenSlotByProviderId', function ($resource) {
-        return $resource('api/openSlots/byProvider/:providerId', {}, {
-            'findAllByProviderId': {
-                method: 'GET',
-                transformResponse: function (data) {
-                    data = angular.fromJson(data);
-                    return data;
-                }
-            }
-        });
-    })
-    .factory('SumOpenSlotsByProviderId', function ($resource) {
-        return $resource('api/openSlots/sumOpenSlots/byProvider/{providerId}', {}, {
-            'sumOpenSlotsByProviderId': {
-                method: 'GET',
-                transformResponse: function (data) {
-                    data = angular.fromJson(data);
-                    return data;
-                }
-            }
-        });
     });
