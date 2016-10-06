@@ -10,25 +10,25 @@
     <div class="ch-facility__tags">
         <ul class="ch-facility-tags clearfix">
             <li class="ch-facility-tags__tag">
-                <span class="ch-facilities-tag ch-facilities-tag_foster-family" translate="facilities.lookupProviderType.{{agency.providerType.code}}">{{agency.providerType.name}}</span>
+                <span class="ch-facilities-tag ch-facilities-tag_foster-family" translate="lookups.lookupProviderType.{{agency.providerType.code}}">{{agency.providerType.name}}</span>
             </li>
             <li class="ch-facility-tags__tag" ng-show="agency.qualityRating.name === 'Low'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_red" translate="facilities.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
+                <span class="ch-facilities-tag ch-facilities-tag_status_red" translate="lookups.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
             </li>
             <li class="ch-facility-tags__tag" ng-show="agency.qualityRating.name === 'Average'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_orange" translate="facilities.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
+                <span class="ch-facilities-tag ch-facilities-tag_status_orange" translate="lookups.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
             </li>
             <li class="ch-facility-tags__tag" ng-show="agency.qualityRating.name === 'Good'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_green" translate="facilities.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
+                <span class="ch-facilities-tag ch-facilities-tag_status_green" translate="lookups.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
             </li>
             <li class="ch-facility-tags__tag" ng-show="agency.qualityRating.name === 'Very Good'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_green" translate="facilities.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
+                <span class="ch-facilities-tag ch-facilities-tag_status_green" translate="lookups.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
             </li>
             <li class="ch-facility-tags__tag" ng-show="agency.qualityRating.name === 'Excellent'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_green" translate="facilities.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
+                <span class="ch-facilities-tag ch-facilities-tag_status_green" translate="lookups.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
             </li>
             <li class="ch-facility-tags__tag" ng-show="agency.qualityRating.name === 'Not Rated'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_green" translate="facilities.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
+                <span class="ch-facilities-tag ch-facilities-tag_status_green" translate="lookups.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
             </li>
         </ul>
     </div>
@@ -39,7 +39,7 @@
             <li class="ch-facility-info__part">
                 <div class="ch-facility-info-text">
                     <p class="ch-facility-info__name">{{agency.providerName}}</p>
-                    <p class="ch-facility-info__name" translate="facilities.lookupLicenseType.{{agency.licenseType.code}}">{{agency.licenseType.name}}</p>
+                    <p class="ch-facility-info__name" translate="lookups.lookupLicenseType.{{agency.licenseType.code}}">{{agency.licenseType.name}}</p>
                     <p class="ch-facility-info__phone">{{agency.phoneNumber}}</p>
                 </div>
             </li>
@@ -68,8 +68,8 @@
             </li>
             <li class="ch-facility-info__part">
                 <div class="ch-facility-info-text">Special Needs:</div>
-                <div ng-repeat="specialNeed in agency.specialNeeds">
-                    - {{specialNeed.name}}
+                <div ng-repeat="specialNeed in agency.supportedSpecialNeeds">
+                    - {{specialNeed.specialNeedType.name}}
                 </div>
             </li>
             <li class="ch-facility-info__part">

@@ -1,13 +1,19 @@
 package com.engagepoint.msap.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -24,6 +30,7 @@ public class SupportedSpecialNeed implements Serializable {
     private Long id;
 
     @ManyToOne
+    @JsonBackReference("supportedSpecialNeeds")
     @JoinColumn(name = "provider_id")
     private Provider provider;
 
