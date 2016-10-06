@@ -20,6 +20,7 @@
         "askcaseworker": "Ask Caseworker",
         "spots-capitalized": "{{totalSpots}} Spots:",
         "spots-small":  "{{totalSpots}} spots:",
-        "freespots": "FREE SPOTS"
+        "freespots": "FREE SPOTS",
+        "schedule": "Schedule:"
     }
 }

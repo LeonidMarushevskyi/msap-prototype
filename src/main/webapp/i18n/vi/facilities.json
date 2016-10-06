@@ -20,6 +20,7 @@
         "askcaseworker": "Hãy hỏi nhân viên phụ trách",
         "spots-capitalized": "{{totalSpots}} điểm:",
         "spots-small": "{{totalSpots}} điểm:",
-        "freespots": "điểm miễn phí"
+        "freespots": "điểm miễn phí",
+        "schedule": "lịch trình:"
     }
 }
