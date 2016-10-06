@@ -17,8 +17,8 @@
         Added the entity LookupAgeGroups.
     -->
     <changeSet id="201609293307448" author="leonid.marushevskiy">
-        <insert tableName="lookup_language"><column name="code" value="EN"/><column name="name" value="English"/></insert>
-        <insert tableName="lookup_language"><column name="code" value="ES"/><column name="name" value="Spanish"/></insert>
-        <insert tableName="lookup_language"><column name="code" value="VE"/><column name="name" value="Vietnamese"/></insert>
+        <insert tableName="lookup_language"><column name="id" value="1"/><column name="code" value="EN"/><column name="name" value="English"/></insert>
+        <insert tableName="lookup_language"><column name="id" value="2"/><column name="code" value="ES"/><column name="name" value="Spanish"/></insert>
+        <insert tableName="lookup_language"><column name="id" value="3"/><column name="code" value="VE"/><column name="name" value="Vietnamese"/></insert>
     </changeSet>
 </databaseChangeLog>

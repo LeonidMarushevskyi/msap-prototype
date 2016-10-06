@@ -105,6 +105,9 @@
             </li>
             <li class="ch-facility-info__part">
                 <div class="ch-facility-info-text">Supported Languages::</div>
+                <div ng-repeat="supportedLanguage in agency.supportedLanguages">
+                    - {{supportedLanguage.language.name}}
+                </div>
             </li>
         </ul>
     </div>
