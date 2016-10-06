@@ -34,7 +34,7 @@
             "qualityRating": "QualityRating",
             "openSlot": "OpenSlot",
             "schedule": "Schedule",
-            "specialNeed": "SpecialNeed",
+            "supportedSpecialNeed": "SupportedSpecialNeed",
             "review": "Review",
             "price": "Price",
             "substantiatedAllegation": "SubstantiatedAllegation",

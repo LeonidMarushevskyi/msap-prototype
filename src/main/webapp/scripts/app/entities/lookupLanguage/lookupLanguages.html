@@ -33,7 +33,6 @@ class="hidden-xs"                        translate="msapApp.lookupLanguage.home.
                     <th><span translate="global.field.id">ID</span></th>
                     <th><span translate="msapApp.lookupLanguage.code">Code</span></th>
                     <th><span translate="msapApp.lookupLanguage.name">Name</span></th>
-                    <th><span translate="msapApp.lookupLanguage.provider">provider</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -42,9 +41,6 @@ class="hidden-xs"                        translate="msapApp.lookupLanguage.home.
                     <td><a ui-sref="lookupLanguage.detail({id:lookupLanguage.id})">{{lookupLanguage.id}}</a></td>
                     <td>{{lookupLanguage.code}}</td>
                     <td>{{lookupLanguage.name}}</td>
-                    <td>
-                        <a ui-sref="provider.detail({id:lookupLanguage.provider.id})">{{lookupLanguage.provider.id}}</a>
-                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

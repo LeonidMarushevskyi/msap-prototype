@@ -4,6 +4,8 @@
         "title": "Sign in",
         "login": "Login",
         "register": "Register",
+        "landing-title": "We help you find the best <br> child care providers",
+        "landing-description": "Use filters below and \"Search \" button to fast searching child care providers",
         "form": {
             "username": "Username",
             "username.placeholder": "Your username",

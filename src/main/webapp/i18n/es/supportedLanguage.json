@@ -1,0 +1,23 @@
+{
+    "msapApp": {
+        "supportedLanguage" : {
+            "home": {
+                "title": "SupportedLanguages",
+                "createLabel": "Crear nuevo SupportedLanguage",
+                "createOrEditLabel": "Crear o editar SupportedLanguage",
+                "search": "Search for SupportedLanguage"
+            },
+            "created": "Un nuevo SupportedLanguage ha sido creado con el identificador {{ param }}",
+            "updated": "Un SupportedLanguage ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un SupportedLanguage ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar SupportedLanguage {{ id }}?"
+            },
+            "detail": {
+                "title": "SupportedLanguage"
+            },
+            "provider": "Provider",
+            "language": "Language"
+        }
+    }
+}

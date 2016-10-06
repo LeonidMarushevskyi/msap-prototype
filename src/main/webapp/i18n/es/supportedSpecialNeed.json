@@ -1,0 +1,23 @@
+{
+    "msapApp": {
+        "supportedSpecialNeed" : {
+            "home": {
+                "title": "SupportedSpecialNeeds",
+                "createLabel": "Crear nuevo SupportedSpecialNeed",
+                "createOrEditLabel": "Crear o editar SupportedSpecialNeed",
+                "search": "Search for SupportedSpecialNeed"
+            },
+            "created": "Un nuevo SupportedSpecialNeed ha sido creado con el identificador {{ param }}",
+            "updated": "Un SupportedSpecialNeed ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un SupportedSpecialNeed ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar SupportedSpecialNeed {{ id }}?"
+            },
+            "detail": {
+                "title": "SupportedSpecialNeed"
+            },
+            "provider": "Provider",
+            "specialNeedType": "SpecialNeedType"
+        }
+    }
+}

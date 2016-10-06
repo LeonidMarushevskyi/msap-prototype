@@ -176,6 +176,18 @@ public class ElasticsearchIndexService {
     private SubstantiatedAllegationSearchRepository substantiatedAllegationSearchRepository;
 
     @Inject
+    private SupportedLanguageRepository supportedLanguageRepository;
+
+    @Inject
+    private SupportedLanguageSearchRepository supportedLanguageSearchRepository;
+
+    @Inject
+    private SupportedSpecialNeedRepository supportedSpecialNeedRepository;
+
+    @Inject
+    private SupportedSpecialNeedSearchRepository supportedSpecialNeedSearchRepository;
+
+    @Inject
     private UserRepository userRepository;
 
     @Inject
@@ -342,6 +354,18 @@ public class ElasticsearchIndexService {
             substantiatedAllegationSearchRepository.save(substantiatedAllegationRepository.findAll());
         }
         log.info("Elasticsearch: Indexed all substantiatedAllegations");
+
+        elasticsearchTemplate.deleteIndex(SupportedLanguage.class);
+        if (supportedLanguageRepository.count() > 0) {
+            supportedLanguageSearchRepository.save(supportedLanguageRepository.findAll());
+        }
+        log.info("Elasticsearch: Indexed all supportedLanguages");
+
+        elasticsearchTemplate.deleteIndex(SupportedSpecialNeed.class);
+        if (supportedSpecialNeedRepository.count() > 0) {
+            supportedSpecialNeedSearchRepository.save(supportedSpecialNeedRepository.findAll());
+        }
+        log.info("Elasticsearch: Indexed all supportedSpecialNeeds");
 
         elasticsearchTemplate.deleteIndex(User.class);
         if (userRepository.count() > 0) {

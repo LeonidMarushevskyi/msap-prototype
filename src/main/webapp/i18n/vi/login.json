@@ -4,6 +4,8 @@
         "title": "Đăng nhập",
         "login": "Đăng nhập",
         "register": "Đăng Ký",
+        "landing-title": "Chúng tôi giúp bạn tìm thấy các nhà cung cấp chăm sóc con tốt nhất",
+        "landing-description": "Sử dụng các bộ lọc bên dưới và \"Tìm kiếm\" để nhanh chóng tìm kiếm các nhà cung cấp chăm sóc trẻ em",
         "form": {
             "username": "Tên đăng nhập",
             "username.placeholder": "Tên tài khoản",

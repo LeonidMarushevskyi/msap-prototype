@@ -12,7 +12,7 @@
     position: relative;
     text-overflow: ellipsis;
     white-space: nowrap;
-	overflow: hidden;
+	  overflow: hidden;
 
     &:hover {
         background-color: $secondary-color-blue;
@@ -55,38 +55,48 @@
     display: inline-block;
 }
 .ch-button-group__btn {
-    border-top-left-radius: .4rem;
-    border-bottom-left-radius: .4rem;
-    border: .2rem solid #757575;
-    padding: .7rem 1.5rem;
+    border: .1rem solid $secondary-color-grey-light;
+    padding: .8rem 1.8rem .8rem 1.6rem;
 
     &:hover {
-        border-color: #323a45;
+        border-color: $primary-color-blue;
+
+        .icon-pagination-arrow-left {
+            background-color: $primary-color-blue;
+        }
     }
 
     .icon {
+        width: 1.3rem;
+        height: 1.7rem;
         vertical-align: middle;
+        position: relative;
+        top: -1px;
     }
 }
 
 .ch-button-group__btn_left-border {
-    border-top: .2rem solid #757575;
-    border-bottom: .2rem solid #757575;
-    border-right: .2rem solid #757575;
-    border-left: .1rem solid transparent;
-    border-top-right-radius: .4rem;
-    border-bottom-right-radius: .4rem;
-    padding: .7rem 1.5rem;
+    border: .1rem solid $secondary-color-grey-light;
+    padding: .8rem 1.8rem .8rem 1.6rem;
     margin-left: -.4rem;
 
     &:hover {
-        border-color: #323a45;
+        border-color: $primary-color-blue;
 
+        .icon-pagination-arrow-right {
+            background-color: $primary-color-blue;
+        }
     }
 
     .icon {
+        width: 1.3rem;
+        height: 1.7rem;
         vertical-align: middle;
+        position: relative;
+        top: -1px;
     }
+
+
 }
 
 .ch-flat-btn_back-btn {
