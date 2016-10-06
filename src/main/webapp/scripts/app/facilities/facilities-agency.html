@@ -31,7 +31,7 @@
                 <span class="ch-facilities-tag ch-facilities-tag_status_green" translate="lookups.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
             </li>
             <li class="ch-facility-tags__tag">
-                <span class="ch-facilities-tag ch-facilities-tag_foster-family" ng-show="{{agency.totalSpots > 0}}" translate="facilities.freespots">FREE SPOTS</span>
+                <span class="ch-facilities-tag ch-facilities-tag_foster-family" ng-show="{{agency.totalSpots > 0}}" translate="facilities.free-spots">FREE SPOTS</span>
             </li>
         </ul>
     </div>
@@ -57,59 +57,59 @@
     <div class="ch-facility__info" ng-show="viewConfig.presentation == 'popup' || agency.showPartFlag">
         <ul class="ch-facility-info">
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text" translate="facilities.spots-capitalized" translate-values="{totalSpots: agency.totalSpots}">Spots:</div>
+                <div class="ch-facility-info-text"><span translate="facilities.spots-capitalized" translate-values="{totalSpots: agency.totalSpots}">Spots</span>:</div>
                 <div ng-repeat="openSlot in agency.openSlots">
                     <span translate="lookups.lookupAgeGroups.{{openSlot.ageGroup.code}}">{{openSlot.ageGroup.name}}</span> - <span translate="facilities.spots-small" translate-values="{totalSpots: openSlot.openSlots}">{{openSlot.openSlots}} spots</span>
                 </div>
             </li>
 
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text"><span translate="facilities.schedule">Schedule:</span></div>
+                <div class="ch-facility-info-text"><span translate="facilities.schedule">Schedule</span>:</div>
                 <div ng-repeat="schedule in agency.schedules">
                     <span translate="lookups.lookupDayOfWeek.{{schedule.dayOfWeek.code}}">{{schedule.dayOfWeek.name}}</span>: {{schedule.openHour}} - {{schedule.closeHour}}
                 </div>
             </li>
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Special Needs:</div>
+                <div class="ch-facility-info-text"><span translate="facilities.special-needs">Special Needs</span>:</div>
                 <div ng-repeat="specialNeed in agency.supportedSpecialNeeds">
-                    - {{specialNeed.specialNeedType.name}}
+                    - <span translate="lookups.lookupSpecialNeedType.{{specialNeed.specialNeedType.code}}">{{specialNeed.specialNeedType.name}}</span>
                 </div>
             </li>
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">{{agency.length}} Substantiated Allegations:</div>
+                <div class="ch-facility-info-text"><span translate="facilities.substantiated-allegations" translate-values="{total: agency.substantiatedAllegations.length}" >{{agency.substantiatedAllegations.length}} Substantiated Allegations</span>:</div>
                 <div ng-repeat="allegation in agency.substantiatedAllegations">
                     {{allegation.description}}
                     <div>{{allegation.allegationDate}} {{allegation.severity}}</div>
                 </div>
             </li>
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">License Type:</div>
-                <div class="ch-facility-info-text">{{agency.licenseType.name}}</div>
+                <div class="ch-facility-info-text"><span translate="facilities.license-type">License Type</span>:</div>
+                <div class="ch-facility-info-text"><span translate="lookups.lookupLicenseType.{{agency.licenseType.code}}">{{agency.licenseType.name}}</span></div>
             </li>
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Provider Capacity:</div>
+                <div class="ch-facility-info-text"><span translate="facilities.provider-capacity">Provider Capacity</span>:</div>
                 <div class="ch-facility-info-text">{{agency.providerCapacity}}</div>
             </li>
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Provider Description:</div>
+                <div class="ch-facility-info-text"><span translate="facilities.provider-description">Provider Description</span>:</div>
                 <div class="ch-facility-info-text">{{agency.description}}</div>
             </li>
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Number of Complains:</div>
+                <div class="ch-facility-info-text"><span translate="facilities.number-of-complains">Number of Complains</span>:</div>
                 <div class="ch-facility-info-text">{{agency.numberOfComplains}}</div>
             </li>
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Number of Visits:</div>
+                <div class="ch-facility-info-text"><span translate="facilities.number-of-visits">Number of Visits</span>:</div>
                 <div class="ch-facility-info-text">{{agency.numberOfVisits}}</div>
             </li>
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Date of Last Visit:</div>
+                <div class="ch-facility-info-text"><span translate="facilities.day-of-last-visit">Date of Last Visit</span>:</div>
                 <div class="ch-facility-info-text">{{agency.lastVisit}}</div>
             </li>
             <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Supported Languages::</div>
+                <div class="ch-facility-info-text"><span translate="facilities.supported-languages">Supported Languages</span>:</div>
                 <div ng-repeat="supportedLanguage in agency.supportedLanguages">
-                    - {{supportedLanguage.language.name}}
+                    - <span translate="lookups.lookupLanguage.{{supportedLanguage.language.code}}">{{supportedLanguage.language.name}}</span>
                 </div>
             </li>
         </ul>
@@ -117,7 +117,7 @@
     <div class="ch-facility__btn-group clearfix">
         <div class="ch-facilities-btn-group">
             <div class="ch-facilities-btn-group__btn" has-authority="FOSTER_PARENT">
-                <button type="button" ng-click="askAbout(agency)" class="ch-plane-btn ch-plane-btn_primary"><span translate="facilities.askcaseworker">Ask Caseworker</span></button>
+                <button type="button" ng-click="askAbout(agency)" class="ch-plane-btn ch-plane-btn_primary"><span translate="facilities.ask-case-worker">Ask Caseworker</span></button>
             </div>
             <div class="ch-facilities-btn-group__btn" ng-show="viewConfig.presentation !== 'popup' && !agency.showPartFlag" ng-click="agency.showPartFlag = !agency.showPartFlag">
                 <button type="button" class="ch-plane-btn ch-plane-btn_secondary" ><span translate="global.showmore">Show more</span></button>
