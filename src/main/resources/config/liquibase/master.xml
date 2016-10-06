@@ -52,7 +52,7 @@
     <include file="classpath:config/liquibase/changelog/20161006024901_added_entity_SupportedSpecialNeed.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/201609260507_populate_data_Provider.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/201609260507_populate_Price.xml" relativeToChangelogFile="false"/>
-
+    <include file="classpath:config/liquibase/changelog/20161006105310_populate_data_OpenSlot.xml" relativeToChangelogFile="false"/>
 
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>
