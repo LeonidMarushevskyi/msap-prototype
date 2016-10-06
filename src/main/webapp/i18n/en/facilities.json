@@ -18,6 +18,7 @@
         "all-provider-types": "All Provider Types",
         "license-type": "License Type",
         "askcaseworker": "Ask Caseworker",
-        "spots": "{{totalSpots}} Spots:"
+        "spots": "{{totalSpots}} Spots:",
+        "freespots": "FREE SPOTS"
     }
 }

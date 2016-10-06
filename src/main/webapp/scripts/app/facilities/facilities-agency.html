@@ -30,6 +30,9 @@
             <li class="ch-facility-tags__tag" ng-show="agency.qualityRating.name === 'Not Rated'">
                 <span class="ch-facilities-tag ch-facilities-tag_status_green" translate="lookups.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
             </li>
+            <li class="ch-facility-tags__tag">
+                <span class="ch-facilities-tag ch-facilities-tag_foster-family" ng-show="{{agency.totalSpots > 0}}" translate="facilities.freespots">FREE SPOTS</span>
+            </li>
         </ul>
     </div>
 

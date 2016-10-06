@@ -18,6 +18,7 @@
         "all-provider-types": "Todos los Tipos de Proveedores",
         "license-type": "Tipo de licencia",
         "askcaseworker": "Pregunta Asistente Social",
-        "spots": "{{totalSpots}} Manchas:"
+        "spots": "{{totalSpots}} Manchas:",
+        "freespots": "LUGARES LIBRES"
     }
 }

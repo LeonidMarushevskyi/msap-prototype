@@ -18,6 +18,7 @@
         "all-provider-types": "Tất cả các loại nhà cung cấp",
         "license-type": "Loại giấy phép",
         "askcaseworker": "Hãy hỏi nhân viên phụ trách",
-        "spots": "{{totalSpots}} điểm:"
+        "spots": "{{totalSpots}} điểm:",
+        "freespots": "điểm miễn phí"
     }
 }
