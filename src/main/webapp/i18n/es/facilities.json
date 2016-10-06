@@ -17,10 +17,19 @@
         "all-quality-ratings": "Todos los votos de calidad",
         "all-provider-types": "Todos los Tipos de Proveedores",
         "license-type": "Tipo de licencia",
-        "askcaseworker": "Pregunta Asistente Social",
+        "ask-case-worker": "Pregunta Asistente Social",
         "spots-capitalized": "{{totalSpots}} Manchas:",
         "spots-small": "{{totalSpots}} manchas:",
-        "freespots": "LUGARES LIBRES",
-        "schedule": "Programar:"
+        "free-spots": "LUGARES LIBRES",
+        "schedule": "Programar:",
+        "special-needs": "Necesidades Especiales",
+        "substantiated-allegations": "{{total}} Las Alegaciones Fundamentadas",
+        "provider-capacity": "Capacidad Proveedor",
+        "provider-description": "Proveedor Descripción",
+        "number-of-complains": "Número de Quejas",
+        "number-of-visits": "Número de Visitas",
+        "day-of-last-visit": "Día de la última Visita",
+        "supported-languages": "Idiomas Soportados"
+
     }
 }

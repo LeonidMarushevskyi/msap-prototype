@@ -17,10 +17,18 @@
         "all-quality-ratings": "All Quality Ratings",
         "all-provider-types": "All Provider Types",
         "license-type": "License Type",
-        "askcaseworker": "Ask Caseworker",
-        "spots-capitalized": "{{totalSpots}} Spots:",
-        "spots-small":  "{{totalSpots}} spots:",
-        "freespots": "FREE SPOTS",
-        "schedule": "Schedule:"
+        "ask-case-worker": "Ask Caseworker",
+        "spots-capitalized": "{{totalSpots}} Spots",
+        "spots-small":  "{{totalSpots}} spots",
+        "free-spots": "FREE SPOTS",
+        "schedule": "Schedule",
+        "special-needs": "Special Needs",
+        "substantiated-allegations": "{{total}} Substantiated Allegations",
+        "provider-capacity": "Provider Capacity",
+        "provider-description": "Provider Description",
+        "number-of-complains": "Number of Complains",
+        "number-of-visits": "Number of Visits",
+        "day-of-last-visit": "Day of Last Visit",
+        "supported-languages": "Supported Languages"
     }
 }

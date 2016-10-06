@@ -17,10 +17,19 @@
         "all-quality-ratings": "Tất cả hàng Xếp hạng chất lượng",
         "all-provider-types": "Tất cả các loại nhà cung cấp",
         "license-type": "Loại giấy phép",
-        "askcaseworker": "Hãy hỏi nhân viên phụ trách",
+        "ask-case-worker": "Hãy hỏi nhân viên phụ trách",
         "spots-capitalized": "{{totalSpots}} điểm:",
         "spots-small": "{{totalSpots}} điểm:",
-        "freespots": "điểm miễn phí",
-        "schedule": "lịch trình:"
+        "free-spots": "điểm miễn phí",
+        "schedule": "lịch trình:",
+        "special-needs": "Nhu cầu đặc biệt",
+        "substantiated-allegations": "{{total}} Cáo buộc chứng minh",
+        "provider-capacity": "Nhà cung cấp suất",
+        "provider-description": "Nhà cung cấp Mô tả",
+        "number-of-complains": "Số Khiếu nại",
+        "number-of-visits": "Số lượng lượt truy cập",
+        "day-of-last-visit": "Ngày Lần đăng nhập mới",
+        "supported-languages": "Ngôn ngữ được hỗ trợ"
+
     }
 }
