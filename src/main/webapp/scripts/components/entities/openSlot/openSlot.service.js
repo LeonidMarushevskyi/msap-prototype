@@ -11,6 +11,35 @@ angular.module('msapApp')
                     return data;
                 }
             },
-            'update': { method:'PUT' }
+            'update': { method:'PUT' },
+            'findAllByProvider': {
+                method: 'GET',
+                transformResponse: function (data) {
+                    data = angular.fromJson(data);
+                    return data;
+                }
+            }
+        });
+    })
+    .factory('OpenSlotByProviderId', function ($resource) {
+        return $resource('api/openSlots/byProvider/:providerId', {}, {
+            'findAllByProviderId': {
+                method: 'GET',
+                transformResponse: function (data) {
+                    data = angular.fromJson(data);
+                    return data;
+                }
+            }
+        });
+    })
+    .factory('SumOpenSlotsByProviderId', function ($resource) {
+        return $resource('api/openSlots/sumOpenSlots/byProvider/{providerId}', {}, {
+            'sumOpenSlotsByProviderId': {
+                method: 'GET',
+                transformResponse: function (data) {
+                    data = angular.fromJson(data);
+                    return data;
+                }
+            }
         });
     });

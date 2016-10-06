@@ -8,7 +8,7 @@ angular.module('msapApp')
                 Principal.identity(true).then(function(account) {
 
                     if (!_.isObject(account)) {
-                        $state.go("login");
+                        $state.go("home");
                     }
 
                 });
