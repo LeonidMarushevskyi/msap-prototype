@@ -226,11 +226,9 @@ angular.module('msapApp')
         };
 
         $scope.defineIcon = function(agency) {
-            var iconColor;
+            var iconColor = 'grey';
             if (agency.totalSpots > 0) {
                 iconColor = 'green';
-            } else {
-                iconColor = 'grey';
             }
             var imgId = iconColor + '_'
                 + _.find(QualityRatingStars, {code: agency.qualityRating.code}).stars;
