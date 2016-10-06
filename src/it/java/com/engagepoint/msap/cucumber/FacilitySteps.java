@@ -42,6 +42,23 @@ public class FacilitySteps {
         userStepDefs.click_xpath_and_wait(".//ul/li/*[contains(text(),'" + address + "')]");
     }
 
+    @When("^search address '(.*)'  with age group '(.*)'on landing page$")
+    public void search_address_with_age_group_on_landing_page(String address, String ageGroup) throws Throwable {
+        $("[ng-click*='toggleFilterMenu']").shouldBe(visible);
+        userStepDefs.click_css_and_wait("[ng-click*='toggleFilterMenu']");
+        $(By.xpath(".//li/div/label[contains(.,'" + ageGroup + "')]")).shouldBe(visible);
+        userStepDefs.click_xpath_and_wait(".//li/div/label[contains(.,'" + ageGroup + "')]");
+        $(By.xpath(".//button/span[text()='1 Selected']")).shouldBe(visible);
+        userStepDefs.click_css_and_wait(".leaflet-pelias-input");
+        $(".leaflet-pelias-input").setValue(address);
+        sleep(1000);
+        $(By.xpath(".//ul/li/*[contains(text(),'" + address + "')]")).shouldBe(visible);
+        userStepDefs.click_xpath_and_wait(".//ul/li/*[contains(text(),'" + address + "')]");
+        userStepDefs.click_css_and_wait("[ng-click*='doSearch()']");
+        $("[ng-click*='doSearch()']").waitUntil(disappear, 10000);
+    }
+
+
     @When("^search '(.*)' by facility name$")
     public void search_in_facility_by_facility_name(String address) throws Throwable {
         $("[ng-keypress='findAgenciesByTextQuery($event);']").shouldBe(visible);
@@ -59,7 +76,6 @@ public class FacilitySteps {
     @Then("^verify facility with address '(.*)' and name '(.*)' presents in the list$")
     public void verify_facility_with_address_and_name_presents_in_the_list(String facilityAddress, String facilityName) throws Throwable {
         $(By.xpath(".//span[contains(text(),'" + facilityAddress + "')]/ancestor::div[@class='ch-facility']/descendant::*[text()='" + facilityName + "']")).shouldBe(visible);
-        $(By.xpath(".//*[text()='" + facilityName + "']/ancestor::div[@class='ch-facility']/descendant::button[text()='Ask Caseworker']")).shouldBe(visible);
     }
 
     @When("^do Ask About for facility with address '(.*)' and name '(.*)' and send letter$")
