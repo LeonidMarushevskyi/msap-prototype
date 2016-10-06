@@ -26,6 +26,10 @@
     <include file="classpath:config/liquibase/changelog/20160929131641_populate_data_LookupDayOfWeek.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160929131642_added_entity_LookupSpecialNeedGroup.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160929131641_populate_data_LookupSpecialNeedGroup.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160929131643_added_entity_LookupSpecialNeedType.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160929131641_populate_data_LookupSpecialNeedType.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160929131648_added_entity_LookupLanguage.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160929131641_populate_data_LookupLanguage.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160521013730_added_entity_Place.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160521013732_added_entity_Inbox.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160521013733_added_entity_Outbox.xml" relativeToChangelogFile="false"/>
@@ -44,11 +48,9 @@
     <include file="classpath:config/liquibase/changelog/20160929131653_added_entity_OpenSlot.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160929131654_added_entity_SubstantiatedAllegation.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160929131655_added_entity_Review.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161006020648_added_entity_SupportedLanguage.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161006024901_added_entity_SupportedSpecialNeed.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/201609260507_populate_data_Provider.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160929131643_added_entity_LookupSpecialNeedType.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160929131641_populate_data_LookupSpecialNeedType.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160929131648_added_entity_LookupLanguage.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160929131641_populate_data_LookupLanguage.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/201609260507_populate_Price.xml" relativeToChangelogFile="false"/>
 
 

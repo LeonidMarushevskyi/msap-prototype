@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('msapApp').controller('ProviderDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Provider', 'LookupLicenseType', 'LookupProviderType', 'Place', 'LookupQualityRating', 'OpenSlot', 'Schedule', 'LookupSpecialNeedType', 'Review', 'Price', 'SubstantiatedAllegation', 'LookupLanguage',
-        function($scope, $stateParams, $uibModalInstance, $q, entity, Provider, LookupLicenseType, LookupProviderType, Place, LookupQualityRating, OpenSlot, Schedule, LookupSpecialNeedType, Review, Price, SubstantiatedAllegation, LookupLanguage) {
+    ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Provider', 'LookupLicenseType', 'LookupProviderType', 'Place', 'LookupQualityRating', 'OpenSlot', 'Schedule', 'SupportedSpecialNeed', 'Review', 'Price', 'SubstantiatedAllegation', 'SupportedLanguage',
+        function($scope, $stateParams, $uibModalInstance, $q, entity, Provider, LookupLicenseType, LookupProviderType, Place, LookupQualityRating, OpenSlot, Schedule, SupportedSpecialNeed, Review, Price, SubstantiatedAllegation, SupportedLanguage) {
 
         $scope.provider = entity;
         $scope.licensetypes = LookupLicenseType.query({filter: 'provider-is-null'});
@@ -43,11 +43,11 @@ angular.module('msapApp').controller('ProviderDialogController',
         });
         $scope.openslots = OpenSlot.query();
         $scope.schedules = Schedule.query();
-        $scope.lookupspecialneedtypes = LookupSpecialNeedType.query();
+        $scope.supportedspecialneeds = SupportedSpecialNeed.query();
         $scope.reviews = Review.query();
         $scope.prices = Price.query();
         $scope.substantiatedallegations = SubstantiatedAllegation.query();
-        $scope.lookuplanguages = LookupLanguage.query();
+        $scope.supportedlanguages = SupportedLanguage.query();
         $scope.load = function(id) {
             Provider.get({id : id}, function(result) {
                 $scope.provider = result;

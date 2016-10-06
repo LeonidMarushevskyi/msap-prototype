@@ -68,7 +68,8 @@ public class UserService {
                 user.setActivationKey(null);
                 userRepository.save(user);
                 userSearchRepository.save(user);
-                sendInvitationLetter(user.getLogin());
+//                todo: restore invitation e-mail? bind it to another from user
+//                sendInvitationLetter(user.getLogin());
                 attachSupportContacts(user.getLogin());
                 LOGGER.debug("Activated user: {}", user);
                 return user;

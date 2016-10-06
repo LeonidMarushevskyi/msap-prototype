@@ -129,7 +129,7 @@
     min-width: 15rem;
     position: absolute;
     top: 4rem;
-    right: 22.8rem;
+    right: 20.7rem;
     z-index: 10000;
 
     @media screen and (max-width: $break-phone) {
@@ -201,6 +201,10 @@
 .ch-header__subsection-language {
     float: right;
     padding: 2.2rem 2.2rem 0 0;
+
+    @media screen and (max-width: 700px) {
+        display: none;
+    }
 }
 
 .ch-language-popup__entry_active {

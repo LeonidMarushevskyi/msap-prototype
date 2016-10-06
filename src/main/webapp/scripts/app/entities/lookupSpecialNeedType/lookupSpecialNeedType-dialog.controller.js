@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('msapApp').controller('LookupSpecialNeedTypeDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'LookupSpecialNeedType', 'LookupSpecialNeedGroup', 'Provider',
-        function($scope, $stateParams, $uibModalInstance, $q, entity, LookupSpecialNeedType, LookupSpecialNeedGroup, Provider) {
+    ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'LookupSpecialNeedType', 'LookupSpecialNeedGroup',
+        function($scope, $stateParams, $uibModalInstance, $q, entity, LookupSpecialNeedType, LookupSpecialNeedGroup) {
 
         $scope.lookupSpecialNeedType = entity;
         $scope.specialneedgroups = LookupSpecialNeedGroup.query({filter: 'lookupspecialneedtype-is-null'});
@@ -14,7 +14,6 @@ angular.module('msapApp').controller('LookupSpecialNeedTypeDialogController',
         }).then(function(specialNeedGroup) {
             $scope.specialneedgroups.push(specialNeedGroup);
         });
-        $scope.providers = Provider.query();
         $scope.load = function(id) {
             LookupSpecialNeedType.get({id : id}, function(result) {
                 $scope.lookupSpecialNeedType = result;

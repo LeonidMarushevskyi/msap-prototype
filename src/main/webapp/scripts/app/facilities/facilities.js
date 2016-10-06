@@ -25,7 +25,10 @@ angular.module('msapApp')
                         $translatePartialLoader.addPart('facilities');
                         return $translate.refresh();
                     }],
-                    lookupAgeGroups: ['LookupAgeGroups', '$stateParams', '$state', function(LookupAgeGroups, $stateParams, $state) {
+                    searchParams: ['$state', '$q', function($state, $q) {
+                        return $q.when($state.params);
+                    }],
+                    lookupAgeGroups: ['LookupAgeGroups', function(LookupAgeGroups) {
                         return LookupAgeGroups.query().$promise;
                     }],
                     lookupQualityRating: ['LookupQualityRating', function(LookupQualityRating) {
@@ -42,6 +45,12 @@ angular.module('msapApp')
                     }],
                     lookupSpecialNeedType: ['LookupSpecialNeedType', function(LookupSpecialNeedType) {
                         return LookupSpecialNeedType.query().$promise;
+                    }],
+                    lookupLicenseType: ['LookupLicenseType', function(LookupLicenseType) {
+                        return LookupLicenseType.query().$promise;
+                    }],
+                    lookupLanguage: ['LookupLanguage', function (LookupLanguage) {
+                        return LookupLanguage.query().$promise;
                     }]
                 }
             });

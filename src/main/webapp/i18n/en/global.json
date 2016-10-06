@@ -88,6 +88,8 @@
                 "lookupSpecialNeedType": "LookupSpecialNeedType",
                 "lookupLanguage": "LookupLanguage",
                 "review": "Review",
+                "supportedLanguage": "SupportedLanguage",
+                "supportedSpecialNeed": "SupportedSpecialNeed",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -128,7 +130,8 @@
             "confirmpassword.placeholder": "Confirm the new password",
             "email": "E-mail",
             "email.placeholder": "Your e-mail",
-            "email.address": "E-mail Address"
+            "email.address": "E-mail Address",
+            "filters-selected": "{{selectedCount}} Selected"
         },
         "messages": {
             "info": {
@@ -160,7 +163,10 @@
         },
         "field": {
             "id": "ID"
-        }
+        },
+        "miles": "miles",
+        "showmore": "Show More",
+        "hidedetails": "Hide Details"
     },
     "entity": {
         "action": {

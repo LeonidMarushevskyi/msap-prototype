@@ -17,8 +17,7 @@
                 "title": "LookupLanguage"
             },
             "code": "Code",
-            "name": "Name",
-            "provider": "Provider"
+            "name": "Name"
         }
     }
 }

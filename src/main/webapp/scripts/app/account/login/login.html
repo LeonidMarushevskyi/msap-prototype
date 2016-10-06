@@ -24,7 +24,7 @@
                     <div class="ch-login__header__actions">
 
                         <div class="ch-login__actions__language" ng-controller="LanguageController">
-                            <a href="" ng-click="toggleLanguagePopup()" >Language</a>
+                            <a href="" ng-click="toggleLanguagePopup()" >{{getCurrentLanguageKey()}}</a>
 
                             <div class="ch-login-language__popup" ng-show="isLanguagePopupShown">
                                 <div class="ch-login-language__popup-plane">
@@ -59,15 +59,14 @@
               <div class="col-md-12">
                   <div class="ch-login__content__text">
                       <div class="ch-login__content__text-title">
-                          <h3>
+                          <h3 translate="login.landing-title">
                               We help you find the best <br> child care providers
                           </h3>
                       </div>
                   </div>
 
                   <div class="ch-login__delimiter"></div>
-
-                  <div class="ch-login__content__description">
+                  <div class="ch-login__content__description" translate="login.landing-description">
                       Use filters below and "Search" button to fast searching child care providers
                   </div>
 
@@ -86,28 +85,38 @@
             </div>
 
             <div class="ch-login__select flex-child">
-
-              <div class="ch-login__select-dropdown" title="Select the serves ages">
-                  <button type="button" class="ch-login__select-dropdown__btn"
-                          ng-click="typesConfig.showList = !typesConfig.showList;">
-                      <span class="">Select age(s) of children <span class="ch-mobile-text__cut">needing care</span></span>
-                  </button>
-                  <div class="ch-multi-select-dropdown__popup" ng-show="ageGroupConfig.showList" ng-mouseleave="ageGroupConfig.showList = false">
-                      <ul class="ch-checkboxes-list">
-                          <li class="ch-checkboxes-list__item" ng-repeat="ageGroup in lookupAgeGroups track by ageGroup.id | orderBy: 'id'">
-                              <div class="form-type__checkbox_empty-label">
-                                  <input id="ageGroup_{{ageGroup.code}}" type="checkbox" ng-model="ageGroup.selected" ng-click="onAgeGroupSelect();">
-                                  <label for="ageGroup_{{ageGroup.code}}">{{'facilities.lookupAgeGroups.' + ageGroup.code | translate}}</label>
-                              </div>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
+                <div class="ch-login__select-dropdown" title="Select the serves ages">
+                    <button type="button" class="ch-login__select-dropdown__btn" ng-click="toggleFilterMenu('lookupAgeGroups');">
+                          <span class=""
+                                ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount == 0">
+                              <span translate="login.age-group-dropdown.line1">Select age(s) of children</span>
+                              <span class="ch-mobile-text__cut" translate="login.age-group-dropdown.line2">needing care</span>
+                          </span>
+                          <span class=""
+                                ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount > 0"
+                                translate="global.form.filters-selected"
+                                translate-values="{selectedCount: filterMenuConfigs['lookupAgeGroups'].selectedCount}">
+                              {{filterMenuConfigs['lookupAgeGroups'].selectedCount}} Selected
+                          </span>
+                    </button>
+                    <div class="ch-multi-select-dropdown__popup" ng-show="filterMenuConfigs['lookupAgeGroups'].showList" ng-mouseleave="toggleFilterMenu('lookupAgeGroups', false);">
+                        <ul class="ch-checkboxes-list">
+                            <li class="ch-checkboxes-list__item" ng-repeat="ageGroup in lookupAgeGroups">
+                                <div class="form-type__checkbox_empty-label">
+                                    <input id="lookupAgeGroup_{{ageGroup.code}}" type="checkbox"
+                                           ng-model="ageGroup.selected"
+                                           ng-click="onFilterMenuItemClick('lookupAgeGroups', ageGroup.code);">
+                                    <label for="lookupAgeGroup_{{ageGroup.code}}">{{'lookups.lookupAgeGroups.' + ageGroup.code | translate}}</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <div class="ch-login__action-box flex-child">
-              <button type="button" class="ch-login__action-box__btn">
-                  <span class="ch-login__action-box__btn-text">Search</span>
+              <button type="button" class="ch-login__action-box__btn" ng-click="doSearch();">
+                  <span class="ch-login__action-box__btn-text" translate="login.search">Search</span>
               </button>
             </div>
         </div>
@@ -137,7 +146,7 @@
                         <h3 class="ch-login__social-title"><span>
                            Mississippi Department of Human Services</span></h3>
                         <div class="ch-login__social__pane">
-                          <a class="twitter-timeline" href="https://twitter.com/ms_dhs" data-widget-id="738745796632383488">Tweets by @MS_DHS</a>
+                          <a class="twitter-timeline" href="https://twitter.com/ms_dhs" data-widget-id="783512779122704384">Tweets by @MS_DHS</a>
                         </div>
 
                       </div>

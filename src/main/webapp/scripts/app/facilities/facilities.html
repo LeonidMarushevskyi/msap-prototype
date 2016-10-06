@@ -54,7 +54,7 @@
                         </span>
                         <span class="ch-multi-select-dropdown__btn-text"
                               ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount > 0"
-                              translate="facilities.age-groups-selected"
+                              translate="global.form.filters-selected"
                               translate-values="{selectedCount: filterMenuConfigs['lookupAgeGroups'].selectedCount}">
                             {{filterMenuConfigs['lookupAgeGroups'].selectedCount}} Selected
                         </span>
@@ -67,7 +67,7 @@
                                     <input id="lookupAgeGroup_{{ageGroup.code}}" type="checkbox"
                                            ng-model="ageGroup.selected"
                                            ng-click="onFilterMenuItemClick('lookupAgeGroups', ageGroup.code);">
-                                    <label for="lookupAgeGroup_{{ageGroup.code}}">{{'facilities.lookupAgeGroups.' + ageGroup.code | translate}}</label>
+                                    <label for="lookupAgeGroup_{{ageGroup.code}}">{{'lookups.lookupAgeGroups.' + ageGroup.code | translate}}</label>
                                 </div>
                             </li>
                         </ul>
@@ -84,7 +84,7 @@
                         </span>
                         <span class="ch-multi-select-dropdown__btn-text"
                               ng-if="filterMenuConfigs['lookupQualityRating'].selectedCount > 0"
-                              translate="facilities.quality-ratings-selected"
+                              translate="global.form.filters-selected"
                               translate-values="{selectedCount: filterMenuConfigs['lookupQualityRating'].selectedCount}">
                             {{filterMenuConfigs['lookupQualityRating'].selectedCount}} Selected
                         </span>
@@ -97,7 +97,7 @@
                                     <input id="qualityRating_{{qualityRating.code}}" type="checkbox"
                                            ng-model="qualityRating.selected"
                                            ng-click="onFilterMenuItemClick('lookupQualityRating', qualityRating.code);">
-                                    <label for="qualityRating_{{qualityRating.code}}">{{'facilities.lookupQualityRating.' + qualityRating.code | translate | capitalize:true}}</label>
+                                    <label for="qualityRating_{{qualityRating.code}}">{{'lookups.lookupQualityRating.' + qualityRating.code | translate | capitalize:true}}</label>
                                 </div>
                             </li>
                         </ul>
@@ -128,7 +128,7 @@
                             <input id="workingHours_{{workingHours.code}}" type="checkbox"
                                    ng-model="workingHours.selected"
                                    ng-click="onFilterMenuItemClick('lookupWorkingHours', workingHours.code);">
-                            <label for="workingHours_{{workingHours.code}}">{{'facilities.lookupWorkingHours.' + workingHours.code | translate}}</label>
+                            <label for="workingHours_{{workingHours.code}}">{{'lookups.lookupWorkingHours.' + workingHours.code | translate}}</label>
                         </div>
                     </li>
                 </ul>
@@ -145,7 +145,7 @@
                         <div class="ch-facilities-extended-text-input">
                             <label for="spots_ageGroup_{{ageGroup.code}}">
                                 {{'facilities.age-group' | translate}}:
-                                {{'facilities.lookupAgeGroups.' + ageGroup.code | translate}}
+                                {{'lookups.lookupAgeGroups.' + ageGroup.code | translate}}
                             </label>
                             <input id="spots_ageGroup_{{ageGroup.code}}" type="input"
                                    ng-model="ageGroup.availableSpots">
@@ -163,7 +163,7 @@
                             <input id="providerType_{{providerType.code}}" type="checkbox"
                                    ng-model="providerType.selected"
                                    ng-click="onFilterMenuItemClick('lookupProviderType', providerType.code);">
-                            <label for="providerType_{{providerType.code}}">{{'facilities.lookupProviderType.' + providerType.code | translate | capitalize:true}}</label>
+                            <label for="providerType_{{providerType.code}}">{{'lookups.lookupProviderType.' + providerType.code | translate | capitalize:true}}</label>
                         </div>
                     </li>
                 </ul>
@@ -195,7 +195,7 @@
                     </li>
                 </ul>
 
-                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
+                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group" has-any-authority="PARENT, FOSTER_PARENT, CASE_WORKER">
                     <li class="ch-checkboxes-group__header">
                         <span translate="facilities.no-problems">Additional</span>
                     </li>
@@ -220,24 +220,16 @@
                             <span translate="facilities.languages">Languages</span>
                         </li>
 
-                        <li class="ch-checkboxes-group__item">
-                            <div class="form-type__checkbox_empty-label">
-                                <input id="language2" type="checkbox">
-                                <label for="language2" translate="facilities.english">English</label>
-                            </div>
-                        </li>
+                        <li class="ch-checkboxes-group__item"
+                            ng-repeat="lang in lookupLanguage track by lang.id | orderBy: 'id'">
 
-                        <li class="ch-checkboxes-group__item">
                             <div class="form-type__checkbox_empty-label">
-                                <input id="language3" type="checkbox">
-                                <label for="language3" translate="facilities.spanish">Spanish</label>
-                            </div>
-                        </li>
-
-                        <li class="ch-checkboxes-group__item">
-                            <div class="form-type__checkbox_empty-label">
-                                <input id="language4" type="checkbox">
-                                <label for="language4" translate="facilities.vietnamese">Vietnamese</label>
+                                <input id="lang_{{lang.code}}" type="checkbox"
+                                       ng-model="lang.selected"
+                                       ng-click="onFilterMenuItemClick('lookupLanguage', lang.code);">
+                                <label for="lang_{{lang.code}}">
+                                    {{'lookups.lookupLanguage.' + lang.code | translate}}
+                                </label>
                             </div>
                         </li>
                     </li>
@@ -245,141 +237,41 @@
             </div>
 
             <div class="ch-facilities-extended-filters__section">
-                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
+
+                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group"
+                    ng-repeat="specialNeedGroup in lookupSpecialNeedGroup track by specialNeedGroup.id | orderBy: 'id'">
+
                     <li class="ch-checkboxes-group__header">
-                        <span translate="facilities.physical">Physical</span>
+                        <span>{{'lookups.lookupSpecialNeedGroup.' + specialNeedGroup.code | translate}}</span>
                     </li>
 
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="physical2" type="checkbox">
-                            <label for="physical2" translate="facilities.muscular-dystrophy">Muscular Dystrophy</label>
-                        </div>
-                    </li>
+                    <li class="ch-checkboxes-group__item"
+                        ng-repeat="specialNeedType in lookupSpecialNeedType track by specialNeedType.id | orderBy: 'id'">
 
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="physical3" type="checkbox">
-                            <label for="physical3" translate="facilities.multiple-sclerosis">Multiple Sclerosis</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="physical4" type="checkbox">
-                            <label for="physical4" translate="facilities.chronic-asthma">Chronic Asthma</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="physical5" type="checkbox">
-                            <label for="physical5" translate="facilities.epilepsy">Epilepsy</label>
+                        <div class="form-type__checkbox_empty-label" ng-if="specialNeedType.specialNeedGroup.code == specialNeedGroup.code">
+                            <input id="specialNeedType_{{specialNeedType.code}}" type="checkbox"
+                                   ng-model="specialNeedType.selected"
+                                   ng-click="onFilterMenuItemClick('lookupSpecialNeedType', specialNeedType.code);">
+                            <label for="specialNeedType_{{specialNeedType.code}}">{{'lookups.lookupSpecialNeedType.' + specialNeedType.code | translate}}</label>
                         </div>
                     </li>
                 </ul>
 
-                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
+                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group" has-any-authority="PARENT, FOSTER_PARENT, CASE_WORKER">
                     <li class="ch-checkboxes-group__header">
-                        <span translate="facilities.developmental">Developmental</span>
+                        <span translate="facilities.license-type">License Type</span>
                     </li>
 
-                    <li class="ch-checkboxes-group__item">
+                    <li class="ch-checkboxes-group__item" ng-repeat="licenseType in lookupLicenseType track by licenseType.id | orderBy: 'id'">
                         <div class="form-type__checkbox_empty-label">
-                            <input id="developmental2" type="checkbox">
-                            <label for="developmental2" translate="facilities.down-syndrome">Down Syndrome</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="developmental3" type="checkbox">
-                            <label for="developmental3" translate="facilities.dyslexia">Dyslexia</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="developmental4" type="checkbox">
-                            <label for="developmental4" translate="facilities.autism">Autism</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="developmental5" type="checkbox">
-                            <label for="developmental5" translate="facilities.processing-disorders">Processing Disorders</label>
+                            <input id="licenseType_{{licenseType.code}}" type="checkbox"
+                                   ng-model="licenseType.selected"
+                                   ng-click="onFilterMenuItemClick('lookupLicenseType', licenseType.code);">
+                            <label for="licenseType_{{licenseType.code}}">{{'lookups.lookupLicenseType.' + licenseType.code | translate | capitalize:true}}</label>
                         </div>
                     </li>
                 </ul>
 
-                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
-                    <li class="ch-checkboxes-group__header">
-                        <span translate="facilities.sensory-imparied">Sensory Impaired</span>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="sensory2" type="checkbox">
-                            <label for="sensory2" translate="facilities.blind">Blind</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="sensory3" type="checkbox">
-                            <label for="sensory3" translate="facilities.deaf">Deaf</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="sensory4" type="checkbox">
-                            <label for="sensory4" translate="facilities.visually-impaired">Visually impaired</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="sensory5" type="checkbox">
-                            <label for="sensory5" translate="facilities.limited-hearing">Limited hearing</label>
-                        </div>
-                    </li>
-                </ul>
-
-                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group">
-                    <li class="ch-checkboxes-group__header">
-                        <span translate="facilities.behavioral-emotional">Behavioral/Emotional</span>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="behavioral2" type="checkbox">
-                            <label for="behavioral2" translate="facilities.attention-deficit">Attention Deficit Disorder (ADD)</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="behavioral3" type="checkbox">
-                            <label for="behavioral3" translate="facilities.bipolar-disorder">Bipolar disorder</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="behavioral4" type="checkbox">
-                            <label for="behavioral4" translate="facilities.post-traumatic-stress">Post traumatic Stress Disorder (PTSD)</label>
-                        </div>
-                    </li>
-
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="behavioral5" type="checkbox">
-                            <label for="behavioral5" translate="facilities.oppositional-defiant">Oppositional Defiant Disorder (ODD)</label>
-                        </div>
-                    </li>
-                </ul>
             </div>
         </div>
 
@@ -390,7 +282,7 @@
 
             <div class="ch-facilities-extended-filters__results-filters">
                 <div class="ch-meta-tag" ng-repeat="value in selectedFilterButtons">
-                    <span class="ch-meta-tag__text">{{'facilities.' + value.modelName + '.' + value.code | translate}}</span>
+                    <span class="ch-meta-tag__text">{{'lookups.' + value.modelName + '.' + value.code | translate}}</span>
                     <button type="button" class="ch-meta-tag__dismiss-btn"
                             ng-click="dismissFilterClick(value.modelName, value.code);"></button>
                 </div>
@@ -417,11 +309,13 @@
 </div>
 
 <div style="display: none">
+  <img src="assets/images/green_star.png" id="icon_pin_green_not_rated"/>
   <img src="assets/images/green_1star.png" id="icon_pin_green_1star"/>
   <img src="assets/images/green_2star.png" id="icon_pin_green_2star"/>
   <img src="assets/images/green_3star.png" id="icon_pin_green_3star"/>
   <img src="assets/images/green_4star.png" id="icon_pin_green_4star"/>
   <img src="assets/images/green_5star.png" id="icon_pin_green_5star"/>
+  <img src="assets/images/grey_star.png" id="icon_pin_grey_not_rated"/>
   <img src="assets/images/grey_1star.png" id="icon_pin_grey_1star"/>
   <img src="assets/images/grey_2star.png" id="icon_pin_grey_2star"/>
   <img src="assets/images/grey_3star.png" id="icon_pin_grey_3star"/>

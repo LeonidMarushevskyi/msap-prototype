@@ -1,11 +1,10 @@
 'use strict';
 
 angular.module('msapApp').controller('LookupLanguageDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'LookupLanguage', 'Provider',
-        function($scope, $stateParams, $uibModalInstance, entity, LookupLanguage, Provider) {
+    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'LookupLanguage',
+        function($scope, $stateParams, $uibModalInstance, entity, LookupLanguage) {
 
         $scope.lookupLanguage = entity;
-        $scope.providers = Provider.query();
         $scope.load = function(id) {
             LookupLanguage.get({id : id}, function(result) {
                 $scope.lookupLanguage = result;

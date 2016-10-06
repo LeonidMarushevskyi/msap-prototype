@@ -84,7 +84,7 @@ angular.module('msapApp')
         };
 
         $scope.getActionName = function() {
-            return ($stateParams.directory === 'deleted' ? 'Restore' : 'Delete');
+            return ($stateParams.directory === 'deleted' ? 'Restore' : '');
         };
 
         $scope.getTargetName = function(mail) {
@@ -140,7 +140,7 @@ angular.module('msapApp')
             } else {
                 return 0;
             }
-        };
+        };        
 
         $scope.loadPage();
     });

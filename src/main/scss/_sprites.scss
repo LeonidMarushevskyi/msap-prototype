@@ -88,28 +88,7 @@ $icon-inbox-total-width: 224px;
 $icon-inbox-total-height: 202px;
 $icon-inbox-image: '../images/global.png';
 $icon-inbox: (208px, 156px, -208px, -156px, 16px, 12px, 224px, 202px, '../images/global.png', 'icon-inbox', );
-$icon-pagination-arrow-left-name: 'icon-pagination-arrow-left';
-$icon-pagination-arrow-left-x: 153px;
-$icon-pagination-arrow-left-y: 126px;
-$icon-pagination-arrow-left-offset-x: -153px;
-$icon-pagination-arrow-left-offset-y: -126px;
-$icon-pagination-arrow-left-width: 13px;
-$icon-pagination-arrow-left-height: 20px;
-$icon-pagination-arrow-left-total-width: 224px;
-$icon-pagination-arrow-left-total-height: 202px;
-$icon-pagination-arrow-left-image: '../images/global.png';
-$icon-pagination-arrow-left: (153px, 126px, -153px, -126px, 13px, 20px, 224px, 202px, '../images/global.png', 'icon-pagination-arrow-left', );
-$icon-pagination-arrow-right-name: 'icon-pagination-arrow-right';
-$icon-pagination-arrow-right-x: 176px;
-$icon-pagination-arrow-right-y: 126px;
-$icon-pagination-arrow-right-offset-x: -176px;
-$icon-pagination-arrow-right-offset-y: -126px;
-$icon-pagination-arrow-right-width: 13px;
-$icon-pagination-arrow-right-height: 20px;
-$icon-pagination-arrow-right-total-width: 224px;
-$icon-pagination-arrow-right-total-height: 202px;
-$icon-pagination-arrow-right-image: '../images/global.png';
-$icon-pagination-arrow-right: (176px, 126px, -176px, -126px, 13px, 20px, 224px, 202px, '../images/global.png', 'icon-pagination-arrow-right', );
+
 $icon-process-succeed-name: 'icon-process-succeed';
 $icon-process-succeed-x: 0px;
 $icon-process-succeed-y: 126px;
@@ -212,7 +191,7 @@ $logo: (0px, 76px, 0px, -76px, 120px, 40px, 224px, 202px, '../images/global.png'
 $spritesheet-width: 224px;
 $spritesheet-height: 202px;
 $spritesheet-image: '../images/global.png';
-$spritesheet-sprites: ($icon-add-contact, $icon-aside-inbox, $icon-back-arrow, $icon-contact, $icon-drafts, $icon-facilities, $icon-inbox, $icon-pagination-arrow-left, $icon-pagination-arrow-right, $icon-process-succeed, $icon-recycle-bin, $icon-reply-msg, $icon-sent, $icon-user-account-exit, $icon-user-account, $icon-user-accout-popup, $logo-xl, $logo, );
+$spritesheet-sprites: ($icon-add-contact, $icon-aside-inbox, $icon-back-arrow, $icon-contact, $icon-drafts, $icon-facilities, $icon-inbox, $icon-process-succeed, $icon-recycle-bin, $icon-reply-msg, $icon-sent, $icon-user-account-exit, $icon-user-account, $icon-user-accout-popup, $logo-xl, $logo, );
 $spritesheet: (224px, 202px, '../images/global.png', $spritesheet-sprites, );
 
 /*

@@ -4,6 +4,8 @@
         "title": "Registrarse",
         "login": "Iniciar",
         "register": "Registro",
+        "landing-title": "Ayudamos a encontrar la mejor proveedores <br> de cuidado infantil",
+        "landing-description": "Utilice los siguientes filtros y \"Buscar\" botón para búsqueda rápida de proveedores de cuidado infantil",
         "form": {
             "username": "Nombre de usuario",
             "username.placeholder": "Tu nombre de usuario",
@@ -19,6 +21,11 @@
         },
         "password" : {
             "forgot": "¿Olvidaste tu contraseña?"
-        }
+        },
+        "age-group-dropdown" : {
+            "line1": "Selecciona la edad de los niños ",
+            "line2": "cuidado de necesidad"
+        },
+        "search": "Buscar"
     }
 }

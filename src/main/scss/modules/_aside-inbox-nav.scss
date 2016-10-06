@@ -29,41 +29,15 @@
     }
 }
 
-.ch-aside-nav-item__link_icon_inbox:hover {
-    &:before {
-        background: url(../images/out-sprite-icons/icon-aside-inbox-hover.png) 0 0 no-repeat;
-    }
-}
-
-.ch-aside-nav-item__link_icon_sent:hover {
-    &:before {
-        background: url(../images/out-sprite-icons/icon-sent-hover.png) 0 0 no-repeat;
-    }
-}
-
-.ch-aside-nav-item__link_icon_drafts:hover {
-    &:before {
-        background: url(../images/out-sprite-icons/icon-drafts-hover.png) 0 0 no-repeat;
-    }
-}
-
-.ch-aside-nav-item__link_icon_deleted:hover {
-    &:before {
-        background: url(../images/out-sprite-icons/icon-recycle-bin-hover.png) 0 0 no-repeat;
-    }
-}
-
-
-
 .ch-aside-nav-item__link_active {
-    border-left: 0.3rem solid #0071bc;
+    border-left: 0.3rem solid $primary-color-blue;
 
     .ch-aside-nav-item__text {
-        color: #0071bc;
+        color: $primary-color-blue;
     }
 
     .ch-aside-nav-item__counter {
-        color: #0071bc;
+        color: $primary-color-blue;
     }
 
 }
@@ -98,43 +72,58 @@
 }
 
 .ch-aside-nav-item__link_icon_inbox:before {
-    width: 16px;
-    height: 16px;
-    background: url(../images/out-sprite-icons/icon-aside-inbox.png) 0 0 no-repeat;
+    width: 1.6rem;
+    height: 1.6rem;
+
+    -webkit-mask: url("../images/out-sprite-icons/icon-aside-inbox-active.svg") no-repeat center;
+    mask: url("../images/out-sprite-icons/icon-aside-inbox-active.svg") no-repeat center;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: $primary-color-grey-light;
 }
 
 .ch-aside-nav-item__link_icon_sent:before {
-    width: 16px;
-    height: 12px;
-    background: url(../images/out-sprite-icons/icon-sent.png) 0 0 no-repeat;
+    width: 1.6rem;
+    height: 1.2rem;
+
+    -webkit-mask: url("../images/out-sprite-icons/icon-sent.svg") no-repeat center;
+    mask: url("../images/out-sprite-icons/icon-sent.svg") no-repeat center;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: $primary-color-grey-light;
 }
 
 .ch-aside-nav-item__link_icon_drafts:before {
-    width: 14px;
-    height: 16px;
-    background: url(../images/out-sprite-icons/icon-drafts.png) 0 0 no-repeat;
+    width: 1.4rem;
+    height: 1.4rem;
+
+    -webkit-mask: url("../images/out-sprite-icons/icon-drafts.svg") no-repeat center;
+    mask: url("../images/out-sprite-icons/icon-drafts.svg") no-repeat center;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: $primary-color-grey-light;
 }
 
 .ch-aside-nav-item__link_icon_deleted:before {
-    width: 16px;
-    height: 16px;
-    background: url(../images/out-sprite-icons/icon-recycle-bin.png) 0 0 no-repeat;
+    width: 1.6rem;
+    height: 1.6rem;
+
+    -webkit-mask: url("../images/out-sprite-icons/icon-recycle-bin.svg") no-repeat center;
+    mask: url("../images/out-sprite-icons/icon-recycle-bin.svg") no-repeat center;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: $primary-color-grey-light;
 }
 
-.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_inbox:before {
-    background: url(../images/out-sprite-icons/icon-aside-inbox-active.png) 0 0 no-repeat;
-}
-
-.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_sent:before {
-    background: url(../images/out-sprite-icons/icon-sent-active.png) 0 0 no-repeat;
-}
-
-.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_drafts:before {
-    background: url(../images/out-sprite-icons/icon-drafts-active.png) 0 0 no-repeat;
-}
-
-.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_deleted:before {
-    background: url(../images/out-sprite-icons/icon-recycle-bin-active.png) 0 0 no-repeat;
+.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_inbox:before,
+.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_sent:before,
+.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_drafts:before,
+.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_deleted:before,
+.ch-aside-nav-item__link_icon_inbox:hover:before,
+.ch-aside-nav-item__link_icon_sent:hover:before,
+.ch-aside-nav-item__link_icon_drafts:hover:before,
+.ch-aside-nav-item__link_icon_deleted:hover:before {
+    background-color: $primary-color-blue;
 }
 
 .ch-aside-nav-item__counter {
