@@ -181,8 +181,11 @@ angular.module('msapApp')
             }
 
             function _whenConditionIsTrue(searchOptions) {
-                if (_.isUndefined(searchOptions.$when)) {
+                if (!_.hasIn(searchOptions, '$when')) {
                     return true;
+
+                } else if (_.isUndefined(searchOptions.$when)) {
+                    return false;
 
                 } else if (_.isFunction(searchOptions.$when)) {
                     return (searchOptions.$when)();

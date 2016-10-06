@@ -266,16 +266,17 @@ angular.module('msapApp')
                     }
                 },
                 text: $scope.searchText,
-                providerTypes: $scope.getSelected('lookupProviderType'),
-                qualityRatings: $scope.getSelected('lookupQualityRating'),
+                ageGroups: $scope.getSelected('lookupAgeGroups'),
+                providerTypeCodes: $scope.getSelectedCodes('lookupProviderType'),
+                qualityRatingCodes: $scope.getSelectedCodes('lookupQualityRating'),
                 isBeforeSchool: $scope.isSelected('lookupWorkingHours', 1),
                 isAfterSchool: $scope.isSelected('lookupWorkingHours', 2),
                 isFullDay: $scope.isSelected('lookupWorkingHours', 3),
                 isWeekendCare: $scope.isSelected('lookupWorkingHours', 4),
                 isOpenOvernight: $scope.isSelected('lookupWorkingHours', 5),
-                licenseTypes: $scope.getSelected('lookupLicenseType'),
-                specialNeeds: $scope.getSelected('lookupSpecialNeedType'),
-                supportedLanguages: $scope.getSelected('lookupLanguage')
+                licenseTypeCodes: $scope.getSelectedCodes('lookupLicenseType'),
+                specialNeedCodes: $scope.getSelectedCodes('lookupSpecialNeedType'),
+                supportedLanguageCodes: $scope.getSelectedCodes('lookupLanguage')
             };
             //$log.debug('request', request);
 
@@ -418,16 +419,19 @@ angular.module('msapApp')
         };
 
         $scope.getSelected = function(modelName) {
-            return _.map(_.filter($scope[modelName], {selected: true}), 'code');
+            return _.filter($scope[modelName], {selected: true});
+        };
+        $scope.getSelectedCodes = function(modelName) {
+            return _.map($scope.getSelected(modelName), 'code');
         };
 
-        $scope.setSelected = function(modelName, code) {
+        $scope.setSelectedByCode = function(modelName, code) {
             _.find($scope[modelName], {code: code}).selected = true;
             $scope.addSelectedFilterButton(modelName, code);
         };
-        if ($scope.searchParams.ageGroups) {
-            _.each($scope.searchParams.ageGroups, function (ageGroupCode) {
-                $scope.setSelected('lookupAgeGroups', ageGroupCode);
+        if ($scope.searchParams.ageGroupCodes) {
+            _.each($scope.searchParams.ageGroupCodes, function (ageGroupCode) {
+                $scope.setSelectedByCode('lookupAgeGroups', ageGroupCode);
             });
             $scope.updateSelectedCount('lookupAgeGroups');
         }

@@ -39,7 +39,10 @@ angular.module('msapApp')
         $scope.lookupAgeGroups = lookupAgeGroups;
 
         $scope.getSelected = function(modelName) {
-            return _.map(_.filter($scope[modelName], {selected: true}), 'code');
+            return _.filter($scope[modelName], {selected: true});
+        };
+        $scope.getSelectedCodes = function(modelName) {
+            return _.map($scope.getSelected(modelName), 'code');
         };
 
         $scope.onFilterMenuItemClick = function(modelName, code) {
@@ -60,7 +63,7 @@ angular.module('msapApp')
                         latitude: $scope.addressFeature ? $scope.addressFeature.latlng.lat : null,
                         longitude: $scope.addressFeature ? $scope.addressFeature.latlng.lng : null,
                         geoLabel: $scope.addressFeature ? $scope.addressFeature.feature.properties.label : null,
-                        ageGroups: $scope.getSelected('lookupAgeGroups')
+                        ageGroupCodes: $scope.getSelectedCodes('lookupAgeGroups')
                     }
                 ));
         };
