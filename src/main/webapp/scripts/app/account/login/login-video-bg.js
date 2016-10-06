@@ -13,8 +13,6 @@ $(document).load(function() {
         scaleBannerVideoSize('.video-container video');
     });
 
-    var top = Math.round($(window).height()/100 * 35) - 80;
-
 });
 
 $(window).load(function() {
@@ -49,9 +47,6 @@ function scaleBannerVideoSize(element){
         windowHeight = $(window).height(),
         videoWidth,
         videoHeight;
-
-    console.log(windowWidth);
-    console.log(windowHeight);
 
     $(element).each(function(){
         var videoAspectRatio = $(this).data('height')/$(this).data('width');

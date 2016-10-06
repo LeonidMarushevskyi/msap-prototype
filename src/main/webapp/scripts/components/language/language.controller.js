@@ -27,7 +27,7 @@ angular.module('msapApp')
         };
 
         $scope.isCurrent = function (languageKey) {
-            return $scope.getCurrentLanguageKey() == languageKey;
+            return $scope.getCurrentLanguageKey() === languageKey;
         };
 
         $scope.init = function () {
