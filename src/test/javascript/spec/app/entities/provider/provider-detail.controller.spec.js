@@ -4,7 +4,7 @@ describe('Controller Tests', function() {
 
     describe('Provider Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockProvider, MockLookupLicenseType, MockLookupProviderType, MockPlace, MockLookupQualityRating, MockOpenSlot, MockSchedule, MockLookupSpecialNeedType, MockReview, MockPrice, MockSubstantiatedAllegation, MockLookupLanguage;
+        var MockEntity, MockProvider, MockLookupLicenseType, MockLookupProviderType, MockPlace, MockLookupQualityRating, MockOpenSlot, MockSchedule, MockSupportedSpecialNeed, MockReview, MockPrice, MockSubstantiatedAllegation, MockSupportedLanguage;
         var createController;
 
         beforeEach(inject(function($injector) {
@@ -18,11 +18,11 @@ describe('Controller Tests', function() {
             MockLookupQualityRating = jasmine.createSpy('MockLookupQualityRating');
             MockOpenSlot = jasmine.createSpy('MockOpenSlot');
             MockSchedule = jasmine.createSpy('MockSchedule');
-            MockLookupSpecialNeedType = jasmine.createSpy('MockLookupSpecialNeedType');
+            MockSupportedSpecialNeed = jasmine.createSpy('MockSupportedSpecialNeed');
             MockReview = jasmine.createSpy('MockReview');
             MockPrice = jasmine.createSpy('MockPrice');
             MockSubstantiatedAllegation = jasmine.createSpy('MockSubstantiatedAllegation');
-            MockLookupLanguage = jasmine.createSpy('MockLookupLanguage');
+            MockSupportedLanguage = jasmine.createSpy('MockSupportedLanguage');
             
 
             var locals = {
@@ -36,11 +36,11 @@ describe('Controller Tests', function() {
                 'LookupQualityRating': MockLookupQualityRating,
                 'OpenSlot': MockOpenSlot,
                 'Schedule': MockSchedule,
-                'LookupSpecialNeedType': MockLookupSpecialNeedType,
+                'SupportedSpecialNeed': MockSupportedSpecialNeed,
                 'Review': MockReview,
                 'Price': MockPrice,
                 'SubstantiatedAllegation': MockSubstantiatedAllegation,
-                'LookupLanguage': MockLookupLanguage
+                'SupportedLanguage': MockSupportedLanguage
             };
             createController = function() {
                 $injector.get('$controller')("ProviderDetailController", locals);

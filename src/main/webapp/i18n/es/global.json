@@ -88,6 +88,8 @@
                 "lookupSpecialNeedType": "LookupSpecialNeedType",
                 "lookupLanguage": "LookupLanguage",
                 "review": "Review",
+                "supportedLanguage": "SupportedLanguage",
+                "supportedSpecialNeed": "SupportedSpecialNeed",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

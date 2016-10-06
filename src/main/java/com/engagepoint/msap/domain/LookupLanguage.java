@@ -7,8 +7,6 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -33,10 +31,6 @@ public class LookupLanguage implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
     
-    @ManyToOne
-    @JoinColumn(name = "provider_id")
-    private Provider provider;
-
     public Long getId() {
         return id;
     }
@@ -59,14 +53,6 @@ public class LookupLanguage implements Serializable {
     
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Provider getProvider() {
-        return provider;
-    }
-
-    public void setProvider(Provider provider) {
-        this.provider = provider;
     }
 
     @Override

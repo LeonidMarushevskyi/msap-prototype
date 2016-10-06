@@ -4,7 +4,7 @@ describe('Controller Tests', function() {
 
     describe('LookupLanguage Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockLookupLanguage, MockProvider;
+        var MockEntity, MockLookupLanguage;
         var createController;
 
         beforeEach(inject(function($injector) {
@@ -12,15 +12,13 @@ describe('Controller Tests', function() {
             $scope = $rootScope.$new();
             MockEntity = jasmine.createSpy('MockEntity');
             MockLookupLanguage = jasmine.createSpy('MockLookupLanguage');
-            MockProvider = jasmine.createSpy('MockProvider');
             
 
             var locals = {
                 '$scope': $scope,
                 '$rootScope': $rootScope,
                 'entity': MockEntity ,
-                'LookupLanguage': MockLookupLanguage,
-                'Provider': MockProvider
+                'LookupLanguage': MockLookupLanguage
             };
             createController = function() {
                 $injector.get('$controller')("LookupLanguageDetailController", locals);

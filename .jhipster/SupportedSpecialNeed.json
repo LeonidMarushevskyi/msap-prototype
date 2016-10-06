@@ -1,0 +1,25 @@
+{
+  "relationships": [
+    {
+      "relationshipId": 1,
+      "relationshipName": "provider",
+      "otherEntityName": "provider",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipId": 2,
+      "relationshipName": "specialNeedType",
+      "otherEntityName": "lookupSpecialNeedType",
+      "relationshipType": "one-to-one",
+      "otherEntityField": "id",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "supportedSpecialNeed"
+    }
+  ],
+  "fields": [],
+  "changelogDate": "20161006024901",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no"
+}

@@ -86,7 +86,7 @@ public class Provider implements Serializable {
 
     @OneToMany(mappedBy = "provider")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<LookupSpecialNeedType> specialNeeds = new HashSet<>();
+    private Set<SupportedSpecialNeed> supportedSpecialNeeds = new HashSet<>();
 
     @OneToMany(mappedBy = "provider")
     @JsonIgnore
@@ -104,7 +104,7 @@ public class Provider implements Serializable {
 
     @OneToMany(mappedBy = "provider")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<LookupLanguage> supportedLanguages = new HashSet<>();
+    private Set<SupportedLanguage> supportedLanguages = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -258,12 +258,12 @@ public class Provider implements Serializable {
         this.schedules = schedules;
     }
 
-    public Set<LookupSpecialNeedType> getSpecialNeeds() {
-        return specialNeeds;
+    public Set<SupportedSpecialNeed> getSupportedSpecialNeeds() {
+        return supportedSpecialNeeds;
     }
 
-    public void setSpecialNeeds(Set<LookupSpecialNeedType> lookupSpecialNeedTypes) {
-        this.specialNeeds = lookupSpecialNeedTypes;
+    public void setSupportedSpecialNeeds(Set<SupportedSpecialNeed> supportedSpecialNeeds) {
+        this.supportedSpecialNeeds = supportedSpecialNeeds;
     }
 
     public Set<Review> getReviews() {
@@ -290,12 +290,12 @@ public class Provider implements Serializable {
         this.substantiatedAllegations = substantiatedAllegations;
     }
 
-    public Set<LookupLanguage> getSupportedLanguages() {
+    public Set<SupportedLanguage> getSupportedLanguages() {
         return supportedLanguages;
     }
 
-    public void setSupportedLanguages(Set<LookupLanguage> lookupLanguages) {
-        this.supportedLanguages = lookupLanguages;
+    public void setSupportedLanguages(Set<SupportedLanguage> supportedLanguages) {
+        this.supportedLanguages = supportedLanguages;
     }
 
     @Override

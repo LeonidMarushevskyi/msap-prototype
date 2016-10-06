@@ -1,0 +1,38 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="mySupportedSpecialNeedLabel" translate="msapApp.supportedSpecialNeed.home.createOrEditLabel">Create or edit a SupportedSpecialNeed</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="supportedSpecialNeed.id" readonly />
+        </div>
+
+        <div class="form-group">
+            <label translate="msapApp.supportedSpecialNeed.provider" for="field_provider">provider</label>
+            <select class="form-control" id="field_provider" name="provider" ng-model="supportedSpecialNeed.provider" ng-options="provider as provider.id for provider in providers track by provider.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="msapApp.supportedSpecialNeed.specialNeedType" for="field_specialNeedType">specialNeedType</label>
+            <select class="form-control" id="field_specialNeedType" name="specialNeedType" ng-model="supportedSpecialNeed.specialNeedType" ng-options="lookupSpecialNeedType as lookupSpecialNeedType.id for lookupSpecialNeedType in specialneedtypes | orderBy:'id' track by lookupSpecialNeedType.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
