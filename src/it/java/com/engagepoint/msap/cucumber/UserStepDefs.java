@@ -41,7 +41,7 @@ public class UserStepDefs {
     @Before
     public void setup() {
         //baseUrl = "http://localhost:8080/#/";
-        baseUrl = "http://mdc-mrq-was8-a1.engagepoint.us:4080/#/";
+        baseUrl = "http://mdc-mrq-was8-a1.engagepoint.us:3080/#/";
         //Configuration.browser = "firefox";
 
         this.restUserMockMvc = MockMvcBuilders.standaloneSetup(userResource).build();
@@ -180,7 +180,7 @@ public class UserStepDefs {
     public void tweet_with_text_sss_from_mic_should_be_presented(String text, String from) throws Throwable {
         $(By.xpath(".//iframe[contains(@id,'twitter')]")).waitUntil(appear, 10000);
         switchTo().frame(2);
-        $(By.xpath(".//*[contains(@class,'timeline-TweetList-tweet')]/*/*[@class='timeline-Tweet-text' and contains(text(),'" + text + "')]/../../descendant::div[@class='TweetAuthor']/a/span[text()='" + from + "']")).shouldBe(visible);
+        $(By.xpath(".//*[contains(@class,'timeline-TweetList-tweet')]/*/*[@class='timeline-Tweet-text' and contains(.,'" + text + "')]/../../descendant::div[@class='TweetAuthor']/a/span[text()='" + from + "']")).shouldBe(visible);
         $("[aria-label='Like']").shouldBe(visible);
         $("[aria-label='Share Tweet']").shouldBe(visible);
     }
