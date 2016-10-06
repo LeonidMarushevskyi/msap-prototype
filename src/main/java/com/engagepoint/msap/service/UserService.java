@@ -68,8 +68,7 @@ public class UserService {
                 user.setActivationKey(null);
                 userRepository.save(user);
                 userSearchRepository.save(user);
-//                todo: restore invitation e-mail? bind it to another from user
-//                sendInvitationLetter(user.getLogin());
+                sendInvitationLetter(user.getLogin());
                 attachSupportContacts(user.getLogin());
                 LOGGER.debug("Activated user: {}", user);
                 return user;
@@ -155,7 +154,7 @@ public class UserService {
 
         invitation.setBody(body);
         invitation.setSubject("Welcome!");
-        invitation.setFrom(userRepository.findOneByLogin("maryjenkins").get());
+        invitation.setFrom(userRepository.findOneByLogin("admin").get());
         invitation.setTo(userRepository.findOneByLogin(login).get());
 
         mailResource.sendInvitationLetter(invitation);
