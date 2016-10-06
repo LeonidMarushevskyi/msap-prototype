@@ -103,7 +103,8 @@ public class Provider implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<SubstantiatedAllegation> substantiatedAllegations = new HashSet<>();
 
-    @OneToMany(mappedBy = "provider")
+    @JsonManagedReference("supportedLanguages")
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<SupportedLanguage> supportedLanguages = new HashSet<>();
 
