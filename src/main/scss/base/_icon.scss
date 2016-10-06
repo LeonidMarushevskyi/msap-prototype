@@ -1,25 +1,57 @@
 .icon-remove {
-  background: url("../images/us-icon/icon-remove.svg") no-repeat center;
+    -webkit-mask: url("../images/out-sprite-icons/icon-recycle-bin.svg") no-repeat center;
+    mask: url("../images/out-sprite-icons/icon-recycle-bin.svg") no-repeat center;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: $primary-color-grey-light;
+}
+
+.icon-pagination-arrow-left {
+    -webkit-mask: url("../images/us-icon/arrow-hide-panel.svg") no-repeat center;
+    mask: url("../images/us-icon/arrow-hide-panel.svg") no-repeat center;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: $secondary-color-grey-light;
+}
+
+.icon-pagination-arrow-right {
+    -webkit-mask: url("../images/us-icon/arrow-show-panel.svg") no-repeat center;
+    mask: url("../images/us-icon/arrow-show-panel.svg") no-repeat center;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: $secondary-color-grey-light;
 }
 
 .icon-view {
-  background: url("../images/us-icon/icon-view.svg") no-repeat center;
+    background: url("../images/us-icon/icon-view.svg") no-repeat center;
 }
 
 .icon-download {
-  background: url("../images/us-icon/icon-download.svg") no-repeat center;
+    background: url("../images/us-icon/icon-download.svg") no-repeat center;
 }
 
 .icon-search {
-  background: url("../images/us-icon/icon-login-search.png") no-repeat center;
+    -webkit-mask: url("../images/us-icon/icon-login-search.svg") no-repeat center;
+    mask: url("../images/us-icon/icon-login-search.svg") no-repeat center;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: #fff;
+}
+
+.icon-inbox-answer {
+    -webkit-mask: url("../images/us-icon/icon-inbox-answer.svg") no-repeat center;
+    mask: url("../images/us-icon/icon-inbox-answer.svg") no-repeat center;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: $secondary-color-grey-light;
 }
 
 .icon-attachment {
-  background: url("../images/us-icon/icon-attachment.svg") no-repeat center;
+    background: url("../images/us-icon/icon-attachment.svg") no-repeat center;
 }
 
 .icon-user {
-  background: url("../images/us-icon/user-icon.svg") no-repeat center;
+    background: url("../images/us-icon/user-icon.svg") no-repeat center;
 }
 
 .icon-login-message {

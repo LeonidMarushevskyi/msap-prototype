@@ -22,22 +22,19 @@
 
               <div ng-if="hasSelected()" class="ch-page-heading__actions" ng-click="deleteOrRestoreSelected()">
                   <span class="icon icon-remove" ></span>
-                  <span class="actions__text">{{getActionName()}}</span>
+                  <!-- <span class="actions__text">{{getActionName()}}</span> -->
+              </div>
+
+              <div ng-if="hasSelected()" class="ch-page-heading__actions__second" ng-click="deleteOrRestoreSelected()">
+                  <span class="icon icon-inbox-answer" ></span>
               </div>
         </div>
 
         <div class="ch-page-heading__search">
 
-            <form class="form-type__search">
-
-                <button ng-click="filter()" type="submit" class="form-type__search__button" title="Provide keywords from message or recipient name">
-                    <span class="icon icon-search"></span>
-                </button>
-
-                <input id="search-field-small" type="search" name="search"
-                       ng-model="searchString" class="form-type__search__input" placeholder="Search in messages" title="Provide keywords from message or recipient name">
-
-            </form>
+            <div class="ch-page-heading__county-messages">
+                <span>{{fromItem}}-{{toItem}} of {{totalItems}}</span>
+            </div>
 
             <div class="ch-page-heading__pagination">
                 <div class="ch-button-group">
@@ -57,9 +54,17 @@
                 </div>
             </div>
 
-            <div class="ch-page-heading__county-messages">
-                <span>{{fromItem}}-{{toItem}} of {{totalItems}}</span>
-            </div>
+            <form class="form-type__search">
+
+                <input id="search-field-small" type="search" name="search"
+                       ng-model="searchString" class="form-type__search__input" placeholder="Search in messages" title="Provide keywords from message or recipient name">
+
+                <button ng-click="filter()" type="submit"
+                         class="form-type__search__button" title="Provide keywords from message or recipient name">
+                   <span class="icon icon-search"></span>
+                </button>
+
+            </form>
 
         </div>
 
