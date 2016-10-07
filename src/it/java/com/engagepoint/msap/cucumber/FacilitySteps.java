@@ -23,7 +23,7 @@ public class FacilitySteps {
         $(By.xpath(".//*[@class='ch-modal']//ul/li/*[contains(text(),'" + address + "')]")).shouldBe(visible);
         userStepDefs.click_xpath_and_wait(".//*[@class='ch-modal']//ul/li/*[contains(text(),'" + address + "')]");
         userStepDefs.click_css_and_wait("[ng-click*='onApplyAddress()']");
-        $("[ng-click*='onApplyAddress()']").waitUntil(disappear, 4000);
+        $("[ng-click*='onApplyAddress()']").waitUntil(disappear, 10000);
     }
 
     @When("^open facilities page$")
@@ -75,16 +75,16 @@ public class FacilitySteps {
 
     @Then("^verify facility with address '(.*)' and name '(.*)' presents in the list$")
     public void verify_facility_with_address_and_name_presents_in_the_list(String facilityAddress, String facilityName) throws Throwable {
-        $(By.xpath(".//span[contains(text(),'" + facilityAddress + "')]/ancestor::div[@class='ch-facility']/descendant::*[text()='" + facilityName + "']")).shouldBe(visible);
+        $(By.xpath(".//*[contains(text(),'" + facilityAddress + "')]/ancestor::div[@class='ch-facilities']/descendant::*[text()='" + facilityName + "']")).shouldBe(visible);
     }
 
     @When("^do Ask About for facility with address '(.*)' and name '(.*)' and send letter$")
     public void do_Ask_About_for_facility_with_address_and_name_and_send_letter(String facilityAddress, String facilityName) throws Throwable {
-        userStepDefs.click_xpath_and_wait(".//span[contains(text(),'" + facilityAddress + "')]/ancestor::div[@class='ch-facility']/descendant::*[text()='" + facilityName + "']/ancestor::div[@class='ch-facility']/descendant::button[text()='Ask Caseworker']");
+        userStepDefs.click_xpath_and_wait(".//*[contains(text(),'" + facilityAddress + "')]/ancestor::div[@class='ch-facilities']/descendant::*[text()='" + facilityName + "']/ancestor::div[@class='ch-facilities']/descendant::button/span[text()='Ask Caseworker']");
         userStepDefs.click_css_and_wait("[ng-click='sendMail()']");
-        $("[ng-click='sendMail()']").waitUntil(disappear, 4000);
+        $("[ng-click='sendMail()']").waitUntil(disappear, 10000);
         userStepDefs.click_xpath_and_wait(".//*[contains(@class,'ch-alert-msg')]/*[text()='Message has been sent!']");
-        $(By.xpath(".//*[contains(@class,'ch-alert-msg')]/*[text()='Message has been sent!']")).waitUntil(disappear, 4000);
+        $(By.xpath(".//*[contains(@class,'ch-alert-msg')]/*[text()='Message has been sent!']")).waitUntil(disappear, 10000);
 
     }
 
