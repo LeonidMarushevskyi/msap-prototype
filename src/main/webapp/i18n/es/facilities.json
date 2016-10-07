@@ -1,5 +1,9 @@
 {
     "facilities": {
+        "sort-by": "Ordenar por",
+        "distance": "Distancia",
+        "provider-name": "Nombre del proveedor",
+        "quality-star": "Calidad Grado de la estrella",
         "reset-filters": "Reiniciar los filtros",
         "show-all-filters": "Mostrar todos los Filtros",
         "hide-all-filters": "Ocultar Filtros",

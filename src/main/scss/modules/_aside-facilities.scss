@@ -5,10 +5,10 @@
     background-color: #f1f1f1;
 }
 
-.ch-facility__header {
+.ch-facilities__header {
     @include clearfix();
 
-    .ch-facility__quality-rating {
+    .ch-facilities__quality-rating {
         width: 75px;
         height: 20px;
         display: inline-block;
@@ -70,7 +70,7 @@
         }
     }
 
-    .ch-facility__free-spots {
+    .ch-facilities__free-spots {
         vertical-align: top;
         text-transform: uppercase;
 
@@ -79,7 +79,7 @@
         }
     }
 
-    .ch-facility__distance {
+    .ch-facilities__distance {
         float: right;
         vertical-align: top;
         text-transform: uppercase;
@@ -89,14 +89,14 @@
     }
 }
 
-.ch-facility__provider-name {
+.ch-facilities__provider-name {
     margin-top: 10px;
     font-size: 1.6rem;
     font-weight: bold;
     text-transform: uppercase;
 }
 
-.ch-facility__provider-type {
+.ch-facilities__provider-type {
     color: white;
     margin-top: 5px;
     font-weight: bold;
@@ -107,7 +107,7 @@
     border-radius: 2em;
 }
 
-.ch-facility__provider-address {
+.ch-facilities__provider-address {
     margin-top: 15px;
     padding-left: 25px;
     position: relative;
@@ -125,7 +125,7 @@
     }
 }
 
-.ch-facility__provider-phone {
+.ch-facilities__provider-phone {
     margin-top: 10px;
     padding-left: 25px;
     position: relative;
@@ -143,14 +143,14 @@
     }
 }
 
-.ch-facility__button-group {
+.ch-facilities__button-group {
     margin-top: 15px;
 
-    .ch-facility__button-primary {
+    .ch-facilities__button-primary {
         color: black !important;
     }
 
-    .ch-facility__button-secondary {
+    .ch-facilities__button-secondary {
         position: relative;
 
         &::after {
@@ -166,9 +166,9 @@
     }
 }
 
-.ch-facility__more-info {
+.ch-facilities__more-info {
 
-    .ch-facility__more-info-block {
+    .ch-facilities__more-info-block {
         margin-top: 15px;
 
         &--one-line {
@@ -176,18 +176,18 @@
                 display: inline-block;
             }
 
-            .ch-facility__more-info-block-text {
+            .ch-facilities__more-info-block-text {
                 padding-left: 5px;
             }
         }
     }
 
-    .ch-facility__more-info-block-header {
+    .ch-facilities__more-info-block-header {
         font-weight: bold;
         margin-bottom: 5px;
     }
 
-    .ch-facility__more-info-block-text {
+    .ch-facilities__more-info-block-text {
         padding-left: 25px;
     }
 }
@@ -213,5 +213,67 @@
     .icon {
         width: 1.3rem;
         height: 1.7rem;
+    }
+}
+
+.ch-facilities__sort-by {
+    overflow: hidden;
+    position: relative;
+    padding-top: 10px;
+    padding-left: 25px;
+    padding-bottom: 10px;
+    background-color: #f1f1f1;
+    border-bottom: .1rem solid #cbcdcf;
+
+    .ch-facilities__sort-by-label {
+        text-transform: uppercase;
+    }
+
+    .ch-facilities__sort-by-menu {
+        margin-left: 10px;
+        display: inline-block;
+        height: 130px;
+        transition-property: height;
+        transition-duration: 0.2s;
+    }
+
+    .ch-facilities__sort-by-menu.ng-hide {
+        display: inline-block !important;
+        transition-property: height;
+        transition-duration: 0.2s;
+        height: 20px;
+    }
+
+    .ch-facilities__sort-by-menu-selected {
+        text-decoration: underline;
+        position: relative;
+
+        &::after {
+            background: url("../images/arrow_down.svg") no-repeat 0 0;
+            display: inline-block;
+            position: absolute;
+            content: '';
+            height: 20px;
+            width: 20px;
+            right: -25px;
+            top: 6px;
+        }
+    }
+
+    .ch-facilities__sort-by-menu-popup {
+        position: absolute;
+
+        li:first-child {
+            margin-top: 10px;
+        }
+
+        li {
+            margin-top: 5px;
+        }
+
+        li:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
     }
 }

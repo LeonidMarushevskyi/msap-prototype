@@ -1,5 +1,9 @@
 {
     "facilities": {
+        "sort-by": "Sort By",
+        "distance": "Distance",
+        "provider-name": "Provider Name",
+        "quality-star": "Quality Star Rating",
         "reset-filters": "Reset Filters",
         "show-all-filters": "Show All Filters",
         "hide-all-filters": "Hide Filters",

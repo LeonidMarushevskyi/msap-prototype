@@ -1,14 +1,30 @@
 <section class="ch-aside-facilities" ng-show="isAsideVisible">
-    <div class="ch-facilities-list_top-pane">
-        <span class="ch-facilities-list_top-results">Sort By:
-            <select>
-                <option>Distance</option>
-                <option>Provider Name</option>
-                <option>Provider Type</option>
-                <option>Quality Star Rating</option>
-            </select>
-     </span>
+
+    <div class="ch-facilities__sort-by">
+        <span class="ch-facilities__sort-by-label">{{'facilities.sort-by' | translate}}:</span>
+        <div class="ch-facilities__sort-by-menu" ng-hide="providerSortByMenuShow"
+             ng-init="providerSortByMenuSelected = 'facilities.distance'; providerSortByMenuShow = true">
+            <a class="ch-facilities__sort-by-menu-selected" ng-click="providerSortByMenuShow = !providerSortByMenuShow">
+                <span translate="{{providerSortByMenuSelected}}">1</span>
+            </a>
+
+            <ul class="ch-facilities__sort-by-menu-popup">
+                <li ng-click="providerSortByMenuSelected = 'facilities.distance'; providerSortByMenuShow = !providerSortByMenuShow">
+                    <span translate="facilities.distance">Distance</span>
+                </li>
+                <li ng-click="providerSortByMenuSelected = 'facilities.provider-name'; providerSortByMenuShow = !providerSortByMenuShow">
+                    <span translate="facilities.provider-name">Provider Name</span>
+                </li>
+                <li ng-click="providerSortByMenuSelected = 'facilities.provider-type'; providerSortByMenuShow = !providerSortByMenuShow">
+                    <span translate="facilities.provider-type">Provider Type</span>
+                </li>
+                <li ng-click="providerSortByMenuSelected = 'facilities.quality-star'; providerSortByMenuShow = !providerSortByMenuShow">
+                    <span translate="facilities.quality-star">Quality Star Rating</span>
+                </li>
+            </ul>
+        </div>
     </div>
+
     <ul class="ch-facilities">
         <li id="agency{{agency.id}}" class="ch-facilities__item" ng-repeat="agency in agencies">
             <data-apdq-facility-agency data-agency="agency" data-view-config="viewConfig"></data-apdq-facility-agency>

@@ -1,130 +1,130 @@
-<div class="ch-facility">
+<div class="ch-facilities">
 
-    <div class="ch-facility__header">
-        <span class="ch-facility__quality-rating ch-facility__quality-rating--{{agency.qualityRating.code}}"></span>
-        <span class="ch-facility__free-spots" ng-class="agency.totalSpots > 0 ? 'ch-facility__free-spots--green' : ''"
+    <div class="ch-facilities__header">
+        <span class="ch-facilities__quality-rating ch-facilities__quality-rating--{{agency.qualityRating.code}}"></span>
+        <span class="ch-facilities__free-spots" ng-class="agency.totalSpots > 0 ? 'ch-facilities__free-spots--green' : ''"
               translate="{{agency.totalSpots > 0 ? 'facilities.free-spots' : 'facilities.no-free-spots'}}"></span>
-        <span class="ch-facility__distance"><b>{{agency.distance}}</b> {{'global.miles' | translate}}</span>
+        <span class="ch-facilities__distance"><b>{{agency.distance}}</b> {{'global.miles' | translate}}</span>
     </div>
 
-    <div class="ch-facility__provider-name">{{agency.providerName}}</div>
-    <div class="ch-facility__provider-type" translate="lookups.lookupProviderType.{{agency.providerType.code}}"></div>
-    <div class="ch-facility__provider-address">{{agency.formattedAddress}}</div>
-    <div class="ch-facility__provider-phone">{{agency.phoneNumber}}</div>
+    <div class="ch-facilities__provider-name">{{agency.providerName}}</div>
+    <div class="ch-facilities__provider-type" translate="lookups.lookupProviderType.{{agency.providerType.code}}"></div>
+    <div class="ch-facilities__provider-address">{{agency.formattedAddress}}</div>
+    <div class="ch-facilities__provider-phone">{{agency.phoneNumber}}</div>
 
-    <div class="ch-facility__more-info" ng-show="viewConfig.presentation == 'popup' || agency.showPartFlag">
+    <div class="ch-facilities__more-info" ng-show="viewConfig.presentation == 'popup' || agency.showPartFlag">
 
-        <div class="ch-facility__more-info-block" ng-show="agency.openSlots.length > 0">
-            <div class="ch-facility__more-info-block-header">
+        <div class="ch-facilities__more-info-block" ng-show="agency.openSlots.length > 0">
+            <div class="ch-facilities__more-info-block-header">
                 <span translate="facilities.spots-capitalized" translate-values="{totalSpots: agency.totalSpots}">Spots</span>:
             </div>
 
-            <div class="ch-facility__more-info-block-text" ng-repeat="openSlot in agency.openSlots">
+            <div class="ch-facilities__more-info-block-text" ng-repeat="openSlot in agency.openSlots">
                 <span translate="lookups.lookupAgeGroups.{{openSlot.ageGroup.code}}">{{openSlot.ageGroup.name}}</span> -
                 <span translate="facilities.spots-small" translate-values="{totalSpots: openSlot.openSlots}">{{openSlot.openSlots}} spots</span>
             </div>
         </div>
 
-        <div class="ch-facility__more-info-block" ng-show="agency.schedules.length > 0">
-            <div class="ch-facility__more-info-block-header">
+        <div class="ch-facilities__more-info-block" ng-show="agency.schedules.length > 0">
+            <div class="ch-facilities__more-info-block-header">
                 <span translate="facilities.schedule">Schedule</span>:
             </div>
 
-            <div class="ch-facility__more-info-block-text" ng-repeat="schedule in agency.schedules">
+            <div class="ch-facilities__more-info-block-text" ng-repeat="schedule in agency.schedules">
                 <span translate="lookups.lookupDayOfWeek.{{schedule.dayOfWeek.code}}">{{schedule.dayOfWeek.name}}</span>
                 : {{schedule.openHour}} - {{schedule.closeHour}}
             </div>
         </div>
 
-        <div class="ch-facility__more-info-block" ng-show="agency.supportedSpecialNeeds.length > 0">
-            <div class="ch-facility__more-info-block-header">
+        <div class="ch-facilities__more-info-block" ng-show="agency.supportedSpecialNeeds.length > 0">
+            <div class="ch-facilities__more-info-block-header">
                 <span translate="facilities.special-needs">Special Needs</span>:
             </div>
 
-            <div class="ch-facility__more-info-block-text" ng-repeat="specialNeed in agency.supportedSpecialNeeds">
+            <div class="ch-facilities__more-info-block-text" ng-repeat="specialNeed in agency.supportedSpecialNeeds">
              - <span translate="lookups.lookupSpecialNeedType.{{specialNeed.specialNeedType.code}}">{{specialNeed.specialNeedType.name}}</span>
             </div>
         </div>
 
-        <div class="ch-facility__more-info-block" ng-show="agency.substantiatedAllegations.length > 0">
-            <div class="ch-facility__more-info-block-header">
+        <div class="ch-facilities__more-info-block" ng-show="agency.substantiatedAllegations.length > 0">
+            <div class="ch-facilities__more-info-block-header">
                 <span translate="facilities.substantiated-allegations" translate-values="{total: agency.substantiatedAllegations.length}">
                     {{agency.substantiatedAllegations.length}} Substantiated Allegations</span>:
             </div>
 
-            <div class="ch-facility__more-info-block-text" ng-repeat="allegation in agency.substantiatedAllegations">
+            <div class="ch-facilities__more-info-block-text" ng-repeat="allegation in agency.substantiatedAllegations">
                 {{allegation.description}}<div>{{allegation.allegationDate}} {{allegation.severity}}</div>
             </div>
         </div>
 
-        <div class="ch-facility__more-info-block ch-facility__more-info-block--one-line" ng-show="{{agency.licenseType.name != undefined}}">
-            <div class="ch-facility__more-info-block-header">
+        <div class="ch-facilities__more-info-block ch-facilities__more-info-block--one-line" ng-show="{{agency.licenseType.name != undefined}}">
+            <div class="ch-facilities__more-info-block-header">
                 <span translate="facilities.license-type">License Type</span>:
             </div>
 
-            <div class="ch-facility__more-info-block-text">
+            <div class="ch-facilities__more-info-block-text">
                 <span translate="lookups.lookupLicenseType.{{agency.licenseType.code}}">{{agency.licenseType.name}}</span>
             </div>
         </div>
 
-        <div class="ch-facility__more-info-block ch-facility__more-info-block--one-line" ng-show="{{agency.providerCapacity != undefined}}">
-            <div class="ch-facility__more-info-block-header">
+        <div class="ch-facilities__more-info-block ch-facilities__more-info-block--one-line" ng-show="{{agency.providerCapacity != undefined}}">
+            <div class="ch-facilities__more-info-block-header">
                 <span translate="facilities.provider-capacity">Provider Capacity</span>:
             </div>
 
-            <div class="ch-facility__more-info-block-text">{{agency.providerCapacity}}</div>
+            <div class="ch-facilities__more-info-block-text">{{agency.providerCapacity}}</div>
         </div>
 
-        <div class="ch-facility__more-info-block ch-facility__more-info-block--one-line" ng-show="{{agency.description != undefined}}">
-            <div class="ch-facility__more-info-block-header">
+        <div class="ch-facilities__more-info-block ch-facilities__more-info-block--one-line" ng-show="{{agency.description != undefined}}">
+            <div class="ch-facilities__more-info-block-header">
                 <span translate="facilities.provider-description">Provider Description</span>:
             </div>
 
-            <div class="ch-facility__more-info-block-text">{{agency.description}}</div>
+            <div class="ch-facilities__more-info-block-text">{{agency.description}}</div>
         </div>
 
-        <div class="ch-facility__more-info-block ch-facility__more-info-block--one-line" ng-show="{{agency.numberOfComplains != undefined}}">
-            <div class="ch-facility__more-info-block-header">
+        <div class="ch-facilities__more-info-block ch-facilities__more-info-block--one-line" ng-show="{{agency.numberOfComplains != undefined}}">
+            <div class="ch-facilities__more-info-block-header">
                 <span translate="facilities.number-of-complains">Number of Complains</span>:
             </div>
 
-            <div class="ch-facility__more-info-block-text">{{agency.numberOfComplains}}</div>
+            <div class="ch-facilities__more-info-block-text">{{agency.numberOfComplains}}</div>
         </div>
 
-        <div class="ch-facility__more-info-block ch-facility__more-info-block--one-line" ng-show="{{agency.numberOfVisits != undefined}}">
-            <div class="ch-facility__more-info-block-header">
+        <div class="ch-facilities__more-info-block ch-facilities__more-info-block--one-line" ng-show="{{agency.numberOfVisits != undefined}}">
+            <div class="ch-facilities__more-info-block-header">
                 <span translate="facilities.number-of-visits">Number of Visits</span>:
             </div>
 
-            <div class="ch-facility__more-info-block-text">{{agency.numberOfVisits}}</div>
+            <div class="ch-facilities__more-info-block-text">{{agency.numberOfVisits}}</div>
         </div>
 
-        <div class="ch-facility__more-info-block ch-facility__more-info-block--one-line" ng-show="{{agency.lastVisit != undefined}}">
-            <div class="ch-facility__more-info-block-header">
+        <div class="ch-facilities__more-info-block ch-facilities__more-info-block--one-line" ng-show="{{agency.lastVisit != undefined}}">
+            <div class="ch-facilities__more-info-block-header">
                 <span translate="facilities.day-of-last-visit">Date of Last Visit</span>:
             </div>
 
-            <div class="ch-facility__more-info-block-text">{{agency.lastVisit}}</div>
+            <div class="ch-facilities__more-info-block-text">{{agency.lastVisit}}</div>
         </div>
 
-        <div class="ch-facility__more-info-block" ng-show="agency.supportedLanguages.length > 0">
-            <div class="ch-facility__more-info-block-header">
+        <div class="ch-facilities__more-info-block" ng-show="agency.supportedLanguages.length > 0">
+            <div class="ch-facilities__more-info-block-header">
                 <span translate="facilities.supported-languages">Supported Languages</span>:
             </div>
 
-            <div class="ch-facility__more-info-block-text" ng-repeat="supportedLanguage in agency.supportedLanguages">
+            <div class="ch-facilities__more-info-block-text" ng-repeat="supportedLanguage in agency.supportedLanguages">
                 - <span translate="lookups.lookupLanguage.{{supportedLanguage.language.code}}">{{supportedLanguage.language.name}}</span>
             </div>
         </div>
     </div>
 
-    <div class="ch-facility__button-group">
+    <div class="ch-facilities__button-group">
         <button type="button" ng-click="askAbout(agency)" has-authority="FOSTER_PARENT"
-                class="ch-plane-btn ch-plane-btn_primary ch-facility__button-primary">
+                class="ch-plane-btn ch-plane-btn_primary ch-facilities__button-primary">
             <span translate="facilities.ask-case-worker">Ask Caseworker</span>
         </button>
 
-        <button type="button" class="ch-plane-btn ch-plane-btn_secondary ch-facility__button-secondary"
+        <button type="button" class="ch-plane-btn ch-plane-btn_secondary ch-facilities__button-secondary"
                 ng-show="viewConfig.presentation != 'popup'" ng-click="agency.showPartFlag = !agency.showPartFlag">
             <span translate="{{agency.showPartFlag ? 'global.hidedetails' : 'global.showmore'}}">Hide details</span>
         </button>

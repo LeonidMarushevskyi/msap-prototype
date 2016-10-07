@@ -1,5 +1,9 @@
 {
     "facilities": {
+        "sort-by": "Sắp xếp theo",
+        "distance": "Khoảng cách",
+        "provider-name": "Tên nhà cung cấp",
+        "quality-star": "Đánh giá chất lượng sao",
         "reset-filters": "Bộ lọc Thiết lập lại",
         "show-all-filters": "Hiện tất cả bộ lọc",
         "hide-all-filters": "Ẩn bộ lọc",
