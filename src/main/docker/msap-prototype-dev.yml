@@ -9,6 +9,7 @@ msap-prototype-dev-elasticsearch:
     - "9300:9300"
   environment:
     - ES_JAVA_OPTS= -Des.cluster.name=msap-prototype-dev
+    - ES_HEAP_SIZE=3g
     - TZ=America/New_York
 
 msap-prototype-dev-postgresql:
