@@ -84,7 +84,9 @@ entity Provider {
     isFullDay Boolean,
     isAfterSchool Boolean,
     isBeforeSchool Boolean,
-    isWeekendCare Boolean
+    isWeekendCare Boolean,
+    isRespiteCare Boolean,
+    isSecondShift Boolean
 }
 
 entity Schedule {
@@ -93,8 +95,7 @@ entity Schedule {
 }
 
 entity Price {
-    minimalPrice Integer,
-    maximumPrice Integer
+    price Integer
 }
 
 entity OpenSlot {

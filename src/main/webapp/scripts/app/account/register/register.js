@@ -11,7 +11,7 @@ angular.module('msapApp')
                     pageTitle: 'register.title'
                 },
                 views: {
-                    'content@': {
+                    'global@': {
                         templateUrl: 'scripts/app/account/register/register.html',
                         controller: 'RegisterController'
                     }

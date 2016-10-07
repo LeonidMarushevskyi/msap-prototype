@@ -16,7 +16,7 @@
     <changeSet id="20160521013731" author="serbin">
 
         <loadData encoding="UTF-8"
-                  file="config/liquibase/providers_with_id.csv"
+                  file="config/liquibase/providers_with_id_and_flags.csv"
                   separator=","
                   tableName="provider"/>
 

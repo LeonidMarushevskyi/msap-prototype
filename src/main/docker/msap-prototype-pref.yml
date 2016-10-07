@@ -16,6 +16,7 @@ msap-prototype-pref-elasticsearch:
     - "9300"
   environment:
     - ES_JAVA_OPTS= -Des.cluster.name=msap-prototype-pref
+    - ES_HEAP_SIZE=3g
     - TZ=America/New_York
 
 
@@ -33,25 +34,11 @@ msap-prototype-pref:
   image: kaver79/msap-prototype
   restart: unless-stopped
   environment:
-    - COOKIE=SRV insert indirect nocache
     - TZ=America/New_York
     - SPRING_MAIL_HOST=172.24.232.25
     - SPRING_DATA_ELASTICSEARCH_CLUSTER-NAME=msap-prototype-pref
   ports:
-    - "8080"
+    - "5080:8080"
   links:
     - "msap-prototype-pref-postgresql:POSTGRESQL"
     - "msap-prototype-pref-elasticsearch:ELASTIC"
-
-msap-prototype-pref-lb:
-  container_name: msap-prototype-pref-lb
-  restart: unless-stopped
-  image: tutum/haproxy
-  links:
-   - "msap-prototype-pref"
-  ports:
-   - "5080:80"
-   - "5043:443"
-  environment:
-   - BACKEND_PORT=8080
-   - BALANCE=roundrobin

@@ -13,6 +13,13 @@ angular.module('msapApp')
               lookupAgeGroups, lookupQualityRating, lookupProviderType, lookupWorkingHours,
               lookupSpecialNeedGroup, lookupSpecialNeedType, lookupLicenseType, lookupLanguage) {
 
+        $scope.providerSortByMenuSelected = 'facilities.distance';
+
+        $scope.changeSortingOrder = function (sortingOrder) {
+           $scope.providerSortByMenuSelected = sortingOrder;
+           $scope.updateLocations();
+        };
+
         $scope.searchParams = searchParams;
         $scope.lookupAgeGroups = lookupAgeGroups;
         $scope.lookupProviderType = lookupProviderType;
@@ -22,6 +29,10 @@ angular.module('msapApp')
         $scope.lookupSpecialNeedType = lookupSpecialNeedType;
         $scope.lookupLicenseType = lookupLicenseType;
         $scope.lookupLanguage = lookupLanguage;
+        $scope.filterComplainsAndAllegations = [
+            { id: 1, code: 1 }, // complains
+            { id: 2, code: 2 } // allegations
+        ];
         //
         $scope.MENU_CONFIG = {
             showList: false,
@@ -36,7 +47,8 @@ angular.module('msapApp')
             lookupSpecialNeedGroup: _.cloneDeep($scope.MENU_CONFIG),
             lookupSpecialNeedType: _.cloneDeep($scope.MENU_CONFIG),
             lookupLicenseType: _.cloneDeep($scope.MENU_CONFIG),
-            lookupLanguage: _.cloneDeep($scope.MENU_CONFIG)
+            lookupLanguage: _.cloneDeep($scope.MENU_CONFIG),
+            filterComplainsAndAllegations: _.cloneDeep($scope.MENU_CONFIG)
         };
 
         var agenciesDataSource;
@@ -46,7 +58,7 @@ angular.module('msapApp')
 
         $scope.returnMapHeight = function() {
           var heightMapDesktop = "height: calc(100vh - 19rem)";
-          var heightMapMobile = "height: calc(100vh - 25rem)";
+          var heightMapMobile = "height: calc(100vh - 19rem)";
             if (windowWidth > 640) {
                 return heightMapDesktop;
             } else {
@@ -168,6 +180,43 @@ angular.module('msapApp')
             });
         };
 
+        $scope.performSorting = function() {
+            var sortFunction;
+            switch($scope.providerSortByMenuSelected) {
+                case 'facilities.distance':
+                    sortFunction = function (a, b) {
+                        return a.distanceValue - b.distanceValue;
+                    };
+                    break;
+                case 'facilities.provider-name':
+                    sortFunction = function (a,b) {
+                        if ( a.providerName < b.providerName ) {
+                          return -1;
+                        }
+                        if ( a.providerName > b.providerName ) {
+                          return 1;
+                        }
+                        return 0;
+                    };
+                    break;
+                case 'facilities.provider-type':
+                    sortFunction = function (a,b) {
+                        return a.providerType.code - b.providerType.code;
+                    };
+                    break;
+                case 'facilities.quality-star':
+                    sortFunction = function (a,b) {
+                        return b.qualityRating.code - a.qualityRating.code;
+                    };
+                    break;
+                default:
+                    sortFunction = function (a, b) {
+                                     return a.distanceValue - b.distanceValue;
+                                   };
+             }
+            agenciesDataSource.sort(sortFunction);
+        };
+
         $scope.createLocations = function() {
             var locations = {};
             _.each(agenciesDataSource, function (agency) {
@@ -201,9 +250,7 @@ angular.module('msapApp')
                     }
                 };
             });
-            agenciesDataSource.sort(function (a, b) {
-                return a.distanceValue - b.distanceValue;
-            });
+            $scope.performSorting();
             if ($scope.currentLocation) {
                 locations.current = $scope.currentLocation;
             }
@@ -226,7 +273,11 @@ angular.module('msapApp')
         };
 
         $scope.defineIcon = function(agency) {
-            var imgId =  'green' + '_'
+            var iconColor = 'grey';
+            if (agency.totalSpots > 0) {
+                iconColor = 'green';
+            }
+            var imgId = iconColor + '_'
                 + _.find(QualityRatingStars, {code: agency.qualityRating.code}).stars;
             return $scope.getIconUrl(imgId);
         };
@@ -266,16 +317,19 @@ angular.module('msapApp')
                     }
                 },
                 text: $scope.searchText,
-                providerTypes: $scope.getSelected('lookupProviderType'),
-                qualityRatings: $scope.getSelected('lookupQualityRating'),
+                ageGroups: $scope.getSelected('lookupAgeGroups'),
+                providerTypeCodes: $scope.getSelectedCodes('lookupProviderType'),
+                qualityRatingCodes: $scope.getSelectedCodes('lookupQualityRating'),
                 isBeforeSchool: $scope.isSelected('lookupWorkingHours', 1),
                 isAfterSchool: $scope.isSelected('lookupWorkingHours', 2),
                 isFullDay: $scope.isSelected('lookupWorkingHours', 3),
                 isWeekendCare: $scope.isSelected('lookupWorkingHours', 4),
                 isOpenOvernight: $scope.isSelected('lookupWorkingHours', 5),
-                licenseTypes: $scope.getSelected('lookupLicenseType'),
-                specialNeeds: $scope.getSelected('lookupSpecialNeedType'),
-                supportedLanguages: $scope.getSelected('lookupLanguage')
+                licenseTypeCodes: $scope.getSelectedCodes('lookupLicenseType'),
+                specialNeedCodes: $scope.getSelectedCodes('lookupSpecialNeedType'),
+                supportedLanguageCodes: $scope.getSelectedCodes('lookupLanguage'),
+                isNoComplains: $scope.isSelected('filterComplainsAndAllegations', 1),
+                isNoAllegations: $scope.isSelected('filterComplainsAndAllegations', 2)
             };
             //$log.debug('request', request);
 
@@ -418,16 +472,19 @@ angular.module('msapApp')
         };
 
         $scope.getSelected = function(modelName) {
-            return _.map(_.filter($scope[modelName], {selected: true}), 'code');
+            return _.filter($scope[modelName], {selected: true});
+        };
+        $scope.getSelectedCodes = function(modelName) {
+            return _.map($scope.getSelected(modelName), 'code');
         };
 
-        $scope.setSelected = function(modelName, code) {
+        $scope.setSelectedByCode = function(modelName, code) {
             _.find($scope[modelName], {code: code}).selected = true;
             $scope.addSelectedFilterButton(modelName, code);
         };
-        if ($scope.searchParams.ageGroups) {
-            _.each($scope.searchParams.ageGroups, function (ageGroupCode) {
-                $scope.setSelected('lookupAgeGroups', ageGroupCode);
+        if ($scope.searchParams.ageGroupCodes) {
+            _.each($scope.searchParams.ageGroupCodes, function (ageGroupCode) {
+                $scope.setSelectedByCode('lookupAgeGroups', ageGroupCode);
             });
             $scope.updateSelectedCount('lookupAgeGroups');
         }
@@ -528,7 +585,7 @@ angular.module('msapApp')
             $(".ch-ink-btn").click(function(e){
 
                 parent = $(this).parent();
-                if(parent.find(".ink").length == 0)
+                if(parent.find(".ink").length === 0)
                     $(".ch-ink-btn").append("<span class='ink'></span>");
 
                 ink = parent.find(".ink");

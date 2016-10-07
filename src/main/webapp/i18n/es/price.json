@@ -16,8 +16,7 @@
             "detail": {
                 "title": "Price"
             },
-            "minimalPrice": "MinimalPrice",
-            "maximumPrice": "MaximumPrice",
+            "price": "Price",
             "provider": "Provider",
             "ageGroup": "AgeGroup"
         }

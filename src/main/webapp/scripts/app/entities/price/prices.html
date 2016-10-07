@@ -31,8 +31,7 @@ class="hidden-xs"                        translate="msapApp.price.home.createLab
             <thead>
                 <tr>
                     <th><span translate="global.field.id">ID</span></th>
-                    <th><span translate="msapApp.price.minimalPrice">MinimalPrice</span></th>
-                    <th><span translate="msapApp.price.maximumPrice">MaximumPrice</span></th>
+                    <th><span translate="msapApp.price.price">Price</span></th>
                     <th><span translate="msapApp.price.provider">provider</span></th>
                     <th><span translate="msapApp.price.ageGroup">ageGroup</span></th>
                     <th></th>
@@ -41,8 +40,7 @@ class="hidden-xs"                        translate="msapApp.price.home.createLab
             <tbody>
                 <tr ng-repeat="price in prices track by price.id">
                     <td><a ui-sref="price.detail({id:price.id})">{{price.id}}</a></td>
-                    <td>{{price.minimalPrice}}</td>
-                    <td>{{price.maximumPrice}}</td>
+                    <td>{{price.price}}</td>
                     <td>
                         <a ui-sref="provider.detail({id:price.provider.id})">{{price.provider.id}}</a>
                     </td>

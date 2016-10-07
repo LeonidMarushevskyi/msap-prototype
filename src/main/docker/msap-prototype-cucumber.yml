@@ -16,6 +16,7 @@ msap-prototype-cucumber-elasticsearch:
     - "9300"
   environment:
     - ES_JAVA_OPTS= -Des.cluster.name=msap-prototype-cucumber
+    - ES_HEAP_SIZE=3g
     - TZ=America/New_York
 
 

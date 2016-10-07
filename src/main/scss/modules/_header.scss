@@ -12,6 +12,16 @@
     float: left;
     padding: 1rem 6.2rem 0 2.7rem;
     width: 21rem;
+
+    @media screen and (max-width: $break-phone) {
+        padding: 1.2rem 6.2rem 0 2.7rem;
+    }
+}
+
+.ch-logo__img {
+    @media screen and (max-width: $break-phone) {
+        height: 2.5rem;
+    }
 }
 
 .ch-header__section_control-pane {
@@ -38,19 +48,23 @@
     z-index: 1000;
 
     .icon {
-        width: 4.4rem;
-        height: 2.6rem;
+        width: 3rem;
+        height: 2rem;
         display: inline-block;
     }
 }
 
 .ch-header__menu-mobile__btn {
-    margin-top: 1.5rem;
+    margin-top: -1rem;
     margin-right: 1rem;
     background: transparent;
     display: none;
     position: relative;
     z-index: 10002;
+
+    @media screen and (max-width: $break-phone) {
+        display: inline-block;
+    }
 }
 
 .icon-menu-close {

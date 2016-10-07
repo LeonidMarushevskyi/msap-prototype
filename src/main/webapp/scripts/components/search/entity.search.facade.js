@@ -93,7 +93,7 @@ angular.module('msapApp')
             }
 
             function _isSearchOption(value, key) {
-                return _.startsWith(key, '$') && key != '$value';
+                return _.startsWith(key, '$') && key !== '$value';
             }
 
             // assume searchClause is {*}
@@ -112,9 +112,9 @@ angular.module('msapApp')
             // after: { lastName: 'Smith', fn1: 'value1', fn2: 'value2' }
             function _transformFieldPair(searchExpr) {
                 return _.transform(searchExpr, function (result, value, key) {
-                    if (key == '$field') {
+                    if (key === '$field') {
                         result[ value ] = searchExpr[ '$value' ];
-                    } else if (key != '$value') {
+                    } else if (key !== '$value') {
                         result[ key ] = value;
                     }
                 }, {});
@@ -181,8 +181,11 @@ angular.module('msapApp')
             }
 
             function _whenConditionIsTrue(searchOptions) {
-                if (_.isUndefined(searchOptions.$when)) {
+                if (!_.hasIn(searchOptions, '$when')) {
                     return true;
+
+                } else if (_.isUndefined(searchOptions.$when)) {
+                    return false;
 
                 } else if (_.isFunction(searchOptions.$when)) {
                     return (searchOptions.$when)();
@@ -238,7 +241,7 @@ angular.module('msapApp')
 
             function _isFieldNameLikeId(fieldName) {
                 fieldName = fieldName.toLowerCase();
-                return fieldName == 'id' || fieldName == '+id' || fieldName == '-id' || new RegExp("\.id$").test(fieldName);
+                return fieldName === 'id' || fieldName === '+id' || fieldName === '-id' || new RegExp("\.id$").test(fieldName);
             }
 
             function _applySearchOptionsToFieldName(fieldName, searchOptions) {
@@ -299,7 +302,7 @@ angular.module('msapApp')
              * @private
              */
             function _range(inclusiveness, range) {
-                if (_.isEmpty(range) || !_.isArray(range) || range.length != 2) {
+                if (_.isEmpty(range) || !_.isArray(range) || range.length !== 2) {
                     $log.error('Invalid search expression: ', range);
                     return '';
                 }

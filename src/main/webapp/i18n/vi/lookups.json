@@ -65,6 +65,19 @@
             "EN": "Anh",
             "ES": "Người Tây Ban Nha",
             "VE": "Tiếng Việt"
+        },
+        "lookupDayOfWeek": {
+            "1": "Thứ ba",
+            "2": "Thứ tư",
+            "3": "Thứ năm",
+            "4": "Thứ sáu",
+            "5": "Ngày thứ bảy",
+            "6": "Chủ nhật",
+            "7": "Thứ hai"
+        },
+        "filterComplainsAndAllegations": {
+            "1": "Không Kêu",
+            "2": "Không có cáo buộc"
         }
     }
 }

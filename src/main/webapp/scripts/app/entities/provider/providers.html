@@ -43,6 +43,8 @@ class="hidden-xs"                        translate="msapApp.provider.home.create
                     <th><span translate="msapApp.provider.isAfterSchool">IsAfterSchool</span></th>
                     <th><span translate="msapApp.provider.isBeforeSchool">IsBeforeSchool</span></th>
                     <th><span translate="msapApp.provider.isWeekendCare">IsWeekendCare</span></th>
+                    <th><span translate="msapApp.provider.isRespiteCare">IsRespiteCare</span></th>
+                    <th><span translate="msapApp.provider.isSecondShift">IsSecondShift</span></th>
                     <th><span translate="msapApp.provider.licenseType">licenseType</span></th>
                     <th><span translate="msapApp.provider.providerType">providerType</span></th>
                     <th><span translate="msapApp.provider.address">address</span></th>
@@ -65,6 +67,8 @@ class="hidden-xs"                        translate="msapApp.provider.home.create
                     <td>{{provider.isAfterSchool}}</td>
                     <td>{{provider.isBeforeSchool}}</td>
                     <td>{{provider.isWeekendCare}}</td>
+                    <td>{{provider.isRespiteCare}}</td>
+                    <td>{{provider.isSecondShift}}</td>
                     <td>
                         <a ui-sref="lookupLicenseType.detail({id:provider.licenseType.id})">{{provider.licenseType.id}}</a>
                     </td>

@@ -1,5 +1,9 @@
 {
     "facilities": {
+        "sort-by": "Sắp xếp theo",
+        "distance": "Khoảng cách",
+        "provider-name": "Tên nhà cung cấp",
+        "quality-star": "Đánh giá chất lượng sao",
         "reset-filters": "Bộ lọc Thiết lập lại",
         "show-all-filters": "Hiện tất cả bộ lọc",
         "hide-all-filters": "Ẩn bộ lọc",
@@ -11,13 +15,24 @@
         "working-hours": "Giờ làm việc",
         "languages": "Ngôn ngữ",
         "no-problems": "thêm vào",
-        "no-complains": "Không Kêu",
-        "no-allegations": "Không có cáo buộc",
         "total-results": "{{number}} kết quả",
         "all-quality-ratings": "Tất cả hàng Xếp hạng chất lượng",
         "all-provider-types": "Tất cả các loại nhà cung cấp",
         "license-type": "Loại giấy phép",
-        "askcaseworker": "Hãy hỏi nhân viên phụ trách",
-        "spots": "{{totalSpots}} điểm:"
+        "ask-case-worker": "Hãy hỏi nhân viên phụ trách",
+        "spots-capitalized": "{{totalSpots}} điểm",
+        "spots-small": "{{totalSpots}} điểm",
+        "free-spots": "điểm miễn phí",
+        "no-free-spots": "điểm không miễn phí",
+        "schedule": "lịch trình",
+        "special-needs": "Nhu cầu đặc biệt",
+        "substantiated-allegations": "{{total}} Cáo buộc chứng minh",
+        "provider-capacity": "Nhà cung cấp suất",
+        "provider-description": "Nhà cung cấp Mô tả",
+        "number-of-complains": "Số Khiếu nại",
+        "number-of-visits": "Số lượng lượt truy cập",
+        "day-of-last-visit": "Ngày Lần đăng nhập mới",
+        "supported-languages": "Ngôn ngữ được hỗ trợ"
+
     }
 }

@@ -1,124 +1,132 @@
-<div class="ch-facility">
+<div class="ch-facilities">
 
-    <div class="ch-facility__header ch-facility__header_has-subinfo">
-        <div class="ch-facility__heading-subinfo" >
-            <span class="ch-facility__heading-subinfo-prefix">{{agency.distance}}</span>
-            <span class="ch-facility__heading-subinfo-ending">{{'global.miles' | translate}}</span>
+    <div class="ch-facilities__header">
+        <span class="ch-facilities__quality-rating ch-facilities__quality-rating--{{agency.qualityRating.code}}"></span>
+        <span class="ch-facilities__free-spots" ng-class="agency.totalSpots > 0 ? 'ch-facilities__free-spots--green' : ''"
+              translate="{{agency.totalSpots > 0 ? 'facilities.free-spots' : 'facilities.no-free-spots'}}"></span>
+        <span class="ch-facilities__distance"><b>{{agency.distance}}</b> {{'global.miles' | translate}}</span>
+    </div>
+
+    <div class="ch-facilities__provider-name">{{agency.providerName}}</div>
+    <div class="ch-facilities__provider-type" translate="lookups.lookupProviderType.{{agency.providerType.code}}"></div>
+    <div class="ch-facilities__provider-address">{{agency.formattedAddress}}</div>
+    <div class="ch-facilities__provider-phone">{{agency.phoneNumber}}</div>
+
+    <div class="ch-facilities__more-info" ng-show="viewConfig.presentation == 'popup' || agency.showPartFlag">
+
+        <div class="ch-facilities__more-info-block" ng-show="agency.openSlots.length > 0">
+            <div class="ch-facilities__more-info-block-header">
+                <span translate="facilities.spots-capitalized" translate-values="{totalSpots: agency.totalSpots}">Spots</span>:
+            </div>
+
+            <div class="ch-facilities__more-info-block-text" ng-repeat="openSlot in agency.openSlots">
+                <span translate="lookups.lookupAgeGroups.{{openSlot.ageGroup.code}}">{{openSlot.ageGroup.name}}</span> -
+                <span translate="facilities.spots-small" translate-values="{totalSpots: openSlot.openSlots}">{{openSlot.openSlots}} spots</span>
+            </div>
+        </div>
+
+        <div class="ch-facilities__more-info-block" ng-show="agency.schedules.length > 0">
+            <div class="ch-facilities__more-info-block-header">
+                <span translate="facilities.schedule">Schedule</span>:
+            </div>
+
+            <div class="ch-facilities__more-info-block-text" ng-repeat="schedule in agency.schedules">
+                <span translate="lookups.lookupDayOfWeek.{{schedule.dayOfWeek.code}}">{{schedule.dayOfWeek.name}}</span>
+                : {{schedule.openHour}} - {{schedule.closeHour}}
+            </div>
+        </div>
+
+        <div class="ch-facilities__more-info-block" ng-show="agency.supportedSpecialNeeds.length > 0">
+            <div class="ch-facilities__more-info-block-header">
+                <span translate="facilities.special-needs">Special Needs</span>:
+            </div>
+
+            <div class="ch-facilities__more-info-block-text" ng-repeat="specialNeed in agency.supportedSpecialNeeds">
+             - <span translate="lookups.lookupSpecialNeedType.{{specialNeed.specialNeedType.code}}">{{specialNeed.specialNeedType.name}}</span>
+            </div>
+        </div>
+
+        <div class="ch-facilities__more-info-block" ng-show="agency.substantiatedAllegations.length > 0">
+            <div class="ch-facilities__more-info-block-header">
+                <span translate="facilities.substantiated-allegations" translate-values="{total: agency.substantiatedAllegations.length}">
+                    {{agency.substantiatedAllegations.length}} Substantiated Allegations</span>:
+            </div>
+
+            <div class="ch-facilities__more-info-block-text" ng-repeat="allegation in agency.substantiatedAllegations">
+                {{allegation.description}}<div>{{allegation.allegationDate}} {{allegation.severity}}</div>
+            </div>
+        </div>
+
+        <div class="ch-facilities__more-info-block ch-facilities__more-info-block--one-line" ng-show="{{agency.licenseType.name != undefined}}">
+            <div class="ch-facilities__more-info-block-header">
+                <span translate="facilities.license-type">License Type</span>:
+            </div>
+
+            <div class="ch-facilities__more-info-block-text">
+                <span translate="lookups.lookupLicenseType.{{agency.licenseType.code}}">{{agency.licenseType.name}}</span>
+            </div>
+        </div>
+
+        <div class="ch-facilities__more-info-block ch-facilities__more-info-block--one-line" ng-show="{{agency.providerCapacity != undefined}}">
+            <div class="ch-facilities__more-info-block-header">
+                <span translate="facilities.provider-capacity">Provider Capacity</span>:
+            </div>
+
+            <div class="ch-facilities__more-info-block-text">{{agency.providerCapacity}}</div>
+        </div>
+
+        <div class="ch-facilities__more-info-block ch-facilities__more-info-block--one-line" ng-show="{{agency.description != undefined}}">
+            <div class="ch-facilities__more-info-block-header">
+                <span translate="facilities.provider-description">Provider Description</span>:
+            </div>
+
+            <div class="ch-facilities__more-info-block-text">{{agency.description}}</div>
+        </div>
+
+        <div class="ch-facilities__more-info-block ch-facilities__more-info-block--one-line" ng-show="{{agency.numberOfComplains != undefined}}">
+            <div class="ch-facilities__more-info-block-header">
+                <span translate="facilities.number-of-complains">Number of Complains</span>:
+            </div>
+
+            <div class="ch-facilities__more-info-block-text">{{agency.numberOfComplains}}</div>
+        </div>
+
+        <div class="ch-facilities__more-info-block ch-facilities__more-info-block--one-line" ng-show="{{agency.numberOfVisits != undefined}}">
+            <div class="ch-facilities__more-info-block-header">
+                <span translate="facilities.number-of-visits">Number of Visits</span>:
+            </div>
+
+            <div class="ch-facilities__more-info-block-text">{{agency.numberOfVisits}}</div>
+        </div>
+
+        <div class="ch-facilities__more-info-block ch-facilities__more-info-block--one-line" ng-show="{{agency.lastVisit != undefined}}">
+            <div class="ch-facilities__more-info-block-header">
+                <span translate="facilities.day-of-last-visit">Date of Last Visit</span>:
+            </div>
+
+            <div class="ch-facilities__more-info-block-text">{{agency.lastVisit}}</div>
+        </div>
+
+        <div class="ch-facilities__more-info-block" ng-show="agency.supportedLanguages.length > 0">
+            <div class="ch-facilities__more-info-block-header">
+                <span translate="facilities.supported-languages">Supported Languages</span>:
+            </div>
+
+            <div class="ch-facilities__more-info-block-text" ng-repeat="supportedLanguage in agency.supportedLanguages">
+                - <span translate="lookups.lookupLanguage.{{supportedLanguage.language.code}}">{{supportedLanguage.language.name}}</span>
+            </div>
         </div>
     </div>
 
-    <div class="ch-facility__tags">
-        <ul class="ch-facility-tags clearfix">
-            <li class="ch-facility-tags__tag">
-                <span class="ch-facilities-tag ch-facilities-tag_foster-family" translate="facilities.lookupProviderType.{{agency.providerType.code}}">{{agency.providerType.name}}</span>
-            </li>
-            <li class="ch-facility-tags__tag" ng-show="agency.qualityRating.name === 'Low'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_red" translate="facilities.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
-            </li>
-            <li class="ch-facility-tags__tag" ng-show="agency.qualityRating.name === 'Average'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_orange" translate="facilities.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
-            </li>
-            <li class="ch-facility-tags__tag" ng-show="agency.qualityRating.name === 'Good'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_green" translate="facilities.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
-            </li>
-            <li class="ch-facility-tags__tag" ng-show="agency.qualityRating.name === 'Very Good'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_green" translate="facilities.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
-            </li>
-            <li class="ch-facility-tags__tag" ng-show="agency.qualityRating.name === 'Excellent'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_green" translate="facilities.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
-            </li>
-            <li class="ch-facility-tags__tag" ng-show="agency.qualityRating.name === 'Not Rated'">
-                <span class="ch-facilities-tag ch-facilities-tag_status_green" translate="facilities.lookupQualityRating.{{agency.qualityRating.code}}">{{agency.qualityRating.name}}</span>
-            </li>
-        </ul>
-    </div>
+    <div class="ch-facilities__button-group">
+        <button type="button" ng-click="askAbout(agency)" has-authority="FOSTER_PARENT"
+                class="ch-plane-btn ch-plane-btn_primary ch-facilities__button-primary">
+            <span translate="facilities.ask-case-worker">Ask Caseworker</span>
+        </button>
 
-    <div class="ch-facility__info" >
-
-        <ul class="ch-facility-info">
-            <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">
-                    <p class="ch-facility-info__name">{{agency.providerName}}</p>
-                    <p class="ch-facility-info__name" translate="facilities.lookupLicenseType.{{agency.licenseType.code}}">{{agency.licenseType.name}}</p>
-                    <p class="ch-facility-info__phone">{{agency.phoneNumber}}</p>
-                </div>
-            </li>
-            <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">
-                    <span class="ch-facility-info__address">{{agency.formattedAddress}}</span>
-                </div>
-            </li>
-        </ul>
-
-    </div>
-    <div class="ch-facility__info" ng-show="viewConfig.presentation == 'popup' || agency.showPartFlag">
-        <ul class="ch-facility-info">
-            <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text" translate="facilities.spots" translate-values="{totalSpots: agency.totalSpots}">Spots:</div>
-                <div ng-repeat="openSlot in agency.openSlots">
-                    {{openSlot.ageGroup.name}} - {{openSlot.openSlots}} spots
-                </div>
-            </li>
-
-            <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Schedule:</div>
-                <div ng-repeat="schedule in agency.schedules">
-                    {{schedule.dayOfWeek.name}}: {{schedule.openHour}} - {{schedule.closeHour}}
-                </div>
-            </li>
-            <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Special Needs:</div>
-                <div ng-repeat="specialNeed in agency.specialNeeds">
-                    - {{specialNeed.name}}
-                </div>
-            </li>
-            <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">{{agency.length}} Substantiated Allegations:</div>
-                <div ng-repeat="allegation in agency.substantiatedAllegations">
-                    {{allegation.description}}
-                    <div>{{allegation.allegationDate}} {{allegation.severity}}</div>
-                </div>
-            </li>
-            <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">License Type:</div>
-                <div class="ch-facility-info-text">{{agency.licenseType.name}}</div>
-            </li>
-            <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Provider Capacity:</div>
-                <div class="ch-facility-info-text">{{agency.providerCapacity}}</div>
-            </li>
-            <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Provider Description:</div>
-                <div class="ch-facility-info-text">{{agency.description}}</div>
-            </li>
-            <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Number of Complains:</div>
-                <div class="ch-facility-info-text">{{agency.numberOfComplains}}</div>
-            </li>
-            <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Number of Visits:</div>
-                <div class="ch-facility-info-text">{{agency.numberOfVisits}}</div>
-            </li>
-            <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Date of Last Visit:</div>
-                <div class="ch-facility-info-text">{{agency.lastVisit}}</div>
-            </li>
-            <li class="ch-facility-info__part">
-                <div class="ch-facility-info-text">Supported Languages::</div>
-            </li>
-        </ul>
-    </div>
-    <div class="ch-facility__btn-group clearfix">
-        <div class="ch-facilities-btn-group">
-            <div class="ch-facilities-btn-group__btn" has-authority="FOSTER_PARENT">
-                <button type="button" ng-click="askAbout(agency)" class="ch-plane-btn ch-plane-btn_primary"><span translate="facilities.askcaseworker">Ask Caseworker</span></button>
-            </div>
-            <div class="ch-facilities-btn-group__btn" ng-show="viewConfig.presentation !== 'popup' && !agency.showPartFlag" ng-click="agency.showPartFlag = !agency.showPartFlag">
-                <button type="button" class="ch-plane-btn ch-plane-btn_secondary" ><span translate="global.showmore">Show more</span></button>
-            </div>
-            <div class="ch-facilities-btn-group__btn" ng-show="viewConfig.presentation !== 'popup' && agency.showPartFlag" ng-click="agency.showPartFlag = !agency.showPartFlag">
-                <button type="button" class="ch-plane-btn ch-plane-btn_secondary" ><span translate="global.hidedetails">Hide details</span></button>
-            </div>
-        </div>
+        <button type="button" class="ch-plane-btn ch-plane-btn_secondary ch-facilities__button-secondary"
+                ng-show="viewConfig.presentation != 'popup'" ng-click="agency.showPartFlag = !agency.showPartFlag">
+            <span translate="{{agency.showPartFlag ? 'global.hidedetails' : 'global.showmore'}}">Hide details</span>
+        </button>
     </div>
 </div>

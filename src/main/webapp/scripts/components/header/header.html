@@ -1,7 +1,7 @@
 <div class="ch-header">
     <div class="ch-header__section ch-header__section_logo">
         <div class="ch-logo">
-            <a href="" class="ch-logo__link">
+            <a class="ch-logo__link" ui-sref="home">
                 <img class="ch-logo__img" src="assets/images/logo.png" alt="Logo"/>
             </a>
         </div>
@@ -14,7 +14,7 @@
         </div>
 
         <div class="ch-header__subsection ch-header__subsection-user-account" ng-controller="MyProfileAndLogoutController">
-            <div class="ch-user-account-entry" show-user-account-popup>
+            <div class="ch-user-account-entry" show-user-account-popup has-any-authority="ROLE_ADMIN, CASE_WORKER, PARENT, FOSTER_PARENT">
                 <div class="ch-user-account-entry__dropdown" title="User profile">
                     <button type="button" class="ch-user-account-entry__dropdown-btn" ng-click="toggleUserPopup()"
                             ng-class="isUserAccountPopupShown ? 'ch-user-account-entry__dropdown-btn_expanded' : 'ch-user-account-entry__dropdown-btn_collapsed'">
@@ -55,7 +55,7 @@
                 <div class="ch-user-account-entry__dropdown" title="Language">
                     <button type="button" class="ch-user-account-entry__dropdown-btn ch-user-account-entry__language-globe" ng-click="toggleLanguagePopup()"
                             ng-class="isLanguagePopupShown ? 'ch-user-account-entry__dropdown-btn_expanded': 'ch-user-account-entry__dropdown-btn_collapsed'">
-                        <span class="ch-main-nav-item__text" translate="global.menu.language">Language</span>
+                        <span class="ch-main-nav-item__text">{{getCurrentLanguageKey()}}</span>
                     </button>
                 </div>
                 <div class="ch-user-account-entry__popup" ng-show="isLanguagePopupShown">
@@ -97,7 +97,7 @@
                           <a class="ch-mobile-main-nav-item__link" ui-sref="ch-inbox.messages({directory: 'inbox'})" ui-sref-active="ch-menu-mobile__link_active">
 
                               <div class="ch-mobile-main-nav-item__text-bundle" ng-click="isMobileMenuVisible = !isMobileMenuVisible">
-                                  <span class="icon icon-inbox"></span>
+                                  <span class="icon icon-inbox-mobile"></span>
                                   <span class="ch-mobile-main-nav-item__text">Inbox</span>
                                   <span ng-if="unreadInboxCount > 0" class="ch-mobile-main-nav-item__inbox-counter">{{unreadInboxCount}}</span>
                               </div>
@@ -138,8 +138,9 @@
 
                 <div class="ch-mobile-main-nav__sign-out clearfix" ng-click="isMobileMenuVisible = !isMobileMenuVisible" ng-controller="MyProfileAndLogoutController">
                     <button type="button" class="ch-mobile-main-nav__sign-out__btn" ng-click="logout()">
-                        <span class="icon icon-user-account-exit"></span>
                         <span class="ch-plane-btn__text">Sign out</span>
+                        <span class="icon icon-user-exit"></span>
+
                     </button>
                 </div>
 

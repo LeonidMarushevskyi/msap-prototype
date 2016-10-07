@@ -65,6 +65,19 @@
             "EN": "English",
             "ES": "Spanish",
             "VE": "Vietnamese"
+        },
+        "lookupDayOfWeek": {
+            "1": "Sunday",
+            "2": "Monday",
+            "3": "Tuesday",
+            "4": "Wednesday",
+            "5": "Thursday",
+            "6": "Friday",
+            "7": "Saturday"
+        },
+        "filterComplainsAndAllegations": {
+            "1": "No Complains",
+            "2": "No Allegations"
         }
     }
 }

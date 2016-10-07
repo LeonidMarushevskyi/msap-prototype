@@ -62,16 +62,46 @@ angular.module('msapApp')
                         {
                             '+address.longitude': {'[]': [nw.longitude, se.longitude]},
                             '+address.latitude': {'[]': [se.latitude, nw.latitude]},
-                            '+providerType.code': filter.providerTypes,
-                            '+qualityRating.code': filter.qualityRatings,
+                            '+providerType.code': filter.providerTypeCodes,
+                            '+qualityRating.code': filter.qualityRatingCodes,
                             '+isBeforeSchool': filter.isBeforeSchool ? 'true' : '',
                             '+isAfterSchool': filter.isAfterSchool ? 'true' : '',
                             '+isFullDay': filter.isFullDay ? 'true' : '',
                             '+isWeekendCare': filter.isWeekendCare ? 'true' : '',
                             '+isOpenOvernight': filter.isOpenOvernight ? 'true' : '',
-                            '+licenseType.code': filter.licenseTypes,
-                            '+specialNeeds.code': filter.specialNeeds,
-                            '+supportedLanguages.code': filter.supportedLanguages
+                            '+licenseType.code': filter.licenseTypeCodes,
+                            '+supportedSpecialNeeds.specialNeedType.code': filter.specialNeedCodes,
+                            '+supportedLanguages.language.code': filter.supportedLanguageCodes
+                        },
+                        {
+                            /* this _.transform is to prepare the search query part like this:
+                             +(
+                             +(+openSlots.ageGroup.code:2 +openSlots.openSlots:>=3)
+                             +(+openSlots.ageGroup.code:3)
+                             +(+openSlots.ageGroup.code:5 +openSlots.openSlots:>=1)
+                             )
+                             */
+                            '+': _.transform(filter.ageGroups, function (result, ageGroup) {
+                                result.push({
+                                    '+': [
+                                        {
+                                            '+openSlots.ageGroup.code': ageGroup.code
+                                        },
+                                        {
+                                            $when: ageGroup.availableSpots,
+                                            '+openSlots.openSlots': '>=' + ageGroup.availableSpots
+                                        }
+                                    ]
+                                });
+                            }, [])
+                        },
+                        {
+                            $when: filter.isNoComplains,
+                            '-numberOfComplains': '>0'
+                        },
+                        {
+                            $when: filter.isNoAllegations,
+                            '-substantiatedAllegations': '*'
                         }
                     ],
                     // entity name

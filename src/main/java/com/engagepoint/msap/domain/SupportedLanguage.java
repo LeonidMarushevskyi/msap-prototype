@@ -1,5 +1,6 @@
 package com.engagepoint.msap.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
@@ -24,6 +25,7 @@ public class SupportedLanguage implements Serializable {
     private Long id;
 
     @ManyToOne
+    @JsonBackReference("supportedLanguages")
     @JoinColumn(name = "provider_id")
     private Provider provider;
 

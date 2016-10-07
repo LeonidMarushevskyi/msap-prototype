@@ -6,7 +6,7 @@ angular.module('msapApp')
             .state('ch-inbox.new-mail', {
                 url: '/new/:mailId',
                 data: {
-                    authorities: ['CASE_WORKER', 'PARENT'],
+                    authorities: ['CASE_WORKER', 'FOSTER_PARENT'],
                     pageTitle: ''
                 },
                 views: {

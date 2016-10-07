@@ -1,5 +1,9 @@
 {
     "facilities": {
+        "sort-by": "Ordenar por",
+        "distance": "Distancia",
+        "provider-name": "Nombre del proveedor",
+        "quality-star": "Calidad Grado de la estrella",
         "reset-filters": "Reiniciar los filtros",
         "show-all-filters": "Mostrar todos los Filtros",
         "hide-all-filters": "Ocultar Filtros",
@@ -11,13 +15,24 @@
         "working-hours": "Horas laborales",
         "languages": "Idiomas",
         "no-problems": "Adicional",
-        "no-complains": "No tengo quejas",
-        "no-allegations": "No hay acusaciones",
         "total-results": "Resultados {{number}}",
         "all-quality-ratings": "Todos los votos de calidad",
         "all-provider-types": "Todos los Tipos de Proveedores",
         "license-type": "Tipo de licencia",
-        "askcaseworker": "Pregunta Asistente Social",
-        "spots": "{{totalSpots}} Manchas:"
+        "ask-case-worker": "Pregunta Asistente Social",
+        "spots-capitalized": "{{totalSpots}} Manchas",
+        "spots-small": "{{totalSpots}} manchas",
+        "free-spots": "LUGARES LIBRES",
+        "no-free-spots": "sin manchas gratuitas",
+        "schedule": "Programar",
+        "special-needs": "Necesidades Especiales",
+        "substantiated-allegations": "{{total}} Las Alegaciones Fundamentadas",
+        "provider-capacity": "Capacidad Proveedor",
+        "provider-description": "Proveedor Descripción",
+        "number-of-complains": "Número de Quejas",
+        "number-of-visits": "Número de Visitas",
+        "day-of-last-visit": "Día de la última Visita",
+        "supported-languages": "Idiomas Soportados"
+
     }
 }

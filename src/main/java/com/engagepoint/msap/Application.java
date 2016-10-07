@@ -68,7 +68,7 @@ public class Application {
             }
         }
 
-        elasticsearchIndexService.reindexAll();
+//        elasticsearchIndexService.reindexAll();
     }
 
     /**
