@@ -62,6 +62,12 @@ public class Provider implements Serializable {
     @Column(name = "is_weekend_care")
     private Boolean isWeekendCare;
 
+    @Column(name = "is_respite_care")
+    private Boolean isRespiteCare;
+
+    @Column(name = "is_second_shift")
+    private Boolean isSecondShift;
+
     @OneToOne
     private LookupLicenseType licenseType;
 
@@ -212,6 +218,22 @@ public class Provider implements Serializable {
         this.isWeekendCare = isWeekendCare;
     }
 
+    public Boolean getIsRespiteCare() {
+        return isRespiteCare;
+    }
+
+    public void setIsRespiteCare(Boolean isRespiteCare) {
+        this.isRespiteCare = isRespiteCare;
+    }
+
+    public Boolean getIsSecondShift() {
+        return isSecondShift;
+    }
+
+    public void setIsSecondShift(Boolean isSecondShift) {
+        this.isSecondShift = isSecondShift;
+    }
+
     public LookupLicenseType getLicenseType() {
         return licenseType;
     }
@@ -336,6 +358,8 @@ public class Provider implements Serializable {
             ", isAfterSchool='" + isAfterSchool + "'" +
             ", isBeforeSchool='" + isBeforeSchool + "'" +
             ", isWeekendCare='" + isWeekendCare + "'" +
+            ", isRespiteCare='" + isRespiteCare + "'" +
+            ", isSecondShift='" + isSecondShift + "'" +
             '}';
     }
 }

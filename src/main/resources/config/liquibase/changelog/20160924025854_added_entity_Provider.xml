@@ -45,6 +45,10 @@
 
             <column name="is_weekend_care" type="bit"/>
 
+            <column name="is_respite_care" type="bit"/>
+
+            <column name="is_second_shift" type="bit"/>
+
             <column name="license_type_id" type="bigint">
             </column>
             <column name="provider_type_id" type="bigint">
