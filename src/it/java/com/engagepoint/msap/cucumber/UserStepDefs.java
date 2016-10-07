@@ -19,6 +19,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import javax.inject.Inject;
 
+
+import com.codeborne.selenide.Configuration;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.engagepoint.msap.cucumber.SessionStorage.session;
@@ -29,6 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ContextConfiguration(classes = Application.class, loader = SpringApplicationContextLoader.class)
 public class UserStepDefs {
 
+    public String homeUrl;
     public String baseUrl;
 
     @Inject
@@ -41,7 +44,8 @@ public class UserStepDefs {
     @Before
     public void setup() {
         //baseUrl = "http://localhost:8080/#/";
-        baseUrl = "http://mdc-mrq-was8-a1.engagepoint.us:3080/#/";
+        homeUrl = "http://mdc-mrq-was8-a1.engagepoint.us:3080/#/";
+        baseUrl = "http://mdc-mrq-was8-a1.engagepoint.us:4080/#/";
         //Configuration.browser = "firefox";
 
         this.restUserMockMvc = MockMvcBuilders.standaloneSetup(userResource).build();
@@ -67,7 +71,7 @@ public class UserStepDefs {
 
     @When("^open home page$")
     public void open_home_page() throws Throwable {
-        open(baseUrl);
+        open(homeUrl);
         $("a[ui-sref='registerme']").waitUntil(appear, 30000);
     }
 
