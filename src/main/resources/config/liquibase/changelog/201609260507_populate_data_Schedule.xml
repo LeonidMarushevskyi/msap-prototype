@@ -13,12 +13,12 @@
     <property name="floatType" value="float4" dbms="postgresql, h2"/>
     <property name="floatType" value="float" dbms="mysql, oracle"/>
 
-    <changeSet id="20160521013731" author="serbin">
+    <changeSet id="20160521013732323" author="leonid.marushevskiy">
 
         <loadData encoding="UTF-8"
-                  file="config/liquibase/providers_with_id_and_flags.csv"
+                  file="config/liquibase/schedule.csv"
                   separator=","
-                  tableName="provider"/>
+                  tableName="schedule"/>
 
     </changeSet>
 </databaseChangeLog>

@@ -41,6 +41,8 @@ angular.module('msapApp')
                 isAfterSchool: null,
                 isBeforeSchool: null,
                 isWeekendCare: null,
+                isRespiteCare: null,
+                isSecondShift: null,
                 id: null
             };
         };

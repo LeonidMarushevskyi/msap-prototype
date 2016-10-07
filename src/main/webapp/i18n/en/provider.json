@@ -28,6 +28,8 @@
             "isAfterSchool": "IsAfterSchool",
             "isBeforeSchool": "IsBeforeSchool",
             "isWeekendCare": "IsWeekendCare",
+            "isRespiteCare": "IsRespiteCare",
+            "isSecondShift": "IsSecondShift",
             "licenseType": "LicenseType",
             "providerType": "ProviderType",
             "address": "Address",
