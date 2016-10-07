@@ -7,7 +7,7 @@ angular.module('msapApp')
                 parent: 'site',
                 url: '/mail',
                 data: {
-                    authorities: ['CASE_WORKER', 'PARENT'],
+                    authorities: ['CASE_WORKER', 'FOSTER_PARENT'],
                     pageTitle: ''
                 },
                 views: {
