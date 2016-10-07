@@ -200,17 +200,14 @@
                         <span translate="facilities.no-problems">Additional</span>
                     </li>
 
-                    <li class="ch-checkboxes-group__item">
-                        <div class="form-type__checkbox_empty-label">
-                            <input id="nocomplains2" type="checkbox">
-                            <label for="nocomplains2" translate="facilities.no-complains">No Complains</label>
-                        </div>
-                    </li>
+                    <li class="ch-checkboxes-group__item"
+                        ng-repeat="compl in filterComplainsAndAllegations track by compl.id | orderBy: 'id'">
 
-                    <li class="ch-checkboxes-group__item">
                         <div class="form-type__checkbox_empty-label">
-                            <input id="nocomplains3" type="checkbox">
-                            <label for="nocomplains3" translate="facilities.no-allegations">No Allegations</label>
+                            <input id="compl_{{compl.code}}" type="checkbox"
+                                   ng-model="compl.selected"
+                                   ng-click="onFilterMenuItemClick('filterComplainsAndAllegations', compl.code);">
+                            <label for="compl_{{compl.code}}">{{'lookups.filterComplainsAndAllegations.' + compl.code | translate}}</label>
                         </div>
                     </li>
 

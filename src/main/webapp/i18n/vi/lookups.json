@@ -74,6 +74,10 @@
             "5": "Thứ sáu",
             "6": "Ngày thứ bảy",
             "7": "Chủ nhật"
+        },
+        "filterComplainsAndAllegations": {
+            "1": "Không Kêu",
+            "2": "Không có cáo buộc"
         }
     }
 }

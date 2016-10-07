@@ -74,6 +74,10 @@
             "5": "Friday",
             "6": "Saturday",
             "7": "Sunday"
+        },
+        "filterComplainsAndAllegations": {
+            "1": "No Complains",
+            "2": "No Allegations"
         }
     }
 }
