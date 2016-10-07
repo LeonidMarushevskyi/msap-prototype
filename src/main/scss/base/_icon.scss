@@ -75,7 +75,11 @@
 }
 
 .icon-menu-mobile {
-  background: url("../images/us-icon/icon-menu-mobile.svg") no-repeat center;
+    -webkit-mask: url("../images/us-icon/icon-menu-mobile.svg") no-repeat center;
+    mask: url("../images/us-icon/icon-menu-mobile.svg") no-repeat center;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: #fff;
 }
 
 .icon-menu-close {

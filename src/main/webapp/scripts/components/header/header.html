@@ -97,7 +97,7 @@
                           <a class="ch-mobile-main-nav-item__link" ui-sref="ch-inbox.messages({directory: 'inbox'})" ui-sref-active="ch-menu-mobile__link_active">
 
                               <div class="ch-mobile-main-nav-item__text-bundle" ng-click="isMobileMenuVisible = !isMobileMenuVisible">
-                                  <span class="icon icon-inbox"></span>
+                                  <span class="icon icon-inbox-mobile"></span>
                                   <span class="ch-mobile-main-nav-item__text">Inbox</span>
                                   <span ng-if="unreadInboxCount > 0" class="ch-mobile-main-nav-item__inbox-counter">{{unreadInboxCount}}</span>
                               </div>
@@ -138,8 +138,9 @@
 
                 <div class="ch-mobile-main-nav__sign-out clearfix" ng-click="isMobileMenuVisible = !isMobileMenuVisible" ng-controller="MyProfileAndLogoutController">
                     <button type="button" class="ch-mobile-main-nav__sign-out__btn" ng-click="logout()">
-                        <span class="icon icon-user-account-exit"></span>
                         <span class="ch-plane-btn__text">Sign out</span>
+                        <span class="icon icon-user-exit"></span>
+
                     </button>
                 </div>
 

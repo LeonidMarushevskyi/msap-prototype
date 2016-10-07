@@ -10,11 +10,12 @@
 }
 
 .ch-mobile-mailbox__nav-tab__link {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     width: 100%;
     border-bottom: .6rem solid #fff;
 }
+
 .ch-mobile-mailbox__nav-tab__link.ch-mobile-mailbox__nav-tab__link_active {
     border-bottom: .6rem solid $primary-color-blue;
 

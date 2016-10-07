@@ -114,14 +114,18 @@
     text-transform: uppercase;
 
     &::before {
-        background: url("../images/address.svg") no-repeat 0 0;
+        -webkit-mask: url("../../assets/images/out-sprite-icons/icon-map-input.svg") no-repeat center;
+        mask: url("../../assets/images/out-sprite-icons/icon-map-input.svg") no-repeat center;
+        -webkit-mask-size: cover;
+        mask-size: cover;
+        background-color: $secondary-color-ultra-light;
         display: inline-block;
         position: absolute;
         content: '';
-        height: 20px;
-        width: 20px;
-        left: -2px;
-        top: 2px;
+        height: 2rem;
+        width: 1.6rem;
+        left: -.2rem;
+        top: .2rem;
     }
 }
 
@@ -132,14 +136,18 @@
     text-transform: uppercase;
 
     &::before {
-        background: url("../images/phone.svg") no-repeat 0 0;
+        -webkit-mask: url("../../assets/images/out-sprite-icons/icon-phone.svg") no-repeat center;
+        mask: url("../../assets/images/out-sprite-icons/icon-phone.svg") no-repeat center;
+        -webkit-mask-size: cover;
+        mask-size: cover;
+        background-color: $secondary-color-ultra-light;
         display: inline-block;
         position: absolute;
         content: '';
-        height: 20px;
-        width: 20px;
+        height: 1.6rem;
+        width: 1.6rem;
         left: 0;
-        top: 2px;
+        top: .2rem;
     }
 }
 
