@@ -7,7 +7,7 @@ angular.module('msapApp')
                 parent: 'account',
                 url: '/settings',
                 data: {
-                    authorities: ['CASE_WORKER', 'ROLE_ADMIN', 'PARENT'],
+                    authorities: ['CASE_WORKER', 'ROLE_ADMIN', 'PARENT', 'FOSTER_PARENT'],
                     pageTitle: 'global.menu.account.settings'
                 },
                 views: {

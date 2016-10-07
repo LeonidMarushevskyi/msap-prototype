@@ -74,10 +74,13 @@ angular.module('msapApp')
                  $scope.settingsAccount = $scope.copyAccount(account);
                  $scope.locateGender();
             }
+
+            $scope.birthDate = {month: null, day: null, year: null};
+
             if (!_.isNil($scope.settingsAccount) && !_.isNil($scope.settingsAccount.birthDate)) {
-                $scope.birthDateMonth = $scope.settingsAccount.birthDate.getMonth() + 1;
-                $scope.birthDateYear = $scope.settingsAccount.birthDate.getFullYear();
-                $scope.birthDateDay = $scope.settingsAccount.birthDate.getDate();
+                $scope.birthDate.month = $scope.settingsAccount.birthDate.getMonth() + 1;
+                $scope.birthDate.year = $scope.settingsAccount.birthDate.getFullYear();
+                $scope.birthDate.day = $scope.settingsAccount.birthDate.getDate();
             }
         });
 
@@ -121,7 +124,7 @@ angular.module('msapApp')
                     $scope.settingsAccount.place.latitude = data.lat;
                     $scope.settingsAccount.place.longitude = data.lon;
 
-                    $scope.settingsAccount.birthDate = new Date($scope.birthDateYear, $scope.birthDateMonth - 1, $scope.birthDateDay);
+                    $scope.settingsAccount.birthDate = new Date($scope.birthDate.year, $scope.birthDate.month - 1, $scope.birthDate.day);
                     Auth.updateAccount($scope.settingsAccount).then(function() {
                         $scope.validation.error = false;
                         $scope.validation.success = true;
