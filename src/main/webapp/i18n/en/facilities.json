@@ -19,6 +19,7 @@
         "spots-capitalized": "{{totalSpots}} Spots",
         "spots-small":  "{{totalSpots}} spots",
         "free-spots": "FREE SPOTS",
+        "no-free-spots": "No free spots",
         "schedule": "Schedule",
         "special-needs": "Special Needs",
         "substantiated-allegations": "{{total}} Substantiated Allegations",
