@@ -72,6 +72,8 @@
 
     .ch-facilities__free-spots {
         vertical-align: top;
+        display: inline-block;
+        width: 90px;
         text-transform: uppercase;
 
         &--green {
@@ -200,6 +202,25 @@
     }
 }
 
+.leaflet-popup-content .ch-facilities__more-info {
+    overflow-y: auto;
+    height: 250px;
+}
+
+@media screen and (max-width: $break-phone) {
+
+    .leaflet-popup-content {
+        overflow-y: auto;
+        width: 65%;
+        height: 300px;
+        font-size: 1.8rem;
+    }
+
+    .leaflet-popup-content .ch-facilities__more-info {
+        overflow-y: inherit;
+        height: auto;
+    }
+}
 
 .ch-aside-facilities {
     width: 30rem;

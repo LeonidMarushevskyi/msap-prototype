@@ -81,6 +81,11 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+.leaflet-container {
+    font-family: inherit;
+    font-size: inherit;
+}
+
 a {
     display: inline-block;
 }
