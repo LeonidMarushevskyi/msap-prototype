@@ -12,9 +12,11 @@
 
 .ch-general-modal {
     .modal-dialog {
+        width: 600px;
         margin: 25rem auto;
 
         @media screen and (max-width: $break-phone) {
+            width: 96%;
             margin: 10rem auto;
         }
     }
