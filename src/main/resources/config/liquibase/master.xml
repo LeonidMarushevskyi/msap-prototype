@@ -54,6 +54,7 @@
     <include file="classpath:config/liquibase/changelog/201609260507_populate_data_Price.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161006105310_populate_data_OpenSlot.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/201609260507_populate_data_Schedule.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/201609260507_populate_data_Needs.xml" relativeToChangelogFile="false"/>
 
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>
