@@ -105,7 +105,7 @@
     border-radius: .4rem;
     border: .2rem solid #757575;
     background: url(../images/out-sprite-icons/icon-back-arrow.png) 50% 50% no-repeat;
-    background-color: #f1f1f1;
+    background-color: $primary-gray-color;
 
     &:hover {
         border-color: #323a45;

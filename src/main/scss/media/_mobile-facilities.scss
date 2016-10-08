@@ -61,7 +61,7 @@
     @media screen and (max-width: $break-phone) {
         position: relative;
         top: 1.1rem;
-        left: 1.5rem; 
+        left: 1.5rem;
         width: 2rem;
         height: 2.3rem;
     }
@@ -107,7 +107,7 @@
 .ch-facilities-heading__mobile__view__filter {
     padding-top: 3rem;
     padding-bottom: 3rem;
-    background-color: #f1f1f1;
+    background-color: $primary-gray-color;
     border-bottom: .1rem solid #cbcdcf;
 
 }

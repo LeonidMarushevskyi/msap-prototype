@@ -2,7 +2,12 @@
     padding: 1.2rem 1rem 1.5rem 2.5rem;
     border-bottom: .1rem solid #cbcdcf;
     border-top: none;
-    background-color: #f1f1f1;
+    background-color: $primary-gray-color;
+
+    @media screen and (max-width: $break-phone) {
+        font-size: 1.8rem;
+        padding-left: 1rem;
+    }
 }
 
 .ch-facilities__header {
@@ -212,7 +217,7 @@
     .leaflet-popup-content {
         overflow-y: auto;
         width: 65%;
-        height: 300px;
+        height: 380px;
         font-size: 1.8rem;
     }
 
@@ -223,6 +228,7 @@
 }
 
 .ch-aside-facilities {
+    background: $primary-gray-color;
     width: 30rem;
     height: calc(100vh - 14.8rem);
     overflow: auto;
@@ -251,19 +257,27 @@
     padding-top: 10px;
     padding-left: 25px;
     padding-bottom: 10px;
-    background-color: #f1f1f1;
+    background-color: $primary-gray-color;
     border-bottom: .1rem solid #cbcdcf;
+
+    @media screen and (max-width: $break-phone) {
+        font-size: 1.8rem;
+    }
 
     .ch-facilities__sort-by-label {
         text-transform: uppercase;
     }
 
     .ch-facilities__sort-by-menu {
-        margin-left: 10px;
+        margin-left: 20px;
         display: inline-block;
         height: 130px;
         transition-property: height;
         transition-duration: 0.2s;
+
+        @media screen and (max-width: $break-phone) {
+            height: 150px;
+        }
     }
 
     .ch-facilities__sort-by-menu.ng-hide {
@@ -276,6 +290,18 @@
     .ch-facilities__sort-by-menu-selected {
         text-decoration: underline;
         position: relative;
+
+        &::before {
+            background: url("../images/sort_down.svg") no-repeat 0 0;
+            background-size: 12px;
+            display: inline-block;
+            position: absolute;
+            content: '';
+            height: 20px;
+            width: 20px;
+            left: -14px;
+            top: 5px;
+        }
 
         &::after {
             background: url("../images/arrow_down.svg") no-repeat 0 0;

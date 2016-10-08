@@ -35,8 +35,8 @@
 }
 
 .ch-login__search {
-    padding: 3.3rem;
-    height: 11rem;
+    padding: 20px 3.3rem 20px 3.3rem;
+    height: 84px;
     position: relative;
     background-color: $primary-color-grey-light;
 
@@ -256,6 +256,12 @@
     }
 }
 
+.video-container {
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
 .video-container video {
     position: absolute;
     width: 100%;
@@ -383,14 +389,10 @@
 }
 
 .ch-login__content {
-    height: 50rem;
+    height: 330px;
     max-width: 115rem;
     margin: 0 auto;
     text-align: center;
-
-    @media screen and (max-width: $break-phone) {
-        height: 35rem;
-    }
 }
 
 .ch-login__content,
@@ -436,7 +438,7 @@
 }
 
 .ch-login__content__text {
-    padding-top: 8rem;
+    padding-top: 6rem;
     padding-bottom: 6.4rem;;
     color: #fff;
 
@@ -460,22 +462,15 @@
     }
 }
 
-.ch-login__delimiter {
-    height: 0.1rem;
-    max-width: 19rem;
-    margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.5);
-}
-
 .ch-login__content__description {
-    padding-top: 6.4rem;
+    padding-top: 4rem;
     font-size: 1.5rem;
     color: #fff;
     font-weight: 500;
 
     @media screen and (max-width: $break-phone) {
-        font-size: 2.6rem;
-        padding-top: 2rem;
+        font-size: 2.2rem;
+        padding-top: 4rem;
     }
 }
 

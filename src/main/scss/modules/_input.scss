@@ -400,14 +400,14 @@ input[type=range]::-webkit-slider-thumb {
   border: 1px solid #757575;
   height: 2.2rem;
   border-radius: 1.5rem;
-  background: #f1f1f1;
+  background: $primary-gray-color;
   cursor: pointer;
   margin-top: -.65rem;
   width: 2.2rem;
 }
 
 input[type=range]::-moz-range-thumb {
-  background: #f1f1f1;
+  background: $primary-gray-color;
   border: 1px solid #757575;
   border-radius: 1.5rem;
   cursor: pointer;
@@ -416,7 +416,7 @@ input[type=range]::-moz-range-thumb {
 }
 
 input[type=range]::-ms-thumb {
-  background: #f1f1f1;
+  background: $primary-gray-color;
   border: 1px solid #757575;
   border-radius: 1.5rem;
   cursor: pointer;
