@@ -20,12 +20,7 @@
   "fields": [
     {
       "fieldId": 1,
-      "fieldName": "minimalPrice",
-      "fieldType": "Integer"
-    },
-    {
-      "fieldId": 2,
-      "fieldName": "maximumPrice",
+      "fieldName": "price",
       "fieldType": "Integer"
     }
   ],

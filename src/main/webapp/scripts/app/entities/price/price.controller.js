@@ -29,8 +29,7 @@ angular.module('msapApp')
 
         $scope.clear = function () {
             $scope.price = {
-                minimalPrice: null,
-                maximumPrice: null,
+                price: null,
                 id: null
             };
         };

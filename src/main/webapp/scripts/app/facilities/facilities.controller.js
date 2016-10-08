@@ -13,6 +13,13 @@ angular.module('msapApp')
               lookupAgeGroups, lookupQualityRating, lookupProviderType, lookupWorkingHours,
               lookupSpecialNeedGroup, lookupSpecialNeedType, lookupLicenseType, lookupLanguage) {
 
+        $scope.providerSortByMenuSelected = 'facilities.distance';
+
+        $scope.changeSortingOrder = function (sortingOrder) {
+           $scope.providerSortByMenuSelected = sortingOrder;
+           $scope.updateLocations();
+        };
+
         $scope.searchParams = searchParams;
         $scope.lookupAgeGroups = lookupAgeGroups;
         $scope.lookupProviderType = lookupProviderType;
@@ -173,6 +180,43 @@ angular.module('msapApp')
             });
         };
 
+        $scope.performSorting = function() {
+            var sortFunction;
+            switch($scope.providerSortByMenuSelected) {
+                case 'facilities.distance':
+                    sortFunction = function (a, b) {
+                        return a.distanceValue - b.distanceValue;
+                    };
+                    break;
+                case 'facilities.provider-name':
+                    sortFunction = function (a,b) {
+                        if ( a.providerName < b.providerName ) {
+                          return -1;
+                        }
+                        if ( a.providerName > b.providerName ) {
+                          return 1;
+                        }
+                        return 0;
+                    };
+                    break;
+                case 'facilities.provider-type':
+                    sortFunction = function (a,b) {
+                        return a.providerType.code - b.providerType.code;
+                    };
+                    break;
+                case 'facilities.quality-star':
+                    sortFunction = function (a,b) {
+                        return b.qualityRating.code - a.qualityRating.code;
+                    };
+                    break;
+                default:
+                    sortFunction = function (a, b) {
+                                     return a.distanceValue - b.distanceValue;
+                                   };
+             }
+            agenciesDataSource.sort(sortFunction);
+        };
+
         $scope.createLocations = function() {
             var locations = {};
             _.each(agenciesDataSource, function (agency) {
@@ -206,9 +250,7 @@ angular.module('msapApp')
                     }
                 };
             });
-            agenciesDataSource.sort(function (a, b) {
-                return a.distanceValue - b.distanceValue;
-            });
+            $scope.performSorting();
             if ($scope.currentLocation) {
                 locations.current = $scope.currentLocation;
             }
