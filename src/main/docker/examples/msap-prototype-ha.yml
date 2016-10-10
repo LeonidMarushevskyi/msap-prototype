@@ -7,6 +7,15 @@
 #  docker-compose -f msap-prototype-ha.yml scale msap-prototype-ha=3
 #  docker-compose -f msap-prototype-ha.yml up -d --no-deps --force-recreate msap-prototype-ha-lb
 #
+# Also you must set correct mail-relay host. Typicaly this is relay.you_company_name.com. 
+# SPRING_MAIL_HOST=<YOU_MAIL_RELAY> 
+#
+# If you have graylog or ELK installed, you can use it as logprocessor. 
+# logback_graylogHost=<LOGBACK_GRAYLOGHOST>
+#
+
+
+
 
 msap-prototype-ha-elasticsearch:
   image: elasticsearch:1.5.2
@@ -34,7 +43,13 @@ msap-prototype-ha:
   environment:
     - COOKIE=SRV insert indirect nocache
     - TZ=America/New_York
-#   - logback_graylogHost=LOGBACK_GRAYLOGHOST
+    - SPRING_DATA_ELASTICSEARCH_CLUSTER-NAME=msap-prototype
+#   - SPRING_MAIL_HOST=<YOU_MAIL_RELAY>
+#   - logback_graylogHost=<LOGBACK_GRAYLOGHOST>
+#   - jhipster_metrics_zabbix_enabled=true
+#   - jhipster_metrics_zabbix_host=zabbix.msap.engagepoint.com
+#   - jhipster_metrics_zabbix_periodSec=300
+#   - jhipster_metrics_zabbix_hostMetadata=msap-prototype-ha
   ports:
     - "8080"
   links:
