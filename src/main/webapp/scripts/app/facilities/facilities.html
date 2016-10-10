@@ -6,21 +6,21 @@
             <div class="ch-mobile-mailbox__nav-tab">
                 <a href="" class="ch-mobile-mailbox__nav-tab__link ch-mobile-mailbox__nav-tab__link_active"
                            ng-class="showLinkMapView" ng-click="changeMapView()">
-                    <span class="ch-mobile-mailbox__nav-tab__text">Map View</span>
+                    <span class="ch-mobile-mailbox__nav-tab__text"><span translate="facilities.map-view">Map View</span></span>
                 </a>
             </div>
 
             <div class="ch-mobile-mailbox__nav-tab">
                 <a href="" class="ch-mobile-mailbox__nav-tab__link"
                    ng-class="showLinkListView" ng-click="changeListView()">
-                    <span class="ch-mobile-mailbox__nav-tab__text">List View</span>
+                    <span class="ch-mobile-mailbox__nav-tab__text"><span translate="facilities.list-view">List View</span></span>
                 </a>
             </div>
 
             <div class="ch-mobile-mailbox__nav-tab">
                 <a href="" class="ch-mobile-mailbox__nav-tab__link"
                    ng-class="showLinkFilterView" ng-click="changeFilterView()">
-                    <span class="ch-mobile-mailbox__nav-tab__text">Filters</span>
+                    <span class="ch-mobile-mailbox__nav-tab__text"><span translate="facilities.filters">Filters</span></span>
                 </a>
             </div>
         </div>
@@ -31,13 +31,13 @@
             <div class="ch-facilities-heading__item ch-facilities-heading__item_2 ch-facilities-heading__input__item_1">
                 <div class="ch-input-block">
                     <div class="ch-input-block__form-input ch-input-block__form-input_search-field-map ch-input-block__form-input_icon_left">
-                        <div id="geocoder" title="Put address where you want to search for children's residential facilities">
+                        <div id="geocoder" title="{{'facilities.put-address-where-you-want-to-search' | translate}}">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="ch-facilities-heading__item ch-facilities-heading__item_2 ch-facilities-heading__input__item_2">
-                <div class="ch-input-block" title="Put any available information about children's residential facility like name, address or administrator name">
+                <div class="ch-input-block" title="{{'facilities.put-any-available-information' | translate}}">
                     <div class="ch-input-block__form-input ch-input-block__form-input_icon ch-input-block__form-input_icon_left">
                         <span class="ch-form-input-icon ch-form-input-icon_left ch-form-input-icon_search"></span>
                         <input type="search" ng-model="text" ng-keypress="findAgenciesByTextQuery($event);" name="search-text" id="search-text" class="ch-form-input ch-form-input_small ch-form-input_search" placeholder="{{'facilities.put-facility-data-here' | translate}}" />
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="ch-facilities-heading__item ch-facilities-heading__item_1 ch-facilities-heading__input__item_4">
-                <div class="ch-multi-select-dropdown" title="Filter facilities by status">
+                <div class="ch-multi-select-dropdown" title="{{'facilities.filter-by-status' | translate}}">
                     <button type="button" class="ch-multi-select-dropdown__btn" ng-click="toggleFilterMenu('lookupQualityRating');">
                         <span class="ch-multi-select-dropdown__btn-text"
                               ng-if="filterMenuConfigs['lookupQualityRating'].selectedCount == 0"

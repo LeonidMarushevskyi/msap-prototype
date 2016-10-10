@@ -317,7 +317,7 @@ angular.module('msapApp')
                     }
                 },
                 text: $scope.searchText,
-                ageGroups: $scope.getSelected('lookupAgeGroups'),
+                ageGroups: $scope.getSelectedCodes('lookupAgeGroups'),
                 providerTypeCodes: $scope.getSelectedCodes('lookupProviderType'),
                 qualityRatingCodes: $scope.getSelectedCodes('lookupQualityRating'),
                 isBeforeSchool: $scope.isSelected('lookupWorkingHours', 1),
@@ -482,12 +482,13 @@ angular.module('msapApp')
             _.find($scope[modelName], {code: code}).selected = true;
             $scope.addSelectedFilterButton(modelName, code);
         };
-        if ($scope.searchParams.ageGroupCodes) {
-            _.each($scope.searchParams.ageGroupCodes, function (ageGroupCode) {
+
+        $scope.applyAgeGroups = function(ageGroups) {
+            _.each(ageGroups, function (ageGroupCode) {
                 $scope.setSelectedByCode('lookupAgeGroups', ageGroupCode);
             });
             $scope.updateSelectedCount('lookupAgeGroups');
-        }
+        };
 
         $scope.isSelected = function(modelName, code) {
             return _.find($scope[modelName], {code: code}).selected;
@@ -532,8 +533,16 @@ angular.module('msapApp')
             }).result.then($scope.addressApplied, $scope.addressRejected);
         };
 
-        $scope.addressApplied = function(addressFeature) {
-            $scope.onSelectAddress(addressFeature);
+        $scope.addressApplied = function(data) {
+            if (data.ageGroups) {
+                $scope.applyAgeGroups(data.ageGroups);
+            }
+            if (data.addressFeature) {
+                $scope.onSelectAddress(data.addressFeature);
+            } else {
+                $scope.addressRejected();
+            }
+
         };
         $scope.addressRejected = function() {
             if (navigator.geolocation) {
@@ -544,7 +553,6 @@ angular.module('msapApp')
                 $scope.getAddressFromProperties();
             }
         };
-
 
         $scope.getGeoLocation = function () {
             navigator.geolocation.getCurrentPosition(
@@ -615,6 +623,10 @@ angular.module('msapApp')
             var hasCityState = hasPlace && !_.isNil(profile.place.cityName) && !_.isNil(profile.place.state);
             return hasLatLng && hasCityState;
         };
+
+        if ($scope.searchParams.ageGroupCodes) {
+            $scope.applyAgeGroups($scope.searchParams.ageGroupCodes);
+        }
 
         if ($scope.searchParams.latitude && $scope.searchParams.longitude) {
             $scope.onSelectAddress({
