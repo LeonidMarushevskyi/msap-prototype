@@ -32,9 +32,19 @@
     display: inline-block;
 }
 
+.ch-user-account-entry__dropdown.ch-user-account-entry__profile {
+    position: relative;
+    top: -.7rem;
+}
+
 .ch-header__subsection-user-account {
     float: right;
-    padding: 2.2rem 2.5rem 0 0;
+    padding: 2.6rem 2.5rem 0 0;
+
+    @media screen and (max-width: $break-phone) {
+        float: none;
+        padding: 1.6rem 2.5rem 0 0;    
+    }
 }
 
 .ch-user-account-entry {

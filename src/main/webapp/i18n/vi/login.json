@@ -1,4 +1,12 @@
 {
+    "landing": {
+        "accessibility": "Khả năng tiếp cận",
+        "conditions-of-use": "Điều kiện sử dụng",
+        "privacy-policy": "Chính sách bảo mật",
+        "mississippi-department-of-human-services": "Mississippi Bộ Dịch Vụ Nhân",
+        "tweets": "Tweets của @MS_DHS",
+        "browser-does-not-support": "Trình duyệt của bạn không hỗ trợ thẻ video. Tôi đề nghị bạn nâng cấp trình duyệt của bạn."
+    },
     "login": {
         "create-an-account": "Tạo một tài khoản",
         "title": "Đăng nhập",

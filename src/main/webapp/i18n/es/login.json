@@ -1,4 +1,11 @@
-{
+{   "landing": {
+        "accessibility": "Accesibilidad",
+        "conditions-of-use": "Condiciones de Uso",
+        "privacy-policy": "Política de privacidad",
+        "mississippi-department-of-human-services": "Departamento de Servicios Humanos de Mississippi",
+        "tweets": "Tweets por @MS_DHS",
+        "browser-does-not-support": "Su navegador no soporta la etiqueta de vídeo. Le sugiero que actualice su navegador."
+    },
     "login": {
         "create-an-account": "Crea una cuenta",
         "title": "Registrarse",
