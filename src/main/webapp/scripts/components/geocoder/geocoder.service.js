@@ -29,9 +29,8 @@ angular.module('msapApp')
                     expanded: true,
                     markers: false,
                     panToPoint: false,
-                    latlng: L.latLng(32.298855, -90.2619969),
                     place : true,
-                    focus : true
+                    focus : L.latLng(32.3104542, -90.2589273)
                 });
                 geocoder.on('select', onSelect);
                 leafletData.getMap().then(

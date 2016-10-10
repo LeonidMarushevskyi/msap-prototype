@@ -26,7 +26,7 @@
             <div class="ch-sign-up__form">
                 <h3 class="ch-sign-up__form__title" ng-show="!success" translate="register.sign-up">Sign Up</h3>
 
-                <form ng-show="!success" name="form" role="form" novalidate ng-submit="register()" show-validation>
+                <form ng-show="!success" name="form" role="form" novalidate show-validation>
 
                     <div class="ch-sign-up__form__group ch-sign-up__form__group_row">
                         <div class="ch-sign-up__form__group_child">
@@ -190,7 +190,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" ng-disabled="form.$invalid"
+                    <button ng-disabled="form.$invalid" ng-click="register();"
                             class="ch-option-btn ch-option-btn__sign-up" translate="register.sign-up">Sign Up
                     </button>
                 </form>

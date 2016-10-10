@@ -35,7 +35,7 @@
 }
 
 .ch-login__search {
-    padding: 20px 3.3rem 20px 3.3rem;
+    padding: 3rem;
     height: 84px;
     position: relative;
     background-color: $primary-color-grey-light;
@@ -105,8 +105,8 @@
         border-radius: 0;
 
         @media screen and (max-width: $break-phone) {
-            height: 7.5rem;
-            font-size: 2.8rem;
+            height: 5.5rem;
+            font-size: 2.4rem;
             padding-left: 6rem;
         }
     }
@@ -125,7 +125,7 @@
         @media screen and (max-width: $break-phone) {
             width: 2rem;
             height: 2.4rem;
-            top: 2.5rem;
+            top: 1.5rem;
             -webkit-mask: url("../images/out-sprite-icons/icon-map-pointer-profile-active.svg") no-repeat center;
             mask: url("../images/out-sprite-icons/icon-map-pointer-profile-active.svg") no-repeat center;
             -webkit-mask-size: cover;
@@ -136,7 +136,7 @@
 
     @media screen and (max-width: $break-phone) {
         max-width: none;
-        height: 7.5rem;
+        height: 5.5rem;
     }
 }
 
@@ -154,7 +154,7 @@
     }
 
     @media screen and (max-width: $break-phone) {
-        margin: 3.5rem 0 0 0;
+        margin: 0 0 0 0;
     }
 }
 
@@ -172,7 +172,25 @@
 
     .ch-multi-select-dropdown__popup {
         margin-top: .7rem;
+
+        .ch-checkboxes-list {
+            @media screen and (max-width: $break-phone) {
+                padding-left: 2rem;
+            }
+        }
+        .form-type__checkbox_empty-label input[type="checkbox"] + label:before {
+            @media screen and (max-width: $break-phone) {
+                vertical-align: 0;
+            }
+        }
+        .form-type__checkbox_empty-label input[type="checkbox"] + label {
+            @media screen and (max-width: $break-phone) {
+                font-size: 2.4rem;
+                height: 4rem;
+            }
+        }
     }
+
 }
 
 .ch-login__select-dropdown__btn {
@@ -204,9 +222,9 @@
     }
 
     @media screen and (max-width: $break-phone) {
-        height: 7.5rem;
-        margin-top: 3.5rem;
-        font-size: 2.8rem;
+        height: 5.5rem;
+        margin-top: 2.5rem;
+        font-size: 2.4rem;
     }
 }
 
@@ -242,9 +260,9 @@
     }
 
     @media screen and (max-width: $break-phone) {
-        height: 7.5rem;
-        margin-top: 3.5rem;
-        font-size: 2.8rem;
+        height: 5.5rem;
+        margin-top: 2.5rem;
+        font-size: 2.4rem;
     }
 }
 
@@ -340,6 +358,10 @@
     @extend %flexbox;
     @include justify-content(flex-end);
     padding-top: 0.4rem;
+
+    .ch-header__subsection-user-account {
+          padding: 0 2.5rem 0 0;
+    }
 }
 
 .ch-login__footer__links {
@@ -378,23 +400,21 @@
         }
 
         @media screen and (max-width: $break-phone) {
-            margin-top: 1.429rem;
             float: none !important;
         }
 
     }
-
-    @media screen and (max-width: $break-phone) {
-        position: relative;
-        top: -1.1rem;
-    }
 }
 
 .ch-login__content {
-    height: 330px;
+    height: 33rem;
     max-width: 115rem;
     margin: 0 auto;
     text-align: center;
+
+    @media screen and (max-width: $break-phone) {
+        height: 29rem;
+    }
 }
 
 .ch-login__content,

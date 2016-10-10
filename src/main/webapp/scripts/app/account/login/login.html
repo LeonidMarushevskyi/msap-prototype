@@ -3,8 +3,8 @@
 
       <div class="video-container">
           <video preload="auto" autoplay="" loop="" class="" poster="https://s3-us-west-2.amazonaws.com/coverr/poster/Hoola.jpg">
-              <source src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Hoola.mp4" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
-              <source src="https://s3-us-west-2.amazonaws.com/coverr/webm/Hoola.webm" type="video/webm">Your browser does not support the video tag. I suggest you upgrade your browser.
+              <source src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Hoola.mp4" type="video/mp4"><span translate="landing.browser-does-not-support">Your browser does not support the video tag. I suggest you upgrade your browser.</span>
+              <source src="https://s3-us-west-2.amazonaws.com/coverr/webm/Hoola.webm" type="video/webm"><span translate="landing.browser-does-not-support">Your browser does not support the video tag. I suggest you upgrade your browser.</span>
           </video>
       </div>
 
@@ -41,11 +41,46 @@
 
                         </div>
 
-                        <div class="ch-login__actions__new-account">
-                            <a href="" ng-click="openSignInModal();" translate="login.login">Login </a>
-                            <a href="" ng-click="openRegisterModal();" translate="login.register">Register</a>
+                        <div class="ch-header__subsection ch-header__subsection-user-account" ng-controller="MyProfileAndLogoutController">
+                            <div class="ch-user-account-entry" show-user-account-popup has-any-authority="ROLE_ADMIN, CASE_WORKER, PARENT, FOSTER_PARENT">
+                                <div class="ch-user-account-entry__dropdown" title="User profile">
+                                    <button type="button" class="ch-user-account-entry__dropdown-btn" ng-click="toggleUserPopup()"
+                                            ng-class="isUserAccountPopupShown ? 'ch-user-account-entry__dropdown-btn_expanded' : 'ch-user-account-entry__dropdown-btn_collapsed'">
+                                        <span class="icon icon-user-account ch-user-account-entry__dropdown-icon ch-user-account-entry__dropdown-icon_user-account"></span>
+                                    </button>
+                                </div>
+                                <div class="ch-user-account-entry__popup" ng-show="isUserAccountPopupShown" ng-mouseenter="clearAutoHideUserPopup()" ng-mouseleave="autoHideUserPopup()">
+                                    <div class="ch-user-account-popup">
+                                        <div class="ch-user-account-popup__info clearfix">
+                                            <span class="icon  icon-user-accout-popup ch-user-account-popup__icon"></span>
+                                            <p class="ch-user-account-popup__user-name">
+                                                {{accountName}}
+                                            </p>
+                                            <p class="ch-user-account-popup__user-email">
+                                                {{account.email}}
+                                            </p>
+                                        </div>
+                                        <div class="ch-user-account-popup__controls">
+                                            <div class="ch-user-account-popup__profile-btn">
+                                                <button type="button" class="ch-option-btn" ui-sref="settings" ng-click="isAccountPopupVisible = false;">
+                                                    <span class="ch-option-btn__text" title="Edit user profile">My Profile</span>
+                                                </button>
+                                            </div>
+                                            <div class="ch-user-account-popup__exit-btn">
+                                                <button type="button" class="ch-plane-btn" ng-click="logout()">
+                                                    <span class="icon icon-user-account-exit ch-plane-btn__icon"></span>
+                                                    <span class="ch-plane-btn__text" title="Sign out from you account">Sign out</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ch-login__actions__new-account" ng-show="!hasAnyRole();">
+                                <a href="" ng-click="openSignInModal();" translate="login.login">Login </a>
+                                <a href="" ng-click="openRegisterModal();" translate="login.register">Register</a>
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -142,10 +177,10 @@
                   <div class="col-md-5">
                       <div class="ch-login__social__container">
 
-                        <h3 class="ch-login__social-title"><span>
+                        <h3 class="ch-login__social-title"><span translate="landing.mississippi-department-of-human-services">
                            Mississippi Department of Human Services</span></h3>
                         <div class="ch-login__social__pane">
-                          <a class="twitter-timeline" href="https://twitter.com/ms_dhs" data-widget-id="783512779122704384">Tweets by @MS_DHS</a>
+                          <a class="twitter-timeline" href="https://twitter.com/ms_dhs" data-widget-id="783512779122704384"><span translate="landing.tweets">Tweets by @MS_DHS</span></a>
                         </div>
 
                       </div>
@@ -166,9 +201,9 @@
 
                   <div class="ch-login__footer__links">
                       <ul class="footer-links__list">
-                        <li><a href="#">Accessibility</a></li>
-                        <li><a href="#">Conditions of Use</a></li>
-                        <li><a href="" ng-click="openPrivacyPolicyModal();">Privacy Policy</a></li>
+                        <li><a href="#"><span translate="landing.accessibility">Accessibility</span></a></li>
+                        <li><a href="#"><span translate="landing.conditions-of-use">Conditions of Use</span></a></li>
+                        <li><a href="" ng-click="openPrivacyPolicyModal();"><span translate="landing.privacy-policy">Privacy Policy</span></a></li>
                       </ul>
                   </div>
 
