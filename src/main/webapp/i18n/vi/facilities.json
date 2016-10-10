@@ -1,5 +1,11 @@
 {
     "facilities": {
+        "filter-by-status": "Cơ sở Lọc theo tình trạng",
+        "put-any-available-information": "Đặt bất kỳ thông tin về cơ sở khu dân cư của trẻ em như tên, địa chỉ hay tên người quản trị",
+        "put-address-where-you-want-to-search": "Đặt địa chỉ mà bạn muốn tìm kiếm cơ sở cư trú của trẻ em",
+        "map-view": "Bản đồ Xem",
+        "list-view": "Xem danh sách",
+        "filters": "Bộ lọc",
         "put-facility-data-here": "Đưa dữ liệu cơ sở ở đây",
         "sort-by": "Sắp xếp theo",
         "distance": "Khoảng cách",
