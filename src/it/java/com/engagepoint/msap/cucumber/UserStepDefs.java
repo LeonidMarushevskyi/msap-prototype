@@ -9,6 +9,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.apache.commons.lang3.text.StrSubstitutor;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.springframework.boot.test.SpringApplicationContextLoader;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
@@ -23,6 +24,7 @@ import javax.inject.Inject;
 import com.codeborne.selenide.Configuration;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static com.engagepoint.msap.cucumber.SessionStorage.session;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -70,7 +72,13 @@ public class UserStepDefs {
     @When("^open home page$")
     public void open_home_page() throws Throwable {
         open(homeUrl);
-        $("a[ng-click*='openRegisterModal()']").waitUntil(appear, 30000);
+        $("[ng-click='toggleLanguagePopup()']").waitUntil(appear, 30000);
+    }
+    @When("^open home page mobile view$")
+    public void open_home_page_mobile_view() throws Throwable {
+        open(homeUrl);
+        getWebDriver().manage().window().setSize(new Dimension(640,1136));
+        $("[ng-click='toggleLanguagePopup()']").waitUntil(appear, 30000);
     }
 
     @When("^register new user with email '(.*)', login '(.*)' and password '(.*)'$")
