@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('msapApp')
-    .controller('EditMailCtrl', function ($rootScope, $stateParams, $scope, $state, $log, mail, identity,
+    .controller('EditMailCtrl', function ($rootScope, $stateParams, $scope, $window, $state, $log, mail, identity, $element,
                                           AutoSaveService, DraftMessage, Contacts, Upload, Message, FileService, ngToast, $templateCache)
     {
         $scope.mail = _.cloneDeep(mail);
@@ -153,6 +153,14 @@ angular.module('msapApp')
                     $scope.mail = mail;
                 });
             });
+        };
+
+        $scope.setElHeight = function() {
+            var windowHeight = $(window).height(),
+                elPositionRelativeDoc = $($element).offset().top,
+                indentSize = 40,
+                calcElHeight = windowHeight - elPositionRelativeDoc - indentSize + "px";
+            $($element).css('height', calcElHeight );
         };
 
         $scope.uploadAttachment = function (file) {

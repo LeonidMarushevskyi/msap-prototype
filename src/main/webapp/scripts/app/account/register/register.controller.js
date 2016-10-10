@@ -1,13 +1,17 @@
 'use strict';
 
 angular.module('msapApp')
-    .controller('RegisterController', function ($scope, $state, $translate, $timeout, Auth, $window, $rootScope) {
+    .controller('RegisterController', function ($scope, $state, $translate, $timeout, Auth, $window, $rootScope, $uibModal, $uibModalInstance) {
         $scope.success = null;
         $scope.error = null;
         $scope.doNotMatch = null;
         $scope.errorUserExists = null;
         $scope.registerAccount = {};
         $timeout(function (){angular.element('[ng-model="registerAccount.firstName"]').focus();});
+
+        $scope.clear = function () {
+            $uibModalInstance.dismiss('cancel');
+        };
 
         $scope.register = function () {
             if ($scope.registerAccount.password !== $scope.confirmPassword) {

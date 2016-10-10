@@ -11,6 +11,38 @@
             <div class="ch-modal__row">
                 <div id="geolocator" style="width: 100%;" class="ch-input-block__form-input ch-input-block__form-input_search-field-map ch-input-block__form-input_icon ch-input-block__form-input_icon_left"></div>
             </div>
+
+            <div class="ch-modal__row">
+                <div class="ch-multi-select-dropdown" title="{{'facilities.age-group' | translate}}">
+                    <button type="button" class="ch-multi-select-dropdown__btn" ng-click="toggleFilterMenu('lookupAgeGroups');">
+                            <span class="ch-multi-select-dropdown__btn-text"
+                                  ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount == 0"
+                                  translate="facilities.age-group">
+                                Age group
+                            </span>
+                            <span class="ch-multi-select-dropdown__btn-text"
+                                  ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount > 0"
+                                  translate="global.form.filters-selected"
+                                  translate-values="{selectedCount: filterMenuConfigs['lookupAgeGroups'].selectedCount}">
+                                {{filterMenuConfigs['lookupAgeGroups'].selectedCount}} Selected
+                            </span>
+                        <span class="ch-multi-select-dropdown__btn-icon"></span>
+                    </button>
+                    <div class="ch-multi-select-dropdown__popup" ng-show="filterMenuConfigs['lookupAgeGroups'].showList" ng-mouseleave="toggleFilterMenu('lookupAgeGroups', false);">
+                        <ul class="ch-checkboxes-list">
+                            <li class="ch-checkboxes-list__item" ng-repeat="ageGroup in lookupAgeGroups">
+                                <div class="form-type__checkbox_empty-label">
+                                    <input id="lookupAgeGroup_{{ageGroup.code}}" type="checkbox"
+                                           ng-model="ageGroup.selected"
+                                           ng-click="onFilterMenuItemClick('lookupAgeGroups', ageGroup.code);">
+                                    <label for="lookupAgeGroup_{{ageGroup.code}}">{{'lookups.lookupAgeGroups.' + ageGroup.code | translate}}</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <div class="ch-modal__footer">
             <div class="ch-modal-controls ch-modal-controls_has-options">

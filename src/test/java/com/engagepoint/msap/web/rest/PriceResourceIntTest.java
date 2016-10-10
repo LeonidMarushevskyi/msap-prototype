@@ -43,11 +43,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class PriceResourceIntTest {
 
 
-    private static final Integer DEFAULT_MINIMAL_PRICE = 1;
-    private static final Integer UPDATED_MINIMAL_PRICE = 2;
-
-    private static final Integer DEFAULT_MAXIMUM_PRICE = 1;
-    private static final Integer UPDATED_MAXIMUM_PRICE = 2;
+    private static final Integer DEFAULT_PRICE = 1;
+    private static final Integer UPDATED_PRICE = 2;
 
     @Inject
     private PriceRepository priceRepository;
@@ -79,8 +76,7 @@ public class PriceResourceIntTest {
     @Before
     public void initTest() {
         price = new Price();
-        price.setMinimalPrice(DEFAULT_MINIMAL_PRICE);
-        price.setMaximumPrice(DEFAULT_MAXIMUM_PRICE);
+        price.setPrice(DEFAULT_PRICE);
     }
 
     @Test
@@ -99,8 +95,7 @@ public class PriceResourceIntTest {
         List<Price> prices = priceRepository.findAll();
         assertThat(prices).hasSize(databaseSizeBeforeCreate + 1);
         Price testPrice = prices.get(prices.size() - 1);
-        assertThat(testPrice.getMinimalPrice()).isEqualTo(DEFAULT_MINIMAL_PRICE);
-        assertThat(testPrice.getMaximumPrice()).isEqualTo(DEFAULT_MAXIMUM_PRICE);
+        assertThat(testPrice.getPrice()).isEqualTo(DEFAULT_PRICE);
     }
 
     @Test
@@ -114,8 +109,7 @@ public class PriceResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(price.getId().intValue())))
-                .andExpect(jsonPath("$.[*].minimalPrice").value(hasItem(DEFAULT_MINIMAL_PRICE)))
-                .andExpect(jsonPath("$.[*].maximumPrice").value(hasItem(DEFAULT_MAXIMUM_PRICE)));
+                .andExpect(jsonPath("$.[*].price").value(hasItem(DEFAULT_PRICE)));
     }
 
     @Test
@@ -129,8 +123,7 @@ public class PriceResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(price.getId().intValue()))
-            .andExpect(jsonPath("$.minimalPrice").value(DEFAULT_MINIMAL_PRICE))
-            .andExpect(jsonPath("$.maximumPrice").value(DEFAULT_MAXIMUM_PRICE));
+            .andExpect(jsonPath("$.price").value(DEFAULT_PRICE));
     }
 
     @Test
@@ -150,8 +143,7 @@ public class PriceResourceIntTest {
 		int databaseSizeBeforeUpdate = priceRepository.findAll().size();
 
         // Update the price
-        price.setMinimalPrice(UPDATED_MINIMAL_PRICE);
-        price.setMaximumPrice(UPDATED_MAXIMUM_PRICE);
+        price.setPrice(UPDATED_PRICE);
 
         restPriceMockMvc.perform(put("/api/prices")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -162,8 +154,7 @@ public class PriceResourceIntTest {
         List<Price> prices = priceRepository.findAll();
         assertThat(prices).hasSize(databaseSizeBeforeUpdate);
         Price testPrice = prices.get(prices.size() - 1);
-        assertThat(testPrice.getMinimalPrice()).isEqualTo(UPDATED_MINIMAL_PRICE);
-        assertThat(testPrice.getMaximumPrice()).isEqualTo(UPDATED_MAXIMUM_PRICE);
+        assertThat(testPrice.getPrice()).isEqualTo(UPDATED_PRICE);
     }
 
     @Test

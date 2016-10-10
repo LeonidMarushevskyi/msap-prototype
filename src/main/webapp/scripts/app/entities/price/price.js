@@ -61,8 +61,7 @@ angular.module('msapApp')
                         resolve: {
                             entity: function () {
                                 return {
-                                    minimalPrice: null,
-                                    maximumPrice: null,
+                                    price: null,
                                     id: null
                                 };
                             }

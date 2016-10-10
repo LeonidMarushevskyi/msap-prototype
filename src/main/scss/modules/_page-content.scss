@@ -1,9 +1,9 @@
 /* ========================   Modules/Page Content  ======================= */
 
 .ch-page {
-    height: 91vh;
-    padding: 2.5rem;
-    background-color: #f1f1f1;
+    height: calc(100vh - 75px);
+    padding: 2rem 2.5rem 2rem 2.5rem;
+    background-color: $primary-gray-color;
 }
 
 .ch-page-content {
@@ -134,8 +134,8 @@
 
 .ch-page-heading__search {
     float: right;
-    display: flex;
-    justify-content: flex-end;
+    @extend %flexbox;
+    @include justify-content(flex-end);
 }
 
 .ch-page-heading__county-messages {

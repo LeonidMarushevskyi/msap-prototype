@@ -22,12 +22,10 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="provider_id" type="bigint"/>
-            <column name="special_need_type_id" type="bigint">
-                <constraints unique="true"/>
-            </column>
+            <column name="special_need_type_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+
         <addForeignKeyConstraint baseColumnNames="provider_id"
                                  baseTableName="supported_special_need"
                                  constraintName="fk_supportedspecialneed_provider_id"

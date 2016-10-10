@@ -35,8 +35,8 @@
 }
 
 .ch-login__search {
-    padding: 3.3rem;
-    height: 11rem;
+    padding: 20px 3.3rem 20px 3.3rem;
+    height: 84px;
     position: relative;
     background-color: $primary-color-grey-light;
 
@@ -45,12 +45,14 @@
     }
 }
 
-.ch-login__search__action.flex-row {
-    @media screen and (max-width: $break-phone) {
-        max-width: 100rem;
-        flex-flow: column wrap;
-    }
+
+@media screen and (max-width: $break-phone) {
+  .ch-login__search__action.flex-row {
+      max-width: 100rem;
+      @include flex-flow(column wrap);
+  }
 }
+
 
 .ch-login__input .leaflet-pelias-list {
     margin-top: 5rem;
@@ -256,6 +258,12 @@
     }
 }
 
+.video-container {
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
 .video-container video {
     position: absolute;
     width: 100%;
@@ -329,8 +337,8 @@
 }
 
 .ch-login__header__actions {
-    display: flex;
-    justify-content: flex-end;
+    @extend %flexbox;
+    @include justify-content(flex-end);
     padding-top: 0.4rem;
 }
 
@@ -383,14 +391,10 @@
 }
 
 .ch-login__content {
-    height: 50rem;
+    height: 330px;
     max-width: 115rem;
     margin: 0 auto;
     text-align: center;
-
-    @media screen and (max-width: $break-phone) {
-        height: 35rem;
-    }
 }
 
 .ch-login__content,
@@ -436,7 +440,7 @@
 }
 
 .ch-login__content__text {
-    padding-top: 8rem;
+    padding-top: 6rem;
     padding-bottom: 6.4rem;;
     color: #fff;
 
@@ -460,22 +464,15 @@
     }
 }
 
-.ch-login__delimiter {
-    height: 0.1rem;
-    max-width: 19rem;
-    margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.5);
-}
-
 .ch-login__content__description {
-    padding-top: 6.4rem;
+    padding-top: 4rem;
     font-size: 1.5rem;
     color: #fff;
     font-weight: 500;
 
     @media screen and (max-width: $break-phone) {
-        font-size: 2.6rem;
-        padding-top: 2rem;
+        font-size: 2.2rem;
+        padding-top: 4rem;
     }
 }
 
@@ -703,7 +700,7 @@
 }
 
 .ch-login__social__container {
-    max-width: 115rem;
+    max-width: 150rem;
     margin: 0 auto;
 
     @media screen and (max-width: $break-phone) {

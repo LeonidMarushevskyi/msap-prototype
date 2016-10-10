@@ -3,22 +3,22 @@
     <div class="ch-facilities__sort-by">
         <span class="ch-facilities__sort-by-label">{{'facilities.sort-by' | translate}}:</span>
         <div class="ch-facilities__sort-by-menu" ng-hide="providerSortByMenuShow"
-             ng-init="providerSortByMenuSelected = 'facilities.distance'; providerSortByMenuShow = true">
+             ng-init="providerSortByMenuShow = true">
             <a class="ch-facilities__sort-by-menu-selected" ng-click="providerSortByMenuShow = !providerSortByMenuShow">
                 <span translate="{{providerSortByMenuSelected}}">1</span>
             </a>
 
             <ul class="ch-facilities__sort-by-menu-popup">
-                <li ng-click="providerSortByMenuSelected = 'facilities.distance'; providerSortByMenuShow = !providerSortByMenuShow">
+                <li ng-click="changeSortingOrder('facilities.distance'); providerSortByMenuShow = true;">
                     <span translate="facilities.distance">Distance</span>
                 </li>
-                <li ng-click="providerSortByMenuSelected = 'facilities.provider-name'; providerSortByMenuShow = !providerSortByMenuShow">
+                <li ng-click="changeSortingOrder('facilities.provider-name'); providerSortByMenuShow = true;">
                     <span translate="facilities.provider-name">Provider Name</span>
                 </li>
-                <li ng-click="providerSortByMenuSelected = 'facilities.provider-type'; providerSortByMenuShow = !providerSortByMenuShow">
+                <li ng-click="changeSortingOrder('facilities.provider-type'); providerSortByMenuShow = true;">
                     <span translate="facilities.provider-type">Provider Type</span>
                 </li>
-                <li ng-click="providerSortByMenuSelected = 'facilities.quality-star'; providerSortByMenuShow = !providerSortByMenuShow">
+                <li ng-click="changeSortingOrder('facilities.quality-star'); providerSortByMenuShow = true;">
                     <span translate="facilities.quality-star">Quality Star Rating</span>
                 </li>
             </ul>

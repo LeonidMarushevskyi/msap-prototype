@@ -1,4 +1,4 @@
-Feature: I want to be able to put city or zip code in address lookup field and hit enter to receive information.
+Feature: I want to be able to find facility from landing page.
 
     Scenario: Log in as admin and verify admin functionality
         When open home page

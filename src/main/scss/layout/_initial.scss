@@ -81,6 +81,11 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+.leaflet-container {
+    font-family: inherit;
+    font-size: inherit;
+}
+
 a {
     display: inline-block;
 }
@@ -102,10 +107,10 @@ a:hover, a:focus {
 }
 
 .flex-row {
-    display: flex;
-    flex-flow: row wrap;
+    @extend %flexbox;    
+    @include flex-flow(row wrap);
 }
 
-.flex-none { flex: none;}
-.flex-child { flex: 1;}
-.flex-child-2 { flex: 2;}
+.flex-none {  @include flex(none);}
+.flex-child {  @include flex(1);}
+.flex-child-2 {  @include flex(2);}

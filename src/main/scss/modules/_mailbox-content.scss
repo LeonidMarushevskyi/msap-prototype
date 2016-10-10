@@ -137,8 +137,6 @@
     .icon-download {
         border-left: .1rem solid #757575;
     }
-
-
 }
 
 .ch-button-group-action__btn_reply:before {
@@ -220,14 +218,14 @@
 
 .ch-new-mail-heading {
     font-size: 1.8rem;
-    color: #000;
+    color: $primary-color-grey-light;
 }
 
 .ch-mail-heading {
-    display: flex;
-    align-items: center;
-    margin-bottom: 4rem;
-    height: 6rem;
+    @extend %flexbox;
+    @include align-items(center);
+    margin-bottom: 2rem;
+    height: 4rem;
 }
 
 .ch-mail-heading__item {
@@ -235,32 +233,49 @@
 }
 
 .ch-mail-heading__item_back-control {
-    flex: 0 0 7.5rem;
+    @include flex(0 0 7.5rem);
 
     @media screen and (max-width: 640px) {
         height: 100%;
     }
-
 }
 
 .ch-mail-heading__item_heading {
-    flex: 1;
+    @include flex(1);
     padding-right: 2rem;
 }
 
 .ch-mail-heading__item_attach-btn {
-    flex: 0 0 13.5rem;
+    @include flex(0 0 13.5rem);
     padding-right: 3.5rem;
-    @media screen and (max-width: 640px) {
-        width: 12rem;
+
+    @media screen and (max-width: $break-phone) {
+        width: 8rem;
+        @include flex(0 0 3.5rem);
+    }
+}
+
+.ch-attachment-upload-info {
+    @media screen and (max-width: $break-phone) {
+        display: inline-block;
+        position: relative;
+        top: 5.5rem;
+        right: -10rem;
+        width: 1rem;
     }
 }
 
 .ch-mail-heading__item_action-btn {
-    flex: 0 0 10rem;
+    @include flex(0 0 10rem);
 
-    @media screen and (max-width: 640px) {
+    @media screen and (max-width: $break-phone) {
         height: 100%;
+    }
+}
+
+.ch-mail-attach-files__btn__text {
+    @media screen and (max-width: $break-phone) {
+        display: none;
     }
 }
 
@@ -270,11 +285,11 @@
 }
 
 .ch-new-mail__row {
-    padding: 1.2rem;
+    padding: 0 0 0 .8rem;
     border-bottom: 1px solid #cbcdcf;
 
     @media screen and (max-width: 640px) {
-        height: 9rem;
+        height: 7rem;
     }
 }
 
@@ -298,22 +313,23 @@
 }
 
 .ch-new-mail-field {
-    display: flex;
-    align-items: center;
+    @extend %flexbox;
+    @include align-items(center);
 }
 
 .ch-new-mail-field__label {
     display: inline-block;
-    flex: 0 0 3.6rem;
+    @include flex(0 0 3.6rem);
+
     @media screen and (max-width: 640px) {
         padding: 2rem;
         height: 7rem;
-        flex: none;
+        @include flex(none);
     }
 }
 
 .ch-new-mail-field .ch-new-mail-field__input {
-    flex: 1;
+    @include flex(1);
     display: inline-block;
     border: none;
     border-radius: 0.3rem;
@@ -347,17 +363,17 @@
 }
 
 .ch-mail-heading__item_action-group {
-    flex: 0 0 15rem;
+    @include flex(0 0 15rem);
 
     @media screen and (max-width: 640px) {
         height: 6rem;
-        flex: none;
+        @include flex(none);
     }
 }
 
 .ch-contacts-dropdown {
     padding: 3rem;
-    background: #f1f1f1;
+    background: $primary-gray-color;
     position: relative;
 }
 

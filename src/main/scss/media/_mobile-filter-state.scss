@@ -2,7 +2,7 @@
 
     @media screen and (max-width: $break-phone) {
         .ch-facilities-heading__row {
-            overflow: hidden;
+            display: none;
         }
 
         .ch-facilities-extended-filters__popup {
