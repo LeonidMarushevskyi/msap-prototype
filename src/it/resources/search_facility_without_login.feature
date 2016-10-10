@@ -1,4 +1,4 @@
-Feature: I want to be able to find facility from landing page.
+Feature: I want to be able to find facility from landing page anonymously.
 
     Scenario: Log in as admin and verify admin functionality
         When open home page

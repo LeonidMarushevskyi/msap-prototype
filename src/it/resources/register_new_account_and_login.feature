@@ -22,3 +22,4 @@ Feature: Register new user and log in. Change profile info and password
         When log out
         When login with login '${testuser}' and password 'password2'
         When open my profile
+        When log out
