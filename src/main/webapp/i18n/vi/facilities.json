@@ -1,5 +1,13 @@
 {
     "facilities": {
+        "where-do-you-want-to-search": "Nơi nào bạn muốn tìm kiếm cơ sở cư trú của trẻ em?",
+        "apply-address": "Áp dụng Địa chỉ",
+        "save-address-to-profile": "Lưu địa chỉ này vào hồ sơ của tôi",
+        "address-will-be-saved-automatically": "Địa chỉ sẽ được lưu vào hồ sơ của bạn và sử dụng thời gian tiếp theo tự động",
+        "address-will-be-used-as-center": "địa chỉ được lựa chọn sẽ được sử dụng làm trung tâm để tìm kiếm cơ sở xung quanh",
+        "filter-by-status": "Cơ sở Lọc theo tình trạng",
+        "put-any-available-information": "Đặt bất kỳ thông tin về cơ sở khu dân cư của trẻ em như tên, địa chỉ hay tên người quản trị",
+        "put-address-where-you-want-to-search": "Đặt địa chỉ mà bạn muốn tìm kiếm cơ sở cư trú của trẻ em",
         "filter-by-status": "Cơ sở Lọc theo tình trạng",
         "put-any-available-information": "Đặt bất kỳ thông tin về cơ sở khu dân cư của trẻ em như tên, địa chỉ hay tên người quản trị",
         "put-address-where-you-want-to-search": "Đặt địa chỉ mà bạn muốn tìm kiếm cơ sở cư trú của trẻ em",
