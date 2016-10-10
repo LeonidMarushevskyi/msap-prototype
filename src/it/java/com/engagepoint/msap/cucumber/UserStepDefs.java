@@ -84,7 +84,8 @@ public class UserStepDefs {
         $("[ng-model='registerAccount.lastName']").setValue(login);
         $("#password").setValue(password);
         $("#confirmPassword").setValue(password);
-        click_css_and_wait("[type*='submit']");
+        click_css_and_wait("button[ng-click*='register()']");
+        $(By.xpath(".//*[contains(text(),'check your email')]")).waitUntil(appear, 10000);
         $(By.xpath(".//*[contains(text(),'check your email')]")).shouldBe(visible).shouldHave(text("Please check your email"));
     }
 
@@ -100,7 +101,8 @@ public class UserStepDefs {
         $("[ng-model='registerAccount.lastName']").setValue(login);
         $("#password").setValue(password);
         $("#confirmPassword").setValue(password);
-        click_css_and_wait("[type*='submit']");
+        click_css_and_wait("button[ng-click*='register()']");
+        $(By.xpath(".//*[contains(text(),'check your email')]")).waitUntil(appear, 10000);
         $(By.xpath(".//*[contains(text(),'check your email')]")).shouldBe(visible).shouldHave(text("Please check your email"));
     }
 
@@ -151,7 +153,7 @@ public class UserStepDefs {
         click_css_and_wait("[ng-click='toggleLanguagePopup()']");
         $(By.xpath(".//p[contains(text(),'English')]")).waitUntil(appear, 4000);
         click_xpath_and_wait(".//p[contains(text(),'English')]");
-        element_has_text("[ng-click='toggleLanguagePopup()']", "Language");
+        $(By.xpath(".//a[text()='en']")).waitUntil(appear, 4000);
     }
 
     @When("^change language to Spanish$")
@@ -160,7 +162,7 @@ public class UserStepDefs {
         click_css_and_wait("[ng-click='toggleLanguagePopup()']");
         $(By.xpath(".//p[contains(text(),'Español')]")).waitUntil(appear, 4000);
         click_xpath_and_wait(".//p[contains(text(),'Español')]");
-        element_has_text("[ng-click='toggleLanguagePopup()']", "Idioma");
+        $(By.xpath(".//a[text()='es']")).waitUntil(appear, 4000);
     }
 
 
@@ -170,7 +172,7 @@ public class UserStepDefs {
         click_css_and_wait("[ng-click='toggleLanguagePopup()']");
         $(By.xpath(".//p[contains(text(),'Tiếng Việt')]")).waitUntil(appear, 4000);
         click_xpath_and_wait(".//p[contains(text(),'Tiếng Việt')]");
-        element_has_text("[ng-click='toggleLanguagePopup()']", "Ngôn ngữ");
+        $(By.xpath(".//a[text()='vi']")).waitUntil(appear, 4000);
     }
 
     @When("^log out$")
