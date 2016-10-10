@@ -25,6 +25,16 @@
             </div>
         </div>
 
+        <div class="ch-facilities__more-info-block" ng-show="agency.prices.length > 0">
+            <div class="ch-facilities__more-info-block-header">
+                <span translate="facilities.prices">Prices</span>:
+            </div>
+
+            <div class="ch-facilities__more-info-block-text" ng-repeat="price in agency.prices">
+                <span translate="lookups.lookupAgeGroups.{{price.ageGroup.code}}">{{price.ageGroup.name}}</span>: {{price.price}}$
+            </div>
+        </div>
+
         <div class="ch-facilities__more-info-block" ng-show="agency.schedules.length > 0">
             <div class="ch-facilities__more-info-block-header">
                 <span translate="facilities.schedule">Schedule</span>:
