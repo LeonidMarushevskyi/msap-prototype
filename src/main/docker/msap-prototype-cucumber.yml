@@ -36,7 +36,12 @@ msap-prototype-cucumber:
   environment:
     - COOKIE=SRV insert indirect nocache
     - TZ=America/New_York
-    - SPRING_MAIL_HOST=172.24.232.25
+    - logback_graylogHost=elk-int.msap.engagepoint.com
+    - SPRING_MAIL_HOST=mail-int.msap.engagepoint.com
+    - jhipster_metrics_zabbix_enabled=true
+    - jhipster_metrics_zabbix_host=zabbix.msap.engagepoint.com
+    - jhipster_metrics_zabbix_periodSec=300
+    - jhipster_metrics_zabbix_hostMetadata=msap-prototype-cucumber
     - SPRING_DATA_ELASTICSEARCH_CLUSTER-NAME=msap-prototype-cucumber
   ports:
     - "6080:8080"
