@@ -505,7 +505,12 @@ angular.module('msapApp')
         };
         $scope.addGeocoder();
 
-        $scope.toggleBodyContentConfig = chLayoutConfigFactory.layoutConfigState.toggleBodyContentConfig;
+        $scope.toggleBodyContentConfig = function() {
+            chLayoutConfigFactory.layoutConfigState.toggleBodyContentConfig();
+            leafletData.getMap().then(function (map) {
+                map._onResize();
+            })
+        };
         $scope.$watch(function(){
             return chLayoutConfigFactory.layoutConfigState.isAsideVisible;
         }, function() {

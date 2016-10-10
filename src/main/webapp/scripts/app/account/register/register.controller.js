@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('msapApp')
-    .controller('RegisterController', function ($scope, $state, $translate, $timeout, Auth, $window, $rootScope, $uibModal, $uibModalInstance) {
+    .controller('RegisterController', ['$scope', '$state', '$translate', '$timeout', 'Auth', '$uibModalInstance',
+            function ($scope, $state, $translate, $timeout, Auth, $uibModalInstance) {
         $scope.success = null;
         $scope.error = null;
         $scope.doNotMatch = null;
@@ -24,6 +25,7 @@ angular.module('msapApp')
                 $scope.errorEmailExists = null;
 
                 Auth.createAccount($scope.registerAccount).then(function () {
+                    $scope.clear();
                     $state.go('registerme-saved');
                 }).catch(function (response) {
                     $scope.success = null;
@@ -44,4 +46,4 @@ angular.module('msapApp')
             $scope.registerAccount.email = socialUser.email;
         };
 
-    });
+    }]);
