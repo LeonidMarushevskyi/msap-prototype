@@ -32,6 +32,7 @@
         "number-of-complains": "Number of Complains",
         "number-of-visits": "Number of Visits",
         "day-of-last-visit": "Day of Last Visit",
-        "supported-languages": "Supported Languages"
+        "supported-languages": "Supported Languages",
+        "prices": "Prices"
     }
 }

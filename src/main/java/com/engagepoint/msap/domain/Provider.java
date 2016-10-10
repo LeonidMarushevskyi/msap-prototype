@@ -100,7 +100,8 @@ public class Provider implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Review> reviews = new HashSet<>();
 
-    @OneToMany(mappedBy = "provider")
+    @JsonManagedReference("prices")
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Price> prices = new HashSet<>();
 

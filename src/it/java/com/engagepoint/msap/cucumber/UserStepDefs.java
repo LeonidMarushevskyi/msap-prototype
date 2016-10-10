@@ -72,12 +72,12 @@ public class UserStepDefs {
     @When("^open home page$")
     public void open_home_page() throws Throwable {
         open(homeUrl);
-        $("a[ui-sref='registerme']").waitUntil(appear, 30000);
+        $("a[ng-click*='openRegisterModal()']").waitUntil(appear, 30000);
     }
 
     @When("^register new user with email '(.*)', login '(.*)' and password '(.*)'$")
     public void register_new_user(@Transform(VarsConverter.class) String email, @Transform(VarsConverter.class) String login, String password) throws Throwable {
-        click_css_and_wait("a[ui-sref='registerme']");
+        click_css_and_wait("a[ng-click*='openRegisterModal()']");
         $("#email").setValue(email + "@yopmail.com");
         $("#login").setValue(login);
         $("[ng-model='registerAccount.firstName']").setValue(login);
@@ -90,7 +90,7 @@ public class UserStepDefs {
 
     @When("^register new foster parent with email '(.*)', login '(.*)' and password '(.*)'$")
     public void register_new_foster_parent(@Transform(VarsConverter.class) String email, @Transform(VarsConverter.class) String login, String password) throws Throwable {
-        click_css_and_wait("a[ui-sref='registerme']");
+        click_css_and_wait("a[ng-click*='openRegisterModal()']");
         $("#email").setValue(email + "@yopmail.com");
         click_css_and_wait("label[for='isFosterParent']");
         $("#caseNumber").shouldBe(visible);
