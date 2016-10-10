@@ -45,12 +45,14 @@
     }
 }
 
-.ch-login__search__action.flex-row {
-    @media screen and (max-width: $break-phone) {
-        max-width: 100rem;
-        flex-flow: column wrap;
-    }
+
+@media screen and (max-width: $break-phone) {
+  .ch-login__search__action.flex-row {
+      max-width: 100rem;
+      @include flex-flow(column wrap);
+  }
 }
+
 
 .ch-login__input .leaflet-pelias-list {
     margin-top: 5rem;
@@ -335,8 +337,8 @@
 }
 
 .ch-login__header__actions {
-    display: flex;
-    justify-content: flex-end;
+    @extend %flexbox;
+    @include justify-content(flex-end);
     padding-top: 0.4rem;
 }
 

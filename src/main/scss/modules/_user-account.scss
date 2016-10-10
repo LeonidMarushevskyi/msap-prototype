@@ -1,7 +1,8 @@
 .profile-form__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+    @extend %flexbox;
+    @include justify-content(space-between);
+    @include align-items(baseline);
+
     border-bottom: 0.1rem solid #d6d7da;
     margin-bottom: 3.5rem;
 }
@@ -63,7 +64,7 @@
 }
 
 .ch-flex-row {
-    display: flex;
+    @extend %flexbox;
     margin-bottom: 1.8rem;
 }
 
@@ -72,8 +73,8 @@
 }
 
 .ch-flex-row__input-block {
-    flex-basis: 0;
-    flex-grow: 1;
+    @include flex-basis(0);
+    @include flex-grow(1);
     margin-right: 3rem;
 }
 
@@ -111,7 +112,7 @@
 }
 
 .ch-input-block__form-group {
-    display: flex;
+    @extend %flexbox;    
     padding-left: 0.2rem;
 }
 

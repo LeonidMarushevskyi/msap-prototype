@@ -69,7 +69,7 @@
 .form-type__search {
     width: 35rem;
     height: 3.7rem;
-    display: flex;
+    @extend %flexbox;
 
   .form-type__search__input {
       width: 100%;

@@ -134,8 +134,8 @@
 
 .ch-page-heading__search {
     float: right;
-    display: flex;
-    justify-content: flex-end;
+    @extend %flexbox;
+    @include justify-content(flex-end);
 }
 
 .ch-page-heading__county-messages {

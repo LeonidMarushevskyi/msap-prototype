@@ -1,10 +1,10 @@
 .ch-mobile-mailbox__nav {
     display: none;
-    flex-flow: row wrap;
+    @include flex-flow(row wrap);
 }
 
 .ch-mobile-mailbox__nav-tab {
-    flex: 1;
+    @include flex(1);
     text-align: center;
     border-bottom: .1rem solid #cbcdcf;
 }

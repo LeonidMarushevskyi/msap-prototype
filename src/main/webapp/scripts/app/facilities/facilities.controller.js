@@ -57,8 +57,8 @@ angular.module('msapApp')
         var windowWidth = $(window).width();
 
         $scope.returnMapHeight = function() {
-          var heightMapDesktop = "height: calc(100vh - 19rem)";
-          var heightMapMobile = "height: calc(100vh)";
+          var heightMapDesktop = "height: calc(100vh - 18rem)";
+          var heightMapMobile = "height: calc(100vh -11rem)";
             if (windowWidth > 640) {
                 return heightMapDesktop;
             } else {

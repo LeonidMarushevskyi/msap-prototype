@@ -22,7 +22,7 @@
     @media screen and (max-width: 640px) {
       width: 80%;
       padding-top: 2rem;
-      margin-left: 10%;        
+      margin-left: 10%;
       position: absolute;
       top: 0;
     }
@@ -81,8 +81,8 @@
 }
 
 .ch-sign-up__form__group_row {
-    display: flex;
-    flex-flow: row wrap;
+    @extend %flexbox;
+    @include flex-flow(row wrap);
 
     .ch-sign-up__form__group_child:first-child {
         margin-right: 1rem;
@@ -94,7 +94,7 @@
 }
 
 .ch-sign-up__form__group_child {
-    flex: 1;
+    @include flex(1);
 }
 
 .ch-sign-up__form__button-submit {
