@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('msapApp')
-    .controller('MyProfileAndLogoutController', function ($scope, $state, $uibModal, Auth, Principal, MailBoxService) {
+    .controller('MyProfileAndLogoutController', ['$scope', '$state', '$uibModal', 'Auth', 'Principal', 'MailBoxService',
+            function ($scope, $state, $uibModal, Auth, Principal, MailBoxService) {
         $scope.isAuthenticated = Principal.isAuthenticated;
 
         $scope.logout = function () {
@@ -41,4 +42,4 @@ angular.module('msapApp')
             }
         });
 
-    });
+    }]);

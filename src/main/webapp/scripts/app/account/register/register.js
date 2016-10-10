@@ -25,7 +25,7 @@ angular.module('msapApp')
             })
             .state('registerme-saved', {
                 parent: 'account',
-                url: '/registerme',
+                url: '/registerme-saved',
                 data: {
                     authorities: [],
                     pageTitle: 'register.title'
