@@ -12,7 +12,6 @@
     &:hover {
         background-color: #cbcdcf;
     }
-
 }
 
 .ch-aside-nav-item__link {
@@ -128,6 +127,10 @@
 
 .ch-aside-nav-item__counter {
     vertical-align: middle;
+
+    @media screen and (max-width: $break-phone) {
+        font-size: 2.2rem;
+    }
 }
 
 .ch-aside-nav-item__text {

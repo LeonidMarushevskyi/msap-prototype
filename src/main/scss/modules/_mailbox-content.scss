@@ -249,16 +249,33 @@
     @include flex(0 0 13.5rem);
     padding-right: 3.5rem;
 
-    @media screen and (max-width: 640px) {
-        width: 12rem;
+    @media screen and (max-width: $break-phone) {
+        width: 8rem;
+        @include flex(0 0 3.5rem);
+    }
+}
+
+.ch-attachment-upload-info {
+    @media screen and (max-width: $break-phone) {
+        display: inline-block;
+        position: relative;
+        top: 5.5rem;
+        right: -10rem;
+        width: 1rem;
     }
 }
 
 .ch-mail-heading__item_action-btn {
     @include flex(0 0 10rem);
 
-    @media screen and (max-width: 640px) {
+    @media screen and (max-width: $break-phone) {
         height: 100%;
+    }
+}
+
+.ch-mail-attach-files__btn__text {
+    @media screen and (max-width: $break-phone) {
+        display: none;
     }
 }
 
@@ -268,11 +285,11 @@
 }
 
 .ch-new-mail__row {
-    padding: 0 0 0 1.8rem;  ;
+    padding: 0 0 0 .8rem;
     border-bottom: 1px solid #cbcdcf;
 
     @media screen and (max-width: 640px) {
-        height: 9rem;
+        height: 7rem;
     }
 }
 
