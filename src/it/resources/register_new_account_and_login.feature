@@ -23,3 +23,6 @@ Feature: Register new user and log in. Change profile info and password
         When login with login '${testuser}' and password 'password2'
         When open my profile
         When log out
+
+    Scenario: close browser
+        When close browser

@@ -13,5 +13,5 @@ Feature: I want to be able login as parent and find facility near my address.
         When verify letter to 'MSAP Support' with subject 'Celestine M Coone' and text 'I am interested in more information about' is sent
         When log out
 
-
-
+    Scenario: close browser
+        When close browser
