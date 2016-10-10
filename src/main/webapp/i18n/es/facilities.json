@@ -1,5 +1,6 @@
 {
     "facilities": {
+        "put-facility-data-here": "Poner los datos de las instalaciones aquí",
         "sort-by": "Ordenar por",
         "distance": "Distancia",
         "provider-name": "Nombre del proveedor",

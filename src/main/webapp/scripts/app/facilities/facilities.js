@@ -23,6 +23,7 @@ angular.module('msapApp')
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                         $translatePartialLoader.addPart('facilities');
+                        $translatePartialLoader.addPart('login');
                         return $translate.refresh();
                     }],
                     searchParams: ['$state', '$q', function($state, $q) {
