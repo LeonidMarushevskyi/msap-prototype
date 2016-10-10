@@ -1,8 +1,8 @@
 /* ========================   Modules/Page Content  ======================= */
 
 .ch-page {
-    height: 91vh;
-    padding: 2.5rem;
+    height: calc(100vh - 75px);
+    padding: 2rem 2.5rem 2rem 2.5rem;
     background-color: $primary-gray-color;
 }
 

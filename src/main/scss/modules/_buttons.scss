@@ -95,20 +95,16 @@
         position: relative;
         top: -1px;
     }
-
-
 }
 
 .ch-flat-btn_back-btn {
     width: 4.8rem;
     height: 3.9rem;
-    border-radius: .4rem;
-    border: .2rem solid #757575;
-    background: url(../images/out-sprite-icons/icon-back-arrow.png) 50% 50% no-repeat;
-    background-color: $primary-gray-color;
+    border: .1rem solid $primary-color-grey-light;
+    background: url("../images/out-sprite-icons/icon-back-arrow.png") 50% 50% no-repeat;       
 
     &:hover {
-        border-color: #323a45;
+        border-color: $primary-color-blue;
     }
 
     @media screen and (max-width: 640px) {

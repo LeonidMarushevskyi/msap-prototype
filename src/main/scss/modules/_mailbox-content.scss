@@ -137,8 +137,6 @@
     .icon-download {
         border-left: .1rem solid #757575;
     }
-
-
 }
 
 .ch-button-group-action__btn_reply:before {
@@ -220,14 +218,14 @@
 
 .ch-new-mail-heading {
     font-size: 1.8rem;
-    color: #000;
+    color: $primary-color-grey-light;
 }
 
 .ch-mail-heading {
     @extend %flexbox;
     @include align-items(center);
-    margin-bottom: 4rem;
-    height: 6rem;
+    margin-bottom: 2rem;
+    height: 4rem;
 }
 
 .ch-mail-heading__item {
@@ -270,7 +268,7 @@
 }
 
 .ch-new-mail__row {
-    padding: 1.2rem;
+    padding: 0 0 0 1.8rem;  ;
     border-bottom: 1px solid #cbcdcf;
 
     @media screen and (max-width: 640px) {
@@ -352,7 +350,7 @@
 
     @media screen and (max-width: 640px) {
         height: 6rem;
-        @include flex(none);  
+        @include flex(none);
     }
 }
 

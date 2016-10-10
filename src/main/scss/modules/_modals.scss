@@ -95,6 +95,12 @@
     }
 }
 
+.modal-privacy-policy {
+    .ch-modal__row {
+        height: auto;
+    }
+}
+
 .ch-modal-controls.ch-modal-controls_has-options {
     .ch-modal-controls__button {
         margin-bottom: 2.5rem;
