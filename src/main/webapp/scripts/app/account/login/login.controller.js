@@ -5,24 +5,6 @@ angular.module('msapApp')
     function ($scope, $state, $uibModal, GeocoderService, lookupAgeGroups) {
         $scope.addressFeature;
 
-        $scope.openSignInModal = function() {
-            $uibModal.open({
-                templateUrl: 'scripts/app/account/login/modal/sign-in-dialog.html',
-                controller: 'SignInModalCtrl',
-                size: 'sign-in',
-                windowClass: 'ch-general-modal'
-            });
-        };
-
-        $scope.openRegisterModal = function() {
-            $uibModal.open({
-                templateUrl: 'scripts/app/account/register/register.html',
-                controller: 'RegisterController',
-                size: 'register',
-                windowClass: 'ch-general-modal'
-            });
-        };
-
         $scope.initTwitterTimeline = function () {
             $("#twitter-wjs").remove();
 
