@@ -14,6 +14,15 @@ angular.module('msapApp')
             });
         };
 
+        $scope.openRegisterModal = function() {
+            $uibModal.open({
+                templateUrl: 'scripts/app/account/register/register.html',
+                controller: 'RegisterController',
+                size: 'register',
+                windowClass: 'ch-general-modal'
+            });
+        };
+
         $scope.initTwitterTimeline = function () {
             $("#twitter-wjs").remove();
 
@@ -74,5 +83,14 @@ angular.module('msapApp')
             }
         };
         $scope.addGeocoder();
+
+        $scope.openPrivacyPolicyModal = function() {
+            $uibModal.open({
+                templateUrl: 'scripts/app/account/login/modal/privacy-policy-dialog.html',
+                controller: 'PrivacyPolicyModalCtrl',
+                size: 'privacy-policy',
+                windowClass: 'ch-general-modal'
+            });
+        };
 
     }]);

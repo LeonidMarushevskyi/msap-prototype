@@ -26,6 +26,10 @@
     }
 }
 
+.ch-general-modal .modal-dialog.modal-register {
+    margin: 5rem auto;
+}
+
 .modal-dialog.modal-facilities-default-address {
     padding-left: 3rem;
     padding-right: 3rem;
@@ -34,6 +38,12 @@
 .modal-dialog.modal-sign-in {
     @media screen and (max-width: $break-phone) {
         width: 35rem;
+    }
+}
+
+.modal-dialog.modal-register {
+    @media screen and (max-width: $break-phone) {
+        width: 70%;
     }
 }
 

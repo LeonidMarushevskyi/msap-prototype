@@ -45,24 +45,6 @@ angular.module('msapApp')
 
             $scope.isNotActivated = function() {
                 return AuthenticationErrorService.getAuthenticationError() === "Not activated";
-            };
-
-            $scope.initTwitterTimeline = function () {
-                $("#twitter-wjs").remove();
-
-                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-            };
-
-
-            $scope.initTwitterTimeline();
-
-            $scope.openPrivacyPolicyModal = function() {
-                $uibModal.open({
-                    templateUrl: 'scripts/app/account/login/modal/privacy-policy-dialog.html',
-                    controller: 'PrivacyPolicyModalCtrl',
-                    size: 'privacy-policy',
-                    windowClass: 'ch-general-modal'
-                });
-            };
+            };            
         }]
     );
