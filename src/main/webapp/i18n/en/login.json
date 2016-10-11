@@ -1,4 +1,12 @@
 {
+    "landing": {
+        "accessibility": "Accessibility",
+        "conditions-of-use": "Conditions of Use",
+        "privacy-policy": "Privacy Policy",
+        "mississippi-department-of-human-services": "Mississippi Department of Human Services",
+        "tweets": "Tweets by @MS_DHS",
+        "browser-does-not-support": "Your browser does not support the video tag. I suggest you upgrade your browser."
+    },
     "login": {
         "create-an-account": "Create an Account",
         "title": "Sign in",

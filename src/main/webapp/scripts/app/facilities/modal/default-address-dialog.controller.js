@@ -52,16 +52,13 @@ angular.module('msapApp')
             };
 
             $scope.onApplyAddress = function() {
-                if ($scope.addressFeature) {
-                    if ($scope.saveAddressToProfile) {
-                        $scope.updateProfile($scope.addressFeature);
-                    }
-                    $scope.goToFacilities();
-                    $scope.close($scope.addressFeature);
-                } else {
-                    $scope.goToFacilities();
-                    $scope.clear();
+                if ($scope.saveAddressToProfile && $scope.addressFeature) {
+                    $scope.updateProfile($scope.addressFeature);
                 }
+                $scope.close({
+                    addressFeature: $scope.addressFeature,
+                    ageGroups: $scope.getSelectedCodes('lookupAgeGroups')
+                });
             };
 
             $scope.close = function (addressFeature) {
@@ -87,22 +84,9 @@ angular.module('msapApp')
                 }
             );
 
-            $scope.goToFacilities = function() {
-                $state.go('ch-facilities',
-                    angular.merge($state.params,
-                        {
-                            latitude: $scope.addressFeature ? $scope.addressFeature.latlng.lat : null,
-                            longitude: $scope.addressFeature ? $scope.addressFeature.latlng.lng : null,
-                            geoLabel: $scope.addressFeature ? $scope.addressFeature.feature.properties.label : null,
-                            ageGroupCodes: $scope.getSelectedCodes('lookupAgeGroups')
-                        }
-                    ));
-            };
-
             $scope.getSelected = function(modelName) {
                 return _.filter($scope[modelName], {selected: true});
             };
-
             $scope.getSelectedCodes = function(modelName) {
                 return _.map($scope.getSelected(modelName), 'code');
             };

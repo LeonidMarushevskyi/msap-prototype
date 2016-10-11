@@ -1,5 +1,9 @@
 {
     "global": {
+        "providers": "Proveedores",
+        "inbox": "Bandeja de entrada",
+        "provider-menu-item-description": "Búsqueda de proveedores de cuidado de niños",
+        "inbox-menu-item-description": "Bandeja de entrada privada para la comunicación con el trabajador del caso",
         "title": "MSAP Portal de Padres",
         "browsehappy": "Está utilizando un <strong>obsoleta</strong> navegador. Por favor <a href=\"http://browsehappy.com/?locale=en\">actualizar su navegador</a> para mejorar su experiencia.",
         "menu": {

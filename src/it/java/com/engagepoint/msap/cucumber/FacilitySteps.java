@@ -78,9 +78,16 @@ public class FacilitySteps {
         $(By.xpath(".//*[contains(text(),'" + facilityAddress + "')]/ancestor::div[@class='ch-facilities']/descendant::*[text()='" + facilityName + "']")).shouldBe(visible);
     }
 
+    @Then("^verify facility with address '(.*)' and name '(.*)' absent in the list$")
+    public void verify_facility_with_address_and_name_absent_in_the_list(String facilityAddress, String facilityName) throws Throwable {
+        $(By.xpath(".//*[contains(text(),'" + facilityAddress + "')]/ancestor::div[@class='ch-facilities']/descendant::*[text()='" + facilityName + "']")).waitUntil(disappear, 10000);
+    }
+
     @When("^do Ask About for facility with address '(.*)' and name '(.*)' and send letter$")
     public void do_Ask_About_for_facility_with_address_and_name_and_send_letter(String facilityAddress, String facilityName) throws Throwable {
         userStepDefs.click_xpath_and_wait(".//*[contains(text(),'" + facilityAddress + "')]/ancestor::div[@class='ch-facilities']/descendant::*[text()='" + facilityName + "']/ancestor::div[@class='ch-facilities']/descendant::button/span[text()='Ask Caseworker']");
+        $("[ng-model='mail.subject']").shouldBe(visible);
+        $("[ng-model='mail.subject']").setValue("Ask about facility");
         userStepDefs.click_css_and_wait("[ng-click*='sendMail()']");
         $("[ng-click*='sendMail()']").waitUntil(disappear, 10000);
         userStepDefs.click_xpath_and_wait(".//*[contains(@class,'ch-alert-msg')]/*[text()='Message has been sent!']");

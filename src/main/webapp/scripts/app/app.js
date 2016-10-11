@@ -139,6 +139,7 @@ angular.module('msapApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalpre
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('global');
                     $translatePartialLoader.addPart('lookups');
+                    $translatePartialLoader.addPart('login');
                 }]
             }
         });

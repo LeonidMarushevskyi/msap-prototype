@@ -62,7 +62,7 @@
         border-color: $primary-color-blue;
 
         .icon-pagination-arrow-left {
-            background-color: $primary-color-blue;
+            background: url("../images/us-icon/arrow-hide-panel-hover.svg") no-repeat center;
         }
     }
 
@@ -71,7 +71,7 @@
         height: 1.7rem;
         vertical-align: middle;
         position: relative;
-        top: -1px;
+        top: -.2rem;
     }
 }
 
@@ -84,7 +84,7 @@
         border-color: $primary-color-blue;
 
         .icon-pagination-arrow-right {
-            background-color: $primary-color-blue;
+            background: url("../images/us-icon/arrow-show-panel-hover.svg") no-repeat center;
         }
     }
 
@@ -95,26 +95,22 @@
         position: relative;
         top: -1px;
     }
-
-
 }
 
 .ch-flat-btn_back-btn {
     width: 4.8rem;
     height: 3.9rem;
-    border-radius: .4rem;
-    border: .2rem solid #757575;
-    background: url(../images/out-sprite-icons/icon-back-arrow.png) 50% 50% no-repeat;
-    background-color: $primary-gray-color;
+    border: .1rem solid $primary-color-grey-light;
+    background: url("../images/out-sprite-icons/icon-back-arrow.png") 50% 50% no-repeat;
 
     &:hover {
-        border-color: #323a45;
+        border-color: $primary-color-blue;
     }
 
     @media screen and (max-width: 640px) {
         width: 6.8rem;
         height: 100%;
-        border: .3rem solid #0071bc;
+        border: .1rem solid $primary-color-blue;
     }
 }
 
@@ -149,9 +145,17 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 1.2rem;
+    width: 1.5rem;
     height: 1.8rem;
-    background: url("../images/us-icon/icon-attachment.svg") no-repeat center;
+    background-image: url("../images/us-icon/icon-attachment.svg");
+    background-size: cover;
+
+    @media screen and (max-width: $break-phone) {
+        top: -1.6rem;
+        left: 0;
+        width: 2rem;
+        height: 2.5rem;
+    }
 }
 
 .ch-dropdown-label-btn {

@@ -13,7 +13,7 @@
                     </h2>
                 </div>
 
-                <div>
+                <div class="ch-attachment-upload-info">
                     <h3>
                        <span>{{progressPercentage}} &nbsp;&nbsp;&nbsp;&nbsp;</span>
                     </h3>
@@ -24,7 +24,9 @@
                         <div class="ch-mail-attach-files__btn" title="Click to attach the file">
                             <a ngf-select="upload($file)"
                                class="ch-link-btn ch-link-btn_icon ch-link-btn_icon_attach-files"
-                               role="button">Attach files</a>
+                               role="button">
+                               <span class="ch-mail-attach-files__btn__text">Attach files</span>
+                             </a>
                         </div>
                     </div>
                 </div>
@@ -123,6 +125,7 @@
                         <div class="ch-new-mail-text-body__text-counter">{{4000 - mail.body.length}} characters left</div>
                         <textarea cols="30" maxlength="4000" rows="20" ng-model="mail.body"
                                   style="border: 1px solid #777777;"
+                                  set-height
                                   ng-change="onTextChange()"
                                   ng-class="isBodyInvalid ? 'ch-invalid-send-field' : ''"
                                   class="ch-new-mail-text-body__text-input"></textarea>

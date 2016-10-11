@@ -9,6 +9,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.apache.commons.lang3.text.StrSubstitutor;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.springframework.boot.test.SpringApplicationContextLoader;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
@@ -23,6 +24,7 @@ import javax.inject.Inject;
 import com.codeborne.selenide.Configuration;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static com.engagepoint.msap.cucumber.SessionStorage.session;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -43,9 +45,7 @@ public class UserStepDefs {
 
     @Before
     public void setup() {
-        //baseUrl = "http://localhost:8080/#/";
-        homeUrl = "http://mdc-mrq-was8-a1.engagepoint.us:3080/#/";
-        baseUrl = "http://mdc-mrq-was8-a1.engagepoint.us:4080/#/";
+        homeUrl = "http://tests.msap.engagepoint.com:4080/#/";
         //Configuration.browser = "firefox";
 
         this.restUserMockMvc = MockMvcBuilders.standaloneSetup(userResource).build();
@@ -72,25 +72,37 @@ public class UserStepDefs {
     @When("^open home page$")
     public void open_home_page() throws Throwable {
         open(homeUrl);
-        $("a[ui-sref='registerme']").waitUntil(appear, 30000);
+        $("[ng-click='toggleLanguagePopup()']").waitUntil(appear, 30000);
+    }
+    @When("^open home page mobile view$")
+    public void open_home_page_mobile_view() throws Throwable {
+        open(homeUrl);
+        getWebDriver().manage().window().setSize(new Dimension(640,1136));
+        $("[ng-click='toggleLanguagePopup()']").waitUntil(appear, 30000);
+    }
+
+    @When("^close browser$")
+    public void close_browser() throws Throwable {
+        close();
     }
 
     @When("^register new user with email '(.*)', login '(.*)' and password '(.*)'$")
     public void register_new_user(@Transform(VarsConverter.class) String email, @Transform(VarsConverter.class) String login, String password) throws Throwable {
-        click_css_and_wait("a[ui-sref='registerme']");
+        click_css_and_wait("a[ng-click*='openRegisterModal()']");
         $("#email").setValue(email + "@yopmail.com");
         $("#login").setValue(login);
         $("[ng-model='registerAccount.firstName']").setValue(login);
         $("[ng-model='registerAccount.lastName']").setValue(login);
         $("#password").setValue(password);
         $("#confirmPassword").setValue(password);
-        click_css_and_wait("[type*='submit']");
+        click_css_and_wait("button[ng-click*='register()']");
+        $(By.xpath(".//*[contains(text(),'check your email')]")).waitUntil(appear, 10000);
         $(By.xpath(".//*[contains(text(),'check your email')]")).shouldBe(visible).shouldHave(text("Please check your email"));
     }
 
     @When("^register new foster parent with email '(.*)', login '(.*)' and password '(.*)'$")
     public void register_new_foster_parent(@Transform(VarsConverter.class) String email, @Transform(VarsConverter.class) String login, String password) throws Throwable {
-        click_css_and_wait("a[ui-sref='registerme']");
+        click_css_and_wait("a[ng-click*='openRegisterModal()']");
         $("#email").setValue(email + "@yopmail.com");
         click_css_and_wait("label[for='isFosterParent']");
         $("#caseNumber").shouldBe(visible);
@@ -100,7 +112,8 @@ public class UserStepDefs {
         $("[ng-model='registerAccount.lastName']").setValue(login);
         $("#password").setValue(password);
         $("#confirmPassword").setValue(password);
-        click_css_and_wait("[type*='submit']");
+        click_css_and_wait("button[ng-click*='register()']");
+        $(By.xpath(".//*[contains(text(),'check your email')]")).waitUntil(appear, 10000);
         $(By.xpath(".//*[contains(text(),'check your email')]")).shouldBe(visible).shouldHave(text("Please check your email"));
     }
 
@@ -151,7 +164,7 @@ public class UserStepDefs {
         click_css_and_wait("[ng-click='toggleLanguagePopup()']");
         $(By.xpath(".//p[contains(text(),'English')]")).waitUntil(appear, 4000);
         click_xpath_and_wait(".//p[contains(text(),'English')]");
-        element_has_text("[ng-click='toggleLanguagePopup()']", "Language");
+        $(By.xpath(".//a[text()='en']")).waitUntil(appear, 4000);
     }
 
     @When("^change language to Spanish$")
@@ -160,7 +173,7 @@ public class UserStepDefs {
         click_css_and_wait("[ng-click='toggleLanguagePopup()']");
         $(By.xpath(".//p[contains(text(),'Español')]")).waitUntil(appear, 4000);
         click_xpath_and_wait(".//p[contains(text(),'Español')]");
-        element_has_text("[ng-click='toggleLanguagePopup()']", "Idioma");
+        $(By.xpath(".//a[text()='es']")).waitUntil(appear, 4000);
     }
 
 
@@ -170,7 +183,7 @@ public class UserStepDefs {
         click_css_and_wait("[ng-click='toggleLanguagePopup()']");
         $(By.xpath(".//p[contains(text(),'Tiếng Việt')]")).waitUntil(appear, 4000);
         click_xpath_and_wait(".//p[contains(text(),'Tiếng Việt')]");
-        element_has_text("[ng-click='toggleLanguagePopup()']", "Ngôn ngữ");
+        $(By.xpath(".//a[text()='vi']")).waitUntil(appear, 4000);
     }
 
     @When("^log out$")

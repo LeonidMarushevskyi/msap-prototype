@@ -4,7 +4,7 @@
             <button type="button" class="ch-modal__close-btn" data-dismiss="modal" aria-hidden="true"
                     ng-click="clear()"></button>
             <h1 class="ch-modal__title">
-                Where do you  want to search for children's residential facilities?
+                <span translate="facilities.where-do-you-want-to-search">Where do you  want to search for children's residential facilities?</span>
             </h1>
         </div>
         <div class="ch-modal__body">
@@ -35,7 +35,8 @@
                                     <input id="lookupAgeGroup_{{ageGroup.code}}" type="checkbox"
                                            ng-model="ageGroup.selected"
                                            ng-click="onFilterMenuItemClick('lookupAgeGroups', ageGroup.code);">
-                                    <label for="lookupAgeGroup_{{ageGroup.code}}">{{'lookups.lookupAgeGroups.' + ageGroup.code | translate}}</label>
+                                    <label for="lookupAgeGroup_{{ageGroup.code}}">
+                                      <span class="ch-login__select__hover-item">{{'lookups.lookupAgeGroups.' + ageGroup.code | translate}}</span></label>
                                 </div>
                             </li>
                         </ul>
@@ -49,14 +50,14 @@
 
                 <div class="ch-modal-controls__button">
                     <button type="button" class="ch-option-btn ch-option-btn_fullwidth ch-ink-btn" ng-click="inkRipple();onApplyAddress();">
-                        <span class="ch-option-btn__text" title="Chosen address will be used as center for searching facilities around">Apply Address</span>
+                        <span class="ch-option-btn__text" title="{{'facilities.address-will-be-used-as-center' | translate}}"><span translate="facilities.apply-address">Apply Address</span></span>
                         <span class="ink"></span>
                     </button>
                 </div>
                 <div class="ch-modal-controls__options">
                     <div class="form-type__checkbox_empty-label">
                         <input id="saveAddressToProfile" type="checkbox" ng-click="saveAddressToProfile = !saveAddressToProfile">
-                        <label for="saveAddressToProfile" title="Address will be saved to your profile and used next time automatically">Save this address to my profile</label>
+                        <label for="saveAddressToProfile" title="{{'facilities.address-will-be-saved-automatically' | translate}}"><span translate="facilities.save-address-to-profile">Save this address to my profile</span></label>
                     </div>
                 </div>
             </div>
