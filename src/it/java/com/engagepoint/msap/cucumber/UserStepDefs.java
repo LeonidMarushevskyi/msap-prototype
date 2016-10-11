@@ -45,7 +45,7 @@ public class UserStepDefs {
 
     @Before
     public void setup() {
-        homeUrl = "http://www.msap.engagepoint.com/#/";
+        homeUrl = "http://tests.msap.engagepoint.com:4080/#/";
         //Configuration.browser = "firefox";
 
         this.restUserMockMvc = MockMvcBuilders.standaloneSetup(userResource).build();
