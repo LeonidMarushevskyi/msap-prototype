@@ -22,20 +22,21 @@
             "deleted": "Deleted",
             "draft": "Draft",
             "user": "User",
-            "write": "Write",
-            "list-of-incoming-messages": "List of incoming messages",
-            "incoming": "Incoming",
-            "list-of-outgoing-messages": "List of outgoing messages",
-            "outgoing": "Outgoing",
-            "auto-saved-draft-messages": "Auto-saved draft messages",
-            "drafts": "Drafts",
-            "deleted-messages": "Deleted messages",
-            "deleted": "Deleted",
-            "contacts": "Contacts",
-            "write-message-to-contact": "Write message to this contact",
-            "filter-message-by-contact": "Filter messages by this contact",
-            "filter-by-contact": "Filter By Contact",
-            "contact-from-you-messaging": "Contact from you messaging"
+            "write": "Viết",
+            "list-of-incoming-messages": "Danh sách các tin nhắn đến",
+            "incoming": "đến",
+            "list-of-outgoing-messages": "Danh sách các tin nhắn gửi đi",
+            "outgoing": "Hướng ngoaị",
+            "auto-saved-draft-messages": "thông điệp dự thảo Tự động lưu",
+            "drafts": "Nháp",
+            "deleted-messages": "Tin nhắn đã xóa",
+            "deleted": "Đã bị xóa",
+            "contacts": "Liên hệ",
+            "write-message-to-contact": "Viết thư cho liên hệ này",
+            "filter-message-by-contact": "Lọc thư bằng cách liên hệ này",
+            "filter-by-contact": "Lọc theo Liên hệ",
+            "contact-from-you-messaging": "Liên hệ từ bạn gửi tin nhắn"
+
         }
     }
 }
