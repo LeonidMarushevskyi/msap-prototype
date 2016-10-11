@@ -29,6 +29,9 @@ msap-prototype-qa:
   container_name: msap-prototype-qa
   restart: unless-stopped
   image: kaver79/msap-prototype
+  log_driver: gelf
+  log_opt:
+    gelf-address: "udp://elk-int.msap.engagepoint.com:5050"
   environment:
     - TZ=America/New_York
     - logback_graylogHost=elk-int.msap.engagepoint.com
