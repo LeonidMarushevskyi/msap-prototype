@@ -22,6 +22,12 @@ angular.module('msapApp')
                         templateUrl: 'scripts/app/mailbox/mailbox-mobile-nav.html',
                         controller: 'MailBoxCtrl'
                     }
+                },
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('mailBox');
+                        return $translate.refresh();
+                    }]
                 }
             });
     });
