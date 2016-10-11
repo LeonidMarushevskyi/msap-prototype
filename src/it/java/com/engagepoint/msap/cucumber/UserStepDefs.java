@@ -81,6 +81,11 @@ public class UserStepDefs {
         $("[ng-click='toggleLanguagePopup()']").waitUntil(appear, 30000);
     }
 
+    @When("^close browser$")
+    public void close_browser() throws Throwable {
+        close();
+    }
+
     @When("^register new user with email '(.*)', login '(.*)' and password '(.*)'$")
     public void register_new_user(@Transform(VarsConverter.class) String email, @Transform(VarsConverter.class) String login, String password) throws Throwable {
         click_css_and_wait("a[ng-click*='openRegisterModal()']");
