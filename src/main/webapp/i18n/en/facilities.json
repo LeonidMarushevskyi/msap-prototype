@@ -1,5 +1,17 @@
 {
     "facilities": {
+        "where-do-you-want-to-search": "Where do you  want to search for children's residential facilities?",
+        "apply-address": "Apply Address",
+        "save-address-to-profile": "Save this address to my profile",
+        "address-will-be-saved-automatically": "Address will be saved to your profile and used next time automatically",
+        "address-will-be-used-as-center": "Chosen address will be used as center for searching facilities around",
+        "filter-by-status": "Filter facilities by status",
+        "put-any-available-information": "Put any available information about children's residential facility like name, address or administrator name",
+        "put-address-where-you-want-to-search": "Put address where you want to search for children's residential facilities",
+        "map-view": "Map View",
+        "list-view": "List View",
+        "filters": "Filters",
+        "put-facility-data-here": "Put facility data here",
         "sort-by": "Sort By",
         "distance": "Distance",
         "provider-name": "Provider Name",

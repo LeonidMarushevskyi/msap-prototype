@@ -1,5 +1,6 @@
 {
     "global": {
+        "providers": "Proveedores",
         "title": "MSAP Portal de Padres",
         "browsehappy": "Está utilizando un <strong>obsoleta</strong> navegador. Por favor <a href=\"http://browsehappy.com/?locale=en\">actualizar su navegador</a> para mejorar su experiencia.",
         "menu": {
