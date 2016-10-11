@@ -16,7 +16,7 @@
             "detail": {
                 "title": "MailBox"
             },
-            "inbox": "Inbox",
+            "inbox": "Hộp thư đến",
             "outbox": "Outbox",
             "contact": "Contact",
             "deleted": "Deleted",
@@ -35,8 +35,29 @@
             "write-message-to-contact": "Viết thư cho liên hệ này",
             "filter-message-by-contact": "Lọc thư bằng cách liên hệ này",
             "filter-by-contact": "Lọc theo Liên hệ",
-            "contact-from-you-messaging": "Liên hệ từ bạn gửi tin nhắn"
-
+            "contact-from-you-messaging": "Liên hệ từ bạn gửi tin nhắn",
+            "folders": "Thư mục",
+            "select-all-messages-in-list": "Chọn tất cả các thư trong danh sách",
+            "no-messages": "KHÔNG THÔNG ĐIỆP",
+            "open-previous-page": "Mở trang trước đó của danh sách tin nhắn",
+            "open-next-page": "Mở trang tiếp theo của danh sách tin nhắn",
+            "search-in-messages": "Tìm kiếm trong các tin nhắn",
+            "provide-keywords": "Cung cấp các từ khóa từ tin nhắn hoặc tên người nhận",
+            "select-message": "Chọn thư cho một số hành động",
+            "recipient-or-sender-of-the-message": "Người nhận hoặc người gửi các thông điệp",
+            "message-subject-and-body": "Tiêu đề tin nhắn và cơ thể",
+            "new-message": "Tin nhắn mới",
+            "attach-files": "Đính kèm tập tin",
+            "reply": "Trả lời",
+            "send": "Gởi",
+            "attachments": "file đính kèm",
+            "filename": "Tên tập tin",
+            "file-size": "Kích thước tập tin",
+            "download-attachment": "Tải về tập tin đính kèm",
+            "remove-attachment": "Di chuyển tập tin đính kèm",
+            "to": "Đến",
+            "subject": "Môn học",
+            "characters-left": "{{total}} ký tự còn lại"
         }
     }
 }
