@@ -62,7 +62,7 @@
         border-color: $primary-color-blue;
 
         .icon-pagination-arrow-left {
-            background-color: $primary-color-blue;
+            background: url("../images/us-icon/arrow-hide-panel-hover.svg") no-repeat center;
         }
     }
 
@@ -71,7 +71,7 @@
         height: 1.7rem;
         vertical-align: middle;
         position: relative;
-        top: -1px;
+        top: -.2rem;
     }
 }
 
@@ -84,7 +84,7 @@
         border-color: $primary-color-blue;
 
         .icon-pagination-arrow-right {
-            background-color: $primary-color-blue;
+            background: url("../images/us-icon/arrow-show-panel-hover.svg") no-repeat center;
         }
     }
 

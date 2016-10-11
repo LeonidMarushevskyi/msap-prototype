@@ -12,6 +12,11 @@
   }
 }
 
+#username,
+#password {
+    font-size: 1.7rem !important;    
+}
+
 .form-type__checkbox_empty-label {
 
   input[type="checkbox"] + label {
@@ -338,7 +343,7 @@ input[type="radio"]:focus + label::before {
 }
 
 input[type="checkbox"]:checked + label::before {
-  background-image: url("../images/us-icon/icon-check.svg");  
+  background-image: url("../images/us-icon/icon-check.svg");
   background-position: 50%;
   background-repeat: no-repeat;
 }
