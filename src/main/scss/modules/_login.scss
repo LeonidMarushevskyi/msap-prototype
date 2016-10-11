@@ -36,7 +36,6 @@
 
 .ch-login__search {
     padding: 3rem;
-    height: 84px;
     position: relative;
     background-color: $primary-color-grey-light;
 
@@ -461,7 +460,7 @@
 
 .ch-login__content__text {
     padding-top: 6rem;
-    padding-bottom: 6.4rem;;
+    padding-bottom: 3.4rem;;
     color: #fff;
 
     @media screen and (max-width: $break-desktop) {
