@@ -84,6 +84,9 @@ angular.module('msapApp')
                 }
             );
 
+            $scope.getSelected = function(modelName) {
+                return _.filter($scope[modelName], {selected: true});
+            };
             $scope.getSelectedCodes = function(modelName) {
                 return _.map($scope.getSelected(modelName), 'code');
             };
