@@ -1,24 +1,25 @@
 <div class="ch-reset-request">
     <div class="ch-reset-request-bg"></div>
+    <div class="container-fluid">
     <div class="row">
         <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2">
-
-            <div class="ch-reset-request__logo-image">
-              <a href=""><span class="logo-image"></span></a>
-            </div>
 
             <div class="alert alert-danger" ng-show="errorEmailIsNotActivated">
                 <strong translate="reset.request.messages.not-activated">Your account has not been activated yet!</strong>
                 <span translate="reset.request.messages.activation-sent">Activation instructions were sent to your email. Please check your email and follow the instructions to activate your account.</span>
             </div>
 
-            <div class="ch-login__alert-failed-login" ng-show="errorEmailNotExists">
-                <h3 translate="reset.request.messages.not-registered">E-Mail address isn't registered!</h3>
-                <h4 translate="reset.request.messages.try-again">Please check and try again.</h4>
+            <div class="ch-alert-msg ch-alert-msg_warn" ng-show="errorEmailNotExists">
+                <span class="ch-alert-msg__icon ch-alert-msg__icon_warn"></span>
+                <h3 class="ch-alert-msg__text">
+                  <span translate="reset.request.messages.not-registered">E-Mail address isn't registered!</span></br>
+                  <span translate="reset.request.messages.try-again">Please check and try again</span>
+                </h3>
             </div>
 
-            <div class="alert alert-success" ng-show="success == 'OK'">
-                <p translate="reset.request.messages.success">Check your e-mails for details on how to reset your password.</p>
+            <div class="ch-alert-msg ch-alert-msg_success" ng-show="success == 'OK'">
+                <span class="ch-alert-msg__icon ch-alert-msg__icon_success"></span>
+                <h3 class="ch-alert-msg__text" translate="reset.request.messages.success">Check your e-mails for details on how to reset your password.</h3>
             </div>
 
             <div class="ch-reset-request__form">
@@ -56,12 +57,13 @@
                       <button type="submit" ng-disabled="form.$invalid"
                               class="ch-reset-request__form__button-submit"
                               translate="reset.request.form.button">Reset Password</button>
+                      <div class="ch-sign-up__new-account" ng-show="!success">
+                          <a href="#/" translate="reset.request.back">Back to Sign In</a>
+                      </div>
                   </form>
               </div>
 
-              <div class="ch-reset-request__back">
-                 <a class="" href="#" translate="reset.request.back">Back to Sign In</a>
-              </div>
         </div>
+    </div>
     </div>
 </div>

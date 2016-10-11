@@ -12,9 +12,9 @@
     }
 
     h4 {
-      font-size: 1.6rem;
-      font-weight: 400;
-      margin-top: .4rem;
+        font-size: 1.6rem;
+        font-weight: 400;
+        margin-top: .4rem;
     }
 
     &:before {
@@ -27,12 +27,37 @@
         top: 9rem;
         left: 7rem;
     }
+}
 
+.ch-login__alert-success {
+    padding: 2rem 2rem 2rem 7rem;
+    color: #fff;
+    background-color: $primary-green-color;
+
+    h3 {
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin-top: .6rem;
+    }
+
+    h4 {
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-top: .4rem;
+    }
+
+    &:before {
+        content: "";
+        width: 2.5rem;
+        height: 2.5rem;
+        display: inline-block;
+        background: url("../images/us-icon/icon-warning.png") no-repeat center;
+
+    }
 }
 
 .ch-alert-msg {
     @extend %flexbox;
-    max-width: 39rem;
     position: relative;
     width: 100%;
     align-items: center;
@@ -77,8 +102,9 @@
     @include align-self(flex-start);
     padding: 1.8rem 1.4rem;
     margin-left: 2.5rem;
-    position: relative;    
-    margin-top: 2.5rem;
+    margin-top: 2rem;
+    position: relative;
+
 }
 
 .ch-alert-msg__icon:before {
@@ -175,7 +201,6 @@
     font-size: 1.4rem;
     text-transform: capitalize;
 }
-
 
 .ch-plane-btn_neutr {
     padding: 0.8rem 2.2rem;

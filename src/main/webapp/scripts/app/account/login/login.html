@@ -141,7 +141,9 @@
                                     <input id="lookupAgeGroup_{{ageGroup.code}}" type="checkbox"
                                            ng-model="ageGroup.selected"
                                            ng-click="onFilterMenuItemClick('lookupAgeGroups', ageGroup.code);">
-                                    <label for="lookupAgeGroup_{{ageGroup.code}}">{{'lookups.lookupAgeGroups.' + ageGroup.code | translate}}</label>
+                                    <label for="lookupAgeGroup_{{ageGroup.code}}">
+                                        <span class="ch-login__select__hover-item">{{'lookups.lookupAgeGroups.' + ageGroup.code | translate}}</span>
+                                    </label>
                                 </div>
                             </li>
                         </ul>
