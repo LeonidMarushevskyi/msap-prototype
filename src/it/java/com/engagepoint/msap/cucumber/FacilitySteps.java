@@ -5,11 +5,13 @@ import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
+import static com.codeborne.selenide.Condition.appears;
 import static com.codeborne.selenide.Condition.disappear;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.getWebDriverLogs;
 import static com.codeborne.selenide.Selenide.sleep;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class FacilitySteps {
 
@@ -68,8 +70,8 @@ public class FacilitySteps {
 
     @When("^click checkbox with text '(.*)' in Search filters$")
     public void click_label_with_text(String checkboxText) throws Throwable {
-        $(By.xpath(".//*[class='form-type__checkbox_empty-label']/label[text()='" + checkboxText + "']")).shouldBe(visible);
-        userStepDefs.click_xpath_and_wait(".//*[class='form-type__checkbox_empty-label']/label[text()='" + checkboxText + "']");
+        $(By.xpath(".//*[@class='form-type__checkbox_empty-label']/label[text()='" + checkboxText + "']")).shouldBe(visible);
+        userStepDefs.click_xpath_and_wait(".//*[@class='form-type__checkbox_empty-label']/label[text()='" + checkboxText + "']");
         sleep(1000);
     }
 
@@ -100,4 +102,19 @@ public class FacilitySteps {
 //todo verify attached file
     }
 
+    @Then("^show filters$")
+    public void show_filters() throws Throwable {
+        if (getWebDriver().findElement(By.xpath(".//button[text()='Show All Filters']")).isDisplayed()) {
+            userStepDefs.click_xpath_and_wait(".//*[text()='Show All Filters']");
+            $(By.xpath(".//button[text()='Hide Filters']")).waitUntil(appears, 5000);
+        }
+    }
+
+    @Then("^hide filters$")
+    public void hide_filters() throws Throwable {
+        if (getWebDriver().findElement(By.xpath(".//button[text()='Hide Filters']")).isDisplayed()) {
+            userStepDefs.click_xpath_and_wait(".//*[text()='Hide Filters']");
+            $(By.xpath(".//button[text()='Show All Filters']")).waitUntil(appears, 5000);
+        }
+    }
 }

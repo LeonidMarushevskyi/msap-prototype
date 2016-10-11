@@ -16,10 +16,9 @@
             "detail": {
                 "title": "MailBox"
             },
-            "inbox": "Inbox",
+            "inbox": "Bandeja de entrada",
             "outbox": "Outbox",
             "contact": "Contact",
-            "deleted": "Deleted",
             "draft": "Draft",
             "user": "User",
             "write": "Escribir",
@@ -35,7 +34,29 @@
             "write-message-to-contact": "Escribe un mensaje a este contacto",
             "filter-message-by-contact": "Filtrar los mensajes de este contacto",
             "filter-by-contact": "Filtrar por Contacto",
-            "contact-from-you-messaging": "Contacto de usted mensajería"
+            "contact-from-you-messaging": "Contacto de usted mensajería",
+            "folders": "Carpetas",
+            "select-all-messages-in-list": "Seleccionar todos los mensajes de la lista",
+            "no-messages": "NINGÚN MENSAJE",
+            "open-previous-page": "Abrir la página anterior de la lista de mensajes",
+            "open-next-page": "Abrir página siguiente de la lista de mensajes",
+            "search-in-messages": "Buscar en los mensajes",
+            "provide-keywords": "Proporcionar palabras clave de mensaje o nombre del destinatario",
+            "select-message": "Seleccione el mensaje para la acción",
+            "recipient-or-sender-of-the-message": "Destinatario o remitente del mensaje",
+            "message-subject-and-body": "Título del mensaje y el cuerpo",
+            "new-message": "Nuevo mensaje",
+            "attach-files": "Adjuntar archivos",
+            "reply": "Respuesta",
+            "send": "Enviar",
+            "attachments": "archivos adjuntos",
+            "filename": "Nombre del archivo",
+            "file-size": "Tamaño del archivo",
+            "download-attachment": "Descargar archivo adjunto",
+            "remove-attachment": "Eliminar el archivo adjunto",
+            "to": "A",
+            "subject": "Tema",
+            "characters-left": "{{total}} faltan caracteres"
         }
     }
 }
