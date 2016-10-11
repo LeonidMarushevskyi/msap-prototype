@@ -6,20 +6,16 @@
     background-color: $primary-color-grey-light;
 }
 
+.icon-providers {
+    background: url("../images/out-sprite-icons/icon-map-input-white.svg") no-repeat center;
+}
+
 .icon-pagination-arrow-left {
-    -webkit-mask: url("../images/us-icon/arrow-hide-panel.svg") no-repeat center;
-    mask: url("../images/us-icon/arrow-hide-panel.svg") no-repeat center;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-    background-color: $secondary-color-grey-light;
+    background: url("../images/us-icon/arrow-hide-panel.svg") no-repeat center;
 }
 
 .icon-pagination-arrow-right {
-    -webkit-mask: url("../images/us-icon/arrow-show-panel.svg") no-repeat center;
-    mask: url("../images/us-icon/arrow-show-panel.svg") no-repeat center;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-    background-color: $secondary-color-grey-light;
+    background: url("../images/us-icon/arrow-show-panel.svg") no-repeat center;
 }
 
 .icon-view {
@@ -31,11 +27,11 @@
 }
 
 .icon-search {
-    -webkit-mask: url("../images/us-icon/icon-login-search.svg") no-repeat center;
-    mask: url("../images/us-icon/icon-login-search.svg") no-repeat center;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-    background-color: #fff;
+    background: url("../images/us-icon/icon-search-white.svg") no-repeat center;
+}
+
+.icon-inbox {
+    background: url("../images/us-icon/icon-inbox-white.svg") no-repeat center;
 }
 
 .icon-inbox-answer {

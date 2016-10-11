@@ -124,17 +124,12 @@
         z-index: 2;
         width: 1.2rem;
         height: 1.6rem;
-        background: url("../images/us-icon/icon-facilities-color.png") no-repeat center;
+        background: url("../images/us-icon/icon-facilities-m.svg") no-repeat center;
 
         @media screen and (max-width: $break-phone) {
-            width: 2rem;
+            width: 2.4rem;
             height: 2.4rem;
             top: 1.5rem;
-            -webkit-mask: url("../images/out-sprite-icons/icon-map-pointer-profile-active.svg") no-repeat center;
-            mask: url("../images/out-sprite-icons/icon-map-pointer-profile-active.svg") no-repeat center;
-            -webkit-mask-size: cover;
-            mask-size: cover;
-            background-color: $secondary-color-blue;
         }
     }
 
@@ -229,21 +224,18 @@
     &:after {
         content: "";
         display: inline-block;
-        width: .9rem;
-        height: .5rem;
+        width: 1.5rem;
+        height: .7rem;
         background: url("../images/us-icon/icon-arrow-select.svg") no-repeat center;
         position: relative;
         top: 0;
         right: -1.5rem;
 
         @media screen and (max-width: $break-phone) {
-            width: 1.4rem;
-            height: 1.4rem;
-            -webkit-mask: url("../images/us-icon/icon-arrow-select.svg") no-repeat center;
-            mask: url("../images/us-icon/icon-arrow-select.svg") no-repeat center;
-            -webkit-mask-size: cover;
-            mask-size: cover;
-            background-color: $primary-color-grey-light;
+            width: 1.6rem;
+            height: 1.6rem;
+            background: url("../images/us-icon/icon-arrow-select.svg") no-repeat center;
+            background-size: cover;
         }
     }
 
