@@ -173,9 +173,6 @@ module.exports = function (grunt) {
         concat: {
             // src and dest is configured in a subtask called "generated" by usemin
         },
-        uglifyjs: {
-            // src and dest is configured in a subtask called "generated" by usemin
-        },
         rev: {
             dist: {
                 files: {
@@ -195,8 +192,8 @@ module.exports = function (grunt) {
                 flow: {
                     html: {
                         steps: {
-                            js: ['concat', 'uglifyjs'],
-                            css: ['cssmin', useminAutoprefixer] // Let cssmin concat files so it corrects relative paths to fonts and images
+                            js: ['concat'],
+                            css: ['concat', useminAutoprefixer] // Let cssmin concat files so it corrects relative paths to fonts and images
                         },
                             post: {}
                         }
@@ -420,13 +417,12 @@ module.exports = function (grunt) {
         'copy:fonts',
         'copy:dist',
         'ngAnnotate',
-        'cssmin',
+        'concat',
         'sprite',
         'autoprefixer',
-        'uglify',
         'rev',
-        'usemin',
-        'htmlmin'
+        'usemin'
+        //'htmlmin'
     ]);
 
     grunt.registerTask('itest', ['protractor:continuous']);
