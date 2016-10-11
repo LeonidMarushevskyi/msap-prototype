@@ -73,56 +73,44 @@
 .ch-aside-nav-item__link_icon_inbox:before {
     width: 1.6rem;
     height: 1.6rem;
+    background: url("../images/out-sprite-icons/icon-aside-inbox.svg") no-repeat center;
+}
 
-    -webkit-mask: url("../images/out-sprite-icons/icon-aside-inbox-active.svg") no-repeat center;
-    mask: url("../images/out-sprite-icons/icon-aside-inbox-active.svg") no-repeat center;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-    background-color: $primary-color-grey-light;
+.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_inbox:before,
+.ch-aside-nav-item__link_icon_inbox:hover:before {
+    background: url("../images/out-sprite-icons/icon-aside-inbox-active.svg") no-repeat center;
 }
 
 .ch-aside-nav-item__link_icon_sent:before {
     width: 1.6rem;
-    height: 1.2rem;
+    background: url("../images/out-sprite-icons/icon-sent.svg") no-repeat center;
+}
 
-    -webkit-mask: url("../images/out-sprite-icons/icon-sent.svg") no-repeat center;
-    mask: url("../images/out-sprite-icons/icon-sent.svg") no-repeat center;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-    background-color: $primary-color-grey-light;
+.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_sent:before,
+.ch-aside-nav-item__link_icon_sent:hover:before {
+    background: url("../images/out-sprite-icons/icon-sent-active.svg") no-repeat center;
 }
 
 .ch-aside-nav-item__link_icon_drafts:before {
     width: 1.4rem;
     height: 1.4rem;
+    background: url("../images/out-sprite-icons/icon-drafts.svg") no-repeat center;
+}
 
-    -webkit-mask: url("../images/out-sprite-icons/icon-drafts.svg") no-repeat center;
-    mask: url("../images/out-sprite-icons/icon-drafts.svg") no-repeat center;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-    background-color: $primary-color-grey-light;
+.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_drafts:before,
+.ch-aside-nav-item__link_icon_drafts:hover:before {
+    background: url("../images/out-sprite-icons/icon-drafts-active.svg") no-repeat center;
 }
 
 .ch-aside-nav-item__link_icon_deleted:before {
     width: 1.6rem;
     height: 1.6rem;
-
-    -webkit-mask: url("../images/out-sprite-icons/icon-recycle-bin.svg") no-repeat center;
-    mask: url("../images/out-sprite-icons/icon-recycle-bin.svg") no-repeat center;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-    background-color: $primary-color-grey-light;
+    background: url("../images/out-sprite-icons/icon-recycle-bin.svg") no-repeat center;
 }
 
-.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_inbox:before,
-.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_sent:before,
-.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_drafts:before,
 .ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_deleted:before,
-.ch-aside-nav-item__link_icon_inbox:hover:before,
-.ch-aside-nav-item__link_icon_sent:hover:before,
-.ch-aside-nav-item__link_icon_drafts:hover:before,
 .ch-aside-nav-item__link_icon_deleted:hover:before {
-    background-color: $primary-color-blue;
+    background: url("../images/out-sprite-icons/icon-recycle-bin-active.svg") no-repeat center;
 }
 
 .ch-aside-nav-item__counter {
@@ -136,7 +124,7 @@
 .ch-aside-nav-item__text {
     font-size: 1.4rem;
     font-weight: 600;
-    color: #5b616b;
+    color: $primary-color-grey-light;
     vertical-align: middle;
     padding-left: 1.4rem;
 

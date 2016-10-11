@@ -21,5 +21,9 @@
         padding: .5rem;
         position: relative;
         top: -.4rem;
+
+        @media screen and (max-width: $break-phone) {
+            top: -.1rem;
+        }
     }
 }

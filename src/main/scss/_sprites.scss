@@ -77,18 +77,6 @@ $icon-facilities-total-width: 224px;
 $icon-facilities-total-height: 202px;
 $icon-facilities-image: '../images/global.png';
 $icon-facilities: (0px, 186px, 0px, -186px, 12px, 16px, 224px, 202px, '../images/global.png', 'icon-facilities', );
-$icon-inbox-name: 'icon-inbox';
-$icon-inbox-x: 208px;
-$icon-inbox-y: 156px;
-$icon-inbox-offset-x: -208px;
-$icon-inbox-offset-y: -156px;
-$icon-inbox-width: 16px;
-$icon-inbox-height: 12px;
-$icon-inbox-total-width: 224px;
-$icon-inbox-total-height: 202px;
-$icon-inbox-image: '../images/global.png';
-$icon-inbox: (208px, 156px, -208px, -156px, 16px, 12px, 224px, 202px, '../images/global.png', 'icon-inbox', );
-
 $icon-process-succeed-name: 'icon-process-succeed';
 $icon-process-succeed-x: 0px;
 $icon-process-succeed-y: 126px;
@@ -191,7 +179,7 @@ $logo: (0px, 76px, 0px, -76px, 120px, 40px, 224px, 202px, '../images/global.png'
 $spritesheet-width: 224px;
 $spritesheet-height: 202px;
 $spritesheet-image: '../images/global.png';
-$spritesheet-sprites: ($icon-add-contact, $icon-aside-inbox, $icon-back-arrow, $icon-contact, $icon-drafts, $icon-facilities, $icon-inbox, $icon-process-succeed, $icon-recycle-bin, $icon-reply-msg, $icon-sent, $icon-user-account-exit, $icon-user-account, $icon-user-accout-popup, $logo-xl, $logo, );
+$spritesheet-sprites: ($icon-add-contact, $icon-aside-inbox, $icon-back-arrow, $icon-contact, $icon-drafts, $icon-facilities, $icon-process-succeed, $icon-recycle-bin, $icon-reply-msg, $icon-sent, $icon-user-account-exit, $icon-user-account, $icon-user-accout-popup, $logo-xl, $logo, );
 $spritesheet: (224px, 202px, '../images/global.png', $spritesheet-sprites, );
 
 /*

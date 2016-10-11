@@ -2,12 +2,12 @@
 
 angular.module('msapApp')
     .controller('FacilitiesController',
-    ['$scope', '$state', '$log', '$q', 'searchParams',
+    ['$scope', '$state', '$log', '$q', 'searchParams', 'StorageService', 'sessionAddress',
         'leafletData', 'QualityRatingStars', 'ProviderAgenciesService',
         'GeocoderService', 'chLayoutConfigFactory', '$uibModal', 'Principal', 'AppPropertiesService', 'AddressUtils',
         'lookupAgeGroups', 'lookupQualityRating', 'lookupProviderType', 'lookupWorkingHours',
         'lookupSpecialNeedGroup', 'lookupSpecialNeedType', 'lookupLicenseType', 'lookupLanguage',
-    function ($scope, $state, $log, $q, searchParams,
+    function ($scope, $state, $log, $q, searchParams, StorageService, sessionAddress,
               leafletData, QualityRatingStars, ProviderAgenciesService,
               GeocoderService, chLayoutConfigFactory, $uibModal, Principal, AppPropertiesService, AddressUtils,
               lookupAgeGroups, lookupQualityRating, lookupProviderType, lookupWorkingHours,
@@ -20,6 +20,7 @@ angular.module('msapApp')
            $scope.updateLocations();
         };
 
+        $scope.sessionAddress = sessionAddress;
         $scope.searchParams = searchParams;
         $scope.lookupAgeGroups = lookupAgeGroups;
         $scope.lookupProviderType = lookupProviderType;
@@ -69,7 +70,7 @@ angular.module('msapApp')
         $scope.agenciesLength = 0;
 
         $scope.DEFAULT_MARKER_MESSAGE = 'You are here';
-        $scope.DEFAULT_ZOOM = 13;
+        $scope.DEFAULT_ZOOM = 14;
 
         $scope.viewContainsCaBounds = false;
         $scope.caBounds = new L.LatLngBounds(new L.LatLng(32.53, -124.43), new L.LatLng(42, -114.13));
@@ -539,11 +540,14 @@ angular.module('msapApp')
             }
             if (data.addressFeature) {
                 $scope.onSelectAddress(data.addressFeature);
+                var structure = $scope.createAddressStructure(data.addressFeature.latlng.lat, data.addressFeature.latlng.lng, data.addressFeature.feature.properties.label);
+                $log.debug('save = ', structure);
+                StorageService.saveSession(sessionAddress.SESSION_ADDRESS, structure)
             } else {
                 $scope.addressRejected();
             }
-
         };
+
         $scope.addressRejected = function() {
             if (navigator.geolocation) {
                 $log.debug('Geolocation is supported!');
@@ -567,23 +571,28 @@ angular.module('msapApp')
             );
         };
 
+        $scope.createAddressStructure = function(lat, lng, label) {
+            return {
+                latlng: {
+                    lat: lat,
+                    lng: lng
+                },
+                feature: {
+                    properties: {
+                        label: label
+                    }
+                }
+            }
+        };
+
         $scope.getAddressFromProperties = function () {
             AppPropertiesService.defaultAddress(function (response) {
                 var address = response.data;
                 GeocoderService.searchAddress(address).then(
                     function (response) {
                         var data = response.data[0];
-                        $scope.onSelectAddress({
-                            latlng: {
-                                lat: parseFloat(data.lat),
-                                lng: parseFloat(data.lon)
-                            },
-                            feature: {
-                                properties: {
-                                    label: data.display_name
-                                }
-                            }
-                        });
+                        var structure = $scope.createAddressStructure(parseFloat(data.lat), parseFloat(data.lon), data.display_name);
+                        $scope.onSelectAddress(structure);
                     },
                     function() {
                         $log.warn('Cannot get address details');
@@ -628,35 +637,23 @@ angular.module('msapApp')
             $scope.applyAgeGroups($scope.searchParams.ageGroupCodes);
         }
 
-        if ($scope.searchParams.latitude && $scope.searchParams.longitude) {
-            $scope.onSelectAddress({
-                latlng: {
-                    lat: $scope.searchParams.latitude,
-                    lng: $scope.searchParams.longitude
-                },
-                feature: {
-                    properties: {
-                        label: $scope.searchParams.geoLabel
+        {
+            var address = StorageService.getSession(sessionAddress.SESSION_ADDRESS);
+            $log.debug('get = ', address);
+            if ($scope.searchParams.latitude && $scope.searchParams.longitude) {
+                var structure = $scope.createAddressStructure($scope.searchParams.latitude, $scope.searchParams.longitude, $scope.searchParams.geoLabel);
+                $scope.onSelectAddress(structure);
+            } else if (address) {
+                $scope.onSelectAddress(angular.fromJson(address));
+            } else {
+                Principal.identity().then(function (userProfile) {
+                    if ($scope.profileHasEnoughAddressData(userProfile)) {
+                        var structure = $scope.createAddressStructure(userProfile.place.latitude, userProfile.place.longitude, AddressUtils.formatAddress(userProfile.place));
+                        $scope.onSelectAddress(structure);
+                    } else {
+                        $scope.openDefaultAddressModal(userProfile);
                     }
-                }
-            });
-        } else {
-            Principal.identity().then(function (userProfile) {
-                if (!$scope.profileHasEnoughAddressData(userProfile)) {
-                    $scope.openDefaultAddressModal(userProfile);
-                } else {
-                    $scope.onSelectAddress({
-                        latlng: {
-                            lat: userProfile.place.latitude,
-                            lng: userProfile.place.longitude
-                        },
-                        feature: {
-                            properties: {
-                                label: AddressUtils.formatAddress(userProfile.place)
-                            }
-                        }
-                    });
-                }
-            });
+                });
+            }
         }
     }]);

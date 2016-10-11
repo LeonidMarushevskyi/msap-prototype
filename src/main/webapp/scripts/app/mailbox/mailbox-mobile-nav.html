@@ -3,13 +3,13 @@
     <div class="ch-mobile-mailbox__nav-tab">
         <a href="" class="ch-mobile-mailbox__nav-tab__link" ng-class="linkFolders" ng-click="changeFolders()">
 
-            <span class="ch-mobile-mailbox__nav-tab__text">Folders</span>
+            <span class="ch-mobile-mailbox__nav-tab__text"><span translate="msapApp.mailBox.folders">Folders</span></span>
         </a>
     </div>
 
     <div class="ch-mobile-mailbox__nav-tab">
         <a href="" class="ch-mobile-mailbox__nav-tab__link" ng-class="linkContacts" ng-click="changeContacts()">
-            <span class="ch-mobile-mailbox__nav-tab__text">Contacts</span>
+            <span class="ch-mobile-mailbox__nav-tab__text"><span translate="msapApp.mailBox.contacts">Contacts</span></span>
         </a>
     </div>
 
@@ -21,13 +21,13 @@
 
     <div class="ch-mobile-folders__action-btn">
         <button type="button" class="ch-option-btn"  ui-sref="ch-inbox.new-mail">
-            <span class="ch-option-btn__text">Write</span>
+            <span class="ch-option-btn__text"><span translate="msapApp.mailBox.write">Write</span></span>
         </button>
     </div>
 
     <div class="ch-multi-select-dropdown__mobile">
         <button type="button" class="ch-multi-select-dropdown__btn-mobile" ng-click="statusesConfig.showList = !statusesConfig.showList;">
-            <span class="ch-multi-select-dropdown__btn-mobile-text">Incoming</span>
+            <span class="ch-multi-select-dropdown__btn-mobile-text"><span translate="msapApp.mailBox.incoming">Incoming</span></span>
             <span class="ch-multi-select-dropdown__btn-mobile-icon"></span>
         </button>
 
@@ -39,7 +39,7 @@
                       <a href="" class="ch-aside-nav-item__link ch-aside-nav-item__link_icon ch-aside-nav-item__link_icon_inbox"
                          ui-sref="ch-inbox.messages({directory: 'inbox'})" ui-sref-active="ch-aside-nav-item__link_active">
 
-                          <span class="ch-aside-nav-item__text">Inbox</span>
+                          <span class="ch-aside-nav-item__text"><span translate="msapApp.mailBox.inbox">Inbox</span></span>
                           <span ng-if="unreadInboxCount > 0" class="ch-aside-nav-item__counter">({{unreadInboxCount}})</span>
                       </a>
                   </div>
@@ -49,7 +49,7 @@
                       <a href="" class="ch-aside-nav-item__link ch-aside-nav-item__link_icon ch-aside-nav-item__link_icon_sent"
                          ui-sref="ch-inbox.messages({directory: 'sent'})" ui-sref-active="ch-aside-nav-item__link_active">
 
-                          <span class="ch-aside-nav-item__text">Sent Messages</span>
+                          <span class="ch-aside-nav-item__text"><span translate="msapApp.mailBox.outgoing">Sent Messages</span></span>
                       </a>
                   </div>
               </li>
@@ -58,7 +58,7 @@
                       <a href="" class="ch-aside-nav-item__link ch-aside-nav-item__link_icon ch-aside-nav-item__link_icon_drafts"
                          ui-sref="ch-inbox.messages({directory: 'drafts'})" ui-sref-opts="{directory: 'drafts'}" ui-sref-active="ch-aside-nav-item__link_active">
 
-                          <span class="ch-aside-nav-item__text">Drafts</span>
+                          <span class="ch-aside-nav-item__text"><span translate="msapApp.mailBox.drafts">Drafts</span></span>
                           <span ng-if="draftsCount > 0" class="ch-aside-nav-item__counter">({{draftsCount}})</span>
                       </a>
                   </div>
@@ -68,7 +68,7 @@
                       <a href="" class="ch-aside-nav-item__link ch-aside-nav-item__link_icon ch-aside-nav-item__link_icon_deleted"
                          ui-sref="ch-inbox.messages({directory: 'deleted'})" ui-sref-active="ch-aside-nav-item__link_active">
 
-                          <span class="ch-aside-nav-item__text">Deleted</span>
+                          <span class="ch-aside-nav-item__text"><span translate="msapApp.mailBox.deleted">Deleted</span></span>
                           <span ng-if="unreadDeletedCount > 0" class="ch-aside-nav-item__counter">({{unreadDeletedCount}})</span>
                       </a>
                   </div>
@@ -105,13 +105,13 @@
                         <div class="ch-aside-contacts__action-btn">
                             <button type="button" class="ch-contacts-btn" ng-click="composeMail(contact)">
                                 <span class="ch-contacts-btn__icon"></span>
-                                <span class="ch-contacts-btn__text">Write</span>
+                                <span class="ch-contacts-btn__text"><span translate="msapApp.mailBox.write">Write</span></span>
                             </button>
                         </div>
                         <div class="ch-aside-contacts__description">
                             <h3 class="ch-contacts-description__phone"><span>{{contact.phone | formatTel}}</span></h3>
                             <h4 class="ch-contacts-description__address"><span>{{contact.place | formatAddress}}</span></h4>
-                            <a href="" class="ch-contacts-description__filter" ng-click="filterByContact(contact)"><span>Filter By Contact</span></a>
+                            <a href="" class="ch-contacts-description__filter" ng-click="filterByContact(contact)"><span><span translate="msapApp.mailBox.filter-by-contact">Filter By Contact</span></span></a>
                         </div>
                     </div>
               </li>
