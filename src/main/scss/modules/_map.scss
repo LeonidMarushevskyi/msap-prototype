@@ -20,18 +20,23 @@
     .leaflet-pelias-expanded {
         width: 100% !important;
 
+        @media screen and (max-width: $break-phone) {
+            width: calc(100vw - 3.5rem) !important;
+        }
+
         .leaflet-pelias-input {
             height: auto;
             padding-top: .7rem;
             padding-bottom: .7rem;
+            padding-left: 3.5rem;
             line-height: inherit;
             font-size: 1.4rem;
             font-weight: 600;
-            padding-left: 3.5rem;
             cursor: text;
 
             @media screen and (max-width: $break-phone) {
                 height: 4.5rem;
+                padding-left: 3.5rem;
             }
         }
 
