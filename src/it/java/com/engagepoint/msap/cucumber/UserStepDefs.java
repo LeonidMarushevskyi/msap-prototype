@@ -45,7 +45,7 @@ public class UserStepDefs {
 
     @Before
     public void setup() {
-        homeUrl = "http://www.msap.engagepoint.com/#/";
+        homeUrl = "http://tests.msap.engagepoint.com:4080/#/";
         //Configuration.browser = "firefox";
 
         this.restUserMockMvc = MockMvcBuilders.standaloneSetup(userResource).build();
@@ -79,6 +79,11 @@ public class UserStepDefs {
         open(homeUrl);
         getWebDriver().manage().window().setSize(new Dimension(640,1136));
         $("[ng-click='toggleLanguagePopup()']").waitUntil(appear, 30000);
+    }
+
+    @When("^close browser$")
+    public void close_browser() throws Throwable {
+        close();
     }
 
     @When("^register new user with email '(.*)', login '(.*)' and password '(.*)'$")

@@ -21,6 +21,7 @@ Feature: Register new user and log in. Change profile info and password
     Scenario: log in with new password
         When log out
         When login with login '${testuser}' and password 'password2'
+        When search '721 Parkwood Drive, Long Beach, MS, USA' in address search in modal window and apply
         When open my profile
         When log out
 
