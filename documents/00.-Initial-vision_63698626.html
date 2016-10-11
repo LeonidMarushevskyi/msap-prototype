@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mississippi Agile Pool : 00. Initial vision</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Mississippi Agile Pool</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Mississippi-Agile-Pool_63697949.html">Mississippi Agile Pool</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="UX-Design-Process_63698584.html">UX Design Process</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Mississippi Agile Pool : 00. Initial vision
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Pavel Khozhainov</span>, last modified by <span class='editor'> Monica Morales</span> on Oct 11, 2016
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>We have two major roles - caseworkers and parents.</p><p>Providers can be also added as separate role if we want to support social network style communications.</p><p>Caseworkers and parents will try to find a Child Care facility using the search filters and target location information.</p><p>Results will be presented as a map with marks related to facilities, plus a list of facilities.</p><p>Clicking on the mark will show  the details of the facility profile. Same functionality for clicking on the item in the 'found facilities' list.</p><p>Some advanced search criteria will proposed with additional attributes.</p><p> </p><p>Facility attributes are:</p><h2 id="id-00.Initialvision-Identificationkey(unique)">Identification key (unique)</h2><p><strong>ProviderName</strong></p><h2 id="id-00.Initialvision-4mainattributes(wecanusethemforicononthemap):">4 main attributes (we can use them for icon on the map):</h2><p><strong>LicenseType</strong> - LICENSED or UNLICENSED</p><p><strong>ProviderType</strong> - </p><p>2 Slot Contractor</p><p>3 Group Home</p><p>4 Center</p><p>5 Non-Relative In-Home</p><p>6 Relative In-Home</p><p>7 Non-Relative Out-of-Home</p><p>8 Relative Out-of-Home</p><p><strong>QualityRating</strong> - stars 0 to 5</p><p><strong>ProviderCapacity</strong> -  integer (up to 700 so 3 digits)</p><p><strong>PhoneNumber</strong> - just label</p><p> </p><p>We can use the <strong>ProviderType</strong> as the icon type</p><p>The size of the icon will be <strong>ProviderCapacity</strong>  (3 sizes - small 0 to 10 (~3500), medium 10 to 100 (~1200), large 100+ (~250))</p><p>The color will be <strong>LicenseType</strong> (green licensed, red unlicensed)</p><p><strong>QualityRating</strong> - add small stars around main icon</p><p><span class="confluence-embedded-file-wrapper"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/63695743/63695740.png" data-image-src="https://docs.engagepoint.us/download/attachments/63695743/sample.png?version=1&amp;modificationDate=1473736089491&amp;api=v2" data-unresolved-comment-count="0" data-linked-resource-id="63695740" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sample.png" data-base-url="https://docs.engagepoint.us" data-linked-resource-content-type="image/png" data-linked-resource-container-id="63695743" data-linked-resource-container-version="1"></span></span><span class="confluence-embedded-file-wrapper"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/63695743/63695741.png" data-image-src="https://docs.engagepoint.us/download/attachments/63695743/sample2.png?version=1&amp;modificationDate=1473736089483&amp;api=v2" data-unresolved-comment-count="0" data-linked-resource-id="63695741" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sample2.png" data-base-url="https://docs.engagepoint.us" data-linked-resource-content-type="image/png" data-linked-resource-container-id="63695743" data-linked-resource-container-version="1"></span></span><span class="confluence-embedded-file-wrapper"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/63695743/63695742.png" data-image-src="https://docs.engagepoint.us/download/attachments/63695743/sample3.png?version=1&amp;modificationDate=1473736088332&amp;api=v2" data-unresolved-comment-count="0" data-linked-resource-id="63695742" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="sample3.png" data-base-url="https://docs.engagepoint.us" data-linked-resource-content-type="image/png" data-linked-resource-container-id="63695743" data-linked-resource-container-version="1"></span></span></p><p>Option B: use quality rating as color and show license information as some special icon for UNLICENSED only</p><h2 id="id-00.Initialvision-Locationattributes">Location attributes</h2><p><strong>PhysicalCity</strong></p><p><strong>PhysicalZipCode</strong></p><p>Not sure if we have an option to find single geography point using this data.</p><p>Looks like Google can do it. Need to check Mapzen<strong>.</strong></p><h2 id="id-00.Initialvision-Unusedattributes">Unused attributes</h2><p>We can ignore some attributes from initial data set</p><p>ProviderTypeDescription - same as in enumeration code but string</p><p>QualityRatingDescription - same as in enumeration code but string 5 to 0: {Excellent, Very Good, Good, Average, Low, Not Rated}</p><p>CountyNumber - we do not need county except when we want to group by this value</p><p>CountyName - just label for the code</p><p> </p><h2 id="id-00.Initialvision-Additionalattributes">Additional attributes</h2><p>We need to add some attributes to support our vision of the application</p><p><strong>Full Address</strong> of the facility in USPS format - to show facility on the map</p><p>Quality attributes:</p><p><strong>Inspections/ Citations/Reports</strong> information (cases of abuse, disease, ... - see <a href="https://secure.dss.ca.gov/CareFacilitySearch/Search/Detailview/334803019/845#detailview" class="external-link" rel="nofollow">https://secure.dss.ca.gov/CareFacilitySearch/Search/Detailview/334803019/845#detailview</a> for details)</p><p><strong>Personnel information</strong> - names, degrees, ... (list)</p><p><strong>Hours </strong>(Open, Close, Eating, Rest, Outdoor) - HH:MM per week</p><p><strong>Transportation options </strong>(yes/no)<strong><br /></strong></p><p><strong>Swimming options </strong>(yes/no)<strong><br /></strong></p><p><strong>Night Care </strong>(yes/no)</p><p><strong><br /></strong></p><p><strong>Special needs adaptation </strong></p><p>Physical: Muscular Dystrophy, Multiple Sclerosis, Chronic Asthma, Epilepsy</p><p>Developmental:Down Syndrome, Dyslexia, Autism, Processing Disorders</p><p>Behavioral/Emotional: Attention Deficit Disorder (ADD), Bipolar disorder, Post traumatic Stress Disorder (PTSD), Oppositional Defiant Disorder (ODD)</p><p>Sensory Impaired: Blind, Deaf, Visually impaired, Limited hearing</p><p><strong>Number of Kids with ages</strong></p><p>Infant (0-12 months)</p><p>Toddler (12 -24 months)</p><p>2 years</p><p>3 years</p><p>4 years</p><p>5-9 years</p><p>10-12 years</p><p> </p><p><strong>Languages supported by the facility staff</strong> (English, Spanish, Vietnamese)</p><p> </p><p>Optionally we can add social attributes.</p><p><strong>Facility presentation  text</strong> from provider (with or without photo)</p><p><strong>Parent reviews</strong></p><p><strong>Q &amp; A section</strong> where parents, provider and caseworker can share and find additional information about facility</p><p> </p><p> </p><p> </p><p> </p>
+                    </div>
+
+                    
+                 
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Oct 11, 2016 17:54</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
