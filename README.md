@@ -1,5 +1,14 @@
 # Mississippi Vendor Challenge
 
+# Table of Contents
+[Main Links](#main-links)
+[User guide](#user-guide)
+[Project Description](#project-description)
+[Installation Guide](#installation-guide)
+[List of artifacts used to create the prototype](#list-of-artifacts-used-to-create-the-prototype)
+[Team Structure](#team-structure)
+[U.S. Digital Services Playbook checklist](#us-digital-services-playbook-checklist)
+
 ## Main Links
 **Prototype URL:** [MSAP Parent Portal - www.msap.engagepoint.com](http://www.msap.engagepoint.com)
 
@@ -34,23 +43,55 @@ Demo uses with role CASE_WORKER:
 
 EngagePoint implemented a modern, mobile-friendly, cloud-ready web application in only three weeks:
 
-1.    Performed 1:1 interviews and documentted results
-2.    Developed an interactive wireframe and performed usability testing with users
-3.    Developed user interface mock-ups using  [U.S. Web Design Standards](https://standards.usa.gov/) in compliance with [ADA508](https://www.section508.gov/)
-4.    Generated a generic web application using JHipster with an appropriate technology stack
-5.    Configured continuous integration and automated testing using [Jenkins](https://jenkins.io/)
-6.    Designed a data model and generated code artifacts using JHipster's entity generator
-7.    Developed custom user interfaces according to design mockups and integrated them into a generic application
-8.    Modified the front-end and back-end code to support prototype functionality
+1. Performed 1:1 interviews and documentted results
+2. Developed an interactive wireframe and performed usability testing with users
+3. Developed user interface mock-ups using  [U.S. Web Design Standards](https://standards.usa.gov/) in compliance with [ADA508](https://www.section508.gov/)
+4. Generated a generic web application using JHipster with an appropriate technology stack
+5. Configured continuous integration and automated testing using [Jenkins](https://jenkins.io/)
+6. Designed a data model and generated code artifacts using JHipster's entity generator
+7. Developed custom user interfaces according to design mockups and integrated them into a generic application
+8. Modified the front-end and back-end code to support prototype functionality
 
 Each development stage included automated tests (and performance and acceptance tests) for Java and JavaScript code. [SonarQube](http://www.sonarqube.org/) controlled code quality, incorporated in an automated continuous delivery workflow implemented in [Jenkins](https://jenkins.io/). We also manually reviewed code to ensure quality.
 
 ## Installation Guide
 To install and run the prototype on another machine, we provide several available options such as a Docker-based deployment and a compilation of the prototype from source code.
+
 ### Start application using Docker (applicable for production environments)
-We have published a Docker image with the application prototype to the Docker Hub. To run the Docker image on another machine, complete the following steps: </br>1. Install [Docker Toolbox](https://www.docker.com/products/docker-toolbox) on your machine</br>2. Start Docker Quickstart Terminal or use graphical tool Kitematic(Alpha)</br>3. Download docker compose file for standlone (  [msap-prototype-full.yml](https://github.com/engagepoint/msap-config/blob/master/msap-prototype-full.yml) ) or high availability ( [msap-prototype-ha.yml](https://github.com/engagepoint/msap-config/blob/master/msap-prototype-ha.yml)) solution.</br>4. Change spring\_mail\_host parameter in yml file to your e-mail server. Without email server, the application will not be able to send account activation emails so user registration will be not functional. In order to test the application capabilities without email server shall use system users.</br>Role Parent: username: parent, password: parent</br>Role Case Worker: username: worker, password: worker</br>Role Administrator: username: admin, password: admin</br>5. In Docker Terminal run the following command line: ```docker-compose f <full-path-to-file>/msap-prototype-<ha or full>.yml up -d```</br>Please wait 1 to 5 minutes for application start depends on network connection.</br>6. If you have Windows environment, you can open Kitematic (Alpha) and click on Web Preview to open application in the browser. In the Linux, application will be available by default URL [http://127.0.0.1:8080/#/](http://127.0.0.1:8080/#/) (for Full) or [http://127.0.0.1:24080](http://127.0.0.1:24080) (for HA)</br>7. For high availability (HA) configuration (msap-prototype-ha.yml) you can scale application. For this in Docker terminal run command line: ```docker-compose scale msap-prototype-ha=n```</br>, where n is desired quantity of Application's containers.
+
+We have published a Docker image with the application prototype to the Docker Hub. To run the Docker image on another machine, complete the following steps: 
+1. Install [Docker Toolbox](https://www.docker.com/products/docker-toolbox) on your machine
+2. Start Docker Quickstart Terminal or use graphical tool Kitematic(Alpha)
+3. Download docker compose file for standlone (  [msap-prototype-full.yml](https://github.com/engagepoint/msap-config/blob/master/msap-prototype-full.yml) ) or high availability ( [msap-prototype-ha.yml](https://github.com/engagepoint/msap-config/blob/master/msap-prototype-ha.yml)) solution.
+4. Change spring_mail_host parameter in yml file to your e-mail server. Without email server, the application will not be able to send account activation emails so user registration will be not functional. In order to test the application capabilities without email server shall use system users.
+Parent: username: parent, password: parent
+Foster Parent: username: fosterparent, password: parent
+Role Case Worker: username: worker, password: worker
+5. In Docker Terminal run the following command line: ```docker-compose f <full-path-to-file>/msap-prototype-<ha or full>.yml up -d```
+Please wait 1 to 5 minutes for application start depends on network connection.
+6. If you have Windows environment, you can open Kitematic (Alpha) and click on Web Preview to open application in the browser. In the Linux, application will be available by default URL [http://127.0.0.1:8080/#/](http://127.0.0.1:8080/#/) (for Full) or [http://127.0.0.1:24080](http://127.0.0.1:24080) (for HA)
+7. For high availability (HA) configuration (msap-prototype-ha.yml) you can scale application. For this in Docker terminal run command line: 
+```docker-compose scale msap-prototype-ha=n```
+, where n is desired quantity of Application's containers.
+
 ### Compile application from source code and start (any operation system, development environment)
-To compile the application from source code, you will need to setup and configure a development environment using the steps below:</br>1. 1.Install Java Development Kit (JDK) version 8 from  [the Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).</br>2. Install Java dependency management tool Maven from official  [Maven website](http://maven.apache.org/)</br>3. Install Git from  [git-scm.com](https://git-scm.com/downloads)</br>4. Use the project git repository with source code submitted by EngagePoint as a part of Vendor Challenge response</br>5. Install Node.js from  [the Node.js website](http://nodejs.org/). This will also install npm, which is the node package manager we are using in the next commands.</br>6. Navigate to the Git repository folder msap-prototype</br>7. Install Yeoman using the command line: ```npm install -g yo```</br>8. Install Bower using the command line: ```npm install -g bower```</br>9. Install  [Grunt](http://gruntjs.com/) using the command line: ```npm install -g grunt-cli```</br>10. Install JHipster using the command line: ```npm install -g generator-jhipster```</br></br>When the development environment is configured, you can compile and run the prototype application by following the steps below:</br>1. From Git repository folder msap-prototype, run Maven command: mvn spring-boot:run</br>2. The application will be automatically started on  [http://127.0.0.1:8080/#/](http://127.0.0.1:8080/#/) in 2-10 minutes dependse on performance of your machine
+To compile the application from source code, you will need to setup and configure a development environment using the steps below:
+
+1. Install Java Development Kit (JDK) version 8 from  [the Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+2. Install Java dependency management tool Maven from official  [Maven website](http://maven.apache.org/)
+3. Install Git from  [git-scm.com](https://git-scm.com/downloads)
+4. Use the project git repository with source code submitted by EngagePoint as a part of Vendor Challenge response<
+5. Install Node.js from  [the Node.js website](http://nodejs.org/). This will also install npm, which is the node package manager we are using in the next commands.
+6. Navigate to the Git repository folder msap-prototype
+7. Install Yeoman using the command line: ```npm install -g yo```
+8. Install Bower using the command line: ```npm install -g bower```
+9. Install  [Grunt](http://gruntjs.com/) using the command line: ```npm install -g grunt-cli```
+10. Install JHipster using the command line: ```npm install -g generator-jhipster```
+
+When the development environment is configured, you can compile and run the prototype application by following the steps below:
+
+1. From Git repository folder msap-prototype, run Maven command: ```mvn spring-boot:run```
+2. The application will be automatically started on  [http://127.0.0.1:8080/#/](http://127.0.0.1:8080/#/) in 2-10 minutes dependse on performance of your machine
 
 ## List of artifacts used to create the prototype
 

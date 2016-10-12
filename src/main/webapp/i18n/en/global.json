@@ -89,7 +89,7 @@
                 "lookupAgeGroups": "LookupAgeGroups",
                 "lookupDayOfWeek": "LookupDayOfWeek",
                 "lookupSpecialNeedGroup": "LookupSpecialNeedGroup",
-                "schedule": "Schedule",
+                "schedule": "Open Hours",
                 "price": "Price",
                 "openSlot": "OpenSlot",
                 "substantiatedAllegation": "SubstantiatedAllegation",
