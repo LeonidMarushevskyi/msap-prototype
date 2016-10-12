@@ -534,17 +534,17 @@ Response / Artifacts
 
 <div >
 
-## <span style="color: rgb(0,0,0);">PLAY 1</span> Understand what people need
+## PLAY 1 Understand what people need
 
 ### Checklist
 
-1.  <span style="color: rgb(0,0,0);">Early in the project, spend time with current and prospective users of the service</span>
-2.  <span style="color: rgb(0,0,0);">Use a range of qualitative and quantitative research methods to determine people’s goals, needs, and behaviors; be thoughtful about the time spent</span>
-3.  <span style="color: rgb(0,0,0);">Test prototypes of solutions with real people, in the field if possible</span>
-4.  <span style="color: rgb(0,0,0);">Document the findings about user goals, needs, behaviors, and preferences</span>
-5.  <span style="color: rgb(0,0,0);">Share findings with the team and agency leadership</span>
-6.  <span style="color: rgb(0,0,0);">Create a prioritized list of tasks the user is trying to accomplish, also known as "user stories"</span>
-7.  <span style="color: rgb(0,0,0);">As the digital service is being built, regularly test it with potential users to ensure it meets people’s needs</span>
+1.  Early in the project, spend time with current and prospective users of the service
+2.  Use a range of qualitative and quantitative research methods to determine people’s goals, needs, and behaviors; be thoughtful about the time spent
+3.  Test prototypes of solutions with real people, in the field if possible
+4.  Document the findings about user goals, needs, behaviors, and preferences
+5.  Share findings with the team and agency leadership
+6.  Create a prioritized list of tasks the user is trying to accomplish, also known as "user stories"
+7.  As the digital service is being built, regularly test it with potential users to ensure it meets people’s needs
 
 ### Key Questions
 
@@ -594,7 +594,7 @@ Response / Artifacts
 
 <div >
 
-## <span style="color: rgb(0,0,0);">PLAY 2</span> Address the whole experience, from start to finish
+## PLAY 2 Address the whole experience, from start to finish
 
 ### Checklist
 
