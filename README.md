@@ -10,7 +10,7 @@
 7. [U.S. Digital Services Playbook checklist](#us-digital-services-playbook-checklist)
 
 
-## Main Links
+## 1. Main Links
 **Prototype URL:** [MSAP Parent Portal - www.msap.engagepoint.com](http://www.msap.engagepoint.com)
 
 **Vendor Challenge Documentation** is included in Git repository in HTML format in /documents folder. Please use /documents/index.html as entry point. This documentation is referenced from documentation below.  
@@ -21,7 +21,7 @@
 
 For questions and comments regarding the installation, the documentation and the prototype, please contact: msap@engagepoint.com
 
-## User guide
+## 2. User guide
 Application provide ability for anonymous users to search for Child Care Providers in state of Mississipi.
 
 Application as well provides several roles with different capabilities: PARENT, FOSTER_PARENT and CASE_WORKER.
@@ -40,7 +40,7 @@ Demo uses with role CASE_WORKER:
 
     name: worker, password: worker
 
-## Project Description
+## 3. Project Description
 
 EngagePoint implemented a modern, mobile-friendly, cloud-ready web application in only three weeks:
 
@@ -55,10 +55,10 @@ EngagePoint implemented a modern, mobile-friendly, cloud-ready web application i
 
 Each development stage included automated tests (and performance and acceptance tests) for Java and JavaScript code. [SonarQube](http://www.sonarqube.org/) controlled code quality, incorporated in an automated continuous delivery workflow implemented in [Jenkins](https://jenkins.io/). We also manually reviewed code to ensure quality.
 
-## Installation Guide
+## 4. Installation Guide
 To install and run the prototype on another machine, we provide several available options such as a Docker-based deployment and a compilation of the prototype from source code.
 
-### Start application using Docker (applicable for production environments)
+### 4.1. Start application using Docker (applicable for production environments)
 
 We have published a Docker image with the application prototype to the Docker Hub. To run the Docker image on another machine, complete the following steps: 
 
@@ -76,7 +76,7 @@ Please wait 1 to 5 minutes for application start depends on network connection.
 ```docker-compose scale msap-prototype-ha=n```
 , where n is desired quantity of Application's containers.
 
-### Compile application from source code and start (any operation system, development environment)
+### 4.2. Compile application from source code and start (any operation system, development environment)
 To compile the application from source code, you will need to setup and configure a development environment using the steps below:
 
 1. Install Java Development Kit (JDK) version 8 from  [the Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
@@ -95,9 +95,9 @@ When the development environment is configured, you can compile and run the prot
 1. From Git repository folder msap-prototype, run Maven command: ```mvn spring-boot:run```
 2. The application will be automatically started on  [http://127.0.0.1:8080/#/](http://127.0.0.1:8080/#/) in 2-10 minutes dependse on performance of your machine
 
-## List of artifacts used to create the prototype
+## 5. List of artifacts used to create the prototype
 
-### 1. Research findings
+### 5.1. Research findings
 During our application prototype development, we used the following "human-centered design" techniques and tools:<br/>
 * **User Interviews** (please refer to UX Design Process/01. Interviews from Vendor Challenge Documentation)
 * **Expert Interview** (please refer to UX Design Process/01. Interviews/02. Expert Interview - Shelly Kihnke 2016-09-28 from Vendor Challenge Documentation)
@@ -133,7 +133,7 @@ Based on the input regarding the display of the results, our results are display
 
 The dataset used in our solution includes the State’s identified data. However, based on our meeting with State representatives on September 9, we have augmented the data with additional elements. See the UX Design Process/08. Decisions made document for more details on these decisions. 
 
-### 2. User stories
+### 5.2. User stories
 
 To implement the prototype, we modified our Scrum methodology to align with the user-centric design. Our approach is detailed in US Digital Services Playbook Play 4 as well as in Agile/Agile Approach Overview document from Vendor Challenge Documentation.
 
@@ -143,7 +143,7 @@ After the initial gathering of information regarding current functionality and u
 
 User Personas and User Stories and Scenarios provide points of clarification in interviews with targeted users and support the design and development effort.
 
-### 3. UX/UI Design
+### 5.3. UX/UI Design
 
 * **Wireframing** (please refer to UX Design Process/05. List of Axure wireframe versions from Vendor Challenge Documentation)
 * **Usability Testing** (please refer to UX Design Process/06. Usability testing from Vendor Challenge Documentation)
@@ -158,7 +158,7 @@ The EngagePoint product design incorporates support for tablet and smartphone us
 EngagePoint used the [U.S. Web Design Standards](https://standards.usa.gov/) to track with industry-standard web-accessibility guidelines alongside best practices of existing style libraries and modern web design. U.S. Web Design Standards provided a guide for creating visually appealing and easy-to-use online experiences for the American people.
 
 
-### 4. Frameworks and libraries used to create prototype
+### 5.4. Frameworks and libraries used to create prototype
 
 EngagePoint selected the Java Virtual Machine (JVM) platform and Java 1.8 as the prototype's programming language. The JVM platform is commonly used in high-load web applications, such as Google. However, small prototype web applications can be created quickly and then transitioned to production usage on the same technology platform without having to rewrite the application.
 
@@ -179,7 +179,7 @@ To minimize risk, we considered these factors for each system architecture compo
 - Performance metrics
 - Maintenance costs
 
-#### 4.1. Application Platform
+#### 5.4.1. Application Platform
 
 EngagePoint used the open source code generator  [JHipster](https://jhipster.github.io/), which let us generate a production-ready application using  [Spring Boot](http://projects.spring.io/spring-boot/) and  [AnglarJS](https://angularjs.org/), which contain monitoring, logging, configuration, and user management functionality.
 
@@ -205,7 +205,7 @@ EngagePoint has used only open source technologies and platforms for prototype c
 - [PostgreSQL](https://www.postgresql.org/): [source code](https://github.com/postgres/postgres), [PostgreSQL Licence](https://opensource.org/licenses/postgresql) open license similar to BSD or MIT<br/>
 - [Hazelcast](http://hazelcast.org/): [source code](https://github.com/hazelcast/hazelcast), [Apache License Version 2](https://github.com/elastic/elasticsearch/blob/master/LICENSE.txt) [     ](https://github.com/spring-projects/spring-framework)
 
-#### 4.2. Rationale
+#### 5.4.2. Rationale
 
 The table below lists EngagePoint's architectural design decisions and their alignment with the functional and non-functional prototype requirements.
 
@@ -218,13 +218,13 @@ The table below lists EngagePoint's architectural design decisions and their ali
 | Allow parents to establish and manage their profile | [JHipster](https://jhipster.github.io/) [Hazelcast](http://hazelcast.org/) | - Generic JHipster application has built-in login, registration, and user profile functionality. EngagePoint has customized the generic implementation.<br/>- Hazelcast is a distributed data grid used for distributed cache capabilities and performance improvement of the application. For the prototype, we are storing user sessions as well as L2 Hibernate cache.|
 | Automated deployment to IaaS, PaaS | [Spring Boot](http://projects.spring.io/spring-boot/), [Docker](https://www.docker.com/), [Jenkins](https://jenkins.io/) | - Spring Boot provides DevOps tools like externalized configuration, monitoring, and logging. Spring Boot eliminates the need to use external application containers, simplifying cloud deployment. <br/>- Docker containers are used for all components of application infrastructure (application, Elasticsearch server, PostgreSQL server). Containerization helps with automated deployment and makes application environments agnostic. <br/>- Jenkins is an open source tool used to implement continuous integration and delivery. |
 
-### 4.3. Development Tools
+### 5.4.3. Development Tools
 
 JHipster provides tools that accelerate development and minimize custom coding. Entity Generator supports application prototyping, allowing the Technical Architect to describe the Entity Relational Diagram using JDL (domain specific language). Based on JDL, JHipster generates boilerplate code for simple CRUD operations with these entities:  [Liquibase](http://www.liquibase.org/) scripts for database objects, Hibernate entities, repository classes, Java REST resources, AngularJS controllers, REST client services, routers, unit tests for Java and JavaScript, and sample administrative UI.
 
 The prototype has two [Maven](https://maven.apache.org/) profiles: DEV and PROD. The DEV profile is used on the local development environment and incorporates in-memory H2 and Elasticsearch engines. Spring Boot provides an embedded lightweight application container, Tomcat, which runs the prototype. We used  [Browsersync](https://www.browsersync.io/) and  [Spring Boot Devtools](http://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html) for automated reload of front-end and back-end code. These techniques reduce development time as developers view real-time updates. The PROD profile builds the prototype's production version, which is optimized for production use.
 
-### 4.4. Automated testing
+### 5.4.4. Automated testing
 
 To eliminate functional regression and ensure that the application remains in compliance with requirements, we used different levels of automated testing:
 
@@ -235,7 +235,7 @@ To eliminate functional regression and ensure that the application remains in co
 * Acceptance testing using BDD framework [Cucumber](https://cucumber.io/) - [Jenkins job]()
 
 
-### 4.5. Continuous Integration and Deployment Approach
+### 5.4.5. Continuous Integration and Deployment Approach
 
 We used Jenkins as a continuous integration and delivery tool. Configured instance of Jenkins is available for review. Instance of Sonar with history and current project status available for review.
 
@@ -274,282 +274,19 @@ In addition to built-in AWS monitored items like CPU, memory, etc. following App
 * REST services statistic
 * Threads statistic (Deadlock, Waiting)
 
-## Team Structure
-
-<div>
-
-<div>
-
-<table>
-
-<tbody>
-
-<tr>
-
-<th>#</th>
-
-<th>Role</th>
-
-<th>Agile Labor Category</th>
-
-<th><span>Name</span></th>
-
-<th>Responsibilities</th>
-
-</tr>
-
-<tr>
-
-<td style="text-align: center;" colspan="1">1.</td>
-
-<td>Delivery Manager/Technical Architect  
-
-Team Leader responsible for delivering the project
-
-</td>
-
-<td><span>Category 3 / <span>Category 5</span></span></td>
-
-<td><a href="https://www.linkedin.com/in/marushevskiy-leonid-57a733a">Leonid Marushevskyi</a></td>
-
-<td>
-<ul>
-<li>Delivering projects and products using the appropriate agile project management methodology, learning & iterating frequently</li>
-<li>Leading the collaborative, dynamic planning process – prioritizing the work that needs to be done against the capacity and capability of the team</li>
-<li>Ensuring that product is built to an appropriate level of quality for the stage (alpha/beta/production)</li>
-<li>Actively and openly sharing knowledge of best practices</li>
-<li>Architecting the overall system, by using prototyping and proof of concepts, defining development technologies and solution components</li>
-<li>Ensuring strategic alignment of technical design and architecture to meet business and user needs, and stay on top of emerging technologies</li>
-<li>Working with the Product Manager to define the roadmap for product and translating this into user stories</li>
-<li>Developing product roadmaps, backlogs, and measurable success criteria</li>
-<li>Clearly communicates and works with stakeholders at every level</li>
-
-</ul>
-
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align: center;" colspan="1">2.</td>
-
-<td>Product Manager</td>
-
-<td>Category 2</td>
-
-<td><a href="https://www.linkedin.com/in/margreta-silverstone-a571709">Margreta Silverstone</a></td>
-
-<td>
-<ul>
-<li>Leads one or more multi-disciplinary agile delivery teams to deliver excellent new products and/or iterations to existing products to meet user needs</li>
-<li>Gathers user requirements based on a communicated understanding of diverse audience groups</li>
-<li>Defines and gets stakeholder buy-in for product definition and delivery approach</li>
-<li>Creates effective, prioritized product descriptions, and delivery plans to meet user needs in a cost-effective way</li>
-<li>Interprets user research in order to make the correct product decisions</li>
-<li>Continually keep abreast of changes to user habits, preferences, and behaviors across various digital platforms and their implications for successful delivery of software product</li>
-<li>Underpins the delivery and iteration of digital services through effective analysis of qualitative and quantitative user data</li>
-<li>Communicates credibly with a wide range of digital delivery disciplines and talent</li>
-</ul>
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align: center;" colspan="1">3.</td>
-
-<td>Business Analyst/User Researcher / Usability Tester</td>
-
-<td>Category 4 / Category 12</td>
-
-<td><a href="https://www.linkedin.com/in/pavel-khozhainov-4562509">Pavel Khozhainov</a></td>
-
-<td>
-<ul>
-<li>Works closely with the Product Manager to define a product approach to meet the specified user need</li>
-<li>Analyzes and maps the risks of this product approach and propose mitigation solutions</li>
-<li>Defines how the predicted user and financial benefit can be realized, and how channel shifts will be measured</li>
-<li>Makes recommendations for action against the analysis done</li>
-<li>Conduct stakeholder interviews, user requirements analysis, task analysis, conceptual modeling, information architecture, interaction design, and usability testing</li>
-<li>Produces user requirements specifications & experience goals, personas, storyboards, scenarios, flowcharts, design prototypes, and design specifications</li>
-<li>Researches user needs as well as potential system enhancements</li>
-<li>Planning, recruiting, and facilitating the usability testing of a system</li>
-<li>Lead participatory and iterative design activities, including observational studies, customer interviews, usability testing, and other forms of requirements discovery</li>
-<li>May create such artifacts as Usability Testing Plan, Testing Scripts, and Usability Testing Report</li>
-</ul>
-
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align: center;" colspan="1">4.</td>
-
-<td>DevOps Engineer</td>
-
-<td>Category 7</td>
-
-<td><a href="https://www.linkedin.com/in/oleksandr-kuznetsov-69866171/en">Oleksander Kuznetsov</a></td>
-
-<td>
-<ul>
-<li>Deploying and configuring services using infrastructure as a service providers (e.g., Amazon Web Services, Microsoft Azure, Google Compute Engine, RackSpace/OpenStack)</li>
-<li>Configuring and managing Linux-based servers to serve a dynamic website</li>
-<li>Debugging cluster-based computing architectures</li>
-<li>Using scripting or basic programming skills to solve problems</li>
-<li>Installing and managing the use of open source monitoring tools</li>
-<li>Installing and monitoring configuration management tools (e.g., Puppet, Chef, Ansible, Salt)</li>
-<li>Recommending and implementing Architecture for continuous integration and deployment, and continuous monitoring</li>
-<li>Supports Containerization technologies (e.g., LXC, Docker, Rocket)</li>
-</ul>
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align: center;" colspan="1">5.</td>
-
-<td>Visual Designer/Interaction Designer</td>
-
-<td>Category 11/Category 12</td>
-
-<td><a href="https://www.linkedin.com/in/dariia-iarmuratii-b3640b39/en">Dariia Iarmuratii</a>
-
-</td>
-
-<td>
-<ul>
-<li>Oversees all visual design efforts</li>
-<li>Defines, creates, communicates, and manages required project documentation such as style guides and provides updates as necessary</li>
-<li>Designs and specifies user interfaces and information architecture</li>
-<li>Effectively communicates research findings, conceptual ideas, detailed design, and design rationale and goals both verbally and visually</li>
-<li>Plans and facilitates collaborative critiques and analysis & synthesis working sessions</li>
-<li>Works closely with visual designers and development teams to ensure that customer goals are met and design specifications are delivered upon</li>
-<li>Designs and develops primarily internet/web pages and applications</li>
-<li>Develops proof-of-concepts and prototypes of easy-to-navigate user interfaces (UIs) that consists of web pages with graphics, icons, and color schemes that are visually appealing</li>
-<li>Has familiarity to, or may actually: code, test, debug documents, and implement web applications using a variety of platforms</li>
-<li>Analyzing and synthesizing the results of usability testing in order to provide recommendations for change to a system</li>
-</ul>
-</td>
-
-</tr>
-
-<tr>
-
-<td colspan="1">6.</td>
-
-<td colspan="1">Writer / Content Designer / Content Strategist</td>
-
-<td colspan="1">Category 13</td>
-
-<td colspan="1"><a href="https://www.linkedin.com/in/jonathanp8888">Jonathan Parker</a></td>
-
-<td colspan="1">
-<ul>
-<li>Assign, edit, and produce content for products, services, and various projects</li>
-<li>Collaborate closely with developers and designers to create, test, and deploy effective content marketing experiences using the Agile method of software development</li>
-<li>Offer educated recommendations on how to deliver a consistent, sustainable and standards-driven execution of content strategy across products, services, and projects</li>
-<li>Participate, as needed, on an Agile software development scrum teams</li>
-</ul>
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align: center;" colspan="1">7.</td>
-
-<td rowspan="5" ><span>Frontend Web Developer/</span><span>Backend Web Developer</span></td>
-
-<td rowspan="5"><span>Category 9 /</span> Category 10  
-
-</td>
-
-<td><a href="https://ua.linkedin.com/in/alexander-sankin-99023458">Alexander Sankin</a></td>
-
-<td rowspan="5">
-<ul>
-<li>Frontend web development using modern techniques and frameworks (HTML5, CSS3, CSS frameworks like LESS and SASS, Responsive Design, Bourbon, Twitter Bootstrap)</li>
-<li>JavaScript development using modern standards, including strict mode compliance, modularization techniques and tools, and frameworks and libraries (e.g., jQuery, MV* frameworks such as Backbone.js and Ember.js, D3, <span>AngularJS</span>)</li>
-<li>Creates web development using open-source web programming languages Java, JavaScript and frameworks AngularJS</li>
-<li>Develops and consumes web-based, RESTful APIs</li>
-<li>Uses Scalable search technology (ElasticSearch)</li>
-<li>Handling large data sets and scaling their handling and storage</li>
-<li>Uses and works with open source solutions and community</li>
-<li>Uses and works in team environments that use agile methodologies (Scrum)</li>
-<li>Uses Test-driven development</li>
-<li>Uses version control systems, specifically Git and GitHub</li>
-<li>Creates and deploys relational and non-relational database systems</li>
-<li>Communicates technical concepts to a non-technical audience</li>
-<li>Ensures Section 508 Compliance</li>
-<li>Creates web layouts from static images</li>
-</ul>
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align: center;" colspan="1">8.</td>
-
-<td colspan="1"><a href="https://www.linkedin.com/in/serge-redchuk-22b13518">Serge Redchuk</a</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align: center;" colspan="1">9.</td>
-
-<td colspan="1"><a href="https://ua.linkedin.com/in/oleg-korniichuk-3257302">Oleg Korniichuk</a></td>
-
-</tr>
-
-<tr>
-
-<td style="text-align: center;" colspan="1">10.</td>
-
-<td colspan="1"><a href="https://www.linkedin.com/in/alexander-serbin-7112622">Alexander Serbin</a></td>
-
-</tr>
-
-<tr>
-
-<td style="text-align: center;" colspan="1">11.</td>
-
-<td colspan="1"><a href="https://www.linkedin.com/in/aleksandr-nikitin-2234a22a">Oleksandr Nikitin</a></td>
-
-</tr>
-
-
-
-</tbody>
-
-</table>
-
-</div>
-
-<div>
-
-<table style="border-collapse: collapse;width: 62.0px;" border="0" cellpadding="0" cellspacing="0">
-
-<tbody>
-
-<tr style="height: 15.0pt;" height="20">
-
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
-
-</div>
-
-## U.S. Digital Services Playbook checklist
+## 6. Team Structure
+| # | Role | Agile Labor Category | Name | Responsibilities |
+| --- | --- | --- | --- | --- |
+| 1. |  Delivery Manager/Technical Architect<br/><br/>  Team Leader responsible for delivering the project |  Category 3 / <span>Category 5  |  <a href="https://www.linkedin.com/in/marushevskiy-leonid-57a733a">Leonid Marushevskyi</a> | <ul><li>Delivering projects and products using the appropriate agile project management methodology, learning & iterating frequently</li><li>Leading the collaborative, dynamic planning process – prioritizing the work that needs to be done against the capacity and capability of the team</li><li>Ensuring that product is built to an appropriate level of quality for the stage (alpha/beta/production)</li><li>Actively and openly sharing knowledge of best practices</li><li>Architecting the overall system, by using prototyping and proof of concepts, defining development technologies and solution components</li><li>Ensuring strategic alignment of technical design and architecture to meet business and user needs, and stay on top of emerging technologies</li><li>Working with the Product Manager to define the roadmap for product and translating this into user stories</li><li>Developing product roadmaps, backlogs, and measurable success criteria</li><li>Clearly communicates and works with stakeholders at every level</li> |
+| 2. |  Product Manager | Category 2 | <a href="https://www.linkedin.com/in/margreta-silverstone-a571709">Margreta Silverstone</a> | <ul><li>Leads one or more multi-disciplinary agile delivery teams to deliver excellent new products and/or iterations to existing products to meet user needs</li><li>Gathers user requirements based on a communicated understanding of diverse audience groups</li><li>Defines and gets stakeholder buy-in for product definition and delivery approach</li><li>Creates effective, prioritized product descriptions, and delivery plans to meet user needs in a cost-effective way</li><li>Interprets user research in order to make the correct product decisions</li><li>Continually keep abreast of changes to user habits, preferences, and behaviors across various digital platforms and their implications for successful delivery of software product</li><li>Underpins the delivery and iteration of digital services through effective analysis of qualitative and quantitative user data</li><li>Communicates credibly with a wide range of digital delivery disciplines and talent</li></ul> |
+| 3. | Business Analyst/User Researcher / Usability Tester | Category 4 / Category 12  | <a href="https://www.linkedin.com/in/pavel-khozhainov-4562509">Pavel Khozhainov</a> | <ul><li>Works closely with the Product Manager to define a product approach to meet the specified user need</li><li>Analyzes and maps the risks of this product approach and propose mitigation solutions</li><li>Defines how the predicted user and financial benefit can be realized, and how channel shifts will be measured</li><li>Makes recommendations for action against the analysis done</li><li>Conduct stakeholder interviews, user requirements analysis, task analysis, conceptual modeling, information architecture, interaction design, and usability testing</li><li>Produces user requirements specifications & experience goals, personas, storyboards, scenarios, flowcharts, design prototypes, and design specifications</li><li>Researches user needs as well as potential system enhancements</li><li>Planning, recruiting, and facilitating the usability testing of a system</li><li>Lead participatory and iterative design activities, including observational studies, customer interviews, usability testing, and other forms of requirements discovery</li><li>May create such artifacts as Usability Testing Plan, Testing Scripts, and Usability Testing Report</li></ul> |
+| 4. |  DevOps Engineer | Category 7  | <a href="https://www.linkedin.com/in/oleksandr-kuznetsov-69866171/en">Oleksander Kuznetsov</a> | <ul><li>Deploying and configuring services using infrastructure as a service providers (e.g., Amazon Web Services, Microsoft Azure, Google Compute Engine, RackSpace/OpenStack)</li><li>Configuring and managing Linux-based servers to serve a dynamic website</li><li>Debugging cluster-based computing architectures</li><li>Using scripting or basic programming skills to solve problems</li><li>Installing and managing the use of open source monitoring tools</li><li>Installing and monitoring configuration management tools (e.g., Puppet, Chef, Ansible, Salt)</li><li>Recommending and implementing Architecture for continuous integration and deployment, and continuous monitoring</li><li>Supports Containerization technologies (e.g., LXC, Docker, Rocket)</li></ul> |
+| 5. | Visual Designer/Interaction Designer | Category 11/Category 12 |  <a href="https://www.linkedin.com/in/dariia-iarmuratii-b3640b39/en">Dariia Iarmuratii</a> | <ul><li>Oversees all visual design efforts</li><li>Defines, creates, communicates, and manages required project documentation such as style guides and provides updates as necessary</li><li>Designs and specifies user interfaces and information architecture</li><li>Effectively communicates research findings, conceptual ideas, detailed design, and design rationale and goals both verbally and visually</li><li>Plans and facilitates collaborative critiques and analysis & synthesis working sessions</li><li>Works closely with visual designers and development teams to ensure that customer goals are met and design specifications are delivered upon</li><li>Designs and develops primarily internet/web pages and applications</li><li>Develops proof-of-concepts and prototypes of easy-to-navigate user interfaces (UIs) that consists of web pages with graphics, icons, and color schemes that are visually appealing</li><li>Has familiarity to, or may actually: code, test, debug documents, and implement web applications using a variety of platforms</li><li>Analyzing and synthesizing the results of usability testing in order to provide recommendations for change to a system</li></ul> |
+| 6. | Writer / Content Designer / Content Strategist | Category 13 | <a href="https://www.linkedin.com/in/jonathanp8888">Jonathan Parker</a>, <a href="https://www.linkedin.com/in/monica-morales-428036a">Monica Morales</a> | <ul><li>Assign, edit, and produce content for products, services, and various projects</li><li>Collaborate closely with developers and designers to create, test, and deploy effective content marketing experiences using the Agile method of software development</li><li>Offer educated recommendations on how to deliver a consistent, sustainable and standards-driven execution of content strategy across products, services, and projects</li><li>Participate, as needed, on an Agile software development scrum teams</li></ul>  |
+| 7. | Frontend Web Developer / Backend Web Developer | Category 9 / Category 10 |  <a href="https://ua.linkedin.com/in/alexander-sankin-99023458">Alexander Sankin</a>, <br/><a href="https://www.linkedin.com/in/serge-redchuk-22b13518">Serge Redchuk</a>, <a href="https://ua.linkedin.com/in/oleg-korniichuk-3257302">Oleg Korniichuk</a>, <a href="https://www.linkedin.com/in/alexander-serbin-7112622">Alexander Serbin</a>, <a href="https://www.linkedin.com/in/aleksandr-nikitin-2234a22a">Oleksandr Nikitin</a>| <ul><li>Frontend web development using modern techniques and frameworks (HTML5, CSS3, CSS frameworks like LESS and SASS, Responsive Design, Bourbon, Twitter Bootstrap)</li><li>JavaScript development using modern standards, including strict mode compliance, modularization techniques and tools, and frameworks and libraries (e.g., jQuery, MV* frameworks such as Backbone.js and Ember.js, D3, <span>AngularJS</span>)</li><li>Creates web development using open-source web programming languages Java, JavaScript and frameworks AngularJS</li><li>Develops and consumes web-based, RESTful APIs</li><li>Uses Scalable search technology (ElasticSearch)</li><li>Handling large data sets and scaling their handling and storage</li><li>Uses and works with open source solutions and community</li><li>Uses and works in team environments that use agile methodologies (Scrum)</li><li>Uses Test-driven development</li><li>Uses version control systems, specifically Git and GitHub</li><li>Creates and deploys relational and non-relational database systems</li><li>Communicates technical concepts to a non-technical audience</li><li>Ensures Section 508 Compliance</li><li>Creates web layouts from static images</li></ul>  |
+
+
+## 7. U.S. Digital Services Playbook checklist
 
 <div>
 
