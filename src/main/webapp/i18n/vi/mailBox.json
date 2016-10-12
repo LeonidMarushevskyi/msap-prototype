@@ -57,7 +57,14 @@
             "remove-attachment": "Di chuyển tập tin đính kèm",
             "to": "Đến",
             "subject": "Môn học",
-            "characters-left": "{{total}} ký tự còn lại"
+            "characters-left": "{{total}} ký tự còn lại",
+            "return-back-to-previous-page": "Quay trở lại trang trước",
+            "delete-all": "Xóa hết",
+            "delete-all-messages-in-the-thread": "Delete all messages in the thread",
+            "message-sender-recipient": "Xóa tất cả tin nhắn trong chủ đề",
+            "message-creation-time": "Hiện nhắn tạo",
+            "reply-on-current-message": "Trả lời về tin nhắn hiện tại",
+            "delete-current-message": "Xóa tin nhắn hiện tại"
         }
     }
 }

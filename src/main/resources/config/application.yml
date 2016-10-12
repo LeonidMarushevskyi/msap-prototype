@@ -61,7 +61,7 @@ jhipster:
         #allow-credentials: true
         #max-age: 1800
     mail:
-        from: msap@engagepoint.com
+        from: msap@msap.engagepoint.com
     security:
         rememberme:
             # security key (this key should be unique for your application, and kept secret)
