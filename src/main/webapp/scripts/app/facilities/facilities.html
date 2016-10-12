@@ -149,12 +149,11 @@
                         ng-repeat="ageGroup in lookupAgeGroups"
                         ng-if="isSelected('lookupAgeGroups', ageGroup.code);">
                         <div class="ch-facilities-extended-text-input">
-                            <label for="spots_ageGroup_{{ageGroup.code}}">
-                                {{'facilities.age-group' | translate}}:
-                                {{'lookups.lookupAgeGroups.' + ageGroup.code | translate}}
-                            </label>
                             <input id="spots_ageGroup_{{ageGroup.code}}" type="input"
                                    ng-model="ageGroup.availableSpots" ng-change="invalidate();">
+                            <label for="spots_ageGroup_{{ageGroup.code}}">
+                                {{'lookups.lookupAgeGroups.' + ageGroup.code | translate}}
+                            </label>
                         </div>
                     </li>
                 </ul>

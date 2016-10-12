@@ -24,6 +24,8 @@ public class FacilitySteps {
         sleep(3000);
         $(By.xpath(".//*[@class='ch-modal']//ul/li/*[contains(text(),'" + address + "')]")).shouldBe(visible);
         userStepDefs.click_xpath_and_wait(".//*[@class='ch-modal']//ul/li/*[contains(text(),'" + address + "')]");
+        $("#loading-bar-spinner").waitUntil(disappear, 15000);
+        sleep(1000);
         userStepDefs.click_css_and_wait("[ng-click*='onApplyAddress()']");
         $("[ng-click*='onApplyAddress()']").waitUntil(disappear, 10000);
     }
@@ -89,8 +91,8 @@ public class FacilitySteps {
     @When("^do Ask About for facility with address '(.*)' and name '(.*)' and send letter$")
     public void do_Ask_About_for_facility_with_address_and_name_and_send_letter(String facilityAddress, String facilityName) throws Throwable {
         userStepDefs.click_xpath_and_wait(".//*[contains(text(),'" + facilityAddress + "')]/ancestor::div[@class='ch-facilities']/descendant::*[text()='" + facilityName + "']/ancestor::div[@class='ch-facilities']/descendant::button/span[text()='Ask Caseworker']");
-        $("[ng-model='mail.subject']").shouldBe(visible);
-        $("[ng-model='mail.subject']").setValue("Ask about facility");
+        sleep(4000);
+        $("#loading-bar-spinner").waitUntil(disappear, 15000);
         userStepDefs.click_css_and_wait("[ng-click*='sendMail()']");
         $("[ng-click*='sendMail()']").waitUntil(disappear, 10000);
         userStepDefs.click_xpath_and_wait(".//*[contains(@class,'ch-alert-msg')]/*[text()='Message has been sent!']");
