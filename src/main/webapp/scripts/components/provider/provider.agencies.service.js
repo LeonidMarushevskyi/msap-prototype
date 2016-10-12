@@ -110,16 +110,21 @@ angular.module('msapApp')
                                 '+address.latitude': {'[]': [se.latitude, nw.latitude]},
                                 '+providerType.code': filter.providerTypeCodes,
                                 '+qualityRating.code': filter.qualityRatingCodes,
-                                '+isBeforeSchool': filter.isBeforeSchool ? 'true' : '',
-                                '+isAfterSchool': filter.isAfterSchool ? 'true' : '',
-                                '+isFullDay': filter.isFullDay ? 'true' : '',
-                                '+isWeekendCare': filter.isWeekendCare ? 'true' : '',
-                                '+isOpenOvernight': filter.isOpenOvernight ? 'true' : '',
-                                '+isSecondShift': filter.isSecondShift ? 'true' : '',
-                                '+isRespiteCare': filter.isRespiteCare ? 'true' : '',
                                 '+licenseType.code': filter.licenseTypeCodes,
                                 '+supportedSpecialNeeds.specialNeedType.code': filter.specialNeedCodes,
                                 '+supportedLanguages.language.code': filter.supportedLanguageCodes
+                            },
+
+                            {
+                                '+': {
+                                    'isBeforeSchool': filter.isBeforeSchool ? 'true' : '',
+                                    'isAfterSchool': filter.isAfterSchool ? 'true' : '',
+                                    'isFullDay': filter.isFullDay ? 'true' : '',
+                                    'isWeekendCare': filter.isWeekendCare ? 'true' : '',
+                                    'isOpenOvernight': filter.isOpenOvernight ? 'true' : '',
+                                    'isSecondShift': filter.isSecondShift ? 'true' : '',
+                                    'isRespiteCare': filter.isRespiteCare ? 'true' : ''
+                                }
                             },
 
                             {
