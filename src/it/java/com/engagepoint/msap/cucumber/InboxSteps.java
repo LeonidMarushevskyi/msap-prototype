@@ -25,6 +25,7 @@ public class InboxSteps {
         $("[ng-click='logout()']").waitUntil(disappear, 4000);
         userStepDefs.click_xpath_and_wait(".//div/span[text()='Inbox']");
         sleep(1500);
+        $("#loading-bar-spinner").waitUntil(disappear, 15000);
         $("[href='#/mail/sent']").shouldBe(visible);
         $("[href='#/mail/drafts']").shouldBe(visible);
         $("[ui-sref='ch-inbox.new-mail']").shouldBe(visible);
