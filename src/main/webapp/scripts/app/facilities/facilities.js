@@ -40,6 +40,9 @@ angular.module('msapApp')
                     lookupWorkingHours: ['$q', 'lookupWorkingHours', function ($q, lookupWorkingHours) {
                         return $q.when(lookupWorkingHours); // lookupWorkingHours is defined in constants.js
                     }],
+                    lookupWeeklyPriceRanges: ['$q', 'lookupWeeklyPriceRanges', function ($q, lookupWeeklyPriceRanges) {
+                        return $q.when(lookupWeeklyPriceRanges); // lookupWeeklyPriceRanges is defined in constants.js
+                    }],
                     lookupSpecialNeedGroup: ['LookupSpecialNeedGroup', function(LookupSpecialNeedGroup) {
                         return LookupSpecialNeedGroup.query().$promise;
                     }],

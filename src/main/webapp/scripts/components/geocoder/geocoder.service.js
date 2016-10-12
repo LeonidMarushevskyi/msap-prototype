@@ -24,7 +24,7 @@ angular.module('msapApp')
                     params: {
                         'boundary.country': 'USA'
                     },
-                    placeholder: 'Search Address',
+                    placeholder: 'Search providers near your address',
                     fullWidth: 650,
                     expanded: true,
                     markers: false,

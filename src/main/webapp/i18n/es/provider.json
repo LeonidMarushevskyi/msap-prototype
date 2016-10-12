@@ -35,7 +35,7 @@
             "address": "Address",
             "qualityRating": "QualityRating",
             "openSlot": "OpenSlot",
-            "schedule": "Schedule",
+            "schedule": "Horarios de apertura",
             "supportedSpecialNeed": "SupportedSpecialNeed",
             "review": "Review",
             "price": "Price",
