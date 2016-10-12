@@ -56,7 +56,14 @@
             "remove-attachment": "Eliminar el archivo adjunto",
             "to": "A",
             "subject": "Tema",
-            "characters-left": "{{total}} faltan caracteres"
+            "characters-left": "{{total}} faltan caracteres",
+            "return-back-to-previous-page": "Volver a la página anterior",
+            "delete-all": "Eliminar todos",
+            "delete-all-messages-in-the-thread": "Eliminar todos los mensajes en el hilo",
+            "message-sender-recipient": "Mensaje del Remitente / Destinatario",
+            "message-creation-time": "El tiempo de creación de mensajes",
+            "reply-on-current-message": "Responder a un mensaje actual",
+            "delete-current-message": "Borrar el mensaje actual"
         }
     }
 }
