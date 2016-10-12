@@ -78,6 +78,8 @@ angular.module('msapApp')
                                 '+isFullDay': filter.isFullDay ? 'true' : '',
                                 '+isWeekendCare': filter.isWeekendCare ? 'true' : '',
                                 '+isOpenOvernight': filter.isOpenOvernight ? 'true' : '',
+                                '+isSecondShift': filter.isSecondShift ? 'true' : '',
+                                '+isRespiteCare': filter.isRespiteCare ? 'true' : '',
 
                                 /*
                                  The following construct will prepare a query part like:

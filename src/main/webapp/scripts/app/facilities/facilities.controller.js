@@ -326,7 +326,7 @@ angular.module('msapApp')
                     }
                 },
                 text: $scope.searchText,
-                ageGroups: $scope.getSelectedCodes('lookupAgeGroups'),
+                ageGroups: $scope.getSelected('lookupAgeGroups'),
                 providerTypeCodes: $scope.getSelectedCodes('lookupProviderType'),
                 qualityRatingCodes: $scope.getSelectedCodes('lookupQualityRating'),
                 isBeforeSchool: $scope.isSelected('lookupWorkingHours', 1),
@@ -334,6 +334,8 @@ angular.module('msapApp')
                 isFullDay: $scope.isSelected('lookupWorkingHours', 3),
                 isWeekendCare: $scope.isSelected('lookupWorkingHours', 4),
                 isOpenOvernight: $scope.isSelected('lookupWorkingHours', 5),
+                isSecondShift: $scope.isSelected('lookupWorkingHours', 6),
+                isRespiteCare: $scope.isSelected('lookupWorkingHours', 7),
                 licenseTypeCodes: $scope.getSelectedCodes('lookupLicenseType'),
                 specialNeedCodes: $scope.getSelectedCodes('lookupSpecialNeedType'),
                 supportedLanguageCodes: $scope.getSelectedCodes('lookupLanguage'),
@@ -492,8 +494,8 @@ angular.module('msapApp')
             $scope.addSelectedFilterButton(modelName, code);
         };
 
-        $scope.applyAgeGroups = function(ageGroups) {
-            _.each(ageGroups, function (ageGroupCode) {
+        $scope.applyAgeGroups = function(ageGroupCodeList) {
+            _.each(ageGroupCodeList, function (ageGroupCode) {
                 $scope.setSelectedByCode('lookupAgeGroups', ageGroupCode);
             });
             $scope.updateSelectedCount('lookupAgeGroups');

@@ -31,7 +31,9 @@
             "2": "Sau khi chăm sóc học đường",
             "3": "Chăm sóc đầy đủ ngày",
             "4": "Chăm sóc Weekend",
-            "5": "Chăm sóc Nghỉ đêm"
+            "5": "Chăm sóc Nghỉ đêm",
+            "6": "Ca thứ hai",
+            "7": "Chăm sóc thay thế"
         },
         "lookupWeeklyPriceRanges": {
             "1": "ít hơn 25",
