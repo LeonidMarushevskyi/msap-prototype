@@ -15,9 +15,9 @@ angular.module('msapApp')
                 "Because: \n" +
                 "    (delete what is not applicable) \n" +
                 "I would like to schedule a visit  \n" +
-                "I want to know what services they offer \n" +
-                "I need temporary placement for my kid \n" +
-                "I want to visit my child there  \n" +
+                "I want to know what services they offer  \n" +
+                "I would like a subsidy to use their service  \n" +
+                "I would like more information on their past inspections  \n" +
                 "Other reasons.... \n\n\n" +
                 "    Thanks.";
         }
