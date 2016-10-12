@@ -223,7 +223,9 @@ angular.module('msapApp')
                                      return a.distanceValue - b.distanceValue;
                                    };
              }
-            agenciesDataSource.sort(sortFunction);
+            if (!_.isUndefined(agenciesDataSource)) {
+                agenciesDataSource.sort(sortFunction);
+            }
         };
 
         $scope.createLocations = function() {
