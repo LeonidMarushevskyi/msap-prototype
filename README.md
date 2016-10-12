@@ -3,7 +3,7 @@
 ## Main Links
 Prototype URL: [MSAP Parent Portal](http://www.msap.engagepoint.com)</br></br>
 [Continuous Delivery](http://jenkins.msap.engagepoint.com:8888/view/All/)</br>
-[Monitoring](http://zabbix.msap.engagepoint.com:10080/zabbix/charts.php?sid=b97ada3ab8730469&form_refresh=1&fullscreen=0&groupid=10&hostid=10142&graphid=883)</br>
+[Monitoring](http://zabbix.msap.engagepoint.com:10080/zabbix/charts.php?sid=283d739fb5f810b5&form_refresh=1&fullscreen=0&groupid=10&hostid=0&graphid=955)</br>
 [Code Quality](http://jenkins.msap.engagepoint.com:8080/overview?id=com.engagepoint.msap%3Amsap-prototype)</br>
 [U.S. Digital Service Playbook compliance]()</br>
 
@@ -224,3 +224,274 @@ In addition to built-in AWS monitored items like CPU, memory, etc. following App
 * Datasource connection parameters (Active, Idle connections)
 * REST services statistic
 * Threads statistic (Deadlock, Waiting)
+
+## Team Structure
+<div>
+
+<div>
+
+<table>
+
+<tbody>
+
+<tr>
+
+<th>#</th>
+
+<th>Role</th>
+
+<th>Agile Labor Category</th>
+
+<th><span>Name</span></th>
+
+<th>Responsibilities</th>
+
+</tr>
+
+<tr>
+
+<td style="text-align: center;" colspan="1">1.</td>
+
+<td>Delivery Manager/Technical Architect  
+
+Team Leader responsible for delivering the project
+
+</td>
+
+<td><span>Category 3 / <span>Category 5</span></span></td>
+
+<td><a href="https://www.linkedin.com/in/marushevskiy-leonid-57a733a">Leonid Marushevskyi</a></td>
+
+<td>
+
+*   Delivering projects and products using the appropriate agile project management methodology, learning & iterating frequently
+*   Leading the collaborative, dynamic planning process – prioritizing the work that needs to be done against the capacity and capability of the team
+*   Ensuring that product is built to an appropriate level of quality for the stage (alpha/beta/production)
+*   Actively and openly sharing knowledge of best practices
+*   Architecting the overall system, by using prototyping and proof of concepts, defining development technologies and solution components
+*   Ensuring strategic alignment of technical design and architecture to meet business and user needs, and stay on top of emerging technologies
+*   Working with the Product Manager to define the roadmap for product and translating this into user stories
+*   Developing product roadmaps, backlogs, and measurable success criteria
+*   Clearly communicates and works with stakeholders at every level
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align: center;" colspan="1">2.</td>
+
+<td>Product Manager</td>
+
+<td>Category 2</td>
+
+<td><a href="https://www.linkedin.com/in/margreta-silverstone-a571709">Margreta Silverstone</a></td>
+
+<td>
+
+*   Leads one or more multi-disciplinary agile delivery teams to deliver excellent new products and/or iterations to existing products to meet user needs
+*   Gathers user requirements based on a communicated understanding of diverse audience groups
+*   Defines and gets stakeholder buy-in for product definition and delivery approach
+*   Creates effective, prioritized product descriptions, and delivery plans to meet user needs in a cost-effective way
+*   Interprets user research in order to make the correct product decisions
+*   Continually keep abreast of changes to user habits, preferences, and behaviors across various digital platforms and their implications for successful delivery of software product
+*   Underpins the delivery and iteration of digital services through effective analysis of qualitative and quantitative user data
+*   Communicates credibly with a wide range of digital delivery disciplines and talent
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align: center;" colspan="1">3.</td>
+
+<td>Business Analyst/User Researcher / Usability Tester</td>
+
+<td>Category 4 / Category 12</td>
+
+<td><a href="https://www.linkedin.com/in/pavel-khozhainov-4562509">Pavel Khozhainov</a></td>
+
+<td>
+
+*   Works closely with the Product Manager to define a product approach to meet the specified user need
+*   Analyzes and maps the risks of this product approach and propose mitigation solutions
+*   Defines how the predicted user and financial benefit can be realized, and how channel shifts will be measured
+*   Makes recommendations for action against the analysis done.
+*   Conduct stakeholder interviews, user requirements analysis, task analysis, conceptual modeling, information architecture, interaction design, and usability testing
+*   Produces user requirements specifications & experience goals, personas, storyboards, scenarios, flowcharts, design prototypes, and design specifications
+*   Researches user needs as well as potential system enhancements
+*   Planning, recruiting, and facilitating the usability testing of a system
+*   Lead participatory and iterative design activities, including observational studies, customer interviews, usability testing, and other forms of requirements discovery
+*   May create such artifacts as Usability Testing Plan, Testing Scripts, and Usability Testing Report
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align: center;" colspan="1">4.</td>
+
+<td>DevOps Engineer</td>
+
+<td>Category 7</td>
+
+<td><a href="https://www.linkedin.com/in/oleksandr-kuznetsov-69866171/en">Oleksander Kuznetsov</a></td>
+
+<td>
+
+*   Deploying and configuring services using infrastructure as a service providers (e.g., Amazon Web Services, Microsoft Azure, Google Compute Engine, RackSpace/OpenStack)
+*   Configuring and managing Linux-based servers to serve a dynamic website
+*   Debugging cluster-based computing architectures
+*   Using scripting or basic programming skills to solve problems
+*   Installing and managing the use of open source monitoring tools
+*   Installing and monitoring configuration management tools (e.g., Puppet, Chef, Ansible, Salt)
+*   Recommending and implementing Architecture for continuous integration and deployment, and continuous monitoring
+*   Supports Containerization technologies (e.g., LXC, Docker, Rocket)
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align: center;" colspan="1">5.</td>
+
+<td>Visual Designer/Interaction Designer</td>
+
+<td>Category 11/Category 12</td>
+
+<td><a href="https://www.linkedin.com/in/dariia-iarmuratii-b3640b39/en">Dariia Iarmuratii</a>
+
+</td>
+
+<td>
+
+*   Oversees all visual design efforts
+*   Defines, creates, communicates, and manages required project documentation such as style guides and provides updates as necessary
+*   Designs and specifies user interfaces and information architecture
+*   Effectively communicates research findings, conceptual ideas, detailed design, and design rationale and goals both verbally and visually
+*   Plans and facilitates collaborative critiques and analysis & synthesis working sessions
+*   Works closely with visual designers and development teams to ensure that customer goals are met and design specifications are delivered upon
+*   Designs and develops primarily internet/web pages and applications
+*   Develops proof-of-concepts and prototypes of easy-to-navigate user interfaces (UIs) that consists of web pages with graphics, icons, and color schemes that are visually appealing
+*   Has familiarity to, or may actually: code, test, debug documents, and implement web applications using a variety of platforms
+*   Analyzing and synthesizing the results of usability testing in order to provide recommendations for change to a system
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1">6.</td>
+
+<td colspan="1">Writer / Content Designer / Content Strategist</td>
+
+<td colspan="1">Category 13</td>
+
+<td colspan="1"><a href="https://www.linkedin.com/in/jonathanp8888">Jonathan Parker</a></td>
+
+<td colspan="1">
+
+*   Assign, edit, and produce content for products, services, and various projects
+*   Collaborate closely with developers and designers to create, test, and deploy effective content marketing experiences using the Agile method of software development
+*   Offer educated recommendations on how to deliver a consistent, sustainable and standards-driven execution of content strategy across products, services, and projects
+*   Participate, as needed, on an Agile software development scrum teams
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align: center;" colspan="1">7.</td>
+
+<td rowspan="5" ><span>Frontend Web Developer/</span><span>Backend Web Developer</span></td>
+
+<td rowspan="5"><span>Category 9 /</span> Category 10  
+
+</td>
+
+<td><a href="https://ua.linkedin.com/in/alexander-sankin-99023458">Alexander Sankin</a></td>
+
+<td rowspan="5">
+
+*   Frontend web development using modern techniques and frameworks (HTML5, CSS3, CSS frameworks like LESS and SASS, Responsive Design, Bourbon, Twitter Bootstrap)
+*   JavaScript development using modern standards, including strict mode compliance, modularization techniques and tools, and frameworks and libraries (e.g., jQuery, MV* frameworks such as Backbone.js and Ember.js, D3, <span>AngularJS</span>)
+*   Creates web development using open-source web programming languages Java, JavaScript and frameworks AngularJS
+*   Develops and consumes web-based, RESTful APIs
+*   Uses Scalable search technology (ElasticSearch)
+*   Handling large data sets and scaling their handling and storage
+*   Uses and works with open source solutions and community
+*   Uses and works in team environments that use agile methodologies (Scrum)
+*   Uses Test-driven development
+*   Uses version control systems, specifically Git and GitHub
+*   Creates and deploys relational and non-relational database systems
+*   Communicates technical concepts to a non-technical audience
+*   Ensures Section 508 Compliance
+*   Creates web layouts from static images
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align: center;" colspan="1">8.</td>
+
+<td colspan="1"><a href="https://www.linkedin.com/in/serge-redchuk-22b13518">Serge Redchuk</a</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align: center;" colspan="1">9.</td>
+
+<td colspan="1"><a href="https://ua.linkedin.com/in/oleg-korniichuk-3257302">Oleg Korniichuk</a></td>
+
+</tr>
+
+<tr>
+
+<td style="text-align: center;" colspan="1">10.</td>
+
+<td colspan="1"><a href="https://www.linkedin.com/in/alexander-serbin-7112622">Alexander Serbin</a></td>
+
+</tr>
+
+<tr>
+
+<td style="text-align: center;" colspan="1">11.</td>
+
+<td colspan="1"><a href="https://www.linkedin.com/in/aleksandr-nikitin-2234a22a">Oleksandr Nikitin</a></td>
+
+</tr>
+
+
+
+</tbody>
+
+</table>
+
+</div>
+
+<div>
+
+<table style="border-collapse: collapse;width: 62.0px;" border="0" cellpadding="0" cellspacing="0">
+
+<tbody>
+
+<tr style="height: 15.0pt;" height="20">
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
