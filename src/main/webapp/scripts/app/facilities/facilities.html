@@ -149,12 +149,11 @@
                         ng-repeat="ageGroup in lookupAgeGroups"
                         ng-if="isSelected('lookupAgeGroups', ageGroup.code);">
                         <div class="ch-facilities-extended-text-input">
-                            <label for="spots_ageGroup_{{ageGroup.code}}">
-                                {{'facilities.age-group' | translate}}:
-                                {{'lookups.lookupAgeGroups.' + ageGroup.code | translate}}
-                            </label>
                             <input id="spots_ageGroup_{{ageGroup.code}}" type="input"
                                    ng-model="ageGroup.availableSpots" ng-change="invalidate();">
+                            <label for="spots_ageGroup_{{ageGroup.code}}">
+                                {{'lookups.lookupAgeGroups.' + ageGroup.code | translate}}
+                            </label>
                         </div>
                     </li>
                 </ul>
@@ -224,20 +223,20 @@
                             </div>
                         </li>
                     </li>
+                </ul>
 
-                    <li class="ch-checkboxes-group__item ch-checkboxes-group">
-                        <li class="ch-checkboxes-group__header">
-                            <span translate="facilities.license-type">License Type</span>
-                        </li>
+                <ul class="ch-facilities-extended-filters__item ch-checkboxes-group" has-any-authority="PARENT, FOSTER_PARENT, CASE_WORKER">
+                    <li class="ch-checkboxes-group__header">
+                        <span translate="facilities.license-type">License Type</span>:
+                    </li>
 
-                        <li class="ch-checkboxes-group__item" ng-repeat="licenseType in lookupLicenseType track by licenseType.id | orderBy: 'id'">
-                            <div class="form-type__checkbox_empty-label">
-                                <input id="licenseType_{{licenseType.code}}" type="checkbox"
-                                       ng-model="licenseType.selected"
-                                       ng-click="onFilterMenuItemClick('lookupLicenseType', licenseType.code);">
-                                <label for="licenseType_{{licenseType.code}}">{{'lookups.lookupLicenseType.' + licenseType.code | translate | capitalize:true}}</label>
-                            </div>
-                        </li>
+                    <li class="ch-checkboxes-group__item" ng-repeat="licenseType in lookupLicenseType track by licenseType.id | orderBy: 'id'">
+                        <div class="form-type__checkbox_empty-label">
+                            <input id="licenseType_{{licenseType.code}}" type="checkbox"
+                                   ng-model="licenseType.selected"
+                                   ng-click="onFilterMenuItemClick('lookupLicenseType', licenseType.code);">
+                            <label for="licenseType_{{licenseType.code}}">{{'lookups.lookupLicenseType.' + licenseType.code | translate | capitalize:true}}</label>
+                        </div>
                     </li>
                 </ul>
             </div>
