@@ -98,6 +98,7 @@ public class FacilitySteps {
         userStepDefs.click_xpath_and_wait(".//*[contains(@class,'ch-alert-msg')]/*[text()='Message has been sent!']");
         $("#loading-bar-spinner").waitUntil(disappear, 15000);
         $(By.xpath(".//*[contains(@class,'ch-alert-msg')]/*[text()='Message has been sent!']")).waitUntil(disappear, 10000);
+        sleep(4000);
     }
 
     @Then("^verify letter contains attachment$")
