@@ -5,12 +5,12 @@ angular.module('msapApp')
     ['$scope', '$state', '$log', '$q', 'searchParams',
         'leafletData', 'QualityRatingStars', 'ProviderAgenciesService',
         'GeocoderService', 'chLayoutConfigFactory', '$uibModal', 'Principal', 'AppPropertiesService', 'AddressUtils',
-        'lookupAgeGroups', 'lookupQualityRating', 'lookupProviderType', 'lookupWorkingHours',
+        'lookupAgeGroups', 'lookupQualityRating', 'lookupProviderType', 'lookupWorkingHours', 'lookupWeeklyPriceRanges',
         'lookupSpecialNeedGroup', 'lookupSpecialNeedType', 'lookupLicenseType', 'lookupLanguage',
     function ($scope, $state, $log, $q, searchParams,
               leafletData, QualityRatingStars, ProviderAgenciesService,
               GeocoderService, chLayoutConfigFactory, $uibModal, Principal, AppPropertiesService, AddressUtils,
-              lookupAgeGroups, lookupQualityRating, lookupProviderType, lookupWorkingHours,
+              lookupAgeGroups, lookupQualityRating, lookupProviderType, lookupWorkingHours, lookupWeeklyPriceRanges,
               lookupSpecialNeedGroup, lookupSpecialNeedType, lookupLicenseType, lookupLanguage) {
 
         $scope.searchParams = searchParams;
@@ -18,6 +18,7 @@ angular.module('msapApp')
         $scope.lookupProviderType = lookupProviderType;
         $scope.lookupQualityRating = lookupQualityRating;
         $scope.lookupWorkingHours = lookupWorkingHours;
+        $scope.lookupWeeklyPriceRanges = lookupWeeklyPriceRanges;
         $scope.lookupSpecialNeedGroup = lookupSpecialNeedGroup;
         $scope.lookupSpecialNeedType = lookupSpecialNeedType;
         $scope.lookupLicenseType = lookupLicenseType;
@@ -37,6 +38,7 @@ angular.module('msapApp')
             lookupProviderType: _.cloneDeep($scope.MENU_CONFIG),
             lookupQualityRating: _.cloneDeep($scope.MENU_CONFIG),
             lookupWorkingHours: _.cloneDeep($scope.MENU_CONFIG),
+            lookupWeeklyPriceRanges: _.cloneDeep($scope.MENU_CONFIG),
             lookupSpecialNeedGroup: _.cloneDeep($scope.MENU_CONFIG),
             lookupSpecialNeedType: _.cloneDeep($scope.MENU_CONFIG),
             lookupLicenseType: _.cloneDeep($scope.MENU_CONFIG),
