@@ -1,4 +1,4 @@
-$facilities-popup-height: 490px;
+$facilities-popup-height: 430px;
 
 .ch-facilities-extended-filters {
     overflow: hidden;
@@ -40,10 +40,13 @@ $facilities-popup-height: 490px;
     .ch-facilities-extended-text-input {
         margin: 0;
         label {
+            display: inline-block;
             font-weight: normal;
+            margin-left: 10px;
         }
 
         input {
+            display: inline-block;
             border-color: #cbcdcf;
             font-size: 1.5rem;
             padding: 5px;
