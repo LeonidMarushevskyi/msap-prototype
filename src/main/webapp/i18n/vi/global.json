@@ -89,7 +89,7 @@
                 "lookupAgeGroups": "LookupAgeGroups",
                 "lookupDayOfWeek": "LookupDayOfWeek",
                 "lookupSpecialNeedGroup": "LookupSpecialNeedGroup",
-                "schedule": "Schedule",
+                "schedule": "Giờ mở cửa",
                 "price": "Price",
                 "openSlot": "OpenSlot",
                 "substantiatedAllegation": "SubstantiatedAllegation",
