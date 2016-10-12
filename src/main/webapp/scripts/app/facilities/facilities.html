@@ -294,7 +294,8 @@
 <div class="ch-mobile-facilities__list-view" ng-class="showMapView">
   <div class = "ch-layout__content ch-layout__content_facilities" ng-class="{ 'ch-layout__content_fullwidth' : isContentFullWidth }" ui-view="main">
       <div>
-          <leaflet defaults="defaults" lf-center="center" markers="locations" style="{{returnMapHeight()}} ; position: relative" layers="layers"></leaflet>
+          <leaflet ng-if="isEnoughWidth" defaults="defaults" lf-center="center" markers="locations" style="height: calc(100vh - 18rem); position: relative" layers="layers"></leaflet>
+          <leaflet ng-if="!isEnoughWidth" defaults="defaults" lf-center="center" markers="locations" style="height: calc(100vh - 11rem); position: relative" layers="layers"></leaflet>
       </div>
   </div>
 </div>

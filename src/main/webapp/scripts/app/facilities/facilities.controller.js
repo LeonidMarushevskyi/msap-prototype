@@ -59,14 +59,8 @@ angular.module('msapApp')
         var agenciesViewPage = 10;
         var windowWidth = $(window).width();
 
-        $scope.returnMapHeight = function() {
-          var heightMapDesktop = "height: calc(100vh - 18rem)";
-          var heightMapMobile = "height: calc(100vh - 11rem)";
-            if (windowWidth > 640) {
-                return heightMapDesktop;
-            } else {
-                return heightMapMobile;
-            }
+        $scope.isEnoughWidth = function() {
+            return windowWidth > 640;
         };
 
         $scope.agenciesLength = 0;
