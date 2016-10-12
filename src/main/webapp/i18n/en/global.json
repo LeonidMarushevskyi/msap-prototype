@@ -1,5 +1,9 @@
 {
     "global": {
+        "menu1": "Menu",
+        "my-profile": "My Profile",
+        "facilities": "Facilities",
+        "sign-out": "Sign Out",
         "providers": "Providers",
         "inbox": "Inbox",
         "provider-menu-item-description": "Child Care Provider Search",
