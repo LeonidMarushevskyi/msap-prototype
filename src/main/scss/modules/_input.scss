@@ -14,7 +14,7 @@
 
 #username,
 #password {
-    font-size: 1.7rem !important;    
+    font-size: 1.7rem !important;
 }
 
 .form-type__checkbox_empty-label {
@@ -465,8 +465,7 @@ input[type=range]:focus::-ms-thumb {
   width: calc(100% - 4.5rem);
 }
 
-[type="submit"] {
-  background-image: url("../images/ui-icon/search.png");
+[type="submit"] {  
   background-position: 50%;
   background-repeat: no-repeat;
   border-bottom-left-radius: 0;

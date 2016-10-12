@@ -84,12 +84,8 @@ html {
           }
 
           .icon-search {
-              @media screen and (max-width: $break-phone) {
-                  -webkit-mask: url("../images/us-icon/icon-login-search.svg") no-repeat center;
-                  mask: url("../images/us-icon/icon-login-search.svg") no-repeat center;
-                  -webkit-mask-size: cover;
-                  mask-size: cover;
-                  background-color: $primary-color-blue;
+              @media screen and (max-width: $break-phone) {                  
+                  background: url("../images/us-icon/icon-login-search-blue.svg") no-repeat center;
               }
           }
 

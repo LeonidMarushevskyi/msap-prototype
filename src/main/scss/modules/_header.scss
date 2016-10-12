@@ -43,7 +43,7 @@
 
     @media screen and (max-width: $break-phone) {
         float: none;
-        padding: 1.6rem 2.5rem 0 0;    
+        padding: 1.6rem 2.5rem 0 0;
     }
 }
 
@@ -59,8 +59,9 @@
 
     .icon {
         width: 3rem;
-        height: 2rem;
+        height: 3rem;
         display: inline-block;
+        background-size: cover;
     }
 }
 
@@ -77,11 +78,12 @@
     }
 }
 
-.icon-menu-close {
-    width: 2.6rem;
-    height: 2.6rem;
+.icon.icon-menu-close {
+    width: 1.6rem;
+    height: 1.6rem;
     display: inline-block;
-    background: url("../images/us-icon/icon-close.png") no-repeat center;
+    position: relative;
+    top: -.1rem;
 }
 
 .ch-user-account-entry__language-globe:before {

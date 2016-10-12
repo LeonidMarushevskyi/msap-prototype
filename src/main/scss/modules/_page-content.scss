@@ -42,9 +42,12 @@
     &:hover {
         border-color: $primary-color-blue;
 
-        .icon-remove,
+        .icon-remove {
+            background: url("../images/us-icon/icon-recycle-bin-hover.svg") no-repeat center;
+        }
+
         .icon-inbox-answer {
-            background-color: $primary-color-blue;
+            background: url("../images/us-icon/icon-inbox-answer-hover.svg") no-repeat center;
         }
 
         .actions__text {
@@ -55,7 +58,7 @@
     @media screen and (max-width: 640px) {
         height: 6rem;
         padding: 1.4rem 1.8rem;
-        border: .3rem solid #0071bc;
+        border: .3rem solid $primary-color-blue;
     }
 
   .icon {
