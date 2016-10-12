@@ -31,7 +31,9 @@
             "2": "After School Care",
             "3": "Full Day Care",
             "4": "Weekend Care",
-            "5": "Overnight Care"
+            "5": "Overnight Care",
+            "6": "Second shift",
+            "7": "Respite care"
         },
         "lookupWeeklyPriceRanges": {
             "1": "less than 25",
