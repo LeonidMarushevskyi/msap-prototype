@@ -7,10 +7,11 @@ angular.module('msapApp')
         $scope.mail = _.cloneDeep(mail);
 
         if (!_.isNil($scope.mail.askAbout)) {
-            var fName = !_.isNil($scope.mail.askAbout.facility_name) ? $scope.mail.askAbout.facility_name : '';
+            var fName = !_.isNil($scope.mail.askAbout.providerName) ? $scope.mail.askAbout.providerName : '';
             $scope.mail.subject = fName;
             $scope.mail.body =
-                "I am interested in more information about '" + fName + "'\n\n" +
+                "I am interested in more information about " + fName + " at " +
+                    $scope.mail.askAbout.formattedAddress + "\n\n" +
                 "Because: \n" +
                 "    (delete what is not applicable) \n" +
                 "I would like to schedule a visit  \n" +
