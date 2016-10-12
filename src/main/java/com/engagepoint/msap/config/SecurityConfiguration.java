@@ -129,6 +129,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/api/lookupQualityRatings").permitAll()
             .antMatchers("/api/lookupLicenseTypes").permitAll()
             .antMatchers("/api/lookupLanguages").permitAll()
+            .antMatchers("/api/lookupStates").permitAll()
             .antMatchers("/api/register").permitAll()
             .antMatchers("/api/activate").permitAll()
             .antMatchers("/api/authenticate").permitAll()
