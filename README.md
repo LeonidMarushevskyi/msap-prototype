@@ -514,13 +514,13 @@ Team Leader responsible for delivering the project
 
 <tr>
 
-<td 
+<td> 
 
 Play Checklist and Key Questions
 
 </td>
 
-<td 
+<td>
 
 Response / Artifacts
 
@@ -530,7 +530,7 @@ Response / Artifacts
 
 <tr>
 
-<td 
+<td> 
 
 <div >
 
@@ -561,7 +561,7 @@ Response / Artifacts
 
 </td>
 
-<td 
+<td >
 
 ### <span style="color: rgb(0,0,0);">Checklist</span>
 
@@ -590,7 +590,7 @@ Response / Artifacts
 
 <tr>
 
-<td 
+<td >
 
 <div >
 
@@ -614,7 +614,7 @@ Response / Artifacts
 
 </td>
 
-<td 
+<td>
 
 ### Checklist
 
@@ -640,7 +640,7 @@ Response / Artifacts
 
 <tr>
 
-<td 
+<td>
 
 <div >
 
@@ -668,7 +668,7 @@ Response / Artifacts
 
 </td>
 
-<td 
+<td>
 
 ### Checklist
 
@@ -696,7 +696,7 @@ Response / Artifacts
 
 <tr>
 
-<td colspan="1" 
+<td colspan="1" >
 
 <div >
 
@@ -730,7 +730,7 @@ Response / Artifacts
 
 </td>
 
-<td colspan="1" 
+<td colspan="1" >
 
 ### Checklist
 
@@ -792,7 +792,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 <tr>
 
-<td colspan="1" 
+<td colspan="1" >
 
 <div >
 
@@ -820,7 +820,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 </td>
 
-<td colspan="1" 
+<td colspan="1" >
 
 ### Checklist
 
@@ -846,7 +846,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 <tr>
 
-<td colspan="1" 
+<td colspan="1" >
 
 <div >
 
@@ -870,7 +870,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 </td>
 
-<td colspan="1" 
+<td colspan="1" >
 
 ### Checklist
 
@@ -892,7 +892,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 <tr>
 
-<td colspan="1" 
+<td colspan="1" >
 
 <div >
 
@@ -913,7 +913,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 </td>
 
-<td colspan="1" 
+<td colspan="1" >
 
 ### Checklist
 
@@ -932,7 +932,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 <tr>
 
-<td colspan="1" 
+<td colspan="1" >
 
 <div >
 
@@ -955,7 +955,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 </td>
 
-<td colspan="1" 
+<td colspan="1" >
 
 ### <span style="color: rgb(0,51,102);">Checklist</span>
 
@@ -993,7 +993,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 <tr>
 
-<td colspan="1" 
+<td colspan="1" >
 
 <div >
 
@@ -1029,7 +1029,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 </td>
 
-<td colspan="1" 
+<td colspan="1" >
 
 ### Checklist
 
@@ -1069,7 +1069,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 <tr>
 
-<td colspan="1" 
+<td colspan="1" >
 
 <div >
 
@@ -1100,7 +1100,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 </td>
 
-<td colspan="1" 
+<td colspan="1" >
 
 ### Checklist
 
@@ -1146,7 +1146,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 <tr>
 
-<td colspan="1" 
+<td colspan="1" >
 
 <div >
 
@@ -1174,7 +1174,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 </td>
 
-<td colspan="1" 
+<td colspan="1" >
 
 ### Checklist
 
@@ -1200,7 +1200,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 <tr>
 
-<td colspan="1" 
+<td colspan="1" >
 
 <div >
 
@@ -1237,7 +1237,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 </td>
 
-<td colspan="1" 
+<td colspan="1" >
 
 ### Checklist
 
@@ -1276,7 +1276,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 <tr>
 
-<td colspan="1" 
+<td colspan="1" >
 
 <div >
 
@@ -1306,7 +1306,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 </td>
 
-<td colspan="1" 
+<td colspan="1" >
 
 ### Checklist
 
