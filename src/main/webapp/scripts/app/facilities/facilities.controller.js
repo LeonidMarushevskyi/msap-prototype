@@ -302,7 +302,13 @@ angular.module('msapApp')
             $scope.invalidate();
         };
 
+        $scope.doNotSearch = true;
         $scope.findAgenciesWithinBox = function(bounds) {
+            if ($scope.doNotSearch) {
+                $scope.doNotSearch = false;
+                return;
+            }
+
             $scope.text = $scope.searchText;
             if ($scope.center.lat === 0 && $scope.center.lng === 0) {
                 return;
