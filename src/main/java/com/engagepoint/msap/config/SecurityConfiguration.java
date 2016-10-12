@@ -118,6 +118,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .and()
             .authorizeRequests()
             .antMatchers("/api/_search/providers/**").permitAll()
+            .antMatchers("/api/_search/openSlots/**").permitAll()
             .antMatchers("/api/elasticsearch/index").permitAll()
             .antMatchers("/api/app-properties/default-address").permitAll()
             .antMatchers("/api/lookupSpecialNeedTypes").permitAll()

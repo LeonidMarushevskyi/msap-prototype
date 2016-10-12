@@ -56,7 +56,14 @@
             "remove-attachment": "Remove attachment",
             "to": "To",
             "subject": "Subject",
-            "characters-left": "{{total}} characters left"
+            "characters-left": "{{total}} characters left",
+            "return-back-to-previous-page": "Return back to previous page",
+            "delete-all": "Delete All",
+            "delete-all-messages-in-the-thread": "Delete all messages in the thread",
+            "message-sender-recipient": "Message Sender/Recipient",
+            "message-creation-time": "Message creation time",
+            "reply-on-current-message": "Reply on current message",
+            "delete-current-message": "Delete current message"
         }
     }
 }
