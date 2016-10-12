@@ -31,7 +31,9 @@
             "2": "Después de la escuela",
             "3": "Llena de Día",
             "4": "Cuidado de fin de semana",
-            "5": "Cuidado de la noche a la mañana"
+            "5": "Cuidado de la noche a la mañana",
+            "6": "Segundo turno",
+            "7": "El cuidado de relevo"
         },
         "lookupWeeklyPriceRanges": {
             "1": "menos de 25",

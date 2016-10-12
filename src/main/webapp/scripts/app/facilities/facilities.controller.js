@@ -105,7 +105,13 @@ angular.module('msapApp')
         };
 
         $scope.viewConfig = {presentation: 'list'};
-        $scope.center = {lat: 0, lng: 0, zoom: $scope.DEFAULT_ZOOM};
+        $scope.center = {lat: 32.298855, lng: -90.2619969, zoom: $scope.DEFAULT_ZOOM};
+        leafletData.getMap().then(function (map) {
+            console.log("11111111111111");
+            console.log("11111111111111");
+            console.log("11111111111111");
+            map._onResize();
+        });
 
         $scope.getIconUrl = function(id) {
             return $('#' + 'icon_pin_' + id)[0].src;
@@ -320,7 +326,7 @@ angular.module('msapApp')
                     }
                 },
                 text: $scope.searchText,
-                ageGroups: $scope.getSelectedCodes('lookupAgeGroups'),
+                ageGroups: $scope.getSelected('lookupAgeGroups'),
                 providerTypeCodes: $scope.getSelectedCodes('lookupProviderType'),
                 qualityRatingCodes: $scope.getSelectedCodes('lookupQualityRating'),
                 isBeforeSchool: $scope.isSelected('lookupWorkingHours', 1),
@@ -328,6 +334,8 @@ angular.module('msapApp')
                 isFullDay: $scope.isSelected('lookupWorkingHours', 3),
                 isWeekendCare: $scope.isSelected('lookupWorkingHours', 4),
                 isOpenOvernight: $scope.isSelected('lookupWorkingHours', 5),
+                isSecondShift: $scope.isSelected('lookupWorkingHours', 6),
+                isRespiteCare: $scope.isSelected('lookupWorkingHours', 7),
                 licenseTypeCodes: $scope.getSelectedCodes('lookupLicenseType'),
                 specialNeedCodes: $scope.getSelectedCodes('lookupSpecialNeedType'),
                 supportedLanguageCodes: $scope.getSelectedCodes('lookupLanguage'),
@@ -486,8 +494,8 @@ angular.module('msapApp')
             $scope.addSelectedFilterButton(modelName, code);
         };
 
-        $scope.applyAgeGroups = function(ageGroups) {
-            _.each(ageGroups, function (ageGroupCode) {
+        $scope.applyAgeGroups = function(ageGroupCodeList) {
+            _.each(ageGroupCodeList, function (ageGroupCode) {
                 $scope.setSelectedByCode('lookupAgeGroups', ageGroupCode);
             });
             $scope.updateSelectedCount('lookupAgeGroups');
@@ -513,7 +521,7 @@ angular.module('msapApp')
             chLayoutConfigFactory.layoutConfigState.toggleBodyContentConfig();
             leafletData.getMap().then(function (map) {
                 map._onResize();
-            })
+            });
         };
         $scope.$watch(function(){
             return chLayoutConfigFactory.layoutConfigState.isAsideVisible;

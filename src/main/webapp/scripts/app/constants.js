@@ -36,7 +36,9 @@ angular.module('msapApp')
         {code: 2, name: 'After School Care'},
         {code: 3, name: 'Full Day Care'},
         {code: 4, name: 'Weekend Care'},
-        {code: 5, name: 'Overnight Care'}
+        {code: 5, name: 'Overnight Care'},
+        {code: 6, name: 'Second shift'},
+        {code: 7, name: 'Respite care'}
     ])
     .constant('lookupWeeklyPriceRanges', [
         {id: 1, code: 1, name: '0-25', min: 0, max: 25 },          // [ 0, 25 )
