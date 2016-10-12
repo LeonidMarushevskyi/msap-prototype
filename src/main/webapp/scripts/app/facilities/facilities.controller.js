@@ -105,7 +105,10 @@ angular.module('msapApp')
         };
 
         $scope.viewConfig = {presentation: 'list'};
-        $scope.center = {lat: 0, lng: 0, zoom: $scope.DEFAULT_ZOOM};
+        $scope.center = {lat: 32.298855, lng: -90.2619969, zoom: $scope.DEFAULT_ZOOM};
+        leafletData.getMap().then(function (map) {
+            map._onResize();
+        });
 
         $scope.getIconUrl = function(id) {
             return $('#' + 'icon_pin_' + id)[0].src;
@@ -513,7 +516,7 @@ angular.module('msapApp')
             chLayoutConfigFactory.layoutConfigState.toggleBodyContentConfig();
             leafletData.getMap().then(function (map) {
                 map._onResize();
-            })
+            });
         };
         $scope.$watch(function(){
             return chLayoutConfigFactory.layoutConfigState.isAsideVisible;
