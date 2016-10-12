@@ -1,5 +1,14 @@
 # Mississippi Vendor Challenge
 
+# Table of Contents
+[Main Links](#main-links)
+[User guide](#user-guide)
+[Project Description](#project-description)
+[Installation Guide](#installation-guide)
+[List of artifacts used to create the prototype](#list-of-artifacts-used-to-create-the-prototype)
+[Team Structure](#team-structure)
+[U.S. Digital Services Playbook checklist](#us-digital-services-playbook-checklist)
+
 ## Main Links
 **Prototype URL:** [MSAP Parent Portal - www.msap.engagepoint.com](http://www.msap.engagepoint.com)
 
@@ -34,14 +43,14 @@ Demo uses with role CASE_WORKER:
 
 EngagePoint implemented a modern, mobile-friendly, cloud-ready web application in only three weeks:
 
-1.    Performed 1:1 interviews and documentted results
-2.    Developed an interactive wireframe and performed usability testing with users
-3.    Developed user interface mock-ups using  [U.S. Web Design Standards](https://standards.usa.gov/) in compliance with [ADA508](https://www.section508.gov/)
-4.    Generated a generic web application using JHipster with an appropriate technology stack
-5.    Configured continuous integration and automated testing using [Jenkins](https://jenkins.io/)
-6.    Designed a data model and generated code artifacts using JHipster's entity generator
-7.    Developed custom user interfaces according to design mockups and integrated them into a generic application
-8.    Modified the front-end and back-end code to support prototype functionality
+1. Performed 1:1 interviews and documentted results
+2. Developed an interactive wireframe and performed usability testing with users
+3. Developed user interface mock-ups using  [U.S. Web Design Standards](https://standards.usa.gov/) in compliance with [ADA508](https://www.section508.gov/)
+4. Generated a generic web application using JHipster with an appropriate technology stack
+5. Configured continuous integration and automated testing using [Jenkins](https://jenkins.io/)
+6. Designed a data model and generated code artifacts using JHipster's entity generator
+7. Developed custom user interfaces according to design mockups and integrated them into a generic application
+8. Modified the front-end and back-end code to support prototype functionality
 
 Each development stage included automated tests (and performance and acceptance tests) for Java and JavaScript code. [SonarQube](http://www.sonarqube.org/) controlled code quality, incorporated in an automated continuous delivery workflow implemented in [Jenkins](https://jenkins.io/). We also manually reviewed code to ensure quality.
 
