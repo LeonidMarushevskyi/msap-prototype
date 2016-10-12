@@ -6,6 +6,7 @@ Feature: Register new user and log in. Change profile info and password
         When open home page
         Given random alphabetic name with 'testuser' and length '4' saved to 'testuser' variable
         When register new user with email '${testuser}', login '${testuser}' and password 'password'
+        When close browser
         When check confirmation letter for email '${testuser}'
 
     Scenario: log in and change profile info
