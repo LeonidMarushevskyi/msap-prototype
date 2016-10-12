@@ -1033,6 +1033,7 @@
                                         <nocache>true</nocache>
                                         <tags>
                                             <tag>${project.version}</tag>
+											<tag>${docker.jenkins.build}</tag>
                                         </tags>
                                         <assembly>
                                             <basedir>/</basedir>
