@@ -1,20 +1,22 @@
 msap-prototype-prod:
   container_name: msap-prototype-prod
   restart: unless-stopped
-  image: kaver79/msap-prototype
+  image: kaver79/msap-prototype:prod
+  log_driver: gelf
+  log_opt:
+    gelf-address: "udp://elk-int.msap.engagepoint.com:5050"
   environment:
     - COOKIE=SRV insert indirect nocache
     - TZ=America/New_York
     - jhipster_metrics_zabbix_enabled=true
     - jhipster_metrics_zabbix_host=zabbix.msap.engagepoint.com
     - jhipster_metrics_zabbix_periodSec=300
-    - jhipster_metrics_zabbix_hostMetadata=msap-prototype
+    - jhipster_metrics_zabbix_hostMetadata=msap-prototype-prod
     - SPRING_DATA_ELASTICSEARCH_CLUSTER-NAME=msap-prototype
     - SPRING_DATASOURCE_URL=jdbc:postgresql://msap-pgdb.cbesm4kp6uvt.us-west-2.rds.amazonaws.com:5432/prototype
     - SPRING_DATASOURCE_USERNAME=msap_prototype
     - SPRING_DATASOURCE_PASSWORD=msap-pr0t0type
     - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=elastic.msap.engagepoint.com:9300
-    - logback_graylogHost=elk-int.msap.engagepoint.com
     - SPRING_MAIL_HOST=mail-int.msap.engagepoint.com
   ports:
     - "8080:8080"

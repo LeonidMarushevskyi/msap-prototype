@@ -1,5 +1,9 @@
 {
     "global": {
+        "menu1": "Menu",
+        "my-profile": "My Profile",
+        "facilities": "Facilities",
+        "sign-out": "Sign Out",
         "providers": "Providers",
         "inbox": "Inbox",
         "provider-menu-item-description": "Child Care Provider Search",
@@ -85,7 +89,7 @@
                 "lookupAgeGroups": "LookupAgeGroups",
                 "lookupDayOfWeek": "LookupDayOfWeek",
                 "lookupSpecialNeedGroup": "LookupSpecialNeedGroup",
-                "schedule": "Schedule",
+                "schedule": "Open Hours",
                 "price": "Price",
                 "openSlot": "OpenSlot",
                 "substantiatedAllegation": "SubstantiatedAllegation",

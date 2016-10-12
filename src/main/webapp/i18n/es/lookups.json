@@ -31,7 +31,18 @@
             "2": "Después de la escuela",
             "3": "Llena de Día",
             "4": "Cuidado de fin de semana",
-            "5": "Cuidado de la noche a la mañana"
+            "5": "Cuidado de la noche a la mañana",
+            "6": "Segundo turno",
+            "7": "El cuidado de relevo"
+        },
+        "lookupWeeklyPriceRanges": {
+            "1": "menos de 25",
+            "2": "25 - 50",
+            "3": "50 - 75",
+            "4": "75 - 100",
+            "5": "100 - 125",
+            "6": "125 - 150",
+            "7": "150 y más"
         },
         "lookupLicenseType": {
             "1": "NO LICENCIADO",
@@ -57,7 +68,7 @@
             "11": "Trastorno de estrés postraumático",
             "12": "Trastorno de oposición desafiante",
             "13": "Ciego",
-            "14": "Sordo",
+            "14": "Discapacidad auditiva",
             "15": "Discapacidad visual",
             "16": "Audiencia limitada"
         },

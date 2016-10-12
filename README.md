@@ -1,5 +1,15 @@
 # Mississippi Vendor Challenge
 
+# Table of Contents
+1. [Main Links](#main-links)
+2. [User guide](#user-guide)
+3. [Project Description](#project-description)
+4. [Installation Guide](#installation-guide)
+5. [List of artifacts used to create the prototype](#list-of-artifacts-used-to-create-the-prototype)
+6. [Team Structure](#team-structure)
+7. [U.S. Digital Services Playbook checklist](#us-digital-services-playbook-checklist)
+
+
 ## Main Links
 **Prototype URL:** [MSAP Parent Portal - www.msap.engagepoint.com](http://www.msap.engagepoint.com)
 
@@ -34,23 +44,56 @@ Demo uses with role CASE_WORKER:
 
 EngagePoint implemented a modern, mobile-friendly, cloud-ready web application in only three weeks:
 
-1.    Performed 1:1 interviews and documentted results
-2.    Developed an interactive wireframe and performed usability testing with users
-3.    Developed user interface mock-ups using  [U.S. Web Design Standards](https://standards.usa.gov/) in compliance with [ADA508](https://www.section508.gov/)
-4.    Generated a generic web application using JHipster with an appropriate technology stack
-5.    Configured continuous integration and automated testing using [Jenkins](https://jenkins.io/)
-6.    Designed a data model and generated code artifacts using JHipster's entity generator
-7.    Developed custom user interfaces according to design mockups and integrated them into a generic application
-8.    Modified the front-end and back-end code to support prototype functionality
+1. Performed 1:1 interviews and documentted results
+2. Developed an interactive wireframe and performed usability testing with users
+3. Developed user interface mock-ups using  [U.S. Web Design Standards](https://standards.usa.gov/) in compliance with [ADA508](https://www.section508.gov/)
+4. Generated a generic web application using JHipster with an appropriate technology stack
+5. Configured continuous integration and automated testing using [Jenkins](https://jenkins.io/)
+6. Designed a data model and generated code artifacts using JHipster's entity generator
+7. Developed custom user interfaces according to design mockups and integrated them into a generic application
+8. Modified the front-end and back-end code to support prototype functionality
 
 Each development stage included automated tests (and performance and acceptance tests) for Java and JavaScript code. [SonarQube](http://www.sonarqube.org/) controlled code quality, incorporated in an automated continuous delivery workflow implemented in [Jenkins](https://jenkins.io/). We also manually reviewed code to ensure quality.
 
 ## Installation Guide
 To install and run the prototype on another machine, we provide several available options such as a Docker-based deployment and a compilation of the prototype from source code.
+
 ### Start application using Docker (applicable for production environments)
-We have published a Docker image with the application prototype to the Docker Hub. To run the Docker image on another machine, complete the following steps: </br>1. Install [Docker Toolbox](https://www.docker.com/products/docker-toolbox) on your machine</br>2. Start Docker Quickstart Terminal or use graphical tool Kitematic(Alpha)</br>3. Download docker compose file for standlone (  [msap-prototype-full.yml](https://github.com/engagepoint/msap-config/blob/master/msap-prototype-full.yml) ) or high availability ( [msap-prototype-ha.yml](https://github.com/engagepoint/msap-config/blob/master/msap-prototype-ha.yml)) solution.</br>4. Change spring\_mail\_host parameter in yml file to your e-mail server. Without email server, the application will not be able to send account activation emails so user registration will be not functional. In order to test the application capabilities without email server shall use system users.</br>Role Parent: username: parent, password: parent</br>Role Case Worker: username: worker, password: worker</br>Role Administrator: username: admin, password: admin</br>5. In Docker Terminal run the following command line: ```docker-compose f <full-path-to-file>/msap-prototype-<ha or full>.yml up -d```</br>Please wait 1 to 5 minutes for application start depends on network connection.</br>6. If you have Windows environment, you can open Kitematic (Alpha) and click on Web Preview to open application in the browser. In the Linux, application will be available by default URL [http://127.0.0.1:8080/#/](http://127.0.0.1:8080/#/) (for Full) or [http://127.0.0.1:24080](http://127.0.0.1:24080) (for HA)</br>7. For high availability (HA) configuration (msap-prototype-ha.yml) you can scale application. For this in Docker terminal run command line: ```docker-compose scale msap-prototype-ha=n```</br>, where n is desired quantity of Application's containers.
+
+We have published a Docker image with the application prototype to the Docker Hub. To run the Docker image on another machine, complete the following steps: 
+
+1. Install [Docker Toolbox](https://www.docker.com/products/docker-toolbox) on your machine
+2. Start Docker Quickstart Terminal or use graphical tool Kitematic(Alpha)
+3. Download docker compose file for standlone (  [msap-prototype-full.yml](https://github.com/engagepoint/msap-config/blob/master/msap-prototype-full.yml) ) or high availability ( [msap-prototype-ha.yml](https://github.com/engagepoint/msap-config/blob/master/msap-prototype-ha.yml)) solution.
+4. Change spring_mail_host parameter in yml file to your e-mail server. Without email server, the application will not be able to send account activation emails so user registration will be not functional. In order to test the application capabilities without email server shall use system users.
+Parent: username: parent, password: parent
+Foster Parent: username: fosterparent, password: parent
+Role Case Worker: username: worker, password: worker
+5. In Docker Terminal run the following command line: ```docker-compose f <full-path-to-file>/msap-prototype-<ha or full>.yml up -d```
+Please wait 1 to 5 minutes for application start depends on network connection.
+6. If you have Windows environment, you can open Kitematic (Alpha) and click on Web Preview to open application in the browser. In the Linux, application will be available by default URL [http://127.0.0.1:8080/#/](http://127.0.0.1:8080/#/) (for Full) or [http://127.0.0.1:24080](http://127.0.0.1:24080) (for HA)
+7. For high availability (HA) configuration (msap-prototype-ha.yml) you can scale application. For this in Docker terminal run command line: 
+```docker-compose scale msap-prototype-ha=n```
+, where n is desired quantity of Application's containers.
+
 ### Compile application from source code and start (any operation system, development environment)
-To compile the application from source code, you will need to setup and configure a development environment using the steps below:</br>1. 1.Install Java Development Kit (JDK) version 8 from  [the Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).</br>2. Install Java dependency management tool Maven from official  [Maven website](http://maven.apache.org/)</br>3. Install Git from  [git-scm.com](https://git-scm.com/downloads)</br>4. Use the project git repository with source code submitted by EngagePoint as a part of Vendor Challenge response</br>5. Install Node.js from  [the Node.js website](http://nodejs.org/). This will also install npm, which is the node package manager we are using in the next commands.</br>6. Navigate to the Git repository folder msap-prototype</br>7. Install Yeoman using the command line: ```npm install -g yo```</br>8. Install Bower using the command line: ```npm install -g bower```</br>9. Install  [Grunt](http://gruntjs.com/) using the command line: ```npm install -g grunt-cli```</br>10. Install JHipster using the command line: ```npm install -g generator-jhipster```</br></br>When the development environment is configured, you can compile and run the prototype application by following the steps below:</br>1. From Git repository folder msap-prototype, run Maven command: mvn spring-boot:run</br>2. The application will be automatically started on  [http://127.0.0.1:8080/#/](http://127.0.0.1:8080/#/) in 2-10 minutes dependse on performance of your machine
+To compile the application from source code, you will need to setup and configure a development environment using the steps below:
+
+1. Install Java Development Kit (JDK) version 8 from  [the Oracle website](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+2. Install Java dependency management tool Maven from official  [Maven website](http://maven.apache.org/)
+3. Install Git from  [git-scm.com](https://git-scm.com/downloads)
+4. Use the project git repository with source code submitted by EngagePoint as a part of Vendor Challenge response<
+5. Install Node.js from  [the Node.js website](http://nodejs.org/). This will also install npm, which is the node package manager we are using in the next commands.
+6. Navigate to the Git repository folder msap-prototype
+7. Install Yeoman using the command line: ```npm install -g yo```
+8. Install Bower using the command line: ```npm install -g bower```
+9. Install  [Grunt](http://gruntjs.com/) using the command line: ```npm install -g grunt-cli```
+10. Install JHipster using the command line: ```npm install -g generator-jhipster```
+
+When the development environment is configured, you can compile and run the prototype application by following the steps below:
+
+1. From Git repository folder msap-prototype, run Maven command: ```mvn spring-boot:run```
+2. The application will be automatically started on  [http://127.0.0.1:8080/#/](http://127.0.0.1:8080/#/) in 2-10 minutes dependse on performance of your machine
 
 ## List of artifacts used to create the prototype
 
@@ -232,6 +275,7 @@ In addition to built-in AWS monitored items like CPU, memory, etc. following App
 * Threads statistic (Deadlock, Waiting)
 
 ## Team Structure
+
 <div>
 
 <div>
@@ -269,16 +313,18 @@ Team Leader responsible for delivering the project
 <td><a href="https://www.linkedin.com/in/marushevskiy-leonid-57a733a">Leonid Marushevskyi</a></td>
 
 <td>
+<ul>
+<li>Delivering projects and products using the appropriate agile project management methodology, learning & iterating frequently</li>
+<li>Leading the collaborative, dynamic planning process – prioritizing the work that needs to be done against the capacity and capability of the team</li>
+<li>Ensuring that product is built to an appropriate level of quality for the stage (alpha/beta/production)</li>
+<li>Actively and openly sharing knowledge of best practices</li>
+<li>Architecting the overall system, by using prototyping and proof of concepts, defining development technologies and solution components</li>
+<li>Ensuring strategic alignment of technical design and architecture to meet business and user needs, and stay on top of emerging technologies</li>
+<li>Working with the Product Manager to define the roadmap for product and translating this into user stories</li>
+<li>Developing product roadmaps, backlogs, and measurable success criteria</li>
+<li>Clearly communicates and works with stakeholders at every level</li>
 
-*   Delivering projects and products using the appropriate agile project management methodology, learning & iterating frequently
-*   Leading the collaborative, dynamic planning process – prioritizing the work that needs to be done against the capacity and capability of the team
-*   Ensuring that product is built to an appropriate level of quality for the stage (alpha/beta/production)
-*   Actively and openly sharing knowledge of best practices
-*   Architecting the overall system, by using prototyping and proof of concepts, defining development technologies and solution components
-*   Ensuring strategic alignment of technical design and architecture to meet business and user needs, and stay on top of emerging technologies
-*   Working with the Product Manager to define the roadmap for product and translating this into user stories
-*   Developing product roadmaps, backlogs, and measurable success criteria
-*   Clearly communicates and works with stakeholders at every level
+</ul>
 
 </td>
 
@@ -295,16 +341,16 @@ Team Leader responsible for delivering the project
 <td><a href="https://www.linkedin.com/in/margreta-silverstone-a571709">Margreta Silverstone</a></td>
 
 <td>
-
-*   Leads one or more multi-disciplinary agile delivery teams to deliver excellent new products and/or iterations to existing products to meet user needs
-*   Gathers user requirements based on a communicated understanding of diverse audience groups
-*   Defines and gets stakeholder buy-in for product definition and delivery approach
-*   Creates effective, prioritized product descriptions, and delivery plans to meet user needs in a cost-effective way
-*   Interprets user research in order to make the correct product decisions
-*   Continually keep abreast of changes to user habits, preferences, and behaviors across various digital platforms and their implications for successful delivery of software product
-*   Underpins the delivery and iteration of digital services through effective analysis of qualitative and quantitative user data
-*   Communicates credibly with a wide range of digital delivery disciplines and talent
-
+<ul>
+<li>Leads one or more multi-disciplinary agile delivery teams to deliver excellent new products and/or iterations to existing products to meet user needs</li>
+<li>Gathers user requirements based on a communicated understanding of diverse audience groups</li>
+<li>Defines and gets stakeholder buy-in for product definition and delivery approach</li>
+<li>Creates effective, prioritized product descriptions, and delivery plans to meet user needs in a cost-effective way</li>
+<li>Interprets user research in order to make the correct product decisions</li>
+<li>Continually keep abreast of changes to user habits, preferences, and behaviors across various digital platforms and their implications for successful delivery of software product</li>
+<li>Underpins the delivery and iteration of digital services through effective analysis of qualitative and quantitative user data</li>
+<li>Communicates credibly with a wide range of digital delivery disciplines and talent</li>
+</ul>
 </td>
 
 </tr>
@@ -320,17 +366,18 @@ Team Leader responsible for delivering the project
 <td><a href="https://www.linkedin.com/in/pavel-khozhainov-4562509">Pavel Khozhainov</a></td>
 
 <td>
-
-*   Works closely with the Product Manager to define a product approach to meet the specified user need
-*   Analyzes and maps the risks of this product approach and propose mitigation solutions
-*   Defines how the predicted user and financial benefit can be realized, and how channel shifts will be measured
-*   Makes recommendations for action against the analysis done.
-*   Conduct stakeholder interviews, user requirements analysis, task analysis, conceptual modeling, information architecture, interaction design, and usability testing
-*   Produces user requirements specifications & experience goals, personas, storyboards, scenarios, flowcharts, design prototypes, and design specifications
-*   Researches user needs as well as potential system enhancements
-*   Planning, recruiting, and facilitating the usability testing of a system
-*   Lead participatory and iterative design activities, including observational studies, customer interviews, usability testing, and other forms of requirements discovery
-*   May create such artifacts as Usability Testing Plan, Testing Scripts, and Usability Testing Report
+<ul>
+<li>Works closely with the Product Manager to define a product approach to meet the specified user need</li>
+<li>Analyzes and maps the risks of this product approach and propose mitigation solutions</li>
+<li>Defines how the predicted user and financial benefit can be realized, and how channel shifts will be measured</li>
+<li>Makes recommendations for action against the analysis done</li>
+<li>Conduct stakeholder interviews, user requirements analysis, task analysis, conceptual modeling, information architecture, interaction design, and usability testing</li>
+<li>Produces user requirements specifications & experience goals, personas, storyboards, scenarios, flowcharts, design prototypes, and design specifications</li>
+<li>Researches user needs as well as potential system enhancements</li>
+<li>Planning, recruiting, and facilitating the usability testing of a system</li>
+<li>Lead participatory and iterative design activities, including observational studies, customer interviews, usability testing, and other forms of requirements discovery</li>
+<li>May create such artifacts as Usability Testing Plan, Testing Scripts, and Usability Testing Report</li>
+</ul>
 
 </td>
 
@@ -347,16 +394,16 @@ Team Leader responsible for delivering the project
 <td><a href="https://www.linkedin.com/in/oleksandr-kuznetsov-69866171/en">Oleksander Kuznetsov</a></td>
 
 <td>
-
-*   Deploying and configuring services using infrastructure as a service providers (e.g., Amazon Web Services, Microsoft Azure, Google Compute Engine, RackSpace/OpenStack)
-*   Configuring and managing Linux-based servers to serve a dynamic website
-*   Debugging cluster-based computing architectures
-*   Using scripting or basic programming skills to solve problems
-*   Installing and managing the use of open source monitoring tools
-*   Installing and monitoring configuration management tools (e.g., Puppet, Chef, Ansible, Salt)
-*   Recommending and implementing Architecture for continuous integration and deployment, and continuous monitoring
-*   Supports Containerization technologies (e.g., LXC, Docker, Rocket)
-
+<ul>
+<li>Deploying and configuring services using infrastructure as a service providers (e.g., Amazon Web Services, Microsoft Azure, Google Compute Engine, RackSpace/OpenStack)</li>
+<li>Configuring and managing Linux-based servers to serve a dynamic website</li>
+<li>Debugging cluster-based computing architectures</li>
+<li>Using scripting or basic programming skills to solve problems</li>
+<li>Installing and managing the use of open source monitoring tools</li>
+<li>Installing and monitoring configuration management tools (e.g., Puppet, Chef, Ansible, Salt)</li>
+<li>Recommending and implementing Architecture for continuous integration and deployment, and continuous monitoring</li>
+<li>Supports Containerization technologies (e.g., LXC, Docker, Rocket)</li>
+</ul>
 </td>
 
 </tr>
@@ -374,18 +421,18 @@ Team Leader responsible for delivering the project
 </td>
 
 <td>
-
-*   Oversees all visual design efforts
-*   Defines, creates, communicates, and manages required project documentation such as style guides and provides updates as necessary
-*   Designs and specifies user interfaces and information architecture
-*   Effectively communicates research findings, conceptual ideas, detailed design, and design rationale and goals both verbally and visually
-*   Plans and facilitates collaborative critiques and analysis & synthesis working sessions
-*   Works closely with visual designers and development teams to ensure that customer goals are met and design specifications are delivered upon
-*   Designs and develops primarily internet/web pages and applications
-*   Develops proof-of-concepts and prototypes of easy-to-navigate user interfaces (UIs) that consists of web pages with graphics, icons, and color schemes that are visually appealing
-*   Has familiarity to, or may actually: code, test, debug documents, and implement web applications using a variety of platforms
-*   Analyzing and synthesizing the results of usability testing in order to provide recommendations for change to a system
-
+<ul>
+<li>Oversees all visual design efforts</li>
+<li>Defines, creates, communicates, and manages required project documentation such as style guides and provides updates as necessary</li>
+<li>Designs and specifies user interfaces and information architecture</li>
+<li>Effectively communicates research findings, conceptual ideas, detailed design, and design rationale and goals both verbally and visually</li>
+<li>Plans and facilitates collaborative critiques and analysis & synthesis working sessions</li>
+<li>Works closely with visual designers and development teams to ensure that customer goals are met and design specifications are delivered upon</li>
+<li>Designs and develops primarily internet/web pages and applications</li>
+<li>Develops proof-of-concepts and prototypes of easy-to-navigate user interfaces (UIs) that consists of web pages with graphics, icons, and color schemes that are visually appealing</li>
+<li>Has familiarity to, or may actually: code, test, debug documents, and implement web applications using a variety of platforms</li>
+<li>Analyzing and synthesizing the results of usability testing in order to provide recommendations for change to a system</li>
+</ul>
 </td>
 
 </tr>
@@ -401,12 +448,12 @@ Team Leader responsible for delivering the project
 <td colspan="1"><a href="https://www.linkedin.com/in/jonathanp8888">Jonathan Parker</a></td>
 
 <td colspan="1">
-
-*   Assign, edit, and produce content for products, services, and various projects
-*   Collaborate closely with developers and designers to create, test, and deploy effective content marketing experiences using the Agile method of software development
-*   Offer educated recommendations on how to deliver a consistent, sustainable and standards-driven execution of content strategy across products, services, and projects
-*   Participate, as needed, on an Agile software development scrum teams
-
+<ul>
+<li>Assign, edit, and produce content for products, services, and various projects</li>
+<li>Collaborate closely with developers and designers to create, test, and deploy effective content marketing experiences using the Agile method of software development</li>
+<li>Offer educated recommendations on how to deliver a consistent, sustainable and standards-driven execution of content strategy across products, services, and projects</li>
+<li>Participate, as needed, on an Agile software development scrum teams</li>
+</ul>
 </td>
 
 </tr>
@@ -424,22 +471,22 @@ Team Leader responsible for delivering the project
 <td><a href="https://ua.linkedin.com/in/alexander-sankin-99023458">Alexander Sankin</a></td>
 
 <td rowspan="5">
-
-*   Frontend web development using modern techniques and frameworks (HTML5, CSS3, CSS frameworks like LESS and SASS, Responsive Design, Bourbon, Twitter Bootstrap)
-*   JavaScript development using modern standards, including strict mode compliance, modularization techniques and tools, and frameworks and libraries (e.g., jQuery, MV* frameworks such as Backbone.js and Ember.js, D3, <span>AngularJS</span>)
-*   Creates web development using open-source web programming languages Java, JavaScript and frameworks AngularJS
-*   Develops and consumes web-based, RESTful APIs
-*   Uses Scalable search technology (ElasticSearch)
-*   Handling large data sets and scaling their handling and storage
-*   Uses and works with open source solutions and community
-*   Uses and works in team environments that use agile methodologies (Scrum)
-*   Uses Test-driven development
-*   Uses version control systems, specifically Git and GitHub
-*   Creates and deploys relational and non-relational database systems
-*   Communicates technical concepts to a non-technical audience
-*   Ensures Section 508 Compliance
-*   Creates web layouts from static images
-
+<ul>
+<li>Frontend web development using modern techniques and frameworks (HTML5, CSS3, CSS frameworks like LESS and SASS, Responsive Design, Bourbon, Twitter Bootstrap)</li>
+<li>JavaScript development using modern standards, including strict mode compliance, modularization techniques and tools, and frameworks and libraries (e.g., jQuery, MV* frameworks such as Backbone.js and Ember.js, D3, <span>AngularJS</span>)</li>
+<li>Creates web development using open-source web programming languages Java, JavaScript and frameworks AngularJS</li>
+<li>Develops and consumes web-based, RESTful APIs</li>
+<li>Uses Scalable search technology (ElasticSearch)</li>
+<li>Handling large data sets and scaling their handling and storage</li>
+<li>Uses and works with open source solutions and community</li>
+<li>Uses and works in team environments that use agile methodologies (Scrum)</li>
+<li>Uses Test-driven development</li>
+<li>Uses version control systems, specifically Git and GitHub</li>
+<li>Creates and deploys relational and non-relational database systems</li>
+<li>Communicates technical concepts to a non-technical audience</li>
+<li>Ensures Section 508 Compliance</li>
+<li>Creates web layouts from static images</li>
+</ul>
 </td>
 
 </tr>

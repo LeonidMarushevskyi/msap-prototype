@@ -1,5 +1,9 @@
 {
     "global": {
+        "menu1": "Menú",
+        "my-profile": "Mi Perfil",
+        "facilities": "Comodidades",
+        "sign-out": "Cerrar Sesión",
         "providers": "Proveedores",
         "inbox": "Bandeja de entrada",
         "provider-menu-item-description": "Búsqueda de proveedores de cuidado de niños",
@@ -85,7 +89,7 @@
                 "lookupAgeGroups": "LookupAgeGroups",
                 "lookupDayOfWeek": "LookupDayOfWeek",
                 "lookupSpecialNeedGroup": "LookupSpecialNeedGroup",
-                "schedule": "Schedule",
+                "schedule": "Horarios de apertura",
                 "price": "Price",
                 "openSlot": "OpenSlot",
                 "substantiatedAllegation": "SubstantiatedAllegation",

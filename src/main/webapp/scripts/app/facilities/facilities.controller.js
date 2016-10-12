@@ -5,12 +5,12 @@ angular.module('msapApp')
     ['$scope', '$state', '$log', '$q', 'searchParams', 'StorageService', 'sessionAddress',
         'leafletData', 'QualityRatingStars', 'ProviderAgenciesService',
         'GeocoderService', 'chLayoutConfigFactory', '$uibModal', 'Principal', 'AppPropertiesService', 'AddressUtils',
-        'lookupAgeGroups', 'lookupQualityRating', 'lookupProviderType', 'lookupWorkingHours',
+        'lookupAgeGroups', 'lookupQualityRating', 'lookupProviderType', 'lookupWorkingHours', 'lookupWeeklyPriceRanges',
         'lookupSpecialNeedGroup', 'lookupSpecialNeedType', 'lookupLicenseType', 'lookupLanguage',
     function ($scope, $state, $log, $q, searchParams, StorageService, sessionAddress,
               leafletData, QualityRatingStars, ProviderAgenciesService,
               GeocoderService, chLayoutConfigFactory, $uibModal, Principal, AppPropertiesService, AddressUtils,
-              lookupAgeGroups, lookupQualityRating, lookupProviderType, lookupWorkingHours,
+              lookupAgeGroups, lookupQualityRating, lookupProviderType, lookupWorkingHours, lookupWeeklyPriceRanges,
               lookupSpecialNeedGroup, lookupSpecialNeedType, lookupLicenseType, lookupLanguage) {
 
         $scope.providerSortByMenuSelected = 'facilities.distance';
@@ -26,6 +26,7 @@ angular.module('msapApp')
         $scope.lookupProviderType = lookupProviderType;
         $scope.lookupQualityRating = lookupQualityRating;
         $scope.lookupWorkingHours = lookupWorkingHours;
+        $scope.lookupWeeklyPriceRanges = lookupWeeklyPriceRanges;
         $scope.lookupSpecialNeedGroup = lookupSpecialNeedGroup;
         $scope.lookupSpecialNeedType = lookupSpecialNeedType;
         $scope.lookupLicenseType = lookupLicenseType;
@@ -45,6 +46,7 @@ angular.module('msapApp')
             lookupProviderType: _.cloneDeep($scope.MENU_CONFIG),
             lookupQualityRating: _.cloneDeep($scope.MENU_CONFIG),
             lookupWorkingHours: _.cloneDeep($scope.MENU_CONFIG),
+            lookupWeeklyPriceRanges: _.cloneDeep($scope.MENU_CONFIG),
             lookupSpecialNeedGroup: _.cloneDeep($scope.MENU_CONFIG),
             lookupSpecialNeedType: _.cloneDeep($scope.MENU_CONFIG),
             lookupLicenseType: _.cloneDeep($scope.MENU_CONFIG),
@@ -103,7 +105,13 @@ angular.module('msapApp')
         };
 
         $scope.viewConfig = {presentation: 'list'};
-        $scope.center = {lat: 0, lng: 0, zoom: $scope.DEFAULT_ZOOM};
+        $scope.center = {lat: 32.298855, lng: -90.2619969, zoom: $scope.DEFAULT_ZOOM};
+        leafletData.getMap().then(function (map) {
+            console.log("11111111111111");
+            console.log("11111111111111");
+            console.log("11111111111111");
+            map._onResize();
+        });
 
         $scope.getIconUrl = function(id) {
             return $('#' + 'icon_pin_' + id)[0].src;
@@ -234,7 +242,7 @@ angular.module('msapApp')
                     }
                 );
                 agency.distance = agency.distanceValue.toFixed(1);
-                locations['fn' + agency.facility_number + '_' + agency.distance.replace('.', '_')] = {
+                locations['fn' + agency.id + '_' + agency.distance.replace('.', '_')] = {
                     layer: 'agencies',
                     lat: agency.address.latitude,
                     lng: agency.address.longitude,
@@ -318,7 +326,7 @@ angular.module('msapApp')
                     }
                 },
                 text: $scope.searchText,
-                ageGroups: $scope.getSelectedCodes('lookupAgeGroups'),
+                ageGroups: $scope.getSelected('lookupAgeGroups'),
                 providerTypeCodes: $scope.getSelectedCodes('lookupProviderType'),
                 qualityRatingCodes: $scope.getSelectedCodes('lookupQualityRating'),
                 isBeforeSchool: $scope.isSelected('lookupWorkingHours', 1),
@@ -326,6 +334,8 @@ angular.module('msapApp')
                 isFullDay: $scope.isSelected('lookupWorkingHours', 3),
                 isWeekendCare: $scope.isSelected('lookupWorkingHours', 4),
                 isOpenOvernight: $scope.isSelected('lookupWorkingHours', 5),
+                isSecondShift: $scope.isSelected('lookupWorkingHours', 6),
+                isRespiteCare: $scope.isSelected('lookupWorkingHours', 7),
                 licenseTypeCodes: $scope.getSelectedCodes('lookupLicenseType'),
                 specialNeedCodes: $scope.getSelectedCodes('lookupSpecialNeedType'),
                 supportedLanguageCodes: $scope.getSelectedCodes('lookupLanguage'),
@@ -484,8 +494,8 @@ angular.module('msapApp')
             $scope.addSelectedFilterButton(modelName, code);
         };
 
-        $scope.applyAgeGroups = function(ageGroups) {
-            _.each(ageGroups, function (ageGroupCode) {
+        $scope.applyAgeGroups = function(ageGroupCodeList) {
+            _.each(ageGroupCodeList, function (ageGroupCode) {
                 $scope.setSelectedByCode('lookupAgeGroups', ageGroupCode);
             });
             $scope.updateSelectedCount('lookupAgeGroups');
@@ -511,7 +521,7 @@ angular.module('msapApp')
             chLayoutConfigFactory.layoutConfigState.toggleBodyContentConfig();
             leafletData.getMap().then(function (map) {
                 map._onResize();
-            })
+            });
         };
         $scope.$watch(function(){
             return chLayoutConfigFactory.layoutConfigState.isAsideVisible;

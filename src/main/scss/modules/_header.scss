@@ -35,6 +35,10 @@
 .ch-user-account-entry__dropdown.ch-user-account-entry__profile {
     position: relative;
     top: -.7rem;
+
+    @media screen and (max-width: $break-phone) {
+        display: none;
+    }
 }
 
 .ch-header__subsection-user-account {

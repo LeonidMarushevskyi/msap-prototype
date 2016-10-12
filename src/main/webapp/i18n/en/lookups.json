@@ -31,7 +31,18 @@
             "2": "After School Care",
             "3": "Full Day Care",
             "4": "Weekend Care",
-            "5": "Overnight Care"
+            "5": "Overnight Care",
+            "6": "Second shift",
+            "7": "Respite care"
+        },
+        "lookupWeeklyPriceRanges": {
+            "1": "less than 25",
+            "2": "25 - 50",
+            "3": "50 - 75",
+            "4": "75 - 100",
+            "5": "100 - 125",
+            "6": "125 - 150",
+            "7": "150 and more"
         },
         "lookupLicenseType": {
             "1": "UNLICENSED",
@@ -57,7 +68,7 @@
             "11": "Post traumatic Stress Disorder (PTSD)",
             "12": "Oppositional Defiant Disorder (ODD)",
             "13": "Blind",
-            "14": "Deaf",
+            "14": "Hearing impaired",
             "15": "Visually impaired",
             "16": "Limited hearing"
         },
