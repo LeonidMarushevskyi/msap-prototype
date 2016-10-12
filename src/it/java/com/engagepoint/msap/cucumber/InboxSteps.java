@@ -19,12 +19,8 @@ public class InboxSteps {
 
     @When("^open inbox page$")
     public void open_inbox_page() throws Throwable {
-        userStepDefs.click_css_and_wait(".ch-user-account-entry__dropdown-btn");
-        $("[ng-click='logout()']").shouldBe(visible);
-        userStepDefs.click_css_and_wait(".ch-user-account-entry__dropdown-btn");
-        $("[ng-click='logout()']").waitUntil(disappear, 4000);
-        userStepDefs.click_xpath_and_wait(".//div/span[text()='Inbox']");
-        sleep(1500);
+        userStepDefs.click_xpath_and_wait(".//a[@href='#/mail/inbox']");
+        sleep(2000);
         $("#loading-bar-spinner").waitUntil(disappear, 15000);
         $("[href='#/mail/sent']").shouldBe(visible);
         $("[href='#/mail/drafts']").shouldBe(visible);
