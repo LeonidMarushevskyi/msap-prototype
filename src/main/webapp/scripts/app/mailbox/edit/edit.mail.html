@@ -9,11 +9,11 @@
                 </div>
                 <div class="ch-mail-heading__item ch-mail-heading__item_heading">
                     <h2 class="ch-new-mail-heading">
-                        {{!isReplyOn ? 'New Message' : mail.subject}}
+                        {{!isReplyOn ? ('msapApp.mailBox.new-message' | translate) : mail.subject}}
                     </h2>
                 </div>
 
-                <div>
+                <div class="ch-attachment-upload-info">
                     <h3>
                        <span>{{progressPercentage}} &nbsp;&nbsp;&nbsp;&nbsp;</span>
                     </h3>
@@ -24,14 +24,16 @@
                         <div class="ch-mail-attach-files__btn" title="Click to attach the file">
                             <a ngf-select="upload($file)"
                                class="ch-link-btn ch-link-btn_icon ch-link-btn_icon_attach-files"
-                               role="button">Attach files</a>
+                               role="button">
+                               <span class="ch-mail-attach-files__btn__text"><span translate="msapApp.mailBox.attach-files">Attach files</span></span>
+                             </a>
                         </div>
                     </div>
                 </div>
 
                 <div class="ch-mail-heading__item ch-mail-heading__item_action-btn">
                     <button type="button" class="ch-option-btn ch-option-btn_short-text ch-ink-btn" ng-click="inkRipple();sendMail()">
-                        <span class="ch-option-btn__text">{{isReplyOn ? 'Reply' : 'Send'}}</span>
+                        <span class="ch-option-btn__text">{{isReplyOn ? ('msapApp.mailBox.reply' | translate) : ('msapApp.mailBox.send' | translate)}}</span>
                         <span class="ink"></span>
                     </button>
                 </div>
@@ -44,7 +46,7 @@
 
                 <div class="ch-attachments__heading">
                     <h3>
-                        <span class="attachments-count">attachments</span>
+                        <span class="attachments-count"><span translate="msapApp.mailBox.attachments">attachments</span></span>
                     </h3>
                 </div>
 
@@ -56,17 +58,17 @@
                         </div>
 
                         <div class="ch-attachments__list__item__file">
-                            <span class="attachments-filename" title="File name">{{attachment.fileName}}</span>
-                            <span class="attachments-filesize" title="File size">{{attachment.fileSize | convertFileSizeToHuman}}</span>
+                            <span class="attachments-filename" title="{{'msapApp.mailBox.filename' | translate}}">{{attachment.fileName}}</span>
+                            <span class="attachments-filesize" title="{{'msapApp.mailBox.file-size' | translate}}">{{attachment.fileSize | convertFileSizeToHuman}}</span>
                         </div>
 
                         <div class="ch-attachments__list__item__actions">
 
                             <a href="api/file/{{attachment.id}}">
-                                <span class="icon icon-download" title="Download attachment"></span>
+                                <span class="icon icon-download" title="{{'msapApp.mailBox.download-attachment' | translate}}"></span>
                             </a>
 
-                            <span class="icon icon-remove" ng-click="removeAttachment(attachment)" title="Remove attachment"></span>
+                            <span class="icon icon-remove" ng-click="removeAttachment(attachment)" title="{{'msapApp.mailBox.remove-attachment' | translate}}"></span>
                         </div>
                     </li>
 
@@ -83,12 +85,12 @@
 
                         <div ng-if="!isReplyOn" class="ch-new-mail-field__label">
                             <button type="button" class="ch-dropdown-label-btn" ng-click="showContacts = !showContacts">
-                                <span class="ch-dropdown-label-btn__text">To</span>
+                                <span class="ch-dropdown-label-btn__text"><span translate="msapApp.mailBox.to">To</span></span>
                             </button>
                         </div>
 
                         <div ng-if="isReplyOn" class="ch-new-mail-field__label">
-                            <span class="ch-dropdown-label-btn__text">To</span>
+                            <span class="ch-dropdown-label-btn__text"><span translate="msapApp.mailBox.to">To</span></span>
                         </div>
 
                         <input type="text" class="ch-new-mail-field__input" ng-click="showContacts = !showContacts"
@@ -114,15 +116,16 @@
                         <input type="text" maxlength="100" class="ch-new-mail-field__input" ng-model="mail.subject"
                                ng-change="onTextChange()"
                                ng-class="isSubjectInvalid ? 'ch-invalid-send-field' : ''"
-                               placeholder="Subject:">
+                               placeholder="{{'msapApp.mailBox.subject' | translate}}:">
                     </div>
                 </div>
 
                 <div class="ch-new-mail__row-text">
                     <div class="ch-new-mail-text-body">
-                        <div class="ch-new-mail-text-body__text-counter">{{4000 - mail.body.length}} characters left</div>
+                        <div class="ch-new-mail-text-body__text-counter"><span translate="msapApp.mailBox.characters-left" translate-values="{total: {{4000 - mail.body.length}}}">{{4000 - mail.body.length}} characters left</span></div>
                         <textarea cols="30" maxlength="4000" rows="20" ng-model="mail.body"
                                   style="border: 1px solid #777777;"
+                                  set-height
                                   ng-change="onTextChange()"
                                   ng-class="isBodyInvalid ? 'ch-invalid-send-field' : ''"
                                   class="ch-new-mail-text-body__text-input"></textarea>

@@ -7,7 +7,7 @@ angular.module('msapApp')
                 parent: 'site',
                 url: '/mail',
                 data: {
-                    authorities: ['CASE_WORKER', 'PARENT'],
+                    authorities: ['CASE_WORKER', 'FOSTER_PARENT'],
                     pageTitle: ''
                 },
                 views: {
@@ -22,6 +22,12 @@ angular.module('msapApp')
                         templateUrl: 'scripts/app/mailbox/mailbox-mobile-nav.html',
                         controller: 'MailBoxCtrl'
                     }
+                },
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('mailBox');
+                        return $translate.refresh();
+                    }]
                 }
             });
     });

@@ -72,15 +72,15 @@ public class ContactResource {
 
         User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get();
         Authority worker = authorityRepository.findOne(AuthoritiesConstants.CASE_WORKER);
-        Authority parent = authorityRepository.findOne(AuthoritiesConstants.PARENT);
+        Authority fosterParent = authorityRepository.findOne(AuthoritiesConstants.FOSTER_PARENT);
 
-        if (user.getAuthorities().contains(parent)) {
+        if (user.getAuthorities().contains(fosterParent)) {
             Set<User> contacts = user.getMailBox().getContacts();
             page = new PageImpl<>(new ArrayList<>(contacts));
         } else if (user.getAuthorities().contains(worker)) {
             List<User> others = new ArrayList<>();
             for (User other : userRepository.findAll()) {
-                if (other.getAuthorities().contains(parent) ||
+                if (other.getAuthorities().contains(fosterParent) ||
                     other.getAuthorities().contains(worker)) {
                     others.add(other);
                 }

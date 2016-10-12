@@ -1,5 +1,24 @@
 {
     "facilities": {
+        "where-do-you-want-to-search": "¿Dónde desea buscar instalaciones residenciales de los niños?",
+        "apply-address": "Aplicar Dirección",
+        "save-address-to-profile": "Guardar la dirección de perfil",
+        "address-will-be-saved-automatically": "Dirección se guarda en su perfil y utiliza automáticamente la próxima vez",
+        "address-will-be-used-as-center": "Dirección elegida será utilizado como centro para la búsqueda de puntos de interés cerca",
+        "filter-by-status": "Instalaciones Filtrar por estado",
+        "put-any-available-information": "Ponga toda la información disponible sobre las instalaciones residenciales de los niños, como el nombre, la dirección o el nombre del administrador",
+        "put-address-where-you-want-to-search": "Poner la dirección en la que desea buscar instalaciones residenciales para niños",
+        "filter-by-status": "Instalaciones Filtrar por estado",
+        "put-any-available-information": "Ponga toda la información disponible sobre las instalaciones residenciales de los niños, como el nombre, la dirección o el nombre del administrador",
+        "put-address-where-you-want-to-search": "Poner la dirección en la que desea buscar instalaciones residenciales para niños",
+        "map-view": "Vista del Mapa",
+        "list-view": "Vista de la Lista",
+        "filters": "Filtros",
+        "put-facility-data-here": "Poner los datos de las instalaciones aquí",
+        "sort-by": "Ordenar por",
+        "distance": "Distancia",
+        "provider-name": "Nombre del proveedor",
+        "quality-star": "Calidad Grado de la estrella",
         "reset-filters": "Reiniciar los filtros",
         "show-all-filters": "Mostrar todos los Filtros",
         "hide-all-filters": "Ocultar Filtros",
@@ -16,10 +35,11 @@
         "all-provider-types": "Todos los Tipos de Proveedores",
         "license-type": "Tipo de licencia",
         "ask-case-worker": "Pregunta Asistente Social",
-        "spots-capitalized": "{{totalSpots}} Manchas:",
-        "spots-small": "{{totalSpots}} manchas:",
+        "spots-capitalized": "{{totalSpots}} Manchas",
+        "spots-small": "{{totalSpots}} manchas",
         "free-spots": "LUGARES LIBRES",
-        "schedule": "Programar:",
+        "no-free-spots": "sin manchas gratuitas",
+        "schedule": "Programar",
         "special-needs": "Necesidades Especiales",
         "substantiated-allegations": "{{total}} Las Alegaciones Fundamentadas",
         "provider-capacity": "Capacidad Proveedor",
@@ -27,7 +47,7 @@
         "number-of-complains": "Número de Quejas",
         "number-of-visits": "Número de Visitas",
         "day-of-last-visit": "Día de la última Visita",
-        "supported-languages": "Idiomas Soportados"
-
+        "supported-languages": "Idiomas Soportados",
+        "prices": "Precios"
     }
 }

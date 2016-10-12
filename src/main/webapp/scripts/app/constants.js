@@ -1,6 +1,9 @@
 'use strict';
 
 angular.module('msapApp')
+    .constant('sessionAddress', {
+        SESSION_ADDRESS: 'session_address'
+    })
     .constant('SecurityRole', {
         ADMIN: 'ROLE_ADMIN',
         CASE_WORKER: 'CASE_WORKER',

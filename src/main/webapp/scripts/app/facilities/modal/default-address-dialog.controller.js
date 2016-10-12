@@ -2,14 +2,34 @@
 
 angular.module('msapApp')
     .controller('DefaultAddressModalCtrl',
-        ['$scope', '$log', '$uibModalInstance', 'Auth', 'userProfile', 'GeocoderService', 'AddressUtils', 'Place',
-        function ($scope, $log, $uibModalInstance, Auth, userProfile, GeocoderService, AddressUtils, Place) {
+        ['$scope', '$state', '$log', '$uibModalInstance', 'Auth', 'userProfile', 'GeocoderService', 'AddressUtils', 'Place', 'LookupAgeGroups',
+        function ($scope, $state, $log, $uibModalInstance, Auth, userProfile, GeocoderService, AddressUtils, Place, LookupAgeGroups) {
             $scope.updateProfile = function(addressFeature) {
                 AddressUtils.addAddressToAccount(addressFeature, userProfile).then(
                     function() {
                         $scope.saveOrUpdateAccount(userProfile);
                     }
                 );
+            };
+
+            $scope.lookupAgeGroups = [];
+            LookupAgeGroups.query(function(result) {
+                $scope.lookupAgeGroups = result;
+            });
+
+            $scope.filterMenuConfigs = {
+                lookupAgeGroups: {
+                    showList: false,
+                    selectedCount: 0
+                }
+            };
+
+            $scope.toggleFilterMenu = function (modelName, status) {
+                if (_.isUndefined(status)) {
+                    $scope.filterMenuConfigs[modelName].showList = !$scope.filterMenuConfigs[modelName].showList;
+                } else {
+                    $scope.filterMenuConfigs[modelName].showList = status;
+                }
             };
 
             $scope.saveOrUpdateAccount = function(profile) {
@@ -32,14 +52,13 @@ angular.module('msapApp')
             };
 
             $scope.onApplyAddress = function() {
-                if ($scope.addressFeature) {
-                    if ($scope.saveAddressToProfile) {
-                        $scope.updateProfile($scope.addressFeature);
-                    }
-                    $scope.close($scope.addressFeature);
-                } else {
-                    $scope.clear();
+                if ($scope.saveAddressToProfile && $scope.addressFeature) {
+                    $scope.updateProfile($scope.addressFeature);
                 }
+                $scope.close({
+                    addressFeature: $scope.addressFeature,
+                    ageGroups: $scope.getSelectedCodes('lookupAgeGroups')
+                });
             };
 
             $scope.close = function (addressFeature) {
@@ -64,5 +83,12 @@ angular.module('msapApp')
                     $log.warn('Cannot render modal ', reason)
                 }
             );
+
+            $scope.getSelected = function(modelName) {
+                return _.filter($scope[modelName], {selected: true});
+            };
+            $scope.getSelectedCodes = function(modelName) {
+                return _.map($scope.getSelected(modelName), 'code');
+            };
         }]
     );

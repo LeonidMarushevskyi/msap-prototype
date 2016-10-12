@@ -12,6 +12,11 @@
   }
 }
 
+#username,
+#password {
+    font-size: 1.7rem !important;
+}
+
 .form-type__checkbox_empty-label {
 
   input[type="checkbox"] + label {
@@ -39,7 +44,7 @@
 
         @media screen and (max-width: $break-phone) {
             input[type="checkbox"] + label {
-                font-size: 2rem;
+                font-size: 1.4rem;
             }
         }
     }
@@ -69,7 +74,7 @@
 .form-type__search {
     width: 35rem;
     height: 3.7rem;
-    display: flex;
+    @extend %flexbox;
 
   .form-type__search__input {
       width: 100%;
@@ -338,8 +343,7 @@ input[type="radio"]:focus + label::before {
 }
 
 input[type="checkbox"]:checked + label::before {
-  background-image: url("../images/us-icon/icon-check.png");
-  // background-image: url("../images/us-icon/correct8.svg");
+  background-image: url("../images/us-icon/icon-check.svg");
   background-position: 50%;
   background-repeat: no-repeat;
 }
@@ -400,14 +404,14 @@ input[type=range]::-webkit-slider-thumb {
   border: 1px solid #757575;
   height: 2.2rem;
   border-radius: 1.5rem;
-  background: #f1f1f1;
+  background: $primary-gray-color;
   cursor: pointer;
   margin-top: -.65rem;
   width: 2.2rem;
 }
 
 input[type=range]::-moz-range-thumb {
-  background: #f1f1f1;
+  background: $primary-gray-color;
   border: 1px solid #757575;
   border-radius: 1.5rem;
   cursor: pointer;
@@ -416,7 +420,7 @@ input[type=range]::-moz-range-thumb {
 }
 
 input[type=range]::-ms-thumb {
-  background: #f1f1f1;
+  background: $primary-gray-color;
   border: 1px solid #757575;
   border-radius: 1.5rem;
   cursor: pointer;
@@ -461,8 +465,7 @@ input[type=range]:focus::-ms-thumb {
   width: calc(100% - 4.5rem);
 }
 
-[type="submit"] {
-  background-image: url("../images/ui-icon/search.png");
+[type="submit"] {  
   background-position: 50%;
   background-repeat: no-repeat;
   border-bottom-left-radius: 0;

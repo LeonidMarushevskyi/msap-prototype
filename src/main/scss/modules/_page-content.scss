@@ -1,13 +1,23 @@
 /* ========================   Modules/Page Content  ======================= */
 
 .ch-page {
-    height: 91vh;
-    padding: 2.5rem;
-    background-color: #f1f1f1;
+    height: calc(100vh - 75px);
+    padding: 2rem 2.5rem 2rem 2.5rem;
+    background-color: $primary-gray-color;
 }
 
 .ch-page-content {
     padding-top: 1.8rem;
+
+    @media screen and (max-width: $break-phone) {
+        padding-top: 0;
+    }
+}
+
+.ch-page-heading {
+    @media screen and (max-width: $break-phone) {
+        position: relative;
+    }
 }
 
 .ch-page-heading__select {
@@ -21,8 +31,14 @@
 
     @media screen and (max-width: $break-phone) {
         float: none;
-        font-size: 2.6rem;
+        font-size: 2.3rem;
         text-align: center;
+    }
+
+    .form-type__checkbox_empty-label {
+        @media screen and (max-width: 700px) {
+            position: absolute;
+        }
     }
 }
 
@@ -42,9 +58,20 @@
     &:hover {
         border-color: $primary-color-blue;
 
-        .icon-remove,
+        .icon-remove {
+            background: url("../images/us-icon/icon-recycle-bin-hover.svg") no-repeat center;
+
+            @media screen and (max-width: $break-phone) {
+                background: url("../images/us-icon/icon-recycle-bin-white.svg") no-repeat center;
+            }
+        }
+
         .icon-inbox-answer {
-            background-color: $primary-color-blue;
+            background: url("../images/us-icon/icon-inbox-answer-hover.svg") no-repeat center;
+
+            @media screen and (max-width: $break-phone) {
+                background: url("../images/us-icon/icon-inbox-answer-white.svg") no-repeat center;
+            }
         }
 
         .actions__text {
@@ -52,10 +79,12 @@
         }
     }
 
-    @media screen and (max-width: 640px) {
-        height: 6rem;
+    @media screen and (max-width: $break-phone) {
+        height: 4.5rem;
         padding: 1.4rem 1.8rem;
-        border: .3rem solid #0071bc;
+        border: none;
+        border-radius: .2rem;
+        background-color: $primary-color-blue;
     }
 
   .icon {
@@ -63,11 +92,24 @@
       height: 1.6rem;
       position: relative;
       top: .2rem;
+
+      @media screen and (max-width: $break-phone) {
+          width: 2rem;
+          height: 1.8rem;
+          top: .5rem;
+          background-size: cover;
+      }
   }
 
   .icon-remove {
-      @media screen and (max-width: 640px) {
-          background: url("../images/out-sprite-icons/icon-recycle-bin-active.svg") no-repeat center;
+      @media screen and (max-width: $break-phone) {
+          background: url("../images/us-icon/icon-recycle-bin-white.svg") no-repeat center;
+      }
+  }
+
+  .icon-inbox-answer {
+      @media screen and (max-width: $break-phone) {
+          background: url("../images/us-icon/icon-inbox-answer-white.svg") no-repeat center;
       }
   }
 
@@ -76,13 +118,17 @@
   }
 }
 
+.ch-mail-heading {
+    .ch-page-heading__actions {
+        @media screen and (max-width: $break-phone) {
+            position: relative;
+            top: 1rem;
+        }
+    }
+}
+
 .ch-page-heading__actions {
     padding: .8rem 1.8rem;
-
-    .icon {
-        width: 1.6rem;
-        height: 1.6rem;
-    }
 }
 
 .ch-page-heading__actions__second {
@@ -92,6 +138,16 @@
     .icon {
         width: 1.8rem;
         height: 1.6rem;
+
+        @media screen and (max-width: $break-phone) {
+            margin-left: .4rem;
+            width: 2rem;
+            height: 1.8rem;
+        }
+    }
+
+    @media screen and (max-width: $break-phone) {
+        margin-left: .4rem;
     }
 }
 
@@ -99,9 +155,11 @@
     display: inline-block;
     height: 4.5rem;
 
-    @media screen and (max-width: 640px) {
-        width: 18rem;
-        height: 7rem;
+    @media screen and (max-width: $break-phone) {
+        height: auto;
+        position: absolute;
+        right: 0;
+        top: -.4rem;
     }
 }
 
@@ -111,9 +169,8 @@
     font-weight: 800;
     color: #757575;
 
-    @media screen and (max-width: 640px) {
-        font-size: 2.5rem;
-        color: #0071bc;
+    @media screen and (max-width: $break-phone) {
+        display: none;
     }
 }
 
@@ -125,17 +182,15 @@
     position: relative;
     top: .7rem;
 
-    @media screen and (max-width: 640px) {
-        font-size: 2.2rem;
-        top: 1.5rem;
-        color: #0071bc;
+    @media screen and (max-width: $break-phone) {
+        display: none;
     }
 }
 
 .ch-page-heading__search {
     float: right;
-    display: flex;
-    justify-content: flex-end;
+    @extend %flexbox;
+    @include justify-content(flex-end);
 }
 
 .ch-page-heading__county-messages {

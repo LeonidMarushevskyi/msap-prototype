@@ -1,5 +1,13 @@
 {
     "global": {
+        "menu1": "Menu",
+        "my-profile": "My Profile",
+        "facilities": "Facilities",
+        "sign-out": "Sign Out",
+        "providers": "Providers",
+        "inbox": "Inbox",
+        "provider-menu-item-description": "Child Care Provider Search",
+        "inbox-menu-item-description": "Private Inbox for communication with case worker",
         "title": "MSAP Parent Portal",
         "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
         "menu": {

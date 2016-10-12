@@ -4,6 +4,10 @@
 
 .ch-aside-nav-list {
     margin-bottom: 1.5rem;
+
+    @media screen and (max-width: $break-phone) {
+        margin-top: 1.5rem;
+    }
 }
 
 .ch-aside-nav-list__item {
@@ -12,7 +16,6 @@
     &:hover {
         background-color: #cbcdcf;
     }
-
 }
 
 .ch-aside-nav-item__link {
@@ -31,13 +34,14 @@
 
 .ch-aside-nav-item__link_active {
     border-left: 0.3rem solid $primary-color-blue;
+    background-color: $primary-gray-color;
 
     .ch-aside-nav-item__text {
-        color: $primary-color-blue;
+        color: $secondary-color-blue;
     }
 
     .ch-aside-nav-item__counter {
-        color: $primary-color-blue;
+        color: $secondary-color-blue;
     }
 
 }
@@ -46,15 +50,15 @@
     padding: 0 0 0 3rem;
 
     @media screen and (max-width: $break-phone) {
-        padding: 1rem 1rem 1rem 2.7rem;
+        padding: .5rem .5rem .5rem 3rem;
     }
 }
 
 .ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon {
-    padding: 0 0 0 2.7rem;
+    padding: 0 0 0 3rem;
 
     @media screen and (max-width: $break-phone) {
-        padding: 1rem 1rem 1rem 2.7rem;
+        padding: .5rem .5rem .5rem 2.7rem;
     }
 }
 
@@ -74,70 +78,62 @@
 .ch-aside-nav-item__link_icon_inbox:before {
     width: 1.6rem;
     height: 1.6rem;
+    background: url("../images/out-sprite-icons/icon-aside-inbox.svg") no-repeat center;
+}
 
-    -webkit-mask: url("../images/out-sprite-icons/icon-aside-inbox-active.svg") no-repeat center;
-    mask: url("../images/out-sprite-icons/icon-aside-inbox-active.svg") no-repeat center;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-    background-color: $primary-color-grey-light;
+.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_inbox:before,
+.ch-aside-nav-item__link_icon_inbox:hover:before {
+    background: url("../images/out-sprite-icons/icon-aside-inbox-active.svg") no-repeat center;
 }
 
 .ch-aside-nav-item__link_icon_sent:before {
     width: 1.6rem;
-    height: 1.2rem;
+    background: url("../images/out-sprite-icons/icon-sent.svg") no-repeat center;
+}
 
-    -webkit-mask: url("../images/out-sprite-icons/icon-sent.svg") no-repeat center;
-    mask: url("../images/out-sprite-icons/icon-sent.svg") no-repeat center;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-    background-color: $primary-color-grey-light;
+.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_sent:before,
+.ch-aside-nav-item__link_icon_sent:hover:before {
+    background: url("../images/out-sprite-icons/icon-sent-active.svg") no-repeat center;
 }
 
 .ch-aside-nav-item__link_icon_drafts:before {
     width: 1.4rem;
     height: 1.4rem;
+    background: url("../images/out-sprite-icons/icon-drafts.svg") no-repeat center;
+}
 
-    -webkit-mask: url("../images/out-sprite-icons/icon-drafts.svg") no-repeat center;
-    mask: url("../images/out-sprite-icons/icon-drafts.svg") no-repeat center;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-    background-color: $primary-color-grey-light;
+.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_drafts:before,
+.ch-aside-nav-item__link_icon_drafts:hover:before {
+    background: url("../images/out-sprite-icons/icon-drafts-active.svg") no-repeat center;
 }
 
 .ch-aside-nav-item__link_icon_deleted:before {
     width: 1.6rem;
     height: 1.6rem;
-
-    -webkit-mask: url("../images/out-sprite-icons/icon-recycle-bin.svg") no-repeat center;
-    mask: url("../images/out-sprite-icons/icon-recycle-bin.svg") no-repeat center;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-    background-color: $primary-color-grey-light;
+    background: url("../images/out-sprite-icons/icon-recycle-bin.svg") no-repeat center;
 }
 
-.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_inbox:before,
-.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_sent:before,
-.ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_drafts:before,
 .ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon_deleted:before,
-.ch-aside-nav-item__link_icon_inbox:hover:before,
-.ch-aside-nav-item__link_icon_sent:hover:before,
-.ch-aside-nav-item__link_icon_drafts:hover:before,
 .ch-aside-nav-item__link_icon_deleted:hover:before {
-    background-color: $primary-color-blue;
+    background: url("../images/out-sprite-icons/icon-recycle-bin-active.svg") no-repeat center;
 }
 
 .ch-aside-nav-item__counter {
     vertical-align: middle;
+
+    @media screen and (max-width: $break-phone) {
+        font-size: 2.2rem;
+    }
 }
 
 .ch-aside-nav-item__text {
     font-size: 1.4rem;
-    font-weight: 600;
-    color: #5b616b;
+    font-weight: 400;
+    color: $primary-color-grey-light;
     vertical-align: middle;
     padding-left: 1.4rem;
 
     @media screen and (max-width: 640px) {
-        font-size: 2.5rem;
+        font-size: 2.1rem;
     }
 }

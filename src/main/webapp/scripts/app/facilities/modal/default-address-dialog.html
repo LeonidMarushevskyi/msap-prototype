@@ -4,27 +4,60 @@
             <button type="button" class="ch-modal__close-btn" data-dismiss="modal" aria-hidden="true"
                     ng-click="clear()"></button>
             <h1 class="ch-modal__title">
-                Where do you  want to search for children's residential facilities?
+                <span translate="facilities.where-do-you-want-to-search">Where do you  want to search for children's residential facilities?</span>
             </h1>
         </div>
         <div class="ch-modal__body">
             <div class="ch-modal__row">
                 <div id="geolocator" style="width: 100%;" class="ch-input-block__form-input ch-input-block__form-input_search-field-map ch-input-block__form-input_icon ch-input-block__form-input_icon_left"></div>
             </div>
+
+            <div class="ch-modal__row">
+                <div class="ch-multi-select-dropdown" title="{{'facilities.age-group' | translate}}">
+                    <button type="button" class="ch-multi-select-dropdown__btn" ng-click="toggleFilterMenu('lookupAgeGroups');">
+                            <span class="ch-multi-select-dropdown__btn-text"
+                                  ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount == 0"
+                                  translate="facilities.age-group">
+                                Age group
+                            </span>
+                            <span class="ch-multi-select-dropdown__btn-text"
+                                  ng-if="filterMenuConfigs['lookupAgeGroups'].selectedCount > 0"
+                                  translate="global.form.filters-selected"
+                                  translate-values="{selectedCount: filterMenuConfigs['lookupAgeGroups'].selectedCount}">
+                                {{filterMenuConfigs['lookupAgeGroups'].selectedCount}} Selected
+                            </span>
+                        <span class="ch-multi-select-dropdown__btn-icon"></span>
+                    </button>
+                    <div class="ch-multi-select-dropdown__popup" ng-show="filterMenuConfigs['lookupAgeGroups'].showList" ng-mouseleave="toggleFilterMenu('lookupAgeGroups', false);">
+                        <ul class="ch-checkboxes-list">
+                            <li class="ch-checkboxes-list__item" ng-repeat="ageGroup in lookupAgeGroups">
+                                <div class="form-type__checkbox_empty-label">
+                                    <input id="lookupAgeGroup_{{ageGroup.code}}" type="checkbox"
+                                           ng-model="ageGroup.selected"
+                                           ng-click="onFilterMenuItemClick('lookupAgeGroups', ageGroup.code);">
+                                    <label for="lookupAgeGroup_{{ageGroup.code}}">
+                                      <span class="ch-login__select__hover-item">{{'lookups.lookupAgeGroups.' + ageGroup.code | translate}}</span></label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <div class="ch-modal__footer">
             <div class="ch-modal-controls ch-modal-controls_has-options">
 
                 <div class="ch-modal-controls__button">
                     <button type="button" class="ch-option-btn ch-option-btn_fullwidth ch-ink-btn" ng-click="inkRipple();onApplyAddress();">
-                        <span class="ch-option-btn__text" title="Chosen address will be used as center for searching facilities around">Apply Address</span>
+                        <span class="ch-option-btn__text" title="{{'facilities.address-will-be-used-as-center' | translate}}"><span translate="facilities.apply-address">Apply Address</span></span>
                         <span class="ink"></span>
                     </button>
                 </div>
                 <div class="ch-modal-controls__options">
                     <div class="form-type__checkbox_empty-label">
                         <input id="saveAddressToProfile" type="checkbox" ng-click="saveAddressToProfile = !saveAddressToProfile">
-                        <label for="saveAddressToProfile" title="Address will be saved to your profile and used next time automatically">Save this address to my profile</label>
+                        <label for="saveAddressToProfile" title="{{'facilities.address-will-be-saved-automatically' | translate}}"><span translate="facilities.save-address-to-profile">Save this address to my profile</span></label>
                     </div>
                 </div>
             </div>

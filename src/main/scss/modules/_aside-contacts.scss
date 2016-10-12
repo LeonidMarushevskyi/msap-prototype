@@ -23,7 +23,7 @@
 }
 
 .ch-contact__link:hover {
-    background: #f1f1f1;
+    background: $primary-gray-color;
 
     .ch-contact__icon {
         display: block;
@@ -51,6 +51,11 @@
 .ch-aside-contacts {
     padding-left: 2.7rem;
     padding-right: 2.7rem;
+
+    @media screen and (max-width: $break-phone) {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 .ch-aside-contacts__short {
@@ -85,6 +90,10 @@
             color: #0071bc;
         }
     }
+
+    @media screen and (max-width: $break-phone) {        
+        padding: 1rem 2.7rem;
+    }
 }
 
 .ch-aside-contacts__image {
@@ -95,7 +104,7 @@
         width: 3.6rem;
         height: 3.6rem;
 
-        @media screen and (max-width: 640px) {
+        @media screen and (max-width: $break-phone) {
             height: 5.6rem;
         }
     }
@@ -120,8 +129,8 @@
     text-overflow: ellipsis;
     overflow: hidden;
 
-    @media screen and (max-width: 640px) {
-        font-size: 2.5rem;
+    @media screen and (max-width: $break-phone) {
+        font-size: 2.1rem;
     }
 }
 
@@ -141,27 +150,31 @@
     margin-top: 1.5rem;
 
     .ch-contacts-btn {
-        width: 100%;
-        padding: 0.8rem 2.4rem;
+        display: inline-block;
+        padding: .8rem 3rem .8rem 0;
         min-width: 5rem;
-        border: .2rem solid #0071bc;
-        border-radius: 4px;
-
-        @media screen and (max-width: 640px) {
-            padding: 1.8rem 2.4rem;
-            border: .3rem solid #0071bc;
-        }
+        background: $primary-color-blue;
+        border-radius: 0.2rem;
+        width: 100%;
+        color: #fff;
+        font-weight: bold;
+        position: relative;
+        user-select: none;
+        position: relative;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
 
         &:hover {
-            border-color: #205493;
+            background-color: $secondary-color-blue;
+        }
 
-            .ch-contacts-btn__text {
-                color: #205493;
-            }
+        &:focus {
+            box-shadow:0px 0px 10px $primary-color-blue;
+        }
 
-            // .ch-contacts-btn__icon {
-            //     background: url("../images/us-icon/icon-add-mail-hover.svg") no-repeat center;
-            // }
+        @media screen and (max-width: $break-phone) {
+            font-size: 2rem;
         }
     }
 
@@ -169,21 +182,28 @@
         width: 2.5rem;
         height: 2.5rem;
         float: left;
-        background: url("../images/us-icon/icon-add-mail.svg") no-repeat center;
+        background: url("../images/us-icon/icon-compose.svg") no-repeat center;
         position: relative;
         top: .2rem;
+        left: 2rem;
+
+        @media screen and (max-width: $break-phone) {
+            top: .7rem;
+        }
     }
 
     .ch-contacts-btn__text {
         display: inline-block;
         font-size: 1.4rem;
         font-weight: bold;
-        color: #0071bc;
+        position: relative;
+        top: .3rem;
+        left: .7rem;
 
-        @media screen and (max-width: 640px) {
-            font-size: 2.5rem;
+        @media screen and (max-width: $break-phone) {
+            position: static;
+            font-size: 2.1rem;
         }
-
     }
 }
 
@@ -199,7 +219,7 @@
     color: #5b616b;
 
     @media screen and (max-width: 640px) {
-        font-size: 2.5rem;
+        font-size: 2.1rem;
     }
 }
 
@@ -207,15 +227,16 @@
     font-size: 1.4rem;
     font-weight: 500;
     padding-top: 1rem;
-    color: #0071bc;
+    color: $primary-color-blue;
     text-decoration: underline;
 
     &:hover {
-        color: #0071bc;
+        color: $secondary-color-blue;
         text-decoration: none;
     }
+
     @media screen and (max-width: 640px) {
-        font-size: 2.5rem;
+        font-size: 2.1rem;
     }
 }
 

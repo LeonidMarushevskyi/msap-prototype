@@ -67,7 +67,7 @@ class PriceGatlingTest extends Simulation {
             .exec(http("Create new price")
             .post("/api/prices")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "minimalPrice":"0", "maximumPrice":"0"}""")).asJSON
+            .body(StringBody("""{"id":null, "price":"0"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_price_url")))
             .pause(10)

@@ -1,5 +1,13 @@
 {
     "global": {
+        "menu1": "Thực đơn",
+        "my-profile": "Hồ sơ của tôi",
+        "facilities": "Thiết bị",
+        "sign-out": "Đăng xuất",
+        "providers": "Nhà cung cấp",
+        "inbox": "Hộp thư đến",
+        "provider-menu-item-description": "Chăm sóc trẻ em cung cấp Tìm kiếm",
+        "inbox-menu-item-description": "Hộp thư cá nhân để liên lạc với trường hợp người lao động",
         "title": "MSAP Portal mẹ",
         "browsehappy": "Bạn đang sử dụng <strong>lỗi thời</strong> trình duyệt. Xin vui lòng <a href=\"http://browsehappy.com/?locale=en\">nâng cấp trình duyệt của bạn</a> để cải thiện kinh nghiệm của bạn.",
         "menu": {

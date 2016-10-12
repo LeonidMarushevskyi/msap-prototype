@@ -3,19 +3,19 @@
     <li class="ch-main-nav-list__item">
         <div class="ch-main-nav-item">
             <a class="ch-main-nav-item__link ch-ink-btn" ng-click="inkRipple()" ng-init = "inkRipple()" ui-sref="ch-facilities" ui-sref-active="ch-main-nav-item__link_active">
-                <span class="icon icon-facilities ch-main-nav-item__icon"></span>
-                <span class="ch-main-nav-item__text" title="Child Care Provider Search">Providers</span>
+                <span class="icon icon-providers ch-main-nav-item__icon"></span>
+                <span class="ch-main-nav-item__text" title="{{'global.provider-menu-item-description' | translate}}"><span translate="global.providers">Providers</span></span>
                 <span class="ink"></span>
             </a>
         </div>
     </li>
 
-    <li class="ch-main-nav-list__item" has-any-authority="PARENT, CASE_WORKER">
+    <li class="ch-main-nav-list__item" has-any-authority="FOSTER_PARENT, CASE_WORKER">
         <div class="ch-main-nav-item">
             <a class="ch-main-nav-item__link ch-ink-btn" ng-click="inkRipple()" ng-init = "inkRipple()" ui-sref="ch-inbox.messages({directory: 'inbox'})" ng-class="{'ch-main-nav-item__link_active': $state.includes('ch-inbox')}">
                 <span class="icon icon-inbox ch-main-nav-item__icon"></span>
                 <div class="ch-main-nav-item__text-bundle">
-                    <span class="ch-main-nav-item__text" title="Private Inbox for communication with case worker">Inbox</span>
+                    <span class="ch-main-nav-item__text" title="{{'global.inbox-menu-item-description' | translate}}"><span translate="global.inbox">Inbox</span></span>
                     <span ng-if="unreadInboxCount > 0" class="ch-main-nav-item__inbox-counter">{{unreadInboxCount}}</span>
                 </div>
                 <span class="ink"></span>

@@ -1,12 +1,28 @@
 {
     "facilities": {
+        "where-do-you-want-to-search": "Where do you  want to search for children's residential facilities?",
+        "apply-address": "Apply Address",
+        "save-address-to-profile": "Save this address to my profile",
+        "address-will-be-saved-automatically": "Address will be saved to your profile and used next time automatically",
+        "address-will-be-used-as-center": "Chosen address will be used as center for searching facilities around",
+        "filter-by-status": "Filter facilities by status",
+        "put-any-available-information": "Put any available information about children's residential facility like name, address or administrator name",
+        "put-address-where-you-want-to-search": "Put address where you want to search for children's residential facilities",
+        "map-view": "Map View",
+        "list-view": "List View",
+        "filters": "Filters",
+        "put-facility-data-here": "Put facility data here",
+        "sort-by": "Sort By",
+        "distance": "Distance",
+        "provider-name": "Provider Name",
+        "quality-star": "Quality Star Rating",
         "reset-filters": "Reset Filters",
         "show-all-filters": "Show All Filters",
         "hide-all-filters": "Hide Filters",
         "apply-filters": "Apply Filters",
         "available-spots": "Available Spots:",
         "age-group": "Age group",
-        "provider-type": "Provider Type:",
+        "provider-type": "Provider Type",
         "price-per-week": "Price per week:",
         "working-hours": "Working hours:",
         "languages": "Languages:",
@@ -19,6 +35,7 @@
         "spots-capitalized": "{{totalSpots}} Spots",
         "spots-small":  "{{totalSpots}} spots",
         "free-spots": "FREE SPOTS",
+        "no-free-spots": "No free spots",
         "schedule": "Schedule",
         "special-needs": "Special Needs",
         "substantiated-allegations": "{{total}} Substantiated Allegations",
@@ -27,6 +44,7 @@
         "number-of-complains": "Number of Complains",
         "number-of-visits": "Number of Visits",
         "day-of-last-visit": "Day of Last Visit",
-        "supported-languages": "Supported Languages"
+        "supported-languages": "Supported Languages",
+        "prices": "Prices"
     }
 }

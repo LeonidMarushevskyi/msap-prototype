@@ -13,8 +13,8 @@
 }
 
 .ch-facilities-heading__row {
-    display: flex;
-    align-items: stretch;
+    @extend %flexbox;
+    @include align-items(stretch);
     height: 7.3rem;
 }
 
@@ -30,13 +30,13 @@
 }
 
 .ch-facilities-heading__item_2 {
-    flex-grow: 2.2;
-    flex-basis: 0;
+    @include flex-grow(2.2);
+    @include flex-basis(0);
 }
 
 .ch-facilities-heading__item_1 {
-    flex-grow: 1;
-    flex-basis: 0;
+    @include flex-grow(1);
+    @include flex-basis(0);
 }
 
 .ch-input-block__form-input_icon {
@@ -72,7 +72,7 @@
 }
 
 .ch-form-input-icon_search:after {
-    background: url(../images/out-sprite-icons/icon-search.png) no-repeat center;
+    background: url("../images/us-icon/icon-search.svg") no-repeat center;
     content: "\0020";
     position: absolute;
     height: 1.6rem;
@@ -115,11 +115,11 @@
 }
 
 .ch-multi-select-dropdown__btn-icon::after {
-    background: url(../images/out-sprite-icons/icon-arrow-down.png) no-repeat right center;
+    background: url("../images/us-icon/icon-select-dropdown.svg") no-repeat right center;
     content: "\0020";
     position: absolute;
-    height: 0.7rem;
-    width: 1rem;
+    height: 1rem;
+    width: 1.5rem;
     top: 50%;
     right: 50%;
     margin: -0.35rem -0.6rem 0 0 ;

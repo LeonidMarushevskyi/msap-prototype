@@ -508,20 +508,6 @@
 
     <repositories>
         <repository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>central</id>
-            <name>repo</name>
-            <url>http://mdc-lad-jenkins.engagepoint.us:8081/artifactory/repo</url>
-        </repository>
-        <repository>
-            <snapshots />
-            <id>snapshots</id>
-            <name>repo</name>
-            <url>http://mdc-lad-jenkins.engagepoint.us:8081/artifactory/repo</url>
-        </repository>
-        <repository>
             <id>maven2</id>
             <url>http://central.maven.org/maven2</url>
         </repository>
@@ -1018,7 +1004,7 @@
                 </plugins>
             </build>
             <properties>
-                <logback.graylogHost>udp:mdc-ied-ws85-a1.engagepoint.us</logback.graylogHost>
+                <logback.graylogHost>udp:elk.msap.engagepoint.com</logback.graylogHost>
                 <!-- log configuration -->
                 <logback.loglevel>INFO</logback.loglevel>
             </properties>
@@ -1047,6 +1033,7 @@
                                         <nocache>true</nocache>
                                         <tags>
                                             <tag>${project.version}</tag>
+											<tag>${docker.jenkins.build}</tag>
                                         </tags>
                                         <assembly>
                                             <basedir>/</basedir>

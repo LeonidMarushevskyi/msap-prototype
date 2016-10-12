@@ -5,11 +5,13 @@ import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
+import static com.codeborne.selenide.Condition.appears;
 import static com.codeborne.selenide.Condition.disappear;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.getWebDriverLogs;
 import static com.codeborne.selenide.Selenide.sleep;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class FacilitySteps {
 
@@ -23,7 +25,7 @@ public class FacilitySteps {
         $(By.xpath(".//*[@class='ch-modal']//ul/li/*[contains(text(),'" + address + "')]")).shouldBe(visible);
         userStepDefs.click_xpath_and_wait(".//*[@class='ch-modal']//ul/li/*[contains(text(),'" + address + "')]");
         userStepDefs.click_css_and_wait("[ng-click*='onApplyAddress()']");
-        $("[ng-click*='onApplyAddress()']").waitUntil(disappear, 4000);
+        $("[ng-click*='onApplyAddress()']").waitUntil(disappear, 10000);
     }
 
     @When("^open facilities page$")
@@ -68,23 +70,30 @@ public class FacilitySteps {
 
     @When("^click checkbox with text '(.*)' in Search filters$")
     public void click_label_with_text(String checkboxText) throws Throwable {
-        $(By.xpath(".//*[class='form-type__checkbox_empty-label']/label[text()='" + checkboxText + "']")).shouldBe(visible);
-        userStepDefs.click_xpath_and_wait(".//*[class='form-type__checkbox_empty-label']/label[text()='" + checkboxText + "']");
+        $(By.xpath(".//*[@class='form-type__checkbox_empty-label']/label[text()='" + checkboxText + "']")).shouldBe(visible);
+        userStepDefs.click_xpath_and_wait(".//*[@class='form-type__checkbox_empty-label']/label[text()='" + checkboxText + "']");
         sleep(1000);
     }
 
     @Then("^verify facility with address '(.*)' and name '(.*)' presents in the list$")
     public void verify_facility_with_address_and_name_presents_in_the_list(String facilityAddress, String facilityName) throws Throwable {
-        $(By.xpath(".//span[contains(text(),'" + facilityAddress + "')]/ancestor::div[@class='ch-facility']/descendant::*[text()='" + facilityName + "']")).shouldBe(visible);
+        $(By.xpath(".//*[contains(text(),'" + facilityAddress + "')]/ancestor::div[@class='ch-facilities']/descendant::*[text()='" + facilityName + "']")).shouldBe(visible);
+    }
+
+    @Then("^verify facility with address '(.*)' and name '(.*)' absent in the list$")
+    public void verify_facility_with_address_and_name_absent_in_the_list(String facilityAddress, String facilityName) throws Throwable {
+        $(By.xpath(".//*[contains(text(),'" + facilityAddress + "')]/ancestor::div[@class='ch-facilities']/descendant::*[text()='" + facilityName + "']")).waitUntil(disappear, 10000);
     }
 
     @When("^do Ask About for facility with address '(.*)' and name '(.*)' and send letter$")
     public void do_Ask_About_for_facility_with_address_and_name_and_send_letter(String facilityAddress, String facilityName) throws Throwable {
-        userStepDefs.click_xpath_and_wait(".//span[contains(text(),'" + facilityAddress + "')]/ancestor::div[@class='ch-facility']/descendant::*[text()='" + facilityName + "']/ancestor::div[@class='ch-facility']/descendant::button[text()='Ask Caseworker']");
-        userStepDefs.click_css_and_wait("[ng-click='sendMail()']");
-        $("[ng-click='sendMail()']").waitUntil(disappear, 4000);
+        userStepDefs.click_xpath_and_wait(".//*[contains(text(),'" + facilityAddress + "')]/ancestor::div[@class='ch-facilities']/descendant::*[text()='" + facilityName + "']/ancestor::div[@class='ch-facilities']/descendant::button/span[text()='Ask Caseworker']");
+        $("[ng-model='mail.subject']").shouldBe(visible);
+        $("[ng-model='mail.subject']").setValue("Ask about facility");
+        userStepDefs.click_css_and_wait("[ng-click*='sendMail()']");
+        $("[ng-click*='sendMail()']").waitUntil(disappear, 10000);
         userStepDefs.click_xpath_and_wait(".//*[contains(@class,'ch-alert-msg')]/*[text()='Message has been sent!']");
-        $(By.xpath(".//*[contains(@class,'ch-alert-msg')]/*[text()='Message has been sent!']")).waitUntil(disappear, 4000);
+        $(By.xpath(".//*[contains(@class,'ch-alert-msg')]/*[text()='Message has been sent!']")).waitUntil(disappear, 10000);
 
     }
 
@@ -93,4 +102,19 @@ public class FacilitySteps {
 //todo verify attached file
     }
 
+    @Then("^show filters$")
+    public void show_filters() throws Throwable {
+        if (getWebDriver().findElement(By.xpath(".//button[text()='Show All Filters']")).isDisplayed()) {
+            userStepDefs.click_xpath_and_wait(".//*[text()='Show All Filters']");
+            $(By.xpath(".//button[text()='Hide Filters']")).waitUntil(appears, 5000);
+        }
+    }
+
+    @Then("^hide filters$")
+    public void hide_filters() throws Throwable {
+        if (getWebDriver().findElement(By.xpath(".//button[text()='Hide Filters']")).isDisplayed()) {
+            userStepDefs.click_xpath_and_wait(".//*[text()='Hide Filters']");
+            $(By.xpath(".//button[text()='Show All Filters']")).waitUntil(appears, 5000);
+        }
+    }
 }

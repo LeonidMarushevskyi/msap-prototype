@@ -146,6 +146,16 @@
       "fieldId": 12,
       "fieldName": "isWeekendCare",
       "fieldType": "Boolean"
+    },
+    {
+      "fieldId": 13,
+      "fieldName": "isRespiteCare",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldId": 14,
+      "fieldName": "isSecondShift",
+      "fieldType": "Boolean"
     }
   ],
   "changelogDate": "20160924025854",

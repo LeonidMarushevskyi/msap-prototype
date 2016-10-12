@@ -1,11 +1,11 @@
-<div class="ch-sign-up">
-    <div class="ch-sign-up-bg"></div>
-    <div class="row">
-        <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+<form name="" role="form">
+  <section class="ch-modal ch-modal__register">
+      <div class="ch-modal__header">
+          <button type="button" class="ch-modal__close-btn" data-dismiss="modal" aria-hidden="true"
+                  ng-click="clear()"></button>
 
-            <div class="ch-sign-up__logo-image">
-                <a href=""><span class="logo-image"></span></a>
-            </div>
+      </div>
+      <div class="ch-modal__body">
 
             <div class="alert alert-danger" ng-show="error" translate="register.messages.error.fail">
                 <strong>Registration failed!</strong> Please try again later.
@@ -26,7 +26,7 @@
             <div class="ch-sign-up__form">
                 <h3 class="ch-sign-up__form__title" ng-show="!success" translate="register.sign-up">Sign Up</h3>
 
-                <form ng-show="!success" name="form" role="form" novalidate ng-submit="register()" show-validation>
+                <form ng-show="!success" name="form" role="form" novalidate show-validation>
 
                     <div class="ch-sign-up__form__group ch-sign-up__form__group_row">
                         <div class="ch-sign-up__form__group_child">
@@ -190,7 +190,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" ng-disabled="form.$invalid"
+                    <button ng-disabled="form.$invalid" ng-click="register();"
                             class="ch-option-btn ch-option-btn__sign-up" translate="register.sign-up">Sign Up
                     </button>
                 </form>
@@ -199,9 +199,11 @@
 
             </div>
 
+<!--
             <div class="ch-sign-up__new-account" ng-show="!success">
-                <a class="" href="#" translate="register.have-account">I have an account</a>
+                <a href="#/" ng-click="clear();" translate="register.have-account">I have an account</a>
             </div>
-        </div>
-    </div>
-</div>
+-->
+          </div>
+      </section>
+</form>

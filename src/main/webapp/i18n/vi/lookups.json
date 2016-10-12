@@ -2,7 +2,7 @@
     "lookups": {
         "lookupAgeGroups": {
             "1": "trẻ sơ sinh (0-12 tháng)",
-            "2": "Toddler (12-24 tháng)",
+            "2": "bé (12-24 tháng)",
             "3": "2 năm",
             "4": "3 năm",
             "5": "4 năm",
@@ -76,13 +76,13 @@
             "VE": "Tiếng Việt"
         },
         "lookupDayOfWeek": {
-            "1": "Thứ hai",
-            "2": "Thứ ba",
-            "3": "Thứ tư",
-            "4": "Thứ năm",
-            "5": "Thứ sáu",
-            "6": "Ngày thứ bảy",
-            "7": "Chủ nhật"
+            "1": "Thứ ba",
+            "2": "Thứ tư",
+            "3": "Thứ năm",
+            "4": "Thứ sáu",
+            "5": "Ngày thứ bảy",
+            "6": "Chủ nhật",
+            "7": "Thứ hai"
         },
         "filterComplainsAndAllegations": {
             "1": "Không Kêu",

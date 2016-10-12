@@ -22,10 +22,10 @@ $facilities-popup-height: 430px;
     }
 
     .ch-facilities-extended-filters__section {
+        @extend %flexbox;
+        @include flex-flow(wrap);
+        @include justify-content(space-around);
         border-top: 1px solid #cbcdcf;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
     }
 
     .ch-facilities-extended-filters__title {
@@ -62,15 +62,15 @@ $facilities-popup-height: 430px;
 
     .ch-facilities-extended-filters__results-total {
         float: left;
-        margin: 3px 15px 0 25px;
+        margin: 0 15px 0 25px;
         text-transform: uppercase;
     }
 
     .ch-facilities-extended-filters__results-filters {
         max-width: 70%;
         float: left;
-        display: inline-flex;
-        flex-wrap: wrap;
+        @extend %inline-flex;
+        @include flex-wrap(wrap);
 
         > * {
             margin-left: 5px;
@@ -80,7 +80,7 @@ $facilities-popup-height: 430px;
 
     .ch-facilities-extended-filters__results-reset {
         float: right;
-        margin-top: 3px;
+        margin-top: 0;
         margin-right: 25px;
         color: #0071bc;
         text-decoration: underline;

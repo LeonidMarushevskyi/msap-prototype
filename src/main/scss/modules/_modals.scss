@@ -12,9 +12,11 @@
 
 .ch-general-modal {
     .modal-dialog {
+        width: 600px;
         margin: 25rem auto;
 
         @media screen and (max-width: $break-phone) {
+            width: 96%;
             margin: 10rem auto;
         }
     }
@@ -24,9 +26,24 @@
     }
 }
 
+.ch-general-modal .modal-dialog.modal-register {
+    margin: 5rem auto;
+}
+
+.modal-dialog.modal-facilities-default-address {
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
 .modal-dialog.modal-sign-in {
     @media screen and (max-width: $break-phone) {
         width: 35rem;
+    }
+}
+
+.modal-dialog.modal-register {
+    @media screen and (max-width: $break-phone) {
+        width: 70%;
     }
 }
 
@@ -75,6 +92,12 @@
 
     @media screen and (max-width: $break-phone) {
         margin-bottom: 1rem;
+    }
+}
+
+.modal-privacy-policy {
+    .ch-modal__row {
+        height: auto;
     }
 }
 

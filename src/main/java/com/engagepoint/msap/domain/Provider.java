@@ -62,6 +62,12 @@ public class Provider implements Serializable {
     @Column(name = "is_weekend_care")
     private Boolean isWeekendCare;
 
+    @Column(name = "is_respite_care")
+    private Boolean isRespiteCare;
+
+    @Column(name = "is_second_shift")
+    private Boolean isSecondShift;
+
     @OneToOne
     private LookupLicenseType licenseType;
 
@@ -94,7 +100,8 @@ public class Provider implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Review> reviews = new HashSet<>();
 
-    @OneToMany(mappedBy = "provider")
+    @JsonManagedReference("prices")
+    @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Price> prices = new HashSet<>();
 
@@ -210,6 +217,22 @@ public class Provider implements Serializable {
 
     public void setIsWeekendCare(Boolean isWeekendCare) {
         this.isWeekendCare = isWeekendCare;
+    }
+
+    public Boolean getIsRespiteCare() {
+        return isRespiteCare;
+    }
+
+    public void setIsRespiteCare(Boolean isRespiteCare) {
+        this.isRespiteCare = isRespiteCare;
+    }
+
+    public Boolean getIsSecondShift() {
+        return isSecondShift;
+    }
+
+    public void setIsSecondShift(Boolean isSecondShift) {
+        this.isSecondShift = isSecondShift;
     }
 
     public LookupLicenseType getLicenseType() {
@@ -336,6 +359,8 @@ public class Provider implements Serializable {
             ", isAfterSchool='" + isAfterSchool + "'" +
             ", isBeforeSchool='" + isBeforeSchool + "'" +
             ", isWeekendCare='" + isWeekendCare + "'" +
+            ", isRespiteCare='" + isRespiteCare + "'" +
+            ", isSecondShift='" + isSecondShift + "'" +
             '}';
     }
 }

@@ -9,6 +9,7 @@ msap-prototype-qa-elasticsearch:
     - "9300"
   environment:
     - ES_JAVA_OPTS= -Des.cluster.name=msap-prototype-qa
+    - ES_HEAP_SIZE=3g
     - TZ=America/New_York
 
 msap-prototype-qa-postgresql:
@@ -28,11 +29,17 @@ msap-prototype-qa:
   container_name: msap-prototype-qa
   restart: unless-stopped
   image: kaver79/msap-prototype
+  log_driver: gelf
+  log_opt:
+    gelf-address: "udp://elk-int.msap.engagepoint.com:5050"
   environment:
-    - COOKIE=SRV insert indirect nocache
     - TZ=America/New_York
-#   - logback_graylogHost=LOGBACK_GRAYLOGHOST
-    - SPRING_MAIL_HOST=172.24.232.25
+    - logback_graylogHost=elk-int.msap.engagepoint.com
+    - SPRING_MAIL_HOST=mail-int.msap.engagepoint.com
+    - jhipster_metrics_zabbix_enabled=true
+    - jhipster_metrics_zabbix_host=zabbix.msap.engagepoint.com
+    - jhipster_metrics_zabbix_periodSec=300
+    - jhipster_metrics_zabbix_hostMetadata=msap-prototype-qa
     - SPRING_DATA_ELASTICSEARCH_CLUSTER-NAME=msap-prototype-qa
   ports:
     - "4080:8080"

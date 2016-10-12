@@ -5,11 +5,11 @@
     height: 100vh;
     top: 0;
     right: -1000px;
+    opacity: 0;
     box-shadow: 0 2px 2px #343c47;
     transition-property: opacity;
     transition-property: right;
     transition-duration: 200ms;
-    opacity: 0;
     background-color: #545d6b;
 }
 
@@ -43,8 +43,8 @@
 }
 
 .ch-menu-mobile__title {
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
+    padding-top: 1.8rem;
+    padding-bottom: 1rem;
     padding-left: 5rem;
     border-bottom: 1px solid #cbcdcf;
     text-align: center;
@@ -60,7 +60,7 @@
 }
 
 .ch-menu-mobile__title__text {
-    font-size: 2.8rem;
+    font-size: 2rem;
     position: relative;
     top: -.2rem;
     left: -38vw;
@@ -73,26 +73,27 @@
 .ch-mobile-main-nav-item__link {
     display: block;
     width: 100%;
-    padding: 2rem 4rem 2rem 5rem;
+    padding: 1rem 4rem 1rem 1.5rem;
     background: #343c47;
 
     .icon {
-        width: 3rem;
-        height: 3rem;
+        width: 2rem;
+        height: 2rem;
         margin-right: 2rem;
+        position: relative;
+        top: .3rem;
     }
 
-    .icon-inbox {
-        color: #fff;
-        background: url("../images/us-icon/letter_mini_white.svg") no-repeat center;
+    .icon-inbox-mobile {
+        background: url("../../assets/images/us-icon/icon-inbox-white.svg") no-repeat center;
     }
 
     .icon-facilities {
-        background: url("../images/us-icon/icon-facilities.png") no-repeat center;
+        background: url("../../assets/images/us-icon/icon-facilities-white.svg") no-repeat center;
     }
 
     .icon-profile {
-        background: url("../images/us-icon/icon-user-big.png") no-repeat center;
+        background: url("../../assets/images/us-icon/icon-user-white.svg") no-repeat center;
     }
 }
 
@@ -102,12 +103,10 @@
 
 .ch-mobile-main-nav-item__text {
     display: inline-block;
-    font-size: 2.8rem;
+    font-size: 2rem;
     font-weight: 400;
     color: #fff;
     position: relative;
-    top: -.5rem;
-
   }
 
 .ch-mobile-main-nav-item__inbox-counter {
@@ -125,25 +124,28 @@
 }
 
 .ch-mobile-main-nav__sign-out {
-    padding: 3rem 4rem 3rem 5rem;
+    padding: 1rem 4rem 1rem 5rem;
     border-top: .1rem solid #cbcdcf;
     background: #343c47;
 
     .icon {
-      width: 3rem;
-      height: 3rem;
+      width: 2rem;
+      height: 2rem;
       display: inline-block;
-      margin-right: 2rem;
+      margin-left: 2rem;
+      position: relative;
+      top: .3rem;
     }
 
-    .icon-user-account-exit {
-        background: url("../images/us-icon/icon-sign-out.png") no-repeat center;
+    .icon-user-exit {
+        background: url("../images/us-icon/icon-exit-white.svg") no-repeat center;        
     }
 
     .ch-plane-btn__text {
-        float: right;
-        font-size: 2.8rem;
+
+        font-size: 2rem;
         font-weight: 400;
+        padding-top: .5rem;
         color: #fff;
         line-height: 1;
     }

@@ -3,15 +3,20 @@
     width: 100%;
     height: 100%;
     position: fixed;
-    top: 0;
+    top: 7rem;
     bottom: 0;
     left: 0;
     right: 0;
-    // background: url("https://s3-us-west-2.amazonaws.com/coverr/poster/Hoola.jpg") no-repeat center top fixed;
-    // -webkit-background-size: cover;
-    // -moz-background-size: cover;
-    // -o-background-size: cover;
-    // background-size: cover;
+    z-index: 0;
+    background: url("https://s3-us-west-2.amazonaws.com/coverr/poster/Hoola.jpg") no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    @media screen and (max-width: $break-phone) {
+        top: 5rem;
+    }
 }
 
 .ch-login-bg {
@@ -35,8 +40,7 @@
 }
 
 .ch-login__search {
-    padding: 3.3rem;
-    height: 11rem;
+    padding: 3rem;
     position: relative;
     background-color: $primary-color-grey-light;
 
@@ -45,12 +49,14 @@
     }
 }
 
-.ch-login__search__action.flex-row {
-    @media screen and (max-width: $break-phone) {
-        max-width: 100rem;
-        flex-flow: column wrap;
-    }
+
+@media screen and (max-width: $break-phone) {
+  .ch-login__search__action.flex-row {
+      max-width: 100rem;
+      @include flex-flow(column wrap);
+  }
 }
+
 
 .ch-login__input .leaflet-pelias-list {
     margin-top: 5rem;
@@ -103,8 +109,8 @@
         border-radius: 0;
 
         @media screen and (max-width: $break-phone) {
-            height: 7.5rem;
-            font-size: 2.8rem;
+            height: 5.5rem;
+            font-size: 2.4rem;
             padding-left: 6rem;
         }
     }
@@ -116,25 +122,20 @@
         top: 1.5rem;
         left: 2rem;
         z-index: 2;
-        width: 1.2rem;
+        width: 1.6rem;
         height: 1.6rem;
-        background: url("../images/us-icon/icon-facilities-color.png") no-repeat center;
+        background: url("../images/us-icon/icon-facilities-m.svg") no-repeat center;
 
         @media screen and (max-width: $break-phone) {
-            width: 2rem;
+            width: 2.4rem;
             height: 2.4rem;
-            top: 2.5rem;
-            -webkit-mask: url("../images/out-sprite-icons/icon-map-pointer-profile-active.svg") no-repeat center;
-            mask: url("../images/out-sprite-icons/icon-map-pointer-profile-active.svg") no-repeat center;
-            -webkit-mask-size: cover;
-            mask-size: cover;
-            background-color: $secondary-color-blue;
+            top: 1.5rem;
         }
     }
 
     @media screen and (max-width: $break-phone) {
         max-width: none;
-        height: 7.5rem;
+        height: 5.5rem;
     }
 }
 
@@ -152,7 +153,7 @@
     }
 
     @media screen and (max-width: $break-phone) {
-        margin: 3.5rem 0 0 0;
+        margin: 0 0 0 0;
     }
 }
 
@@ -170,7 +171,47 @@
 
     .ch-multi-select-dropdown__popup {
         margin-top: .7rem;
+
+        .form-type__checkbox_empty-label input[type="checkbox"] + label:before {
+            @media screen and (max-width: $break-phone) {
+                vertical-align: 0;
+            }
+        }
+
+        .form-type__checkbox_empty-label input[type="checkbox"] + label {
+            &:hover {
+                .ch-login__select__hover-item {
+                    color: #fff;
+                    background-color: #98bfd1;
+                }
+            }
+        }
+
+        .form-type__checkbox_empty-label input[type="checkbox"] + label {
+            @media screen and (max-width: $break-phone) {
+                font-size: 2.4rem;
+                height: 4rem;
+            }
+        }
     }
+}
+
+.ch-modal__row {
+    .form-type__checkbox_empty-label input[type="checkbox"] + label {
+        &:hover {
+            .ch-login__select__hover-item {
+                color: #fff;
+                background-color: #98bfd1;
+            }
+        }
+    }
+}
+
+.ch-login__select__hover-item {
+    display: inline-block;
+    width: calc(100% - 6rem);
+    height: 100%;
+    padding-left: 1rem;
 }
 
 .ch-login__select-dropdown__btn {
@@ -183,28 +224,25 @@
     &:after {
         content: "";
         display: inline-block;
-        width: .9rem;
-        height: .5rem;
+        width: 1.5rem;
+        height: .7rem;
         background: url("../images/us-icon/icon-arrow-select.svg") no-repeat center;
         position: relative;
         top: 0;
         right: -1.5rem;
 
         @media screen and (max-width: $break-phone) {
-            width: 1.4rem;
-            height: 1.4rem;
-            -webkit-mask: url("../images/us-icon/icon-arrow-select.svg") no-repeat center;
-            mask: url("../images/us-icon/icon-arrow-select.svg") no-repeat center;
-            -webkit-mask-size: cover;
-            mask-size: cover;
-            background-color: $primary-color-grey-light;
+            width: 1.6rem;
+            height: 1.6rem;
+            background: url("../images/us-icon/icon-arrow-select.svg") no-repeat center;
+            background-size: cover;
         }
     }
 
     @media screen and (max-width: $break-phone) {
-        height: 7.5rem;
-        margin-top: 3.5rem;
-        font-size: 2.8rem;
+        height: 5.5rem;
+        margin-top: 2.5rem;
+        font-size: 2.4rem;
     }
 }
 
@@ -240,9 +278,9 @@
     }
 
     @media screen and (max-width: $break-phone) {
-        height: 7.5rem;
-        margin-top: 3.5rem;
-        font-size: 2.8rem;
+        height: 5.5rem;
+        margin-top: 2.5rem;
+        font-size: 2.4rem;
     }
 }
 
@@ -254,6 +292,12 @@
     @media screen and (max-width: $break-phone) {
         font-size: 2.8rem;
     }
+}
+
+.video-container {
+    height: 400px;
+    overflow: hidden;
+    position: relative;
 }
 
 .video-container video {
@@ -285,11 +329,15 @@
 .ch-profile-feedback {
     width: 100%;
     height: 100%;
-    padding-top: 10rem;
+    padding-top: 5rem;
+
+    @media screen and (max-width: 740px) {
+        padding-top: 5rem;
+    }
 }
 
 .ch-login__header {
-    max-width: 115rem;
+    max-width: 150rem;
     height: 7rem;
     padding-top: 1.7rem;
     padding-bottom: 1.5rem;
@@ -329,9 +377,13 @@
 }
 
 .ch-login__header__actions {
-    display: flex;
-    justify-content: flex-end;
+    @extend %flexbox;
+    @include justify-content(flex-end);
     padding-top: 0.4rem;
+
+    .ch-header__subsection-user-account {
+          padding: 0 2.5rem 0 0;
+    }
 }
 
 .ch-login__footer__links {
@@ -370,26 +422,36 @@
         }
 
         @media screen and (max-width: $break-phone) {
-            margin-top: 1.429rem;
             float: none !important;
         }
 
     }
+}
 
-    @media screen and (max-width: $break-phone) {
-        position: relative;
-        top: -1.1rem;
-    }
+.ch-login__actions__new-account.ch-login__actions__new-account__providers {
+
+        @media screen and (max-width: $break-phone) {
+            position: absolute;
+            right: 3.5rem;
+        }
+
+        a:first-child {
+            @media screen and (max-width: $break-phone) {
+                position: relative;
+                left: -1.5rem;
+            }
+        }
+
 }
 
 .ch-login__content {
-    height: 50rem;
+    height: 33rem;
     max-width: 115rem;
     margin: 0 auto;
     text-align: center;
 
     @media screen and (max-width: $break-phone) {
-        height: 35rem;
+        height: 29rem;
     }
 }
 
@@ -436,8 +498,8 @@
 }
 
 .ch-login__content__text {
-    padding-top: 8rem;
-    padding-bottom: 6.4rem;;
+    padding-top: 6rem;
+    padding-bottom: 3.4rem;;
     color: #fff;
 
     @media screen and (max-width: $break-desktop) {
@@ -460,22 +522,15 @@
     }
 }
 
-.ch-login__delimiter {
-    height: 0.1rem;
-    max-width: 19rem;
-    margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.5);
-}
-
 .ch-login__content__description {
-    padding-top: 6.4rem;
+    padding-top: 4rem;
     font-size: 1.5rem;
     color: #fff;
     font-weight: 500;
 
     @media screen and (max-width: $break-phone) {
-        font-size: 2.6rem;
-        padding-top: 2rem;
+        font-size: 2.2rem;
+        padding-top: 1rem;
     }
 }
 
@@ -572,8 +627,13 @@
     margin-top: 3rem;
     padding-left: 4rem;
     padding-right: 4rem;
+    padding-bottom: 1rem;
     border: .1rem solid #cbcdcf;
-    background: rgba(255, 255, 255, 0.7);
+    background: #fff;
+
+    @media screen and (max-width: $break-phone) {
+        margin-top: 0;
+    }
 }
 
 .ch-login__form__title,
@@ -591,7 +651,10 @@
     label {
         font-size: 1.4rem;
         font-weight: 500;
-        margin-bottom: 0;
+
+        @media screen and (max-width: $break-phone) {
+            max-width: 14.5rem;
+        }
     }
 
     input {
@@ -600,6 +663,18 @@
         border-radius: 0 !important;
         border: .1rem solid #aab4bd;
     }
+
+    @media screen and (max-width: $break-phone) {
+        text-align: center;
+    }
+}
+
+.ch-reset-request__form__group label {
+    margin-bottom: 1rem;
+}
+
+.ch-login__form__group {
+    margin-bottom: 0;
 }
 
 .ch-login__form__alert-link,
@@ -625,9 +700,9 @@
 .ch-profile-feedback__link {
 
     .alert-link {
-        color: #0071bc;
+        color: $primary-color-blue;
         &:hover {
-            color: #205493;
+            color: $secondary-color-blue;
         }
     }
 }
@@ -635,10 +710,10 @@
 .ch-login__form__button-submit,
 .ch-reset-request__form__button-submit {
     height: 3.6rem;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
 
     &:hover {
-        background-color: #205493;
+        background-color: $secondary-color-blue;
     }
 }
 
@@ -703,7 +778,7 @@
 }
 
 .ch-login__social__container {
-    max-width: 115rem;
+    max-width: 150rem;
     margin: 0 auto;
 
     @media screen and (max-width: $break-phone) {

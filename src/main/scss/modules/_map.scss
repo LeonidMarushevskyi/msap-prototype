@@ -20,24 +20,33 @@
     .leaflet-pelias-expanded {
         width: 100% !important;
 
+        @media screen and (max-width: $break-phone) {
+            width: calc(100vw - 3.5rem) !important;
+        }
+
         .leaflet-pelias-input {
             height: auto;
             padding-top: .7rem;
             padding-bottom: .7rem;
+            padding-left: 3.5rem;
             line-height: inherit;
             font-size: 1.4rem;
             font-weight: 600;
+            cursor: text;
 
             @media screen and (max-width: $break-phone) {
                 height: 4.5rem;
+                padding-left: 3.5rem;
             }
         }
 
         .leaflet-pelias-close {
             border-radius: 0;
-            margin-top: -3.1rem;
-            height: 34px;
-            margin-right: .1rem;
+            margin-top: 0;
+            margin-right: 0;
+            height: 32px;
+            top: .1rem;
+            right: .2rem;
         }
     }
 
@@ -50,16 +59,36 @@
     .leaflet-bar a.leaflet-pelias-search-icon {
         position: relative;
         border-radius: 0;
-        margin-top: .2rem;
-        width: 3rem;
-        height: 3rem;
-        top: .1rem;
-        left: .2rem;
+        margin-top: .1rem;
+        width: 1.6rem;
+        height: 1.8rem;
+        top: .8rem;
+        left: 1rem;
         margin-left: .2rem;
-        background-image: url('../../assets/images/out-sprite-icons/icon-map-pointer-profile.svg');
+        background: url("../../assets/images/out-sprite-icons/icon-map-input.svg") no-repeat center;
 
         @media screen and (max-width: $break-phone) {
             top: .5rem;
         }
+    }
+}
+
+.ch-modal__row {
+    .leaflet-bar a.leaflet-pelias-search-icon {
+
+        @media screen and (max-width: $break-phone) {
+            top: 1rem;
+            left: 1rem;
+            width: 2rem;
+            height: 2.2rem;
+        }
+
+    }
+}
+
+.ch-mobile-facilities__list-view {
+    .leaflet-top,
+    .leaflet-bottom {
+        z-index: 999;
     }
 }

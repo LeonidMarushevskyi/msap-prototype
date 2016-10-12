@@ -1,13 +1,12 @@
 package com.engagepoint.msap.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -23,13 +22,11 @@ public class Price implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "minimal_price")
-    private Integer minimalPrice;
-    
-    @Column(name = "maximum_price")
-    private Integer maximumPrice;
-    
+    @Column(name = "price")
+    private Integer price;
+
     @ManyToOne
+    @JsonBackReference("prices")
     @JoinColumn(name = "provider_id")
     private Provider provider;
 
@@ -44,20 +41,12 @@ public class Price implements Serializable {
         this.id = id;
     }
 
-    public Integer getMinimalPrice() {
-        return minimalPrice;
-    }
-    
-    public void setMinimalPrice(Integer minimalPrice) {
-        this.minimalPrice = minimalPrice;
+    public Integer getPrice() {
+        return price;
     }
 
-    public Integer getMaximumPrice() {
-        return maximumPrice;
-    }
-    
-    public void setMaximumPrice(Integer maximumPrice) {
-        this.maximumPrice = maximumPrice;
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 
     public Provider getProvider() {
@@ -100,8 +89,7 @@ public class Price implements Serializable {
     public String toString() {
         return "Price{" +
             "id=" + id +
-            ", minimalPrice='" + minimalPrice + "'" +
-            ", maximumPrice='" + maximumPrice + "'" +
+            ", price='" + price + "'" +
             '}';
     }
 }

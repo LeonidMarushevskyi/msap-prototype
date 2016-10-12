@@ -3,8 +3,8 @@
 }
 
 .ch-main-nav-item {
-    display: flex;
-    align-items: center;
+    @extend %flexbox;
+    @include align-items(center);
     margin-left: -4px;
 }
 .ch-main-nav-item__link {
@@ -51,8 +51,11 @@
 }
 
 .ch-main-nav-item__icon {
+    width: 1.6rem;
+    height: 1.6rem;
     margin-right: 1rem;
     position: relative;
+    top: .2rem;
     z-index: 2;
 }
 

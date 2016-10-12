@@ -62,7 +62,7 @@
         border-color: $primary-color-blue;
 
         .icon-pagination-arrow-left {
-            background-color: $primary-color-blue;
+            background: url("../images/us-icon/arrow-hide-panel-hover.svg") no-repeat center;
         }
     }
 
@@ -71,7 +71,7 @@
         height: 1.7rem;
         vertical-align: middle;
         position: relative;
-        top: -1px;
+        top: -.2rem;
     }
 }
 
@@ -84,7 +84,7 @@
         border-color: $primary-color-blue;
 
         .icon-pagination-arrow-right {
-            background-color: $primary-color-blue;
+            background: url("../images/us-icon/arrow-show-panel-hover.svg") no-repeat center;
         }
     }
 
@@ -93,33 +93,29 @@
         height: 1.7rem;
         vertical-align: middle;
         position: relative;
-        top: -1px;
+        top: -.2rem;
     }
-
-
 }
 
 .ch-flat-btn_back-btn {
     width: 4.8rem;
     height: 3.9rem;
-    border-radius: .4rem;
-    border: .2rem solid #757575;
-    background: url(../images/out-sprite-icons/icon-back-arrow.png) 50% 50% no-repeat;
-    background-color: #f1f1f1;
+    border: .1rem solid $primary-color-grey-light;
+    background: url("../images/out-sprite-icons/icon-back-arrow.png") 50% 50% no-repeat;
 
     &:hover {
-        border-color: #323a45;
+        border-color: $primary-color-blue;
     }
 
     @media screen and (max-width: 640px) {
         width: 6.8rem;
         height: 100%;
-        border: .3rem solid #0071bc;
+        border: .1rem solid $primary-color-blue;
     }
 }
 
 .ch-option-btn_short-text {
-    padding: .8rem 4rem;
+    padding: .7rem 4rem;
 
     @media screen and (max-width: 640px) {
         height: 100%;
@@ -149,9 +145,17 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 1.2rem;
+    width: 1.5rem;
     height: 1.8rem;
-    background: url("../images/us-icon/icon-attachment.svg") no-repeat center;
+    background-image: url("../images/us-icon/icon-attachment.svg");
+    background-size: cover;
+
+    @media screen and (max-width: $break-phone) {
+        top: -1.6rem;
+        left: 0;
+        width: 2rem;
+        height: 2.5rem;
+    }
 }
 
 .ch-dropdown-label-btn {
@@ -174,8 +178,8 @@
     font-size: 1.4rem;
     color: #5b616b;
 
-    @media screen and (max-width: 640px) {
-        font-size: 2.4rem;
+    @media screen and (max-width: $break-phone) {
+        font-size: 1.8rem;
     }
 }
 
@@ -187,9 +191,9 @@
 
 .ch-plane-btn_primary {
     padding: 0.8rem 1.8rem;
-    border: 0.2rem solid #0071bc;
+    border: 0.2rem solid $primary-color-blue;
     border-radius: 0.4rem;
-    color: #0071bc;
+    color: $primary-color-blue;
     font-weight: 700;
 }
 

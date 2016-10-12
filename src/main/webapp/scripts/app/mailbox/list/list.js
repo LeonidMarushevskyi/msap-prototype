@@ -6,7 +6,7 @@ angular.module('msapApp')
             .state('ch-inbox.messages', {
                 url: '/:directory',
                 data: {
-                    authorities: ['CASE_WORKER', 'PARENT'],
+                    authorities: ['CASE_WORKER', 'FOSTER_PARENT'],
                     pageTitle: ''
                 },
                 views: {

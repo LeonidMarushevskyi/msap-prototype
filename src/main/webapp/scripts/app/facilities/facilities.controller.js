@@ -2,17 +2,25 @@
 
 angular.module('msapApp')
     .controller('FacilitiesController',
-    ['$scope', '$state', '$log', '$q', 'searchParams',
+    ['$scope', '$state', '$log', '$q', 'searchParams', 'StorageService', 'sessionAddress',
         'leafletData', 'QualityRatingStars', 'ProviderAgenciesService',
         'GeocoderService', 'chLayoutConfigFactory', '$uibModal', 'Principal', 'AppPropertiesService', 'AddressUtils',
         'lookupAgeGroups', 'lookupQualityRating', 'lookupProviderType', 'lookupWorkingHours', 'lookupWeeklyPriceRanges',
         'lookupSpecialNeedGroup', 'lookupSpecialNeedType', 'lookupLicenseType', 'lookupLanguage',
-    function ($scope, $state, $log, $q, searchParams,
+    function ($scope, $state, $log, $q, searchParams, StorageService, sessionAddress,
               leafletData, QualityRatingStars, ProviderAgenciesService,
               GeocoderService, chLayoutConfigFactory, $uibModal, Principal, AppPropertiesService, AddressUtils,
               lookupAgeGroups, lookupQualityRating, lookupProviderType, lookupWorkingHours, lookupWeeklyPriceRanges,
               lookupSpecialNeedGroup, lookupSpecialNeedType, lookupLicenseType, lookupLanguage) {
 
+        $scope.providerSortByMenuSelected = 'facilities.distance';
+
+        $scope.changeSortingOrder = function (sortingOrder) {
+           $scope.providerSortByMenuSelected = sortingOrder;
+           $scope.updateLocations();
+        };
+
+        $scope.sessionAddress = sessionAddress;
         $scope.searchParams = searchParams;
         $scope.lookupAgeGroups = lookupAgeGroups;
         $scope.lookupProviderType = lookupProviderType;
@@ -52,8 +60,8 @@ angular.module('msapApp')
         var windowWidth = $(window).width();
 
         $scope.returnMapHeight = function() {
-          var heightMapDesktop = "height: calc(100vh - 19rem)";
-          var heightMapMobile = "height: calc(100vh - 25rem)";
+          var heightMapDesktop = "height: calc(100vh - 18rem)";
+          var heightMapMobile = "height: calc(100vh - 11rem)";
             if (windowWidth > 640) {
                 return heightMapDesktop;
             } else {
@@ -64,7 +72,7 @@ angular.module('msapApp')
         $scope.agenciesLength = 0;
 
         $scope.DEFAULT_MARKER_MESSAGE = 'You are here';
-        $scope.DEFAULT_ZOOM = 13;
+        $scope.DEFAULT_ZOOM = 14;
 
         $scope.viewContainsCaBounds = false;
         $scope.caBounds = new L.LatLngBounds(new L.LatLng(32.53, -124.43), new L.LatLng(42, -114.13));
@@ -175,6 +183,43 @@ angular.module('msapApp')
             });
         };
 
+        $scope.performSorting = function() {
+            var sortFunction;
+            switch($scope.providerSortByMenuSelected) {
+                case 'facilities.distance':
+                    sortFunction = function (a, b) {
+                        return a.distanceValue - b.distanceValue;
+                    };
+                    break;
+                case 'facilities.provider-name':
+                    sortFunction = function (a,b) {
+                        if ( a.providerName < b.providerName ) {
+                          return -1;
+                        }
+                        if ( a.providerName > b.providerName ) {
+                          return 1;
+                        }
+                        return 0;
+                    };
+                    break;
+                case 'facilities.provider-type':
+                    sortFunction = function (a,b) {
+                        return a.providerType.code - b.providerType.code;
+                    };
+                    break;
+                case 'facilities.quality-star':
+                    sortFunction = function (a,b) {
+                        return b.qualityRating.code - a.qualityRating.code;
+                    };
+                    break;
+                default:
+                    sortFunction = function (a, b) {
+                                     return a.distanceValue - b.distanceValue;
+                                   };
+             }
+            agenciesDataSource.sort(sortFunction);
+        };
+
         $scope.createLocations = function() {
             var locations = {};
             _.each(agenciesDataSource, function (agency) {
@@ -191,7 +236,7 @@ angular.module('msapApp')
                     }
                 );
                 agency.distance = agency.distanceValue.toFixed(1);
-                locations['fn' + agency.facility_number + '_' + agency.distance.replace('.', '_')] = {
+                locations['fn' + agency.id + '_' + agency.distance.replace('.', '_')] = {
                     layer: 'agencies',
                     lat: agency.address.latitude,
                     lng: agency.address.longitude,
@@ -208,9 +253,7 @@ angular.module('msapApp')
                     }
                 };
             });
-            agenciesDataSource.sort(function (a, b) {
-                return a.distanceValue - b.distanceValue;
-            });
+            $scope.performSorting();
             if ($scope.currentLocation) {
                 locations.current = $scope.currentLocation;
             }
@@ -277,7 +320,7 @@ angular.module('msapApp')
                     }
                 },
                 text: $scope.searchText,
-                ageGroups: $scope.getSelected('lookupAgeGroups'),
+                ageGroups: $scope.getSelectedCodes('lookupAgeGroups'),
                 providerTypeCodes: $scope.getSelectedCodes('lookupProviderType'),
                 qualityRatingCodes: $scope.getSelectedCodes('lookupQualityRating'),
                 isBeforeSchool: $scope.isSelected('lookupWorkingHours', 1),
@@ -442,12 +485,13 @@ angular.module('msapApp')
             _.find($scope[modelName], {code: code}).selected = true;
             $scope.addSelectedFilterButton(modelName, code);
         };
-        if ($scope.searchParams.ageGroupCodes) {
-            _.each($scope.searchParams.ageGroupCodes, function (ageGroupCode) {
+
+        $scope.applyAgeGroups = function(ageGroups) {
+            _.each(ageGroups, function (ageGroupCode) {
                 $scope.setSelectedByCode('lookupAgeGroups', ageGroupCode);
             });
             $scope.updateSelectedCount('lookupAgeGroups');
-        }
+        };
 
         $scope.isSelected = function(modelName, code) {
             return _.find($scope[modelName], {code: code}).selected;
@@ -465,7 +509,12 @@ angular.module('msapApp')
         };
         $scope.addGeocoder();
 
-        $scope.toggleBodyContentConfig = chLayoutConfigFactory.layoutConfigState.toggleBodyContentConfig;
+        $scope.toggleBodyContentConfig = function() {
+            chLayoutConfigFactory.layoutConfigState.toggleBodyContentConfig();
+            leafletData.getMap().then(function (map) {
+                map._onResize();
+            })
+        };
         $scope.$watch(function(){
             return chLayoutConfigFactory.layoutConfigState.isAsideVisible;
         }, function() {
@@ -487,9 +536,20 @@ angular.module('msapApp')
             }).result.then($scope.addressApplied, $scope.addressRejected);
         };
 
-        $scope.addressApplied = function(addressFeature) {
-            $scope.onSelectAddress(addressFeature);
+        $scope.addressApplied = function(data) {
+            if (data.ageGroups) {
+                $scope.applyAgeGroups(data.ageGroups);
+            }
+            if (data.addressFeature) {
+                $scope.onSelectAddress(data.addressFeature);
+                var structure = $scope.createAddressStructure(data.addressFeature.latlng.lat, data.addressFeature.latlng.lng, data.addressFeature.feature.properties.label);
+                $log.debug('save = ', structure);
+                StorageService.saveSession(sessionAddress.SESSION_ADDRESS, structure)
+            } else {
+                $scope.addressRejected();
+            }
         };
+
         $scope.addressRejected = function() {
             if (navigator.geolocation) {
                 $log.debug('Geolocation is supported!');
@@ -499,7 +559,6 @@ angular.module('msapApp')
                 $scope.getAddressFromProperties();
             }
         };
-
 
         $scope.getGeoLocation = function () {
             navigator.geolocation.getCurrentPosition(
@@ -514,23 +573,28 @@ angular.module('msapApp')
             );
         };
 
+        $scope.createAddressStructure = function(lat, lng, label) {
+            return {
+                latlng: {
+                    lat: lat,
+                    lng: lng
+                },
+                feature: {
+                    properties: {
+                        label: label
+                    }
+                }
+            }
+        };
+
         $scope.getAddressFromProperties = function () {
             AppPropertiesService.defaultAddress(function (response) {
                 var address = response.data;
                 GeocoderService.searchAddress(address).then(
                     function (response) {
                         var data = response.data[0];
-                        $scope.onSelectAddress({
-                            latlng: {
-                                lat: parseFloat(data.lat),
-                                lng: parseFloat(data.lon)
-                            },
-                            feature: {
-                                properties: {
-                                    label: data.display_name
-                                }
-                            }
-                        });
+                        var structure = $scope.createAddressStructure(parseFloat(data.lat), parseFloat(data.lon), data.display_name);
+                        $scope.onSelectAddress(structure);
                     },
                     function() {
                         $log.warn('Cannot get address details');
@@ -571,35 +635,27 @@ angular.module('msapApp')
             return hasLatLng && hasCityState;
         };
 
-        if ($scope.searchParams.latitude && $scope.searchParams.longitude) {
-            $scope.onSelectAddress({
-                latlng: {
-                    lat: $scope.searchParams.latitude,
-                    lng: $scope.searchParams.longitude
-                },
-                feature: {
-                    properties: {
-                        label: $scope.searchParams.geoLabel
+        if ($scope.searchParams.ageGroupCodes) {
+            $scope.applyAgeGroups($scope.searchParams.ageGroupCodes);
+        }
+
+        {
+            var address = StorageService.getSession(sessionAddress.SESSION_ADDRESS);
+            $log.debug('get = ', address);
+            if ($scope.searchParams.latitude && $scope.searchParams.longitude) {
+                var structure = $scope.createAddressStructure($scope.searchParams.latitude, $scope.searchParams.longitude, $scope.searchParams.geoLabel);
+                $scope.onSelectAddress(structure);
+            } else if (address) {
+                $scope.onSelectAddress(angular.fromJson(address));
+            } else {
+                Principal.identity().then(function (userProfile) {
+                    if ($scope.profileHasEnoughAddressData(userProfile)) {
+                        var structure = $scope.createAddressStructure(userProfile.place.latitude, userProfile.place.longitude, AddressUtils.formatAddress(userProfile.place));
+                        $scope.onSelectAddress(structure);
+                    } else {
+                        $scope.openDefaultAddressModal(userProfile);
                     }
-                }
-            });
-        } else {
-            Principal.identity().then(function (userProfile) {
-                if (!$scope.profileHasEnoughAddressData(userProfile)) {
-                    $scope.openDefaultAddressModal(userProfile);
-                } else {
-                    $scope.onSelectAddress({
-                        latlng: {
-                            lat: userProfile.place.latitude,
-                            lng: userProfile.place.longitude
-                        },
-                        feature: {
-                            properties: {
-                                label: AddressUtils.formatAddress(userProfile.place)
-                            }
-                        }
-                    });
-                }
-            });
+                });
+            }
         }
     }]);
