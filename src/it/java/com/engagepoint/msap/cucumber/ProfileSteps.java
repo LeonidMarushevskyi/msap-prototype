@@ -15,8 +15,8 @@ public class ProfileSteps {
     public void open_my_profile() throws Throwable {
         $(".ch-user-account-entry__dropdown-btn").waitUntil(appear, 10000);
         userStepDefs.click_css_and_wait(".ch-user-account-entry__dropdown-btn");
-        $(By.xpath(".//button/span[text()='My Profile']")).waitUntil(appear, 10000);
-        userStepDefs.click_xpath_and_wait(".//button/span[text()='My Profile']");
+        $("button[href='#/settings']").waitUntil(appear, 10000);
+        userStepDefs.click_css_and_wait("button[href='#/settings']");
         $(By.xpath(".//h1[text()='My Profile']")).shouldBe(visible);
     }
 
