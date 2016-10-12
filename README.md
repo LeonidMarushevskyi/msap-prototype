@@ -508,19 +508,19 @@ Team Leader responsible for delivering the project
 
 <div>
 
-<table class="confluenceTable">
+<table >
 
 <tbody>
 
 <tr>
 
-<td class="confluenceTd">
+<td 
 
 Play Checklist and Key Questions
 
 </td>
 
-<td class="confluenceTd">
+<td 
 
 Response / Artifacts
 
@@ -530,9 +530,9 @@ Response / Artifacts
 
 <tr>
 
-<td class="confluenceTd">
+<td 
 
-<div class="content-wrapper">
+<div >
 
 ## <span style="color: rgb(0,0,0);">PLAY 1</span> Understand what people need
 
@@ -561,7 +561,7 @@ Response / Artifacts
 
 </td>
 
-<td class="confluenceTd">
+<td 
 
 ### <span style="color: rgb(0,0,0);">Checklist</span>
 
@@ -590,9 +590,9 @@ Response / Artifacts
 
 <tr>
 
-<td class="confluenceTd">
+<td 
 
-<div class="content-wrapper">
+<div >
 
 ## <span style="color: rgb(0,0,0);">PLAY 2</span> Address the whole experience, from start to finish
 
@@ -614,7 +614,7 @@ Response / Artifacts
 
 </td>
 
-<td class="confluenceTd">
+<td 
 
 ### Checklist
 
@@ -640,9 +640,9 @@ Response / Artifacts
 
 <tr>
 
-<td class="confluenceTd">
+<td 
 
-<div class="content-wrapper">
+<div >
 
 ## <span style="color: rgb(0,0,0);">PLAY 3</span> Make it simple and intuitive
 
@@ -668,7 +668,7 @@ Response / Artifacts
 
 </td>
 
-<td class="confluenceTd">
+<td 
 
 ### Checklist
 
@@ -696,9 +696,9 @@ Response / Artifacts
 
 <tr>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
-<div class="content-wrapper">
+<div >
 
 ## <span style="color: rgb(0,0,0);">PLAY 4</span> Build the service using agile and iterative practices
 
@@ -730,7 +730,7 @@ Response / Artifacts
 
 </td>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
 ### Checklist
 
@@ -792,9 +792,9 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 <tr>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
-<div class="content-wrapper">
+<div >
 
 ## <span style="color: rgb(0,0,0);">PLAY 5</span> Structure budgets and contracts to support delivery
 
@@ -820,7 +820,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 </td>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
 ### Checklist
 
@@ -846,9 +846,9 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 <tr>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
-<div class="content-wrapper">
+<div >
 
 ## <span style="color: rgb(0,0,0);">PLAY 6</span> Assign one leader and hold that person accountable [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-checklist_63700736.html)
 
@@ -870,7 +870,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 </td>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
 ### Checklist
 
@@ -892,9 +892,9 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 <tr>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
-<div class="content-wrapper">
+<div >
 
 ## <span style="color: rgb(0,0,0);">PLAY 7</span> Bring in experienced teams
 
@@ -913,7 +913,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 </td>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
 ### Checklist
 
@@ -932,9 +932,9 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 <tr>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
-<div class="content-wrapper">
+<div >
 
 ## <span style="color: rgb(0,0,0);">PLAY 8</span> Choose a modern technology stack
 
@@ -955,7 +955,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 </td>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
 ### <span style="color: rgb(0,51,102);">Checklist</span>
 
@@ -981,9 +981,9 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
     EngagePoint chose AngularJS for front-end development because this JavaScript MVC framework is mature and widely used. AngularJS is open source and is one of the most popular projects on GitHub. There are an enormous amount of publicly available components for AngularJs.  
 
-    For back-end development, EngagePoint <span style="color: rgb(255,0,0);">selected the</span> Spring Boot project, which <span style="color: rgb(255,0,0);">helped</span> to implement the application based on Spring Framework faster. Spring Framework in conjunction with Spring Boot provides a solid development platform for implementation of applications with unlimited complexity and performance requirements.  
+    For back-end development, EngagePoint selected the Spring Boot project, which helped to implement the application based on Spring Framework faster. Spring Framework in conjunction with Spring Boot provides a solid development platform for implementation of applications with unlimited complexity and performance requirements.  
 
-2.  EngagePoint <span style="color: rgb(255,0,0);">chose</span> to use PostgreSQL relational database as <span style="color: rgb(255,0,0);">the</span> main persistence storage. This database is the most advanced open source relational database that [provides features](https://www.postgresql.org/about/featurematrix/) comparable with proprietary databases like Oracle and DB2\. PostgreSQL is mature, stable, and widely used in enterprise solutions and web applications. PostgreSQL <span style="color: rgb(255,0,0);">is firmly supported</span> by development tools <span style="color: rgb(255,0,0);">such as</span> Liquibase, Hibernate.  
+2.  EngagePoint chose to use PostgreSQL relational database as the main persistence storage. This database is the most advanced open source relational database that [provides features](https://www.postgresql.org/about/featurematrix/) comparable with proprietary databases like Oracle and DB2\. PostgreSQL is mature, stable, and widely used in enterprise solutions and web applications. PostgreSQL is firmly supported by development tools such as Liquibase, Hibernate.  
 
 3.  The Stack of technologies chosen for application prototype contains open source technologies that are well documented and commonly used. This fact helps new team members quickly come up to speed and be productive. Entry threshold for chosen technologies is relatively low.
 
@@ -993,9 +993,9 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 <tr>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
-<div class="content-wrapper">
+<div >
 
 ## <span style="color: rgb(0,0,0);">PLAY 9</span> Deploy in a flexible hosting environment
 
@@ -1029,7 +1029,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 </td>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
 ### Checklist
 
@@ -1057,10 +1057,10 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 6.  New resources like application server can be provisioned in a matter of several minutes.
 7.  The Application uses Hazelcast distribution cache and Load balancers to scale service on demand.
 8.  Amazon provides different payment policies like pay on demand or pay in advance.
-9.  <span style="color: rgb(0,51,102);">The Application is hosted in 2 Regions with 4 Availability zones.</span>
-10.  <span style="color: rgb(0,51,102);">The only disaster-sensitive part of the Solution is the database. After Database recovery application, new containers can be deployed in 5-10 minutes using CLI.</span>
-11.  <span style="color: rgb(0,51,102);">Not Applicable</span>
-12.  <span style="color: rgb(0,51,102);"><span style="color: rgb(0,0,0);">We recognize data loss can be catastrophic. In most cases, the data source used for this prototype is based upon existing data from other sources. Proper backup (including remote storage of backups) and a recovery strategy for the Database is vital need for the Solution.</span> Multiple <span style="color: rgb(0,0,0);">simple application instances can be provisioned for load balancing and redundancy</span></span>
+9.  The Application is hosted in 2 Regions with 4 Availability zones.
+10.  The only disaster-sensitive part of the Solution is the database. After Database recovery application, new containers can be deployed in 5-10 minutes using CLI.
+11.  Not Applicable
+12.  We recognize data loss can be catastrophic. In most cases, the data source used for this prototype is based upon existing data from other sources. Proper backup (including remote storage of backups) and a recovery strategy for the Database is vital need for the Solution. Multiple simple application instances can be provisioned for load balancing and redundancy
 13.  No need to contact Amazon staff to get resources. Containers automatically restart in case of issues.
 
 </td>
@@ -1069,9 +1069,9 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 <tr>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
-<div class="content-wrapper">
+<div >
 
 ## <span style="color: rgb(0,0,0);">PLAY 10</span> Automate testing and deployments
 
@@ -1100,7 +1100,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 </td>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
 ### Checklist
 
@@ -1131,18 +1131,13 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 1.  We have around 50% code coverage for back-end Java code and around 30% for front-end JavaScript
 2.  It takes around 30 minutes
-3.  <span>It takes around 30 minutes</span><span>  
-    </span>
-4.  Every commit to the master branch starts <span style="color: rgb(255,0,0);">an</span> automated build and deployment to the DEV environment<span style="color: rgb(255,102,0);">  
-    </span>
-5.  <span style="color: rgb(255,102,0);"><span style="color: rgb(0,51,102);">We used</span> [Cucumber](https://cucumber.io/), [Gatling](http://gatling.io/#/) <span></span> <span style="color: rgb(255,102,0);">, [Karma JS](https://karma-runner.github.io/0.13/index.html), [Junit](http://junit.org/junit4/)</span></span><span style="color: rgb(255,102,0);"><span style="color: rgb(255,102,0);">  
-    </span></span>
-6.  <span style="color: rgb(0,51,102);">We used</span> [<span style="color: rgb(0,51,102);">Jenkins</span>](https://jenkins.io/)<span style="color: rgb(0,51,102);">,</span> [<span style="color: rgb(0,51,102);">Sonar</span>](http://www.sonarqube.org/)<span style="color: rgb(0,51,102);">, Cucumber+Selenide, Gatling</span>
-
+3.  It takes around 30 minutes
+4.  Every commit to the master branch starts an automated build and deployment to the DEV environment
+5.  We used [Cucumber](https://cucumber.io/), [Gatling](http://gatling.io/#/), [Karma JS](https://karma-runner.github.io/0.13/index.html), [Junit](http://junit.org/junit4/)
+6.  We used [Jenkins](https://jenkins.io/) [Sonar](http://www.sonarqube.org/), Cucumber+Selenide, Gatling
 7.  Not applicable for application prototype. We do not have requirements from customer.
-
 8.  Not applicable for application prototype. We do not have requirements from customer.
-9.  <span>Not applicable for application prototype.</span>
+9.  Not applicable for application prototype.
 10.  We used a c<span>lustered environment based on EC2 Container Service (ECS).</span> For the Prototype, we created an ECS cluster based on Auto Scaling Group (ESG) of EC2 instances with Elastic Load Balancer (ELB). We can configure various rules in ESG to add and remove EC2 instances based on the current workload or defined schedule.
 
 </td>
@@ -1151,9 +1146,9 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 <tr>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
-<div class="content-wrapper">
+<div >
 
 ## <span style="color: rgb(0,0,0);">PLAY 11</span> Manage security and privacy through reusable processes
 
@@ -1179,7 +1174,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 </td>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
 ### Checklist
 
@@ -1205,9 +1200,9 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 <tr>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
-<div class="content-wrapper">
+<div >
 
 ## <span style="color: rgb(0,0,0);">PLAY 12</span> Use data to drive decisions (Monitoring, A/B Testing, customer satisfaction)
 
@@ -1242,7 +1237,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 </td>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
 ### Checklist
 
@@ -1281,9 +1276,9 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 <tr>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
-<div class="content-wrapper">
+<div >
 
 ## <span style="color: rgb(0,0,0);">PLAY 13</span> Default to open
 
@@ -1311,7 +1306,7 @@ See [U.S. Digital Services Playbook checklist](U.S.-Digital-Services-Playbook-ch
 
 </td>
 
-<td colspan="1" class="confluenceTd">
+<td colspan="1" 
 
 ### Checklist
 
