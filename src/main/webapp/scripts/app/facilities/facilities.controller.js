@@ -107,6 +107,9 @@ angular.module('msapApp')
         $scope.viewConfig = {presentation: 'list'};
         $scope.center = {lat: 32.298855, lng: -90.2619969, zoom: $scope.DEFAULT_ZOOM};
         leafletData.getMap().then(function (map) {
+            console.log("11111111111111");
+            console.log("11111111111111");
+            console.log("11111111111111");
             map._onResize();
         });
 
