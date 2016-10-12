@@ -32,6 +32,7 @@ public class FacilitySteps {
     public void open_facilities_page() throws Throwable {
         userStepDefs.click_xpath_and_wait(".//a[@href='#/facilities']");
         sleep(2000);
+        $("#loading-bar-spinner").waitUntil(disappear, 15000);
     }
 
     @When("^search '(.*)' in facility address search$")
@@ -93,8 +94,8 @@ public class FacilitySteps {
         userStepDefs.click_css_and_wait("[ng-click*='sendMail()']");
         $("[ng-click*='sendMail()']").waitUntil(disappear, 10000);
         userStepDefs.click_xpath_and_wait(".//*[contains(@class,'ch-alert-msg')]/*[text()='Message has been sent!']");
+        $("#loading-bar-spinner").waitUntil(disappear, 15000);
         $(By.xpath(".//*[contains(@class,'ch-alert-msg')]/*[text()='Message has been sent!']")).waitUntil(disappear, 10000);
-
     }
 
     @Then("^verify letter contains attachment$")
