@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('msapApp')
-    .factory('AddressUtils', ['$q', 'LookupState', function ($q, LookupState) {
+    .factory('AddressUtils', ['$log', '$q', 'LookupState', function ($log, $q, LookupState) {
         function formatStreet(place) {
             return _.isNil(place) ? '' : _([place.streetNumber, place.streetName, formatUnitNumber(place.unitNumber)])
                 .omitBy(_.isNil).omitBy(_.isEmpty).values().join(' ');

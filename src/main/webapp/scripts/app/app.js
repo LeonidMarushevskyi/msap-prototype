@@ -78,7 +78,16 @@ angular.module('msapApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalpre
                         if (result) {
                             $state.go('metrics');
                         } else {
-                            $state.go('ch-facilities', {}, {reload: true});
+
+                            Principal.hasAuthority('CASE_WORKER')
+                                                .then(function (result) {
+                                if (result) {
+                                    $state.go('ch-inbox.messages', angular.merge($state.params, {directory: 'inbox'}));
+                                } else {
+                                    $state.go('ch-facilities', {}, {reload: true});
+                                }
+                            });
+
                         }
                     });
             } else {
