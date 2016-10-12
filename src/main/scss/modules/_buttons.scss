@@ -93,7 +93,7 @@
         height: 1.7rem;
         vertical-align: middle;
         position: relative;
-        top: -1px;
+        top: -.2rem;
     }
 }
 
@@ -115,7 +115,7 @@
 }
 
 .ch-option-btn_short-text {
-    padding: .8rem 4rem;
+    padding: .7rem 4rem;
 
     @media screen and (max-width: 640px) {
         height: 100%;
@@ -178,8 +178,8 @@
     font-size: 1.4rem;
     color: #5b616b;
 
-    @media screen and (max-width: 640px) {
-        font-size: 2.4rem;
+    @media screen and (max-width: $break-phone) {
+        font-size: 1.8rem;
     }
 }
 
@@ -191,9 +191,9 @@
 
 .ch-plane-btn_primary {
     padding: 0.8rem 1.8rem;
-    border: 0.2rem solid #0071bc;
+    border: 0.2rem solid $primary-color-blue;
     border-radius: 0.4rem;
-    color: #0071bc;
+    color: $primary-color-blue;
     font-weight: 700;
 }
 

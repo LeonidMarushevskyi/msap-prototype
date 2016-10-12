@@ -121,11 +121,7 @@
     text-transform: uppercase;
 
     &::before {
-        -webkit-mask: url("../../assets/images/out-sprite-icons/icon-map-input.svg") no-repeat center;
-        mask: url("../../assets/images/out-sprite-icons/icon-map-input.svg") no-repeat center;
-        -webkit-mask-size: cover;
-        mask-size: cover;
-        background-color: $secondary-color-ultra-light;
+        background: url("../../assets/images/us-icon/icon-facilities-ultra-grey.svg") no-repeat center;
         display: inline-block;
         position: absolute;
         content: '';
@@ -143,11 +139,7 @@
     text-transform: uppercase;
 
     &::before {
-        -webkit-mask: url("../../assets/images/out-sprite-icons/icon-phone.svg") no-repeat center;
-        mask: url("../../assets/images/out-sprite-icons/icon-phone.svg") no-repeat center;
-        -webkit-mask-size: cover;
-        mask-size: cover;
-        background-color: $secondary-color-ultra-light;
+        background: url("../../assets/images/us-icon/icon-phone-sign.svg") no-repeat center;        
         display: inline-block;
         position: absolute;
         content: '';

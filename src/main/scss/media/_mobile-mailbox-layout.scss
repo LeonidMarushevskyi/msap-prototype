@@ -4,6 +4,10 @@
 .ch-mobile-contacts {
     margin-top: 3rem;
 
+    @media screen and (max-width: $break-phone) {
+        margin-top: 1rem;
+    }
+
     .ch-aside-contacts__short__arrow {
         width: 2.6rem;
         height: 1.4rem;
@@ -35,7 +39,6 @@
         font-size: 2.3rem;
     }
 }
-
 
 .ch-multi-select-dropdown__btn-mobile {
     padding: 0.7rem 0 0.7rem 2.6rem;
@@ -78,10 +81,16 @@
     position: relative;
 
     .ch-multi-select-dropdown__popup {
-        @media screen and (max-width: 640px) {
+        @media screen and (max-width: $break-phone) {
             width: calc(100% - 3rem);
             margin-left: 1.5rem;
-            margin-right: 1.5rem;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 9000;
+            padding: 0;
+            border: .1rem solid #cbcdcf;
+            background: #fff;
         }
     }
   }
@@ -111,17 +120,20 @@
 .ch-mobile-facilities__list-view,
 .ch-mobile-facilities__filter-view {
     @media screen and (max-width: $break-phone) {
-    display: none;}
+        display: none;
+    }
 }
 
 .ch-mobile-contacts.ch-show-folders {
     @media screen and (max-width: $break-phone) {
-    display: none !important;}
+        display: none !important;
+    }
 }
 
 .ch-mobile-folders.ch-show-contacts {
     @media screen and (max-width: $break-phone) {
-    display: none !important;}
+        display: none !important;
+    }
 }
 
 .ch-hide-contacts,
@@ -129,7 +141,8 @@
 .ch-hide-map-view,
 .ch-hide-list-view {
     @media screen and (max-width: $break-phone) {
-    display: none !important;}
+        display: none !important;
+    }
 }
 
 .ch-show-contacts,
@@ -137,5 +150,6 @@
 .ch-show-map-view,
 .ch-show-list-view  {
     @media screen and (max-width: $break-phone) {
-    display: block !important;}
+        display: block !important;
+    }
 }
