@@ -234,7 +234,7 @@ angular.module('msapApp')
                     }
                 );
                 agency.distance = agency.distanceValue.toFixed(1);
-                locations['fn' + agency.facility_number + '_' + agency.distance.replace('.', '_')] = {
+                locations['fn' + agency.id + '_' + agency.distance.replace('.', '_')] = {
                     layer: 'agencies',
                     lat: agency.address.latitude,
                     lng: agency.address.longitude,
