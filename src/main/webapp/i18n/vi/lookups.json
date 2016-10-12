@@ -33,6 +33,15 @@
             "4": "Chăm sóc Weekend",
             "5": "Chăm sóc Nghỉ đêm"
         },
+        "lookupWeeklyPriceRanges": {
+            "1": "ít hơn 25",
+            "2": "25 - 50",
+            "3": "50 - 75",
+            "4": "75 - 100",
+            "5": "100 - 125",
+            "6": "125 - 150",
+            "7": "150 và nhiều hơn nữa"
+        },
         "lookupLicenseType": {
             "1": "KHÔNG CÓ GIẤY PHÉP",
             "2": "PHÉP"
@@ -57,7 +66,7 @@
             "11": "Dẫn tới chấn thương tâm lý",
             "12": "Rối loạn thách thức chống đối",
             "13": "Mù",
-            "14": "Điếc",
+            "14": "Khó nghe",
             "15": "Khiếm thị",
             "16": "Nghe hạn chế"
         },

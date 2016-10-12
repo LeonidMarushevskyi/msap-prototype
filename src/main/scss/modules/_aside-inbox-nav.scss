@@ -4,6 +4,10 @@
 
 .ch-aside-nav-list {
     margin-bottom: 1.5rem;
+
+    @media screen and (max-width: $break-phone) {
+        margin-top: 1.5rem;
+    }
 }
 
 .ch-aside-nav-list__item {
@@ -30,13 +34,14 @@
 
 .ch-aside-nav-item__link_active {
     border-left: 0.3rem solid $primary-color-blue;
+    background-color: $primary-gray-color;
 
     .ch-aside-nav-item__text {
-        color: $primary-color-blue;
+        color: $secondary-color-blue;
     }
 
     .ch-aside-nav-item__counter {
-        color: $primary-color-blue;
+        color: $secondary-color-blue;
     }
 
 }
@@ -45,15 +50,15 @@
     padding: 0 0 0 3rem;
 
     @media screen and (max-width: $break-phone) {
-        padding: 1rem 1rem 1rem 2.7rem;
+        padding: .5rem .5rem .5rem 3rem;
     }
 }
 
 .ch-aside-nav-item__link_active.ch-aside-nav-item__link_icon {
-    padding: 0 0 0 2.7rem;
+    padding: 0 0 0 3rem;
 
     @media screen and (max-width: $break-phone) {
-        padding: 1rem 1rem 1rem 2.7rem;
+        padding: .5rem .5rem .5rem 2.7rem;
     }
 }
 
@@ -123,12 +128,12 @@
 
 .ch-aside-nav-item__text {
     font-size: 1.4rem;
-    font-weight: 600;
+    font-weight: 400;
     color: $primary-color-grey-light;
     vertical-align: middle;
     padding-left: 1.4rem;
 
     @media screen and (max-width: 640px) {
-        font-size: 2.5rem;
+        font-size: 2.1rem;
     }
 }
