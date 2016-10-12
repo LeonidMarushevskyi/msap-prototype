@@ -14,7 +14,7 @@
         </div>
 
         <div class="ch-header__subsection ch-header__subsection-user-account" ng-controller="MyProfileAndLogoutController">
-            <div class="ch-user-account-entry" show-user-account-popup has-any-authority="ROLE_ADMIN, CASE_WORKER, PARENT, FOSTER_PARENT">
+            <div class="ch-user-account-entry ch-user-account-box__profile" show-user-account-popup has-any-authority="ROLE_ADMIN, CASE_WORKER, PARENT, FOSTER_PARENT">
                 <div class="ch-user-account-entry__dropdown ch-user-account-entry__profile" title="User profile">
                     <button type="button" class="ch-user-account-entry__dropdown-btn" ng-click="toggleUserPopup()"
                             ng-class="isUserAccountPopupShown ? 'ch-user-account-entry__dropdown-btn_expanded' : 'ch-user-account-entry__dropdown-btn_collapsed'">
