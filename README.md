@@ -269,16 +269,18 @@ Team Leader responsible for delivering the project
 <td><a href="https://www.linkedin.com/in/marushevskiy-leonid-57a733a">Leonid Marushevskyi</a></td>
 
 <td>
+<ul>
+<li>Delivering projects and products using the appropriate agile project management methodology, learning & iterating frequently</li>
+<li>Leading the collaborative, dynamic planning process – prioritizing the work that needs to be done against the capacity and capability of the team</li>
+<li>Ensuring that product is built to an appropriate level of quality for the stage (alpha/beta/production)</li>
+<li>Actively and openly sharing knowledge of best practices</li>
+<li>Architecting the overall system, by using prototyping and proof of concepts, defining development technologies and solution components</li>
+<li>Ensuring strategic alignment of technical design and architecture to meet business and user needs, and stay on top of emerging technologies</li>
+<li>Working with the Product Manager to define the roadmap for product and translating this into user stories</li>
+<li>Developing product roadmaps, backlogs, and measurable success criteria</li>
+<li>Clearly communicates and works with stakeholders at every level</li>
 
-*   Delivering projects and products using the appropriate agile project management methodology, learning & iterating frequently
-*   Leading the collaborative, dynamic planning process – prioritizing the work that needs to be done against the capacity and capability of the team
-*   Ensuring that product is built to an appropriate level of quality for the stage (alpha/beta/production)
-*   Actively and openly sharing knowledge of best practices
-*   Architecting the overall system, by using prototyping and proof of concepts, defining development technologies and solution components
-*   Ensuring strategic alignment of technical design and architecture to meet business and user needs, and stay on top of emerging technologies
-*   Working with the Product Manager to define the roadmap for product and translating this into user stories
-*   Developing product roadmaps, backlogs, and measurable success criteria
-*   Clearly communicates and works with stakeholders at every level
+</ul>
 
 </td>
 
