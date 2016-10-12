@@ -4,7 +4,7 @@ angular.module('msapApp')
         function searchOpenSlotsByAgeGroupsAndAvailableSpots(ageGroups) {
             return EntitySearchFacade.search(
                 /*
-                 this _.transform is to prepare the search query part like this:
+                 this _.transform is to prepare a query part like this:
                      (+ageGroup.code:2 +openSlots:>=3)
                      (+ageGroup.code:3)
                      (+ageGroup.code:5 +openSlots:>=1)
@@ -51,6 +51,8 @@ angular.module('msapApp')
          });
          */
         function findAgenciesByFilter(filter) {
+            //console.log('filter: ', filter);
+
             var nw = filter.bounds.northwest;
             var se = filter.bounds.southeast;
 
@@ -98,6 +100,33 @@ angular.module('msapApp')
                                 '+supportedSpecialNeeds.specialNeedType.code': filter.specialNeedCodes,
                                 '+supportedLanguages.language.code': filter.supportedLanguageCodes
                             },
+
+                            /*
+                             this '+': _.transform ... is to prepare a query part like this:
+                             +(
+                                 (+prices.price:>=50 +prices.price:<100)
+                                 (+prices.price:>=100 +prices.price:<200)
+                             )
+                             */
+                            {
+                                '+': _.transform(filter.priceRanges, function (result, priceRange) {
+                                    result.push(
+                                        {'':
+                                            [
+                                                {
+                                                    $when: !_.isNil(priceRange.min),
+                                                    '+prices.price': '>=' + priceRange.min
+                                                },
+                                                {
+                                                    $when: !_.isNil(priceRange.max),
+                                                    '+prices.price': '<' + priceRange.max
+                                                }
+                                            ]
+                                        }
+                                    );
+                                }, [])
+                            },
+
                             {
                                 $when: filter.isNoComplains,
                                 '-numberOfComplains': '>0'
@@ -116,7 +145,7 @@ angular.module('msapApp')
                         // usePOST
                         true
                     ).then(function (searchResults) {
-                        $log.debug(searchResults.entityName + ' query: ' + searchResults.stringQuery);
+                        //$log.debug(searchResults.entityName + ' query: ' + searchResults.stringQuery);
                         return searchResults.data;
                     });
                 }

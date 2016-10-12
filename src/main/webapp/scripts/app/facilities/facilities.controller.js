@@ -329,6 +329,7 @@ angular.module('msapApp')
                 ageGroups: $scope.getSelected('lookupAgeGroups'),
                 providerTypeCodes: $scope.getSelectedCodes('lookupProviderType'),
                 qualityRatingCodes: $scope.getSelectedCodes('lookupQualityRating'),
+                priceRanges: $scope.getSelected('lookupWeeklyPriceRanges'),
                 isBeforeSchool: $scope.isSelected('lookupWorkingHours', 1),
                 isAfterSchool: $scope.isSelected('lookupWorkingHours', 2),
                 isFullDay: $scope.isSelected('lookupWorkingHours', 3),
@@ -342,7 +343,6 @@ angular.module('msapApp')
                 isNoComplains: $scope.isSelected('filterComplainsAndAllegations', 1),
                 isNoAllegations: $scope.isSelected('filterComplainsAndAllegations', 2)
             };
-            //$log.debug('request', request);
 
             ProviderAgenciesService.findAgenciesByFilter(request).then(
                 function(agencies) {
