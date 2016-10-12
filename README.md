@@ -3,7 +3,7 @@
 ## Main Links
 Prototype URL: [MSAP Parent Portal](http://www.msap.engagepoint.com)</br></br>
 [Continuous Delivery](http://jenkins.msap.engagepoint.com:8888/view/All/)</br>
-[Monitoring](http://zabbix.msap.engagepoint.com:10080/zabbix/charts.php?sid=b97ada3ab8730469&form_refresh=1&fullscreen=0&groupid=10&hostid=10142&graphid=883)</br>
+[Monitoring](http://zabbix.msap.engagepoint.com:10080/zabbix/charts.php?sid=283d739fb5f810b5&form_refresh=1&fullscreen=0&groupid=10&hostid=0&graphid=955)</br>
 [Code Quality](http://jenkins.msap.engagepoint.com:8080/overview?id=com.engagepoint.msap%3Amsap-prototype)</br>
 [U.S. Digital Service Playbook compliance]()</br>
 
@@ -260,7 +260,7 @@ Team Leader responsible for delivering the project
 
 <td><span>Category 3 / <span>Category 5</span></span></td>
 
-<td> [Leonid Marushevskyi](https://www.linkedin.com/in/marushevskiy-leonid-57a733a)</td>
+<td><a href="https://www.linkedin.com/in/marushevskiy-leonid-57a733a">Leonid Marushevskyi</a></td>
 
 <td>
 
@@ -286,7 +286,7 @@ Team Leader responsible for delivering the project
 
 <td>Category 2</td>
 
-<td>[Margreta Silverstone](https://www.linkedin.com/in/margreta-silverstone-a571709)</td>
+<td><a href="https://www.linkedin.com/in/margreta-silverstone-a571709">Margreta Silverstone</a></td>
 
 <td>
 
@@ -311,7 +311,7 @@ Team Leader responsible for delivering the project
 
 <td>Category 4 / Category 12</td>
 
-<td>[Pavel Khozhainov](https://www.linkedin.com/in/pavel-khozhainov-4562509)</td>
+<td><a href="https://www.linkedin.com/in/pavel-khozhainov-4562509">Pavel Khozhainov</a></td>
 
 <td>
 
@@ -338,7 +338,7 @@ Team Leader responsible for delivering the project
 
 <td>Category 7</td>
 
-<td>[Oleksander Kuznetsov](https://www.linkedin.com/in/oleksandr-kuznetsov-69866171/en)</td>
+<td><a href="https://www.linkedin.com/in/oleksandr-kuznetsov-69866171/en">Oleksander Kuznetsov</a></td>
 
 <td>
 
@@ -363,9 +363,7 @@ Team Leader responsible for delivering the project
 
 <td>Category 11/Category 12</td>
 
-<td>
-
-[Dariia Iarmuratii](https://www.linkedin.com/in/dariia-iarmuratii-b3640b39/en)
+<td><a href="https://www.linkedin.com/in/dariia-iarmuratii-b3640b39/en">Dariia Iarmuratii</a>
 
 </td>
 
@@ -394,7 +392,7 @@ Team Leader responsible for delivering the project
 
 <td colspan="1">Category 13</td>
 
-<td colspan="1">[Jonathan Parker](https://www.linkedin.com/in/jonathanp8888)</td>
+<td colspan="1"><a href="https://www.linkedin.com/in/jonathanp8888">Jonathan Parker</a></td>
 
 <td colspan="1">
 
@@ -417,7 +415,7 @@ Team Leader responsible for delivering the project
 
 </td>
 
-<td>[Alexander Sankin](https://ua.linkedin.com/in/alexander-sankin-99023458)</td>
+<td><a href="https://ua.linkedin.com/in/alexander-sankin-99023458">Alexander Sankin</a></td>
 
 <td rowspan="5">
 
@@ -444,7 +442,7 @@ Team Leader responsible for delivering the project
 
 <td style="text-align: center;" colspan="1">8.</td>
 
-<td colspan="1">[Serge Redchuk](https://www.linkedin.com/in/serge-redchuk-22b13518)</td>
+<td colspan="1"><a href="https://www.linkedin.com/in/serge-redchuk-22b13518">Serge Redchuk</a</td>
 
 </tr>
 
@@ -452,7 +450,7 @@ Team Leader responsible for delivering the project
 
 <td style="text-align: center;" colspan="1">9.</td>
 
-<td colspan="1">[Oleg Korniichuk](https://ua.linkedin.com/in/oleg-korniichuk-3257302)</td>
+<td colspan="1"><a href="https://ua.linkedin.com/in/oleg-korniichuk-3257302">Oleg Korniichuk</a></td>
 
 </tr>
 
@@ -460,10 +458,19 @@ Team Leader responsible for delivering the project
 
 <td style="text-align: center;" colspan="1">10.</td>
 
-<td colspan="1">[Alexander Serbin](https://www.linkedin.com/in/alexander-serbin-7112622)</td>
-<td colspan="1">[Oleksandr Nikitin](https://www.linkedin.com/in/aleksandr-nikitin-2234a22a)</td>
+<td colspan="1"><a href="https://www.linkedin.com/in/alexander-serbin-7112622">Alexander Serbin</a></td>
 
 </tr>
+
+<tr>
+
+<td style="text-align: center;" colspan="1">11.</td>
+
+<td colspan="1"><a href="https://www.linkedin.com/in/aleksandr-nikitin-2234a22a">Oleksandr Nikitin</a></td>
+
+</tr>
+
+
 
 </tbody>
 
