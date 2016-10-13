@@ -3,12 +3,12 @@
 # Mississippi Vendor Challenge
 
 # Table of Contents
-1. [Main Links](#main-links)
-2. [User guide](#user-guide)
-3. [Project Description](#project-description)
-4. [Installation Guide](#installation-guide)
-5. [List of artifacts used to create the prototype](#list-of-artifacts-used-to-create-the-prototype)
-6. [Team Structure](#team-structure)
+1. [Main Links](#1_main-links)
+2. [User guide](#2_user-guide)
+3. [Project Description](#3_project-description)
+4. [Installation Guide](#4_installation-guide)
+5. [List of artifacts used to create the prototype](#5_list-of-artifacts-used-to-create-the-prototype)
+6. [Team Structure](#6_team-structure)
 
 ## 1. Main Links
 **Prototype URL:** [MSAP Parent Portal - www.msap.engagepoint.com](http://www.msap.engagepoint.com)
@@ -17,11 +17,11 @@
   
 Please refere to the **U.S. Digital Services Playbook checklist** document from Vendor Challenge Documentation.
 
-[Continuous Delivery](http://jenkins.msap.engagepoint.com:8888/view/All/)</br>
+[Continuous Delivery (Jenkins)](http://jenkins.msap.engagepoint.com:8888/view/All/)</br>
 
-[Monitoring](http://zabbix.msap.engagepoint.com:10080/zabbix/charts.php?sid=283d739fb5f810b5&form_refresh=1&fullscreen=0&groupid=10&hostid=0&graphid=955)</br>
+[Monitoring (Zabbix)](http://zabbix.msap.engagepoint.com:10080/zabbix/charts.php?ddreset=1&sid=1f88323b14ad2f70)</br>
 
-[Code Quality](http://jenkins.msap.engagepoint.com:8080/overview?id=com.engagepoint.msap%3Amsap-prototype)</br>
+[Code Quality (SonarCube)](http://jenkins.msap.engagepoint.com:8080/overview?id=com.engagepoint.msap%3Amsap-prototype)</br>
 
 For questions and comments regarding the installation, the documentation and the prototype, please contact: msap@engagepoint.com
 
@@ -135,29 +135,29 @@ In addition, our search includes:
 
 Based on the input regarding the display of the results, our results are displayed both on a map, and as a text based listing.
 
-The dataset used in our solution includes the State’s identified data. However, based on our meeting with State representatives on September 9, we have augmented the data with additional elements. See the UX Design Process/08. Decisions made document for more details on these decisions. 
+The dataset used in our solution includes the State’s identified data. However, based on our meeting with State representatives on September 9, we have augmented the data with additional elements. See the **UX Design Process/08. Decisions made** document for more details on these decisions. 
 
 ### 5.2. User stories
 
-To implement the prototype, we modified our Scrum methodology to align with the user-centric design. Our approach is detailed in US Digital Services Playbook Play 4 as well as in Agile/Agile Approach Overview document from Vendor Challenge Documentation.
+To implement the prototype, we modified our Scrum methodology to align with the user-centric design. Our approach is detailed in US Digital Services Playbook Play 4 as well as in **Agile/Agile Approach Overview** document from Vendor Challenge Documentation.
 
 After the initial gathering of information regarding current functionality and user needs, the EngagePoint team used a variety of techniques to clarify the requirements within the human-centric design. These include the following: 
-* **User Personas** (please refer to UX Design Process/03. User Personas from Vendor Challenge Documentation)
-* **User Stories & Scenarios** (please refer to UX Design Process/04. User Stories & Scenarios from Vendor Challenge Documentation)
+* **User Personas** (please refer to **UX Design Process/03. User Personas** from Vendor Challenge Documentation)
+* **User Stories & Scenarios** (please refer to **UX Design Process/04. User Stories & Scenarios** from Vendor Challenge Documentation)
 
 User Personas and User Stories and Scenarios provide points of clarification in interviews with targeted users and support the design and development effort.
 
 ### 5.3. UX/UI Design
 
-* **Wireframing** (please refer to UX Design Process/05. List of Axure wireframe versions from Vendor Challenge Documentation)
-* **Usability Testing** (please refer to UX Design Process/06. Usability testing from Vendor Challenge Documentation)
-* **Design mockups** (please refer to UX Design Process/07. Design Concepts and Mockups from Vendor Challenge Documentation)
+* **Wireframing** (please refer to **UX Design Process/05. List of Axure wireframe versions** from Vendor Challenge Documentation)
+* **Usability Testing** (please refer to **UX Design Process/06. Usability testing** from Vendor Challenge Documentation)
+* **Design mockups** (please refer to **UX Design Process/07. Design Concepts and Mockups** from Vendor Challenge Documentation)
  
 For our team, interactive wireframes play an important part in the human-centric design approach. Wireframes provide the ability to quickly prototype and validate design ideas with users. The interactive wireframe is also a useful input for the application development team. Properly organized design stage activities minimize the need to rework the actual application in later stages, where the cost of changes could be much more expensive. 
  
-The UX Design Process establishes a visual metaphor to support the steps in the process and orient users to where they are in the actions to be performed. The process also establishes important language consistencies and design consistencies that support the service. Our style guide integrates with the current Mississippi style guide. Our usability testing process validates if we have accomplished the intended goals (or provides a correction, if there is a missed alignment).
+The UX Design Process establishes a visual metaphor to support the steps in the process and orient users to where they are in the actions to be performed. The process also establishes important language consistencies and design consistencies that support the service. Our style guide integrates with the current Mississippi style guide (please refer to **UX Design Process/10. Design Style Guide** from Vendor Challenge Documentation). Our usability testing process validates if we have accomplished the intended goals (or provides a correction, if there is a missed alignment).
  
-The EngagePoint product design incorporates support for tablet and smartphone usage. Providing these options in working with the application supports the various devices parents and caseworkers use in their daily lives. Additional information regarding the EngagePoint Design process can be found within the **UX Design Process** (please refer to UX Design Process document from Vendor Challenge Documentation).
+The EngagePoint product design incorporates support for tablet and smartphone usage. Providing these options in working with the application supports the various devices parents and caseworkers use in their daily lives. Additional information regarding the EngagePoint Design process can be found within the **UX Design Process** (please refer to **UX Design Process** document from Vendor Challenge Documentation).
  
 EngagePoint used the [U.S. Web Design Standards](https://standards.usa.gov/) to track with industry-standard web-accessibility guidelines alongside best practices of existing style libraries and modern web design. U.S. Web Design Standards provided a guide for creating visually appealing and easy-to-use online experiences for the American people.
 

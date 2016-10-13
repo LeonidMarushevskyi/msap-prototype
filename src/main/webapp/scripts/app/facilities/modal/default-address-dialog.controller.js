@@ -24,13 +24,24 @@ angular.module('msapApp')
                     selectedCount: 0
                 }
             };
-
             $scope.toggleFilterMenu = function (modelName, status) {
                 if (_.isUndefined(status)) {
                     $scope.filterMenuConfigs[modelName].showList = !$scope.filterMenuConfigs[modelName].showList;
                 } else {
                     $scope.filterMenuConfigs[modelName].showList = status;
                 }
+            };
+            $scope.getSelected = function(modelName) {
+                return _.filter($scope[modelName], {selected: true});
+            };
+            $scope.getSelectedCodes = function(modelName) {
+                return _.map($scope.getSelected(modelName), 'code');
+            };
+            $scope.onFilterMenuItemClick = function(modelName, code) {
+                $scope.updateSelectedCount(modelName);
+            };
+            $scope.updateSelectedCount = function(modelName) {
+                $scope.filterMenuConfigs[modelName].selectedCount = $scope.getSelected(modelName).length;
             };
 
             $scope.saveOrUpdateAccount = function(profile) {
@@ -87,12 +98,5 @@ angular.module('msapApp')
                     $log.warn('Cannot render modal ', reason)
                 }
             );
-
-            $scope.getSelected = function(modelName) {
-                return _.filter($scope[modelName], {selected: true});
-            };
-            $scope.getSelectedCodes = function(modelName) {
-                return _.map($scope.getSelected(modelName), 'code');
-            };
         }]
     );
