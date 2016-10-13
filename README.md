@@ -13,6 +13,8 @@
 ## 1. Main Links
 **Prototype URL:** [MSAP Parent Portal - www.msap.engagepoint.com](http://www.msap.engagepoint.com)
 
+Supported browsers: Internet Explorer 11, Edge, Chrome, FireFox, Opera, Safari
+
 **Vendor Challenge Documentation** is included in Git repository in HTML format in /documents folder. Please use /documents/index.html as entry point. This documentation is referenced from content below.
   
 Please refere to the **U.S. Digital Services Playbook checklist** document from Vendor Challenge Documentation.
@@ -25,14 +27,17 @@ Please refere to the **U.S. Digital Services Playbook checklist** document from 
 
 For questions and comments regarding the installation, the documentation and the prototype, please contact: msap@engagepoint.com
 
-## 2. User guide
-Application provide ability for anonymous users to search for Child Care Providers in state of Mississipi.
+## 2. User Guide
 
-Application as well provides several roles with different capabilities: PARENT, FOSTER_PARENT and CASE_WORKER.
+EngagePoint built a modern web application with a responsive user interface to allow parents and caseworkers to search for child care providers in a way that closely fits users’ preferred methods of interaction and search. Users have the option to perform a wide search with minimal user input, or a focused search that considers factors such as quality rating, operating hours, and ability for to support children’s specific special needs. English, Spanish, and Vietnamese are supported. In addition, the solution incorporates user profile functionality with a private inbox platform to facilitate communication between foster parents and case workers.
 
-After registration and activation of account using email, user can receive role PARENT or FOSTER_PARENT depends on registration data.
+* The application provides anonymous users with the ability to search for Child Care Providers in Mississippi.
 
-To login without registration please use demo users below:
+* The application provides capabilities for several roles: PARENT, FOSTER_PARENT and CASE_WORKER.
+
+* After registration and account activation (by email), users can receive the roles PARENT or FOSTER_PARENT depending on registration data.
+
+To login without registration demo users are provided below
 
 Demo user with role PARENT:
 
@@ -48,7 +53,7 @@ Demo uses with role CASE_WORKER:
 
 EngagePoint implemented a modern, mobile-friendly, cloud-ready web application in only three weeks:
 
-1. Performed 1:1 interviews and documentted results
+1. Performed 1:1 interviews and documented results
 2. Developed an interactive wireframe and performed usability testing with users
 3. Developed user interface mock-ups using  [U.S. Web Design Standards](https://standards.usa.gov/) in compliance with [ADA508](https://www.section508.gov/)
 4. Generated a generic web application using JHipster with an appropriate technology stack
@@ -75,10 +80,10 @@ Foster Parent: username: fosterparent, password: parent
 Role Case Worker: username: worker, password: worker
 5. In Docker Terminal run the following command line: ```docker-compose f <full-path-to-file>/msap-prototype-<ha or full>.yml up -d```
 Please wait 1 to 5 minutes for application start depends on network connection.
-6. If you have Windows environment, you can open Kitematic (Alpha) and click on Web Preview to open application in the browser. In the Linux, application will be available by default URL [http://127.0.0.1:8080/#/](http://127.0.0.1:8080/#/) (for Full) or [http://127.0.0.1:24080](http://127.0.0.1:24080) (for HA)
-7. For high availability (HA) configuration (msap-prototype-ha.yml) you can scale application. For this in Docker terminal run command line: 
+6. If you have Windows environment, you can open Kitematic (Alpha) and click on Web Preview to open application in the browser. In Linux, the application will be available through the default URL [http://127.0.0.1:8080/#/](http://127.0.0.1:8080/#/) (for Full) or [http://127.0.0.1:24080](http://127.0.0.1:24080) (for HA)
+7. For high availability (HA) configuration (msap-prototype-ha.yml) you can scale the application. For this in Docker terminal run command line: 
 ```docker-compose scale msap-prototype-ha=n```
-, where n is desired quantity of Application's containers.
+  , where n is desired quantity of Application's containers.
 
 ### 4.2. Compile application from source code and start (any operation system, development environment)
 To compile the application from source code, you will need to setup and configure a development environment using the steps below:
@@ -192,13 +197,17 @@ JHipster lets us choose technologies based on project requirements. For the prot
 ![Architectural diagram](https://github.com/engagepoint/msap-config/blob/master/4620408.png?raw=true)
 
 EngagePoint has used only open source technologies and platforms for prototype creation. Key technologies with links to source code and license type are described below:
-1. Client side:
+
+** Client side **
+
 - [Bootstrap](http://getbootstrap.com/) 3.3.5: [source code](https://github.com/twbs/bootstrap) [,  ](http://getbootstrap.com/) [MIT License](https://github.com/twbs/bootstrap/blob/master/LICENSE)
 - [UI Bootstrap](http://angular-ui.github.io/bootstrap/) [:](http://getbootstrap.com/) [source code](https://github.com/angular-ui/bootstrap) [,  ](http://getbootstrap.com/) [MIT License](https://github.com/angular-ui/bootstrap/blob/master/LICENSE)
 - [AngularJS](https://angularjs.org/): [source code](https://github.com/angular/angular.js), [MIT License](https://github.com/angular/angular.js/blob/master/LICENSE)
 - [Leaflet](http://leafletjs.com/): [source code](https://github.com/Leaflet/Leaflet), [BSD 2-Clause License](https://github.com/Leaflet/Leaflet/blob/master/LICENSE)
 - [Mapzen](https://mapzen.com/): [source code](https://github.com/mapzen/leaflet-geocoder), [MIT License](https://github.com/mapzen/leaflet-geocoder/blob/master/LICENSE)
-2. Server Side:
+
+** Server Side **
+
 - [Spring Boot](http://projects.spring.io/spring-boot/): [source code](https://github.com/spring-projects/spring-boot), [Apache License Version 2](https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt)
 - [Spring Framework](https://projects.spring.io/spring-framework/): [source code](https://github.com/spring-projects/spring-framework), [Apache License Version 2](https://github.com/spring-projects/spring-framework/blob/183594207fbb447e1b59262b4469f2aefbb8a3ec/src/dist/license.txt)
 - [Spring Security](http://projects.spring.io/spring-security/): [source code](https://github.com/spring-projects/spring-security), [Apache License Version 2](https://github.com/spring-projects/spring-security/blob/master/license.txt)
@@ -217,10 +226,10 @@ The table below lists EngagePoint's architectural design decisions and their ali
 | --- | --- | --- |
 | Modern Web Application | HTML5, CSS3, [AngularJS](https://angularjs.org/) | AngularJS has decent documentation and an active GitHub community with lots of open components |
 | Responsive UI | [Bootstrap](http://getbootstrap.com/) | Simplifies responsive UI implementation complexity providing CSS and JS. |
-| Allow parents to search for child care providers | [Leaflet](http://leafletjs.com/), [Mapzen Search](https://mapzen.com/projects/search/?lng=-76.67925&lat=39.01412&zoom=12), [Elasticsearch](https://www.elastic.co/products/elasticsearch), [PostgreSQL](https://www.postgresql.org/) | - Leaflet is the leading open-source JavaScript library for mobile-friendly interactive maps. <br/>- Mapzen Search is an open source geocoding tool used for address  lookup capabilities. <br/> - Elasticsearch implements search capabilities needed for inbox functionality like full-text search, relevancy, ranking, and fuzzy search. <br/> - We are using the relational database for the persistence of messages in the private inbox. Prototype is database agnostic. PostgreSQL is our open source choice. |
-| Allow foster parents to communicate with the case worker via a private inbox | [Elasticsearch](https://www.elastic.co/products/elasticsearch), [PostgreSQL](https://www.postgresql.org/), [Websockets](https://en.wikipedia.org/wiki/WebSocket), [HibernateORM](http://hibernate.org/orm/) | - Websockets technology is used for real-time notifications about new messages. |
-| Allow parents to establish and manage their profile | [JHipster](https://jhipster.github.io/) [Hazelcast](http://hazelcast.org/) | - Generic JHipster application has built-in login, registration, and user profile functionality. EngagePoint has customized the generic implementation.<br/>- Hazelcast is a distributed data grid used for distributed cache capabilities and performance improvement of the application. For the prototype, we are storing user sessions as well as L2 Hibernate cache.|
-| Automated deployment to IaaS, PaaS | [Spring Boot](http://projects.spring.io/spring-boot/), [Docker](https://www.docker.com/), [Jenkins](https://jenkins.io/) | - Spring Boot provides DevOps tools like externalized configuration, monitoring, and logging. Spring Boot eliminates the need to use external application containers, simplifying cloud deployment. <br/>- Docker containers are used for all components of application infrastructure (application, Elasticsearch server, PostgreSQL server). Containerization helps with automated deployment and makes application environments agnostic. <br/>- Jenkins is an open source tool used to implement continuous integration and delivery. |
+| Allow parents to search for child care providers | [Leaflet](http://leafletjs.com/), [Mapzen Search](https://mapzen.com/projects/search/?lng=-76.67925&lat=39.01412&zoom=12), [Elasticsearch](https://www.elastic.co/products/elasticsearch), [PostgreSQL](https://www.postgresql.org/) | <ul><li>Leaflet is the leading open-source JavaScript library for mobile-friendly interactive maps. </li><li> Mapzen Search is an open source geocoding tool used for address  lookup capabilities. </li><li>Elasticsearch implements search capabilities needed for inbox functionality like full-text search, relevancy, ranking, and fuzzy search. </li><li>We are using the relational database for the persistence of messages in the private inbox. Prototype is database agnostic. PostgreSQL is our open source choice.</li></ul> |
+| Allow foster parents to communicate with the case worker via a private inbox | [Elasticsearch](https://www.elastic.co/products/elasticsearch), [PostgreSQL](https://www.postgresql.org/), [Websockets](https://en.wikipedia.org/wiki/WebSocket), [HibernateORM](http://hibernate.org/orm/) | <ul><li>Websockets technology is used for real-time notifications about new messages.</li></ul> |
+| Allow parents to establish and manage their profile | [JHipster](https://jhipster.github.io/) [Hazelcast](http://hazelcast.org/) | <ul><li>Generic JHipster application has built-in login, registration, and user profile functionality. EngagePoint has customized the generic implementation. </li><li>Hazelcast is a distributed data grid used for distributed cache capabilities and performance improvement of the application. For the prototype, we are storing user sessions as well as L2 Hibernate cache.</li></ul>|
+| Automated deployment to IaaS, PaaS | [Spring Boot](http://projects.spring.io/spring-boot/), [Docker](https://www.docker.com/), [Jenkins](https://jenkins.io/) | <ul><li>Spring Boot provides DevOps tools like externalized configuration, monitoring, and logging. Spring Boot eliminates the need to use external application containers, simplifying cloud deployment. </li><li>Docker containers are used for all components of application infrastructure (application, Elasticsearch server, PostgreSQL server). Containerization helps with automated deployment and makes application environments agnostic. </li><li>Jenkins is an open source tool used to implement continuous integration and delivery.</li></ul> |
 
 ### 5.4.3. Development Tools
 
