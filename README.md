@@ -197,7 +197,8 @@ JHipster lets us choose technologies based on project requirements. For the prot
 ![Architectural diagram](https://github.com/engagepoint/msap-config/blob/master/4620408.png?raw=true)
 
 EngagePoint has used only open source technologies and platforms for prototype creation. Key technologies with links to source code and license type are described below:
-1. Client side:
+
+** Client side **
 
 - [Bootstrap](http://getbootstrap.com/) 3.3.5: [source code](https://github.com/twbs/bootstrap) [,  ](http://getbootstrap.com/) [MIT License](https://github.com/twbs/bootstrap/blob/master/LICENSE)
 - [UI Bootstrap](http://angular-ui.github.io/bootstrap/) [:](http://getbootstrap.com/) [source code](https://github.com/angular-ui/bootstrap) [,  ](http://getbootstrap.com/) [MIT License](https://github.com/angular-ui/bootstrap/blob/master/LICENSE)
@@ -205,7 +206,7 @@ EngagePoint has used only open source technologies and platforms for prototype c
 - [Leaflet](http://leafletjs.com/): [source code](https://github.com/Leaflet/Leaflet), [BSD 2-Clause License](https://github.com/Leaflet/Leaflet/blob/master/LICENSE)
 - [Mapzen](https://mapzen.com/): [source code](https://github.com/mapzen/leaflet-geocoder), [MIT License](https://github.com/mapzen/leaflet-geocoder/blob/master/LICENSE)
 
-2. Server Side:
+** Server Side **
 
 - [Spring Boot](http://projects.spring.io/spring-boot/): [source code](https://github.com/spring-projects/spring-boot), [Apache License Version 2](https://github.com/spring-projects/spring-boot/blob/master/LICENSE.txt)
 - [Spring Framework](https://projects.spring.io/spring-framework/): [source code](https://github.com/spring-projects/spring-framework), [Apache License Version 2](https://github.com/spring-projects/spring-framework/blob/183594207fbb447e1b59262b4469f2aefbb8a3ec/src/dist/license.txt)
