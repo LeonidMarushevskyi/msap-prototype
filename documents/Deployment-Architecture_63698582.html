@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mississippi Agile Pool : Deployment Architecture</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Mississippi Agile Pool</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Mississippi-Agile-Pool_63697949.html">Mississippi Agile Pool</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Mississippi Agile Pool : Deployment Architecture
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Leonid Marushevskiy</span>, last modified on Oct 11, 2016
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Here is the proposed schema for this solution.<br />  <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/63698582/64586466.png" data-image-src="attachments/63698582/64586466.png" data-unresolved-comment-count="0" data-linked-resource-id="64586466" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="63698594.png" data-base-url="https://docs.engagepoint.us" data-linked-resource-content-type="image/png" data-linked-resource-container-id="63698582" data-linked-resource-container-version="4"></span><br />Workflow:</p><ol><li>Developers commit code to the public GitHub repository.</li><li>Jenkins: Developer checks out the code, builds it, and runs unit tests.</li><li>Sonar: Developer checks the code for quality, detects coverage percentage, etc.</li><li>If all tests pass, Jenkins build Docker image and pushes it to the public Docker Hub.</li><li>Amazon Cloud: pulls the image from the Hub and runs it.</li><li>Application: sends monitoring data to the Zabbix server to collect statistics, fire alarms, provide graphs, etc.</li></ol><p> <br />Hardware requirements:</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>CPU</p></td><td class="confluenceTd"><p>RAM</p></td><td class="confluenceTd"><p>Storage</p></td></tr><tr><td class="confluenceTd"><p>CI/Monitoring infrastructure</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>Jenkins</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>4</p></td><td class="confluenceTd"><p>20</p></td></tr><tr><td class="confluenceTd"><p>Sonar</p></td><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>10</p></td></tr><tr><td class="confluenceTd"><p>Zabbix</p></td><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>10</p></td></tr><tr><td class="confluenceTd"><p>Amazon Cloud infrastructure</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr><tr><td class="confluenceTd"><p>2 x App servers</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>4</p></td><td class="confluenceTd"><p>10</p></td></tr><tr><td class="confluenceTd"><p>PostgreSQL</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>4</p></td><td class="confluenceTd"><p>10</p></td></tr><tr><td class="confluenceTd"><p>ElasticSearch</p></td><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>4</p></td><td class="confluenceTd"><p>20</p></td></tr><tr><td class="confluenceTd"><p>Load Balancer</p></td><td class="confluenceTd"><p>As a Service</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p> </p></td></tr></tbody></table></div><p> <br />CI/Monitoring infrastructure should be accessible from the Internet so we have two options to implement it, which should be decided by our IT team:</p><ol><li>Build it in our data center, provide public access</li><li>Build it in Amazon cloud</li></ol>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/63698582/64586466.png">63698594.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                 
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Oct 12, 2016 21:30</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
