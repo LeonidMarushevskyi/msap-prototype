@@ -348,6 +348,11 @@ angular.module('msapApp')
             );
         };
 
+        $scope.$on('zoomToMap', function(event, data) {
+            $log.debug(event.name);
+            $scope.center = {lat: data.lat, lng: data.lng, zoom: data.zoom};
+        });
+
         $scope.$on("leafletDirectiveMap.viewreset", function(event) {
             $log.debug(event.name);
             $scope.invalidate($scope.isDirty);
