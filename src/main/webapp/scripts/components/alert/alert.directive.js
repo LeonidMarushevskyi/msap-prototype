@@ -33,7 +33,7 @@ angular.module('msapApp')
                     $scope.alerts = [];
 
                     var addErrorAlert = function (message, key, data) {
-                        key = key && key != null ? key : message;
+                        key = key ? key : message;
                         $scope.alerts.push(
                             AlertService.add(
                                 {
