@@ -3,12 +3,12 @@
 # Mississippi Vendor Challenge
 
 # Table of Contents
-1. [Main Links](#1_main-links)
-2. [User guide](#2_user-guide)
-3. [Project Description](#3_project-description)
-4. [Installation Guide](#4_installation-guide)
-5. [List of artifacts used to create the prototype](#5_list-of-artifacts-used-to-create-the-prototype)
-6. [Team Structure](#6_team-structure)
+1. [Main Links](#1-main-links)
+2. [User guide](#2-user-guide)
+3. [Project Description](#3-project-description)
+4. [Installation Guide](#4-installation-guide)
+5. [List of artifacts used to create the prototype](#5-list-of-artifacts-used-to-create-the-prototype)
+6. [Team Structure](#6-team-structure)
 
 ## 1. Main Links
 **Prototype URL:** [MSAP Parent Portal - www.msap.engagepoint.com](http://www.msap.engagepoint.com)
@@ -270,6 +270,15 @@ Two types of environment were implemented:
 	In this case for the Prototype, we create cluster based on Auto Scaling Group (ASG) of EC2 instances with Load Balancer (LB). We can configure various rules in ASG to add and remove EC2 instances based on the current workload or defined schedule.
     
     
+
+
+### 5.4.6. Configuration Management
+Prototype configuration was implemented based on Spring Boot, giving us the ability to change parameters in different ways such as with Environment variables, command line parameters, and so on. Since we deliver the Application using Docker containers, we use Environment variables as the configuration method.
+
+To restrict access to a private information like links to required dependencies, credentials, and so on, we distinguish source code and configuration Git repositories. Git repository for configuration provide us abilityt to track all configuration changes. Jenkins deployment jobs check out the necessary configuration files and configure the Prototype for the target environment. Example of configuration files can be found in [sample GitHub repository](https://github.com/engagepoint/msap-config).
+
+### 5.4.7. Monitoring and alerts
+
 Continuous monitoring was implemented by the synergy of built-in AWS containers tools for hardware items and Zabbix for application specific parameters.
 
 In addition to built-in AWS monitored items like CPU, memory, etc. following Application-specific parameters monitored by Zabbix for every container:
@@ -277,6 +286,8 @@ In addition to built-in AWS monitored items like CPU, memory, etc. following App
 * Datasource connection parameters (Active, Idle connections)
 * REST services statistic
 * Threads statistic (Deadlock, Waiting)
+
+Zabbix provides capabilities to configure alerts (email, sms) based on some conditions like free space, CPU load, etc.
 
 ## 6. Team Structure
 
@@ -287,6 +298,6 @@ In addition to built-in AWS monitored items like CPU, memory, etc. following App
 | 3. | Business Analyst/User Researcher / Usability Tester | Category 4 / Category 12  | [Pavel Khozhainov](https://www.linkedin.com/in/pavel-khozhainov-4562509) | <ul><li>Works closely with the Product Manager to define a product approach to meet the specified user need. </li><li>Analyzes and maps the risks of this product approach and propose mitigation solutions. </li><li>Defines how the predicted user and financial benefit can be realized, and how channel shifts will be measured. </li><li>Makes recommendations for action against the analysis done. </li><li>Conduct stakeholder interviews, user requirements analysis, task analysis, conceptual modeling, information architecture, interaction design, and usability testing. </li><li>Produces user requirements specifications & experience goals, personas, storyboards, scenarios, flowcharts, design prototypes, and design specifications. </li><li>Researches user needs as well as potential system enhancements. </li><li>Planning, recruiting, and facilitating the usability testing of a system. </li><li>Lead participatory and iterative design activities, including observational studies, customer interviews, usability testing, and other forms of requirements discovery. </li><li>May create such artifacts as Usability Testing Plan, Testing Scripts, and Usability Testing Report.</li></ul> |
 | 4. |  DevOps Engineer | Category 7  | [Oleksander Kuznetsov](https://www.linkedin.com/in/oleksandr-kuznetsov-69866171/en) | <ul><li>Deploying and configuring services using infrastructure as a service providers (e.g., Amazon Web Services, Microsoft Azure, Google Compute Engine, RackSpace/OpenStack). </li><li>Configuring and managing Linux-based servers to serve a dynamic website. </li><li>Debugging cluster-based computing architectures. </li><li>Using scripting or basic programming skills to solve problems. </li><li>Installing and managing the use of open source monitoring tools. </li><li>Installing and monitoring configuration management tools (e.g., Puppet, Chef, Ansible, Salt). </li><li>Recommending and implementing Architecture for continuous integration and deployment, and continuous monitoring. </li><li>Supports Containerization technologies (e.g., LXC, Docker, Rocket)</li></ul> |
 | 5. | Visual Designer/Interaction Designer | Category 11/Category 12 |  [Dariia Iarmuratii](https://www.linkedin.com/in/dariia-iarmuratii-b3640b39/en) | <ul><li>Oversees all visual design efforts. </li><li>Defines, creates, communicates, and manages required project documentation such as style guides and provides updates as necessary. </li><li>Designs and specifies user interfaces and information architecture. </li><li>Effectively communicates research findings, conceptual ideas, detailed design, and design rationale and goals both verbally and visually. </li><li>Plans and facilitates collaborative critiques and analysis & synthesis working sessions. </li><li>Works closely with visual designers and development teams to ensure that customer goals are met and design specifications are delivered upon. </li><li>Designs and develops primarily internet/web pages and applications. </li><li>Develops proof-of-concepts and prototypes of easy-to-navigate user interfaces (UIs) that consists of web pages with graphics, icons, and color schemes that are visually appealing. </li><li>Has familiarity to, or may actually: code, test, debug documents, and implement web applications using a variety of platforms. </li><li>Analyzing and synthesizing the results of usability testing in order to provide recommendations for change to a system</li></ul> |
-| 6. | Writer / Content Designer / Content Strategist | Category 13 | [Jonathan Parker](https://www.linkedin.com/in/jonathanp8888), [Monica Morales](https://www.linkedin.com/in/monica-morales-428036a) | <ul><li>Assign, edit, and produce content for products, services, and various projects. </li><li>Collaborate closely with developers and designers to create, test, and deploy effective content marketing experiences using the Agile method of software development. </li><li>Offer educated recommendations on how to deliver a consistent, sustainable and standards-driven execution of content strategy across products, services, and projects. </li><li>Participate, as needed, on an Agile software development scrum teams</li></ul>  |
+| 6. | Writer / Content Designer / Content Strategist | Category 13 | [Jonathan Parker](https://www.linkedin.com/in/jonathanp8888), [Monica Morales](https://www.linkedin.com/in/monica-morales-428036a) | <ul><li>Assign, edit, and produce content for products, services, and various projects</li><li>Collaborate closely with developers and designers to create, test, and deploy effective content marketing experiences using the Agile method of software development</li><li>Offer educated recommendations on how to deliver a consistent, sustainable and standards-driven execution of content strategy across products, services, and projects</li><li>Participate, as needed, on an Agile software development scrum teams</li><li>Collaborate with designers and other content strategists to improve how the effectiveness of digital, print, and other content is measured</li><li>Develop and maintain appropriate voice for produced content</li><li>Collaborate with content managers, writers, information architects, interaction designers, developers, and content creators of all types</li></ul>  |
 | 7. | Frontend Web Developer / Backend Web Developer | Category 9 / Category 10 |  [Alexander Sankin](https://ua.linkedin.com/in/alexander-sankin-99023458), <br/>[Serge Redchuk] (https://www.linkedin.com/in/serge-redchuk-22b13518), [Oleg Korniichuk](https://ua.linkedin.com/in/oleg-korniichuk-3257302), [Alexander Serbin](https://www.linkedin.com/in/alexander-serbin-7112622), [Oleksandr Nikitin](www.linkedin.com/in/aleksandr-nikitin-2234a22a)| <ul><li>Frontend web development using modern techniques and frameworks (HTML5, CSS3, CSS frameworks like LESS and SASS, Responsive Design, Bourbon, Twitter Bootstrap). </li><li>JavaScript development using modern standards, including strict mode compliance, modularization techniques and tools, and frameworks and libraries (e.g., jQuery, MV* frameworks such as Backbone.js and Ember.js, D3, <span>AngularJS</span>). </li><li>Creates web development using open-source web programming languages Java, JavaScript and frameworks AngularJS. </li><li>Develops and consumes web-based, RESTful APIs. </li><li>Uses Scalable search technology (ElasticSearch). </li><li>Handling large data sets and scaling their handling and storage. </li><li>Uses and works with open source solutions and community. </li><li>Uses and works in team environments that use agile methodologies (Scrum). </li><li>Uses Test-driven development. </li><li>Uses version control systems, specifically Git and GitHub. </li><li>Creates and deploys relational and non-relational database systems. </li><li>Communicates technical concepts to a non-technical audience. </li><li>Ensures Section 508 Compliance. </li><li>Creates web layouts from static images</li></ul>  |
 
