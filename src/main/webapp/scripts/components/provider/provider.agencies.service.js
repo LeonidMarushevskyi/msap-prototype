@@ -85,8 +85,6 @@ angular.module('msapApp')
          });
          */
         function findAgenciesByFilter(filter) {
-            //console.log('filter: ', filter);
-
             var nw = filter.bounds.northwest;
             var se = filter.bounds.southeast;
 

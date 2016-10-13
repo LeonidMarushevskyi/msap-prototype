@@ -100,12 +100,11 @@ angular.module('msapApp')
 
         $scope.viewConfig = {presentation: 'list'};
         $scope.center = {lat: 32.298855, lng: -90.2619969, zoom: $scope.DEFAULT_ZOOM};
-        leafletData.getMap().then(function (map) {
-            console.log("11111111111111");
-            console.log("11111111111111");
-            console.log("11111111111111");
-            map._onResize();
-        });
+        if ($scope.isEnoughWidth()) {
+            leafletData.getMap().then(function (map) {
+                map._onResize();
+            });
+        }
 
         $scope.getIconUrl = function(id) {
             return $('#' + 'icon_pin_' + id)[0].src;
@@ -186,18 +185,13 @@ angular.module('msapApp')
         $scope.performSorting = function() {
             var sortFunction;
             switch($scope.providerSortByMenuSelected) {
-                case 'facilities.distance':
-                    sortFunction = function (a, b) {
-                        return a.distanceValue - b.distanceValue;
-                    };
-                    break;
                 case 'facilities.provider-name':
                     sortFunction = function (a,b) {
-                        if ( a.providerName < b.providerName ) {
-                          return -1;
+                        if (a.providerName < b.providerName) {
+                            return -1;
                         }
-                        if ( a.providerName > b.providerName ) {
-                          return 1;
+                        if (a.providerName > b.providerName) {
+                            return 1;
                         }
                         return 0;
                     };
@@ -212,14 +206,13 @@ angular.module('msapApp')
                         return b.qualityRating.code - a.qualityRating.code;
                     };
                     break;
+                case 'facilities.distance':
                 default:
                     sortFunction = function (a, b) {
-                                     return a.distanceValue - b.distanceValue;
-                                   };
-             }
-            if (!_.isUndefined(agenciesDataSource)) {
-                agenciesDataSource.sort(sortFunction);
+                        return a.distanceValue - b.distanceValue;
+                    };
             }
+            agenciesDataSource.sort(sortFunction);
         };
 
         $scope.createLocations = function() {
@@ -302,7 +295,13 @@ angular.module('msapApp')
             $scope.invalidate();
         };
 
+        $scope.doNotSearch = true;
         $scope.findAgenciesWithinBox = function(bounds) {
+            if ($scope.doNotSearch) {
+                $scope.doNotSearch = false;
+                return;
+            }
+
             $scope.text = $scope.searchText;
             if ($scope.center.lat === 0 && $scope.center.lng === 0) {
                 return;
@@ -350,6 +349,11 @@ angular.module('msapApp')
                 }
             );
         };
+
+        $scope.$on('zoomToMap', function(event, data) {
+            $log.debug(event.name);
+            $scope.center = {lat: data.lat, lng: data.lng, zoom: data.zoom};
+        });
 
         $scope.$on("leafletDirectiveMap.viewreset", function(event) {
             $log.debug(event.name);
@@ -546,9 +550,10 @@ angular.module('msapApp')
             }
             if (data.addressFeature) {
                 $scope.onSelectAddress(data.addressFeature);
-                var structure = $scope.createAddressStructure(data.addressFeature.latlng.lat, data.addressFeature.latlng.lng, data.addressFeature.feature.properties.label);
-                $log.debug('save = ', structure);
-                StorageService.saveSession(sessionAddress.SESSION_ADDRESS, structure)
+                if (!data.isStoredInProfile) {
+                    var structure = $scope.createAddressStructure(data.addressFeature.latlng.lat, data.addressFeature.latlng.lng, data.addressFeature.feature.properties.label);
+                    StorageService.saveSession(sessionAddress.SESSION_ADDRESS, structure);
+                }
             } else {
                 $scope.addressRejected();
             }
@@ -645,7 +650,6 @@ angular.module('msapApp')
 
         {
             var address = StorageService.getSession(sessionAddress.SESSION_ADDRESS);
-            $log.debug('get = ', address);
             if ($scope.searchParams.latitude && $scope.searchParams.longitude) {
                 var structure = $scope.createAddressStructure($scope.searchParams.latitude, $scope.searchParams.longitude, $scope.searchParams.geoLabel);
                 $scope.onSelectAddress(structure);

@@ -101,6 +101,9 @@
     font-size: 1.6rem;
     font-weight: bold;
     text-transform: uppercase;
+    a {
+        text-decoration: underline;
+    }
 }
 
 .ch-facilities__provider-type {
@@ -139,7 +142,7 @@
     text-transform: uppercase;
 
     &::before {
-        background: url("../../assets/images/us-icon/icon-phone-sign.svg") no-repeat center;        
+        background: url("../../assets/images/us-icon/icon-phone-sign.svg") no-repeat center;
         display: inline-block;
         position: absolute;
         content: '';
@@ -221,7 +224,7 @@
 
 .ch-aside-facilities {
     background: $primary-gray-color;
-    width: 30rem;
+    width: 37rem;
     height: calc(100vh - 14.8rem);
     overflow: auto;
 }
