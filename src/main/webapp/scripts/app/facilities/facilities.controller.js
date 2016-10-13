@@ -59,14 +59,8 @@ angular.module('msapApp')
         var agenciesViewPage = 10;
         var windowWidth = $(window).width();
 
-        $scope.returnMapHeight = function() {
-          var heightMapDesktop = "height: calc(100vh - 18rem)";
-          var heightMapMobile = "height: calc(100vh - 11rem)";
-            if (windowWidth > 640) {
-                return heightMapDesktop;
-            } else {
-                return heightMapMobile;
-            }
+        $scope.isEnoughWidth = function() {
+            return windowWidth > 640;
         };
 
         $scope.agenciesLength = 0;
@@ -308,7 +302,13 @@ angular.module('msapApp')
             $scope.invalidate();
         };
 
+        $scope.doNotSearch = true;
         $scope.findAgenciesWithinBox = function(bounds) {
+            if ($scope.doNotSearch) {
+                $scope.doNotSearch = false;
+                return;
+            }
+
             $scope.text = $scope.searchText;
             if ($scope.center.lat === 0 && $scope.center.lng === 0) {
                 return;
@@ -552,9 +552,10 @@ angular.module('msapApp')
             }
             if (data.addressFeature) {
                 $scope.onSelectAddress(data.addressFeature);
-                var structure = $scope.createAddressStructure(data.addressFeature.latlng.lat, data.addressFeature.latlng.lng, data.addressFeature.feature.properties.label);
-                $log.debug('save = ', structure);
-                StorageService.saveSession(sessionAddress.SESSION_ADDRESS, structure)
+                if (!data.isStoredInProfile) {
+                    var structure = $scope.createAddressStructure(data.addressFeature.latlng.lat, data.addressFeature.latlng.lng, data.addressFeature.feature.properties.label);
+                    StorageService.saveSession(sessionAddress.SESSION_ADDRESS, structure);
+                }
             } else {
                 $scope.addressRejected();
             }
@@ -651,7 +652,6 @@ angular.module('msapApp')
 
         {
             var address = StorageService.getSession(sessionAddress.SESSION_ADDRESS);
-            $log.debug('get = ', address);
             if ($scope.searchParams.latitude && $scope.searchParams.longitude) {
                 var structure = $scope.createAddressStructure($scope.searchParams.latitude, $scope.searchParams.longitude, $scope.searchParams.geoLabel);
                 $scope.onSelectAddress(structure);

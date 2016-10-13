@@ -138,7 +138,8 @@ public class UserStepDefs {
         $("p>a").shouldBe(visible);
         $("p>a").hover();
         $("p>a").click();
-        sleep(4000);
+        sleep(10000);
+        close();
     }
 
     @When("^login with login '(.*)' and password '(.*)'$")

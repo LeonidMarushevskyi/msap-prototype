@@ -1,14 +1,15 @@
 'use strict';
 
 angular.module('msapApp')
-    .controller('MyProfileAndLogoutController', ['$scope', '$state', '$uibModal', 'Auth', 'Principal', 'MailBoxService',
-            function ($scope, $state, $uibModal, Auth, Principal, MailBoxService) {
+    .controller('MyProfileAndLogoutController', ['$scope', '$state', '$uibModal', 'Auth', 'Principal', 'MailBoxService', 'StorageService', 'sessionAddress',
+            function ($scope, $state, $uibModal, Auth, Principal, MailBoxService, StorageService, sessionAddress) {
         $scope.isAuthenticated = Principal.isAuthenticated;
 
         $scope.logout = function () {
             MailBoxService.disconnect();
             Auth.logout();
             $scope.isAccountPopupVisible = false;
+            StorageService.removeSession(sessionAddress.SESSION_ADDRESS);
             $state.go('home', {}, {reload: true});
         };
 
