@@ -7,7 +7,13 @@
         <span class="ch-facilities__distance"><b>{{agency.distance}}</b> {{'global.miles' | translate}}</span>
     </div>
 
-    <div class="ch-facilities__provider-name">{{agency.providerName}}</div>
+    <div class="ch-facilities__provider-name">
+        <button type="button" ng-click="zoomToMap(agency);" ng-show="viewConfig.presentation == 'list'"
+                class="ch-plane-btn ch-plane-btn_secondary ch-facilities__button-secondary">
+            <span>{{agency.providerName}}</span>
+        </button>
+        <span ng-show="viewConfig.presentation == 'popup'">{{agency.providerName}}</span>
+    </div>
     <div class="ch-facilities__provider-type" translate="lookups.lookupProviderType.{{agency.providerType.code}}"></div>
     <div class="ch-facilities__provider-address">{{agency.formattedAddress}}</div>
     <div class="ch-facilities__provider-phone">{{agency.phoneNumber}}</div>
