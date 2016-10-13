@@ -100,9 +100,11 @@ angular.module('msapApp')
 
         $scope.viewConfig = {presentation: 'list'};
         $scope.center = {lat: 32.298855, lng: -90.2619969, zoom: $scope.DEFAULT_ZOOM};
-        leafletData.getMap().then(function (map) {
-            map._onResize();
-        });
+        if ($scope.isEnoughWidth()) {
+            leafletData.getMap().then(function (map) {
+                map._onResize();
+            });
+        }
 
         $scope.getIconUrl = function(id) {
             return $('#' + 'icon_pin_' + id)[0].src;
