@@ -4,10 +4,11 @@ angular.module('msapApp')
     .controller('DefaultAddressModalCtrl',
         ['$scope', '$state', '$log', '$uibModalInstance', 'Auth', 'userProfile', 'GeocoderService', 'AddressUtils', 'Place', 'LookupAgeGroups',
         function ($scope, $state, $log, $uibModalInstance, Auth, userProfile, GeocoderService, AddressUtils, Place, LookupAgeGroups) {
+            $scope.userProfile = userProfile;
             $scope.updateProfile = function(addressFeature) {
-                AddressUtils.addAddressToAccount(addressFeature, userProfile).then(
+                AddressUtils.addAddressToAccount(addressFeature, $scope.userProfile).then(
                     function() {
-                        $scope.saveOrUpdateAccount(userProfile);
+                        $scope.saveOrUpdateAccount($scope.userProfile);
                     }
                 );
             };
@@ -63,12 +64,15 @@ angular.module('msapApp')
             };
 
             $scope.onApplyAddress = function() {
-                if ($scope.saveAddressToProfile && $scope.addressFeature) {
+                var isStoredInProfile;
+                if ($scope.saveAddressToProfile && $scope.addressFeature && $scope.userProfile && $scope.userProfile.authorities) {
                     $scope.updateProfile($scope.addressFeature);
+                    isStoredInProfile = true;
                 }
                 $scope.close({
                     addressFeature: $scope.addressFeature,
-                    ageGroups: $scope.getSelectedCodes('lookupAgeGroups')
+                    ageGroups: $scope.getSelectedCodes('lookupAgeGroups'),
+                    isStoredInProfile: isStoredInProfile
                 });
             };
 

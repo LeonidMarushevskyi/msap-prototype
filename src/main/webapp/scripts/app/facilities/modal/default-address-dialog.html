@@ -54,7 +54,7 @@
                         <span class="ink"></span>
                     </button>
                 </div>
-                <div class="ch-modal-controls__options">
+                <div class="ch-modal-controls__options" ng-show="userProfile.authorities">
                     <div class="form-type__checkbox_empty-label">
                         <input id="saveAddressToProfile" type="checkbox" ng-click="saveAddressToProfile = !saveAddressToProfile">
                         <label for="saveAddressToProfile" title="{{'facilities.address-will-be-saved-automatically' | translate}}"><span translate="facilities.save-address-to-profile">Save this address to my profile</span></label>

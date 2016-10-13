@@ -2,8 +2,8 @@
 
 angular.module('msapApp')
     .controller('SignInModalCtrl',
-        ['$scope', '$rootScope', '$log', '$uibModal', '$uibModalInstance', '$timeout', '$state', 'Auth', 'MailBoxService', 'AuthenticationErrorService',
-        function ($scope, $rootScope, $log, $uibModal, $uibModalInstance, $timeout, $state, Auth, MailBoxService, AuthenticationErrorService) {
+        ['$scope', '$rootScope', '$log', '$uibModal', '$uibModalInstance', '$timeout', '$state', 'Auth', 'MailBoxService', 'AuthenticationErrorService', 'StorageService', 'sessionAddress',
+        function ($scope, $rootScope, $log, $uibModal, $uibModalInstance, $timeout, $state, Auth, MailBoxService, AuthenticationErrorService, StorageService, sessionAddress) {
             $scope.clear = function () {
                 $uibModalInstance.dismiss('cancel');
             };
@@ -22,6 +22,8 @@ angular.module('msapApp')
                     rememberMe: $scope.rememberMe
                 }).then(function () {
                     MailBoxService.connect();
+
+                    StorageService.removeSession(sessionAddress.SESSION_ADDRESS);
 
                     AuthenticationErrorService.resetAuthenticationError();
                     if ($rootScope.previousStateName === 'register') {
@@ -45,6 +47,6 @@ angular.module('msapApp')
 
             $scope.isNotActivated = function() {
                 return AuthenticationErrorService.getAuthenticationError() === "Not activated";
-            };            
+            };
         }]
     );
