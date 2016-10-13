@@ -19,7 +19,7 @@ public class InboxSteps {
 
     @When("^open inbox page$")
     public void open_inbox_page() throws Throwable {
-        userStepDefs.click_xpath_and_wait(".//a[@href='#/mail/inbox']");
+        userStepDefs.click_xpath_and_wait(".//li[not(contains(@class,'hidden'))]/*/a[@href='#/mail/inbox']");
         sleep(2000);
         $("#loading-bar-spinner").waitUntil(disappear, 15000);
         $("[href='#/mail/sent']").shouldBe(visible);
