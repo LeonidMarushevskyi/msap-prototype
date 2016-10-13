@@ -270,6 +270,15 @@ Two types of environment were implemented:
 	In this case for the Prototype, we create cluster based on Auto Scaling Group (ASG) of EC2 instances with Load Balancer (LB). We can configure various rules in ASG to add and remove EC2 instances based on the current workload or defined schedule.
     
     
+
+
+### 5.4.6. Configuration Management
+Prototype configuration was implemented based on Spring Boot, giving us the ability to change parameters in different ways such as with Environment variables, command line parameters, and so on. Since we deliver the Application using Docker containers, we use Environment variables as the configuration method.
+
+To restrict access to a private information like links to required dependencies, credentials, and so on, we distinguish source code and configuration Git repositories. Git repository for configuration provide us abilityt to track all configuration changes. Jenkins deployment jobs check out the necessary configuration files and configure the Prototype for the target environment. Example of configuration files can be found in [sample GitHub repository](https://github.com/engagepoint/msap-config).
+
+### 5.4.7. Monitoring and alerts
+
 Continuous monitoring was implemented by the synergy of built-in AWS containers tools for hardware items and Zabbix for application specific parameters.
 
 In addition to built-in AWS monitored items like CPU, memory, etc. following Application-specific parameters monitored by Zabbix for every container:
@@ -277,6 +286,8 @@ In addition to built-in AWS monitored items like CPU, memory, etc. following App
 * Datasource connection parameters (Active, Idle connections)
 * REST services statistic
 * Threads statistic (Deadlock, Waiting)
+
+Zabbix provides capabilities to configure alerts (email, sms) based on some conditions like free space, CPU load, etc.
 
 ## 6. Team Structure
 
