@@ -63,6 +63,20 @@ angular.module('msapApp')
             return windowWidth > 640;
         };
 
+        if (windowWidth < 640) {
+            leafletData.getMap().then(function (map) {
+                map._onResize();
+            });
+        }
+
+        // $scope.mapResize = function() {
+        //     if (windowWidth < 640) {
+        //         leafletData.getMap().then(function (map) {
+        //             map._onResize();
+        //         });
+        //     }
+        // }
+
         $scope.agenciesLength = 0;
 
         $scope.DEFAULT_MARKER_MESSAGE = 'You are here';
@@ -154,6 +168,12 @@ angular.module('msapApp')
             $scope.showLinkListView= '';
             $scope.showLinkFilterView = '';
             $scope.mobileFilterState = 'mobile-filter-for-map-view';
+
+            if (windowWidth < 640) {
+                leafletData.getMap().then(function (map) {
+                    map._onResize();
+                });
+            }
         };
 
         $scope.changeListView = function() {
