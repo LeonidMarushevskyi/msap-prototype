@@ -15,14 +15,13 @@ Feature: Register new user and log in. Change profile info and password
         When search '721 Parkwood Drive, Long Beach, MS, USA' in address search in modal window and apply
         When open my profile
         When fill gender 'Male', DOB mm-dd-yyyy '11'-'22'-'1983', license number '123456' in General Information
-        When fill address '1035 West 12th Avenue, Chico, CA, USA', email 'test2@mailinator.com', telephone '5553331111' in Contact Information
+        When fill address '120 Main Street, Raymond, MS, USA', email 'test2@mailinator.com', telephone '5553331111' in Contact Information
         When change old password to the new one 'password2'
         When save changes in profile
 
     Scenario: log in with new password
         When log out
         When login with login '${testuser}' and password 'password2'
-        When search '721 Parkwood Drive, Long Beach, MS, USA' in address search in modal window and apply
         When open my profile
         When log out
 
