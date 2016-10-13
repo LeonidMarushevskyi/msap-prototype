@@ -3,12 +3,12 @@
 # Mississippi Vendor Challenge
 
 # Table of Contents
-1. [Main Links](#1_main-links)
-2. [User guide](#2_user-guide)
-3. [Project Description](#3_project-description)
-4. [Installation Guide](#4_installation-guide)
-5. [List of artifacts used to create the prototype](#5_list-of-artifacts-used-to-create-the-prototype)
-6. [Team Structure](#6_team-structure)
+1. [Main Links](#1-main-links)
+2. [User guide](#2-user-guide)
+3. [Project Description](#3-project-description)
+4. [Installation Guide](#4-installation-guide)
+5. [List of artifacts used to create the prototype](#5-list-of-artifacts-used-to-create-the-prototype)
+6. [Team Structure](#6-team-structure)
 
 ## 1. Main Links
 **Prototype URL:** [MSAP Parent Portal - www.msap.engagepoint.com](http://www.msap.engagepoint.com)
